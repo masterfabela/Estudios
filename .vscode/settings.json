@@ -1,4 +1,18 @@
+
+
+
 {
+    "files.exclude": {
+        ".vscode/launch.json": true,
+        "*.metadata": true,
+        "*.recommenders": true,
+        "*.vscode": true,
+        "*.project": true,
+        "*.classpath": true,
+        "*.idea": true,
+        "Java Damian/MayorNumero/bin//main.class": true,
+        "Java Damian/Prueba/bin//Hola.class": true
+    },
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
@@ -10,6 +24,16 @@
     "python.unitTest.promptToConfigure": false,
     "python.unitTest.pyTestEnabled": false,
     "python.unitTest.nosetestsEnabled": false,
-    ".metadata":true
-
+    ".metadata": true,
+    "search.exclude": {
+        ".vscode/launch.json": true,
+        "*.metadata": true,
+        "*.recommenders": true,
+        "*.vscode": true,
+        "*.project": true,
+        "*.classpath": true,
+        "*.idea": true,
+        "Java Damian/MayorNumero/bin//main.class": true,
+        "Java Damian/Prueba/bin//Hola.class": true
+    }
 }

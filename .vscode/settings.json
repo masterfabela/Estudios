@@ -34,7 +34,6 @@
         "*.vscode": true,
         "*.project": true,
         "*.classpath": true,
-        "*.settings" true,
         "*.idea": true,
         "Java Damian/MayorNumero/bin//main.class": true,
         "Java Damian/Prueba/bin//Hola.class": true

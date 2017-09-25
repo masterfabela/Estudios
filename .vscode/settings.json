@@ -10,6 +10,10 @@
         "*.project": true,
         "*.classpath": true,
         "*.settings" : true,
+        "*/*/bin/": true,
+        "*/*/.settings/": true,
+        "*/*/.classpath/": true,
+        "*/*/.project/": true,
         "*.idea": true,
         "Java Damian/MayorNumero/bin//main.class": true,
         "Java Damian/Prueba/bin//Hola.class": true

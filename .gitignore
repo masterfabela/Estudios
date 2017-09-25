@@ -1,7 +1,6 @@
 .vscode/launch.json
 *.metadata
 *.recommenders
-*.vscode
 *.project
 *.classpath
 *.idea

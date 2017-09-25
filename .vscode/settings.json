@@ -6,7 +6,7 @@
         ".vscode/launch.json": true,
         "*.metadata": true,
         "*.recommenders": true,
-        "*.vscode": true,
+        "*.vscode": false,
         "*.project": true,
         "*/*/bin/":true,      
         "*/*/.classpath/":true,     

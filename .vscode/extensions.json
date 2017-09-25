@@ -1,9 +1,14 @@
 {
+	//Configuracion de extensions recomendadas para o directorio, por favor, se poñedes algunha comentade que fai na liña de arriba
+	
+	
 	// See http://go.microsoft.com/fwlink/?LinkId=827846
 	// for the documentation about the extensions.json format
 	"recommendations": [
 		// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+		//Pack de extensions de git que facilita a sincronizacion co repositorio
 		"donjayamanne.git-extension-pack",
+		//Extension que permite a lectura de PDFs dende vscode
 		"tomoki1207.pdf"
 	]
 }

@@ -6,7 +6,7 @@
         ".vscode/launch.json": true,
         "*.metadata": true,
         "*.recommenders": true,
-        "*.vscode": true,
+        "*.vscode": false,
         "*.project": true,
         "*.classpath": true,
         "*.settings" : true,
@@ -22,10 +22,6 @@
         "-p",
         "*test.py"
     ],
-    "python.unitTest.unittestEnabled": false,
-    "python.unitTest.promptToConfigure": false,
-    "python.unitTest.pyTestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false,
 
     "search.exclude": {
         ".vscode/launch.json": true,

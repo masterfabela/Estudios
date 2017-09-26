@@ -9,6 +9,12 @@
 		//Pack de extensions de git que facilita a sincronizacion co repositorio
 		"donjayamanne.git-extension-pack",
 		//Extension que permite a lectura de PDFs dende vscode
-		"tomoki1207.pdf"
+		"tomoki1207.pdf",
+		//Mostra todas as guias de tabulado de forma mais precisa e marcando a actual
+		"spywhere.guides",
+		//Permite formatear codigo dunha forma moi intelixente
+		"esbenp.prettier-vscode",
+		//Un tema bonito, e o que eu uso
+		"teabyii.ayu"
 	]
 }

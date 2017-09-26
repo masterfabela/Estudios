@@ -1,6 +1,6 @@
 
 
-#Configurando usuario en maquinas externas
+# Configurando usuario en maquinas externas
 https://help.github.com/articles/setting-your-commit-email-address-in-git/
 
 1 - Con visual studio code pulsamos F1 e buscamos o comando "Select default shell" 

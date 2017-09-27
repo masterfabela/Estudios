@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Arrays</title>
+</head>
+<body>
+	<div id=nombre></div>
+	<script type="text/javascript">
+		var numeros = [10,23,24,32,15];
+		var suma= 0;
+		var cadena= '';
+
+	//	for (i=0; i<numeros.length; i++) {
+	//		suma=suma+numeros[i];
+	//	}
+
+	//	for (i=numeros.length-1; i>=0; i--) {
+	//		suma=suma+numeros[i];
+	//	}
+
+	//	for (i=0;i<numeros.length;i++){
+	//		cadena=cadena+numeros[i] + ', ';
+	//	}
+
+/*
+		for (i=0;i<numeros.length;i++){
+			if (i<numeros.length-1) {
+				cadena=cadena+numeros[i]+ ', '
+			} else {
+				cadena=cadena + numeros[i];
+			}
+		}
+*/	
+
+/*
+		//Lo mismo que el anterior pero al reves
+		for (i=numeros.length-1; i>=0; i--){
+			if (i>0) {
+				cadena=cadena+numeros[i] + ', ';
+			} else {
+				cadena=cadena + numeros[i];
+			}
+		} 
+*/
+
+/*
+		//Hacer el for con un while
+		var i=0;
+		while (i<numeros.length){
+			suma=suma+numeros[i] + ', ';
+			i++;
+		} 
+*/
+
+
+		var i=numeros.length-1;
+		while (i>=0){
+			if (i>0) {
+				suma=suma+numeros[i] + ', ';
+			} else {
+				suma=suma+numeros[i];
+			}
+			i--;
+		
+		} 
+
+
+
+		document.getElementById('nombre').innerHTML=numeros.length;
+
+
+		console.log("La suma es: " + suma);
+		console.log("La cadena es: " + cadena);
+	</script>
+
+</body>
+</html>

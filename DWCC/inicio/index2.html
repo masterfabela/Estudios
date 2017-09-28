@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"></meta>
+		<title>Primer ejercicio en JavaScript</title>
+	</head>
+	<body>
+		<div id="division">Páxina</div>
+		<script type="text/javascript">
+			//Ejercicio con variables
+			var nAl = '3'
+
+			//Variable anfanumérica
+			var aNombre = 'Damián Lores';
+			var nPais='Portugal';
+
+			var esVerdad = false;
+			var noEsVerdad = false;
+
+			// < , > menor, mayor
+			// <=, >= menor igual, mayor igual
+			// != distinto
+			// === compara o contido e o tipo
+			// !== distinto en contido e distinto en tipo
+
+
+			var numero=0;	// si la variable está vacia da false, si la variable tiene contenido da true
+							//var numero = ''; variable sin contenido
+							//var numero = null; no es lo mismo que dejarla sin contenido
+
+			if (numero){
+				alert('Verdad');
+			} else {
+				alert('Falso');
+			}
+
+			// Sentencia condicional
+			if (condicion) {
+				'Si la condicion es verdadera'
+			} else {
+				'Si la condicion es falsa'
+			}
+
+			var hora = 10;
+			if (hora <= 12) {
+				alert('Buenos días!');
+			} else {
+				alert('Buenas tardes!');
+			}
+
+			/*
+			switch (expresion) {
+				case n:
+					 sentencias
+					 break;
+				case n:
+					 sentencias
+					 break;
+				case n:
+					 sentencias
+					 break;
+				default:
+					 sentencias
+					 break;
+			}
+			*/
+			var valor = '3';
+			var nro = 3;		// +nro para convertirlo en tipo numérico
+
+			/*
+			if (+valor !== nro) {
+
+			}
+			*/
+
+			if (nAl < 3) {
+				document.getElementById('division').innerHTML='Verdadero';
+			} else {
+				document.getElementById('division').innerHTML='Falso';
+			}
+
+			//Variable decimal
+			alert('Entérate');
+			var cuantos = 5;
+			var son = 10.5;
+
+			//suma = son / cuantos
+			var suma=son/cuantos;
+			console.log('Nombre ' + nPais);
+
+			//alert('Total es \t' + (+nAl + son));
+			document.getElementById('division').innerHTML=nPais;
+		</script>
+	</body>
+</html>

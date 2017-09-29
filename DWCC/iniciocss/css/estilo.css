@@ -1,0 +1,16 @@
+body {
+		margin: 0px;
+	}
+h1 {
+		padding: 20px;
+		background:#FEF00F;
+		border-top: 3px solid orange;
+		border-bottom: 7px solid orange;
+		color:rgb(0,0,0);
+		text-align:center;
+		width: 96.7%;
+	}	
+p {
+		color: rgb(255,0,0);
+		font-size: 21pt;
+	}

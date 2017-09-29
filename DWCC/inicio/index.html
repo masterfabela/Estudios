@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"></meta>
+		<title>Primer ejercicio en JavaScript</title>
+	</head>
+	<body>
+		<div id="division">Páxina</div>
+		<script type="text/javascript">
+			//Ejercicio con variables
+			var nAl = '-3.5'
+
+			//Variable anfanumérica
+			var ANombre = 'Damián Lores';
+			var nPais='España';
+
+			var esVerdad = false;
+			var noEsVerdad = false;
+
+			if (esVerdad) {
+				document.getElementById('division').innerHTML='Verdadero';
+			} else if (!esVerdad) {
+				document.getElementById('division').innerHTML='Falso';
+			} else {
+				document.getElementById('division').innerHTML='Indefenida';
+			}
+
+			//Variable decimal
+			alert('Entérate');
+			var cuantos = 5;
+			var son = 10.5;
+
+			//suma = son / cuantos
+			var suma=son/cuantos;
+			console.log('Nombre ' + nPais);
+
+			//alert('Total es \t' + (+nAl + son));
+			document.getElementById('division').innerHTML=nPais;
+		</script>
+	</body>
+</html>

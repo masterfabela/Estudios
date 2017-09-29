@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"></meta>
+		<title>Primer ejercicio en JavaScript</title>
+	</head>
+	<body>
+		<div id="division">Páxina</div>
+		<script type="text/javascript">
+			var resultado = 'Alfa' + 16 + 4 ;
+
+			//var coches = ['Ford','Seat','Renault','Mercedes'];
+			var coches = [22,'Caracas']
+
+
+			/* Lo mismo del for pero usando while, si la primera vez no cumple la condicion
+				no entra en el bucle
+			var i=0;
+			while (i<coches.length){
+				alert(coches[i]);
+				i++;
+			}
+			*/
+
+			/* Se ejecuta como mínimo una vez.
+			i=0;
+			do {
+				alert(condicion[i]);
+				i++;
+
+			} while (i<coches.length);
+			*/
+
+			for(i=0; i<coches.length; i++){
+				alert(coches[i]);
+			}
+
+			document.getElementById('division').innerHTML=coches.length;
+			console.log(resultado);
+		</script>
+	</body>
+</html>

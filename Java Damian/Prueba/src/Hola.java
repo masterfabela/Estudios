@@ -7,7 +7,8 @@ public class Hola {
 		 Scanner sc = new Scanner(System.in);
 
 		 // Usamos como delimitador el dos puntos, o bien cualquier
-		 // espacio/fin de línea (el \\s)
+		 // espacio/fin de lï¿½nea (el \\s)
+        //Porque usas delimitador, o funcionamento deberia ser igual sen el
 		 sc.useDelimiter("[:\\s]");
 
 		 // Le pedimos al usuario que escriba su nombre
@@ -19,31 +20,31 @@ public class Hola {
 		 // Obtenemos el nombre
 		 System.out.println("Bienvenido a nuestra app "+nombre+"\n");
 		 
-		 // Mostramos al usuario las opciones del menú
+		 // Mostramos al usuario las opciones del menï¿½
 		 System.out.println("***** APP REMIX OPERACIONES ****\n"
 		 		+ "* 1. Realizar una suma\n"
 				+ "* 2. Paridad \n"
-		 		+ "* 3. Número primo\n"
-				+ "* 4. Generados nºs primos\n"
+		 		+ "* 3. Nï¿½mero primo\n"
+				+ "* 4. Generados nï¿½s primos\n"
 				+"**********************\n");
 		 
-		 System.out.print("Indique una opción del menú: ");
+		 System.out.print("Indique una opciï¿½n del menï¿½: ");
 		 int seleccionMenu = sc.nextInt();
 		 
 		 if(seleccionMenu==1) {
-			 System.out.println("Ha selecciona la operación suma");
+			 System.out.println("Ha selecciona la operaciï¿½n suma");
 			 suma();
 		 } else if(seleccionMenu==2) {
-			 System.out.println("Ha selecciona la operación paridad");
+			 System.out.println("Ha selecciona la operaciï¿½n paridad");
 			 paridad();
 		 } else if(seleccionMenu==3) {
-			 System.out.println("Ha selecciona la operación número primo");
+			 System.out.println("Ha selecciona la operaciï¿½n nï¿½mero primo");
 			 primo();
 		 } else if(seleccionMenu==4) {
-			 System.out.println("Ha selecciona la operación de generar nºs primos");
+			 System.out.println("Ha selecciona la operaciï¿½n de generar nï¿½s primos");
 			 generadorPrimos();
 		 } else {
-			 System.out.println("NO HA SELECCIONA UNA OPCIÓN VÁLIDA");
+			 System.out.println("NO HA SELECCIONA UNA OPCIï¿½N Vï¿½LIDA");
 		 }
 
 	}
@@ -54,7 +55,7 @@ public class Hola {
 		Scanner sc = new Scanner(System.in);
 		sc.useDelimiter("[:\\s]");
 		
-		System.out.print("Indique cuántos nºs primos desea generar: ");
+		System.out.print("Indique cuï¿½ntos nï¿½s primos desea generar: ");
 		int numerosPrimos = sc.nextInt();
 		
 		int contador = 0, i=1;
@@ -75,14 +76,14 @@ public class Hola {
 		Scanner sc = new Scanner(System.in);
 		sc.useDelimiter("[:\\s]");
 	
-		System.out.print("Indique sobre qué nº quiere consultar la si es primo: ");
+		System.out.print("Indique sobre quï¿½ nï¿½ quiere consultar la si es primo: ");
 		int numero = sc.nextInt();
 		
 		
 		if(esPrimo(numero)) {
-			System.out.println("El número "+numero+" es primo");
+			System.out.println("El nï¿½mero "+numero+" es primo");
 		} else {
-			System.out.println("El número "+numero+" NO es primo");
+			System.out.println("El nï¿½mero "+numero+" NO es primo");
 		}
 				
 	}
@@ -105,16 +106,16 @@ public class Hola {
 		Scanner sc = new Scanner(System.in);
 		 sc.useDelimiter("[:\\s]");
 		 
-		 System.out.print("Indique sobre qué nº quiere consultar la paridad: ");
+		 System.out.print("Indique sobre quï¿½ nï¿½ quiere consultar la paridad: ");
 		 int numero = sc.nextInt();
 		 
-		 // Para saber si un número es par, simplemente hay que saber
-		 // si el resto de realizar la división entre 2 de dicho 
-		 // número es igual a 0
+		 // Para saber si un nï¿½mero es par, simplemente hay que saber
+		 // si el resto de realizar la divisiï¿½n entre 2 de dicho 
+		 // nï¿½mero es igual a 0
 		 if(numero%2==0) {
-			 System.out.println("El número "+numero+" es par");
+			 System.out.println("El nï¿½mero "+numero+" es par");
 		 } else {
-			 System.out.println("El número "+numero+" es impar");
+			 System.out.println("El nï¿½mero "+numero+" es impar");
 		 }
 		
 	}
@@ -123,10 +124,10 @@ public class Hola {
 		Scanner sc = new Scanner(System.in);
 		 sc.useDelimiter("[:\\s]");
 		 
-		System.out.print("Indique cuál es el operando 1: ");
+		System.out.print("Indique cuï¿½l es el operando 1: ");
 		int op1 = sc.nextInt();
 		
-		System.out.print("Indique cuál es el operando 2: ");
+		System.out.print("Indique cuï¿½l es el operando 2: ");
 		int op2 = sc.nextInt();
 		
 		int resultadoSuma = op1+op2;

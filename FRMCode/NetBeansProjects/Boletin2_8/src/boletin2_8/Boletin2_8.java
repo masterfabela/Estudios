@@ -1,3 +1,4 @@
+
 package boletin2_8;
 import java.util.Scanner;
 public class Boletin2_8 {
@@ -16,7 +17,6 @@ public class Boletin2_8 {
         s=100*c+v*20+ci*5+u;
         System.out.println(c+" billetes de 100 Euros,"+v+" billetes de 20 Euros,"+
         ci+" billetes de 5 Euros\n,"+u+"monedas de 1 Euro suman un total de "+s+" Euros");
-        
     }
     
 }

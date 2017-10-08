@@ -1,6 +1,9 @@
+
 package boletin2_3;
-import java.util.Scanner;//importamos a llibreria do Scanner.
+import java.util.Scanner;
 public class Boletin2_3 {
+
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);//declaramos variable escaner.
         float e,cd,usd;

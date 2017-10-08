@@ -5,3 +5,13 @@
 *.classpath
 *.idea
 .DS_Store
+/FRMCode/NetBeansProjects/JavaApplication17/nbproject/private/
+/FRMCode/NetBeansProjects/JavaApplication17/build/
+/FRMCode/NetBeansProjects/JavaApplication17/dist/
+/FRMCode/NetBeansProjects/Boletin2_9/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin2_9/build/
+/FRMCode/NetBeansProjects/Boletin2_10/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin2_10/build/
+/FRMCode/NetBeansProjects/Hello/nbproject/private/
+/FRMCode/NetBeansProjects/Hello/build/
+/FRMCode/NetBeansProjects/Hello/dist/

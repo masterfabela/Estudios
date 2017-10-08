@@ -1,3 +1,4 @@
+
 package boletin2_5;
 import java.util.Scanner;
 public class Boletin2_5 {
@@ -9,8 +10,6 @@ public class Boletin2_5 {
      mn=sc.nextFloat();
      m=mn*1852;
      System.out.println(mn+"Millas nauticas son "+m+"metros");
-     
-     
     }
     
 }

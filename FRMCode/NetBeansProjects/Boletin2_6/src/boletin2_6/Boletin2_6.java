@@ -1,3 +1,4 @@
+
 package boletin2_6;
 import java.util.Scanner;
 public class Boletin2_6 {
@@ -12,6 +13,5 @@ public class Boletin2_6 {
     d = 100-(100*pa/pr);
     System.out.println("El descuento ha sido del "+d+"%");
     }
-    
     
 }

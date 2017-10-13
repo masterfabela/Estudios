@@ -21,8 +21,11 @@ E asi de sinxelo xa o teriamos engadido, pero para poderen ver os seus arquivos 
 
 2. Iniciar e updatear o submodulo
 Ainda que xa temos a referencia en local temoslle que decir a git que queremos editalo e nos interesa telo enteiro cos seus arquivos, esto non se fai automaticamente porque poderia haber centos de submodulos nun proxecto ocupar unha bestialidade ao baixarse todos se so pretendemos traballar sobre un
+Inicia o repositorio:
 
     git submodule init
+
+Actualiza os arquivos:
 
     git submodule update
 

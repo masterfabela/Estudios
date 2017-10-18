@@ -9,9 +9,9 @@ public class Rectangulo {
 }
     
     // 2º Instanciado personal.
-    public Rectangulo(float ba,float alt){
-        base=ba;
-        altura=alt;
+    public Rectangulo(float base,float altura){
+        this.base=base;
+        this.altura=altura;
     }
 //metodos de acceso, sets e gets
 
@@ -33,13 +33,15 @@ public void amosar(){
             + "e a altura é de "+getAltura()+"uds.");
 } 
 public void calcArea(float ba,float hi ){
-System.out.println("A área do rectangulo de base"+ba+" e altura "+hi
-+" é de "+(ba*hi)+"unidades ó cuadrado.");
+System.out.println("A área do rectangulo é de "+(ba*hi)+" unidades ó cuadrado.");
 }
 public float calcPerim(float ba,float hi){
     float perim=(2*ba+2*hi);
-    System.out.println("O perimetro do rectangulo de base"+ba+" e altura "+hi
-+" é de "+perim+"unidades ó cuadrado.");
+    System.out.println("O perimetro do rectangulo é de "+perim+"unidades ó cuadrado.");
     return perim;
+}
+
+public String visualizar(){
+    return ("base="+base+", Altura="+altura);
 }
 }

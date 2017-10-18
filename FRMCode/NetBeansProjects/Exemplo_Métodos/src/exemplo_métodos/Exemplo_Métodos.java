@@ -16,9 +16,12 @@ public class Exemplo_Métodos {
         System.out.println("Introduza a altura");
         float a=sc.nextFloat();
         Rectangulo terceiro=new Rectangulo(b,a);
+        //invocado de metodos, con e sen parámetro
         terceiro.amosar();
         terceiro.calcArea(b, a);
         terceiro.calcPerim(b, a);
+        segundo.setBase(10);
+        System.out.println(segundo.getAltura());
         
     }
     

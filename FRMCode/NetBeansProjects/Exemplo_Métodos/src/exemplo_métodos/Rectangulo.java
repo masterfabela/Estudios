@@ -34,12 +34,12 @@ public void amosar(){
 } 
 public void calcArea(float ba,float hi ){
 System.out.println("A área do rectangulo de base"+ba+" e altura "+hi
-+" é de "+(ba*hi)+"unidades ó cuadrado");
++" é de "+(ba*hi)+"unidades ó cuadrado.");
 }
 public float calcPerim(float ba,float hi){
     float perim=(2*ba+2*hi);
     System.out.println("O perimetro do rectangulo de base"+ba+" e altura "+hi
-+" é de "+perim+"unidades ó cuadrado");
++" é de "+perim+"unidades ó cuadrado.");
     return perim;
 }
 }

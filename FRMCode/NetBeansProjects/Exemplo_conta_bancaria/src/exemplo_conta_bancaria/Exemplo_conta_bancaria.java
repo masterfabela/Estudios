@@ -37,7 +37,7 @@ public class Exemplo_conta_bancaria {
         Libreta3.ingresar(3000);
         Libreta3.retirar(1000);
         Libreta3.retirar(3000);
-        Libreta1.anulacion();
+        Libreta1.anulacion();//Pedir string por teclado, buscar contas
         Libreta2.anulacion();
         Libreta3.anulacion();
         System.out.println(Libreta1.getnome());

@@ -12,15 +12,16 @@ devolvendo o saldo total(ainda que non haxa cartos na conta, permitese saldo neg
 public class Exemplo_conta_bancaria {
 
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.out);
-        Conta c1=new Conta();
-        Conta c2=new Conta("Fran","123456",200539);
-        System.out.println(c1.getconta());
-        System.out.println(c2.getconta());
-        System.out.println(c1.getnome());
-        System.out.println(c2.getnome());
-        c2.ingresar(500);
-        c1.retirar(500);
+        Scanner sc=new Scanner(System.in);
+        Conta Libreta1=new Conta();
+        System.out.println(Libreta1.toString());
+        Conta Libreta2=new Conta("Ana","222222",5000);
+        Libreta1.setconta("111111");
+        System.out.println(Libreta2.toString());
+        Libreta1.setconta("1234");
+        System.out.println(Libreta1.getconta());
+        Libreta2.ingresar(500);
+        Libreta1.retirar(500);
 
     }
     

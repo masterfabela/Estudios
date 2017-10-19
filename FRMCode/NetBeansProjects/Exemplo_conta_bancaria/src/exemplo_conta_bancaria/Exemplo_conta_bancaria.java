@@ -37,6 +37,12 @@ public class Exemplo_conta_bancaria {
         Libreta3.ingresar(3000);
         Libreta3.retirar(1000);
         Libreta3.retirar(3000);
+        Libreta1.anulacion();
+        Libreta2.anulacion();
+        Libreta3.anulacion();
+        System.out.println(Libreta1.getnome());
+        System.out.println(Libreta2.getconta());
+        System.out.println(Libreta3.getsaldo());
     }
     
 }

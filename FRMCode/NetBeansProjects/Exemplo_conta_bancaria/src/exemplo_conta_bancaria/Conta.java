@@ -8,7 +8,7 @@ public class Conta {
 public Conta(){
 
 }
-public Conta(Sting n,String nc, double s){
+public Conta(String n,String nc, double s){
 nome=n;
 numConta=nc;
 saldo=s;
@@ -16,14 +16,16 @@ saldo=s;
 public String getconta(){
     return numConta;
 }
-public setconta(String nc){
+public String setconta(String nc){
 numConta=nc;
+return numConta;
 }
 public String getnome(){
     return nome;
 }
-public setnome(String n){
+public String setnome(String n){
     nome=n;
+    return nome;
     }
 public double retirar (double cant){
 saldo =saldo-cant;

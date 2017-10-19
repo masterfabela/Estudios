@@ -12,6 +12,7 @@ public Conta(String n,String nc, double s){
 this.nome=n;
 this.numConta=nc;
 this.saldo=s;
+//"this" evita que haxa conflictos, se as variables se chaman igual.
 }
 public String getconta(){
     return numConta;
@@ -49,5 +50,11 @@ public double ingresar (double cant){
 @Override
 public String toString(){
     return("Nome = "+nome+".\nNumero de conta = "+numConta+". \nSaldo = "+saldo+".");//Este metodo e interesante.
+}
+public void anulacion(){
+    nome ="null";
+    numConta="null";
+    saldo=0;
+    
 }
 }

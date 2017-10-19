@@ -11,6 +11,7 @@ devolvendo o saldo total(ainda que non haxa cartos na conta, permitese saldo neg
 */
 public class Exemplo_conta_bancaria {
 
+
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         Conta Libreta1=new Conta();
@@ -22,7 +23,14 @@ public class Exemplo_conta_bancaria {
         System.out.println(Libreta1.getconta());
         Libreta2.ingresar(500);
         Libreta1.retirar(500);
-
+        System.out.println("Vai a crear unha conta nova, empece por introducir un nome.");
+        String name=sc.nextLine();//introduce un string cos espacios.
+        System.out.println("Agora introduza o seu numero de conta.");
+        String nc=sc.next();
+        System.out.println("E, para rematar, introduza o saldo inicial.");
+        double s=sc.nextDouble();
+        Conta Libreta3=new Conta(name,nc,s);
+        System.out.println(Libreta3.toString());
     }
     
 }

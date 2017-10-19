@@ -48,6 +48,6 @@ public double ingresar (double cant){
     }
 @Override
 public String toString(){
-    return("Nome = "+nome+" .\nNumero de conta = "+numConta+". \nSaldo = "+saldo+".");
+    return("Nome = "+nome+".\nNumero de conta = "+numConta+". \nSaldo = "+saldo+".");
 }
 }

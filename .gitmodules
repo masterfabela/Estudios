@@ -1,3 +1,6 @@
 [submodule "Jose Ramón/Proxecto Homepanion"]
 	path = Jose Ramón/Proxecto Homepanion
 	url = https://github.com/masterfabela/Homepanion.git
+[submodule "FRMCode/Java Sources"]
+	path = FRMCode/Java Sources
+	url = https://github.com/FranRM/Exercicios-Boletin2.git

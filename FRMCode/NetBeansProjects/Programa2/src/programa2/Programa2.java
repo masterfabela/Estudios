@@ -15,7 +15,7 @@ public class Programa2 {
        int modulo=resultado%3;//proba modulo
        System.out.println("resto="+modulo);
        int cociente=resultado/num1;
-       System.out.println("cociente="+cociente);
+       System.out.println("O cociente="+cociente);
        
     }
     

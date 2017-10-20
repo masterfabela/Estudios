@@ -7,11 +7,11 @@ public class Boletin2_10 {
         Scanner sc=new Scanner(System.in);
         double v,k,d,sb,sl;
         final double sf=1234 ;
-        System.out.println("Introduzca el importe de ventas realizado:");
+        System.out.println("Introduza el importe de ventas realizado:");
         v=sc.nextFloat();
-        System.out.println("Introduzca la cantidad de kilometros recorridos:");
+        System.out.println("Introduza la cantidad de kilometros recorridos:");
         k=sc.nextFloat();
-        System.out.println("Introduzca la cantidad de dietas consumidas:");
+        System.out.println("Introduza la cantidad de dietas consumidas:");
         d=sc.nextFloat();
         sb= sf+(5.*v/100)+2*k+30*d;
         sl= sb-(18*sb/100)-36;

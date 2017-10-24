@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package boletin3_4;
-
-/**
- *
- * @author Femio
- */
+import java.util.Scanner;
 public class Boletin3_4 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc=new Scanner(System.in);
+        Calculo m1=new Calculo();
+        m1.amosarPatacas();
+        m1.amosarPolbo();
+        System.out.println("Introduza os kg de polbo que suma a o almacen:");
+        int c=sc.nextInt();
+        m1.engadirPolbo(c);
+         System.out.println("Introduza os kg de patacas que suma a o almacen:");
+         c=sc.nextInt();
+         m1.engadirPatacas(c);
+         System.out.println("Cos productos que temos, podemos atender a "+m1.clientesposibles()+" clientes");
     }
     
 }

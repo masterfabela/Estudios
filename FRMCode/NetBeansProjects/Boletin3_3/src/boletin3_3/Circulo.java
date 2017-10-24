@@ -21,4 +21,5 @@ public class Circulo {
     }
     public double calccir(){
     return (pi*radio*2);
+    }
 }

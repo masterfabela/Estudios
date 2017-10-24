@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package boletin3_1;
-import java.utils.Scanner;
+import java.util.Scanner;
 public class Boletin3_1 {
 
     /**

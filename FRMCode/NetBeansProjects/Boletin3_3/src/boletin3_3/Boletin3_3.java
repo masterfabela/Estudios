@@ -1,9 +1,8 @@
 package boletin3_3;
-import java.utils.Scanner;
+import java.util.Scanner;
 public class Boletin3_3 {
 
     public static void main(String[] args) {
-        public static void main(String[] args) {
             Scanner sc=new Scanner(System.in);
           System.out.println("Vamos a facer calculos con circulos, polotanto, introduza "
                   + "os datos para inicializalo");

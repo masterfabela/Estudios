@@ -5,3 +5,4 @@
 *.classpath
 *.idea
 .DS_Store
+/FRMCode/NetBeansProjects/Exemplo_atrib_obx/nbproject/private/

@@ -26,7 +26,7 @@ public class Persoa {
  }
  @Override
  public String toString(){
-     return("Ps datos do propietario son os seguintes:\nNome:"+nome
+     return("Os datos do propietario son os seguintes:\nNome:"+nome
              +".\nDocumento nacional de identidade:"+dni+".");
  }
 }

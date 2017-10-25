@@ -31,14 +31,10 @@ public class Conta {
     public double getsaldo(){
     return saldo;
     }
-    //public void setTitular(String n,String d,double s){
-        //titular.setnome(n);
-        //titular.setdni(d);
-        //saldo=s;
-        
-    //}
-    public void setTitular(Persoa titular){
-    this.titular=titular;
+    public void setTitular(String n,String d,double s){
+        titular.setnome(n);
+        titular.setdni(d);
+        saldo=s;
     }
     public Persoa getTitular(){
     return titular;

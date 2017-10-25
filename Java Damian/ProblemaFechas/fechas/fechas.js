@@ -19,7 +19,7 @@ var diaSem = function(nrodia) {
 //  Devuelve mes en letra
 //  1 parámetro . nro de mes
 var mesLet = function(nromes) {
-	var aMeses = ['xaneiro', 'febreiro','marzo','abril','maio','xunio','agosto',
+	var aMeses = ['xaneiro', 'febreiro','marzo','abril','maio','xunio','xulio','agosto',
 				 'setembro','outubro','novembro','decembro'];
 	return aMeses[nromes];
 }

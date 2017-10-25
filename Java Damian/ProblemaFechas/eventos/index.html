@@ -36,22 +36,16 @@
 					
 
 					for (i=0; i<adias.length; i++) {
-						//Con esto conseguimos que no aparezca el guión en el primer adias
+						resulta = sumarDias(fecha, parseInt(adias[i]));
+						resulta2 = formaFecha(resulta, 'corto');
 						if(i==0) {
-							resulta += sumarDias(fecha, parseInt(adias[i]));
-							console.log('Salida resulta salida: '+resulta);
-							resulta2 += formaFecha(resulta,'corto');
-						} else {							
-						resulta += ' - ' + sumarDias(fecha, parseInt(adias[i]));
-						console.log('Salida 45 resulta: '+resulta);
-						console.log('Salida 46 resulta2: '+resulta2);
-						resulta2 += ' - ' + formaFecha(resulta, 'corto');
+							resultado1 += resulta2;
+						} else {
+							resultado1 += ' - ' + resulta2;
 						}
-					}
+					} 
 
-					//var resulta = sumarDias(fecha, parseInt(ndias));
-
-					document.getElementById('resultado').innerHTML = resulta2;
+					document.getElementById('resultado').innerHTML = resultado1;
 				}
 				window.onload = function() {
 					window.document.getElementById('boton').onclick = mifuncion;

@@ -4,7 +4,7 @@ public class Conta {
     private Persoa titular;//non ten valores por non estar o obxeto creado.
     private double saldo;
     public Conta(){
-        titular=new Persoa();//Isto é equivalente a: "int v; v=0;"
+        titular=new Persoa();//Isto é equivalente a: "int v; v=0;", xa que esta é a evaluacon.
     
     }
     public Conta (String nome,String dni,double saldo){
@@ -41,7 +41,7 @@ public class Conta {
     }
     @Override
     public String toString(){
-    return("O nome é "+titular.nome+".\nO DNI é "+titular.dni+".\nE o saldo dispoñible é de "+
+    return("O titular é "+titular+".\nE o saldo dispoñible é de "+//Por herdanza, recoñoce o toString de persoa, por defecto
             saldo+" euros.");
     }
 }

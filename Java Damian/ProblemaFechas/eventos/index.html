@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Eventos</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div>Eventos</div>
+	<input id="fecha" type="text" value=""/>
+	<input id="ndias" type="text" value=""/>
+	<button id="boton">Haz click</button>
+	<div id="resultado"></div>
+	<script src="../fechas/fechas.js"></script>
+
+	<script>
+
+				// window.onload = function(){
+
+				// }
+
+				var mifuncion = function() {
+					fecha = document.getElementById('fecha').value;
+					ndias = document.getElementById('ndias').value;
+
+					var afecha = fecha.split('/');
+					afecha[1] = mesLet(afecha[1]);
+				//	console.log(afecha[1]);
+					
+
+					var adias = ndias.split(',');
+					var resulta= '';
+					var resulta2= '';
+					var resultado1= '';
+					
+
+					for (i=0; i<adias.length; i++) {
+						//Con esto conseguimos que no aparezca el guión en el primer adias
+						if(i==0) {
+							resulta += sumarDias(fecha, parseInt(adias[i]));
+							console.log('Salida resulta salida: '+resulta);
+							resulta2 += formaFecha(resulta,'corto');
+						} else {							
+						resulta += ' - ' + sumarDias(fecha, parseInt(adias[i]));
+						console.log('Salida 45 resulta: '+resulta);
+						console.log('Salida 46 resulta2: '+resulta2);
+						resulta2 += ' - ' + formaFecha(resulta, 'corto');
+						}
+					}
+
+					//var resulta = sumarDias(fecha, parseInt(ndias));
+
+					document.getElementById('resultado').innerHTML = resulta2;
+				}
+				window.onload = function() {
+					window.document.getElementById('boton').onclick = mifuncion;
+				}
+
+				console.log(formaFecha('12/10/2017','corto'));
+
+	</script>
+	
+</body>
+</html>

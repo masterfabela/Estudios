@@ -1,0 +1,11 @@
+Objetos -JS
+
+windows -> Ventana del navegador (objeto de JS)
+	metodos -> alert();
+	objetos
+	eventos
+
+Todos los eventos empiezan por on...
+por ejemplo
+	onload - se ejecuta cuando el body ha terminado de cargar
+	

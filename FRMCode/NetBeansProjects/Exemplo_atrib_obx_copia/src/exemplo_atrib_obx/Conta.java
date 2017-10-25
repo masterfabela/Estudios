@@ -8,10 +8,14 @@ public class Conta {
     
     }
     public Conta (String nome,String dni,double saldo){
-    titular=new Persoa();
+        titular=new Persoa();
     titular.setnome(nome);
     titular.setdni(dni);
     this.saldo = saldo;
+    }
+    public Conta(Persoa ti, double s){
+    titular=ti;
+    this.saldo=s;
     }
     public void setnome(String n){
     titular.setnome(n);

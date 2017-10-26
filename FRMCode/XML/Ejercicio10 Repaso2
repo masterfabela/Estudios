@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tebeos [
+  <!ELEMENT tebeos (autor,UltimaModificacion,personajes*,autores,albumes)>
+  <!ATTLIST tebeos xmlns:bio CDATA #REQUIRED>
+  <!ATTLIST tebeos xmlns:ref CDATA #REQUIRED>
+  <!ELEMENT autor (#PCDATA)>
+  <!ELEMENT UltimaModificacion (#PCDATA)>
+  <!ELEMENT personajes (bio:personaje*,ref:personaje*)>
+  <!ELEMENT bio:personaje ANY>
+  <!ATTLIST bio:personaje id ID #REQUIRED>
+  <!ATTLIST bio:personaje especie CDATA #REQUIRED>
+  <!ELEMENT ref:personaje (#PCDATA)>
+  <!ELEMENT autores (dibujantes*,guionistas*)>
+  <!ELEMENT dibujantes (bio:dibujante*|ref:dibujante)>
+  <!ELEMENT bio:dibujante (nombre,apodo?,nacimientoFecha,nacimientoPais,fallecimientoFecha?)>
+  <!ELEMENT ref:dibujante (#PCDATA)>
+  <!ELEMENT nombre (#PCDATA)>
+  <!ELEMENT apodo (#PCDATA)>
+  <!ELEMENT nacimientoFecha (#PCDATA)>
+  <!ELEMENT nacimientoPais (#PCDATA)>
+  <!ELEMENT fallecimientoFecha (#PCDATA)>
+  <!ATTLIST bio:dibujante id ID #REQUIRED>
+  <!ELEMENT guionistas (bio:guionista*|ref:guionista*)>
+  <!ELEMENT bio:guionista (nombre,apodo?,nacimientoFecha,nacimientoPais,fallecimientoFecha?)>
+  <!ATTLIST bio:guionista id ID #REQUIRED>
+  <!ELEMENT ref:guionista (#PCDATA)>
+  <!ELEMENT albumes (album*)>
+  <!ELEMENT album (titulo,personajes,autores,fechaPublicacion)>
+  <!ATTLIST album id ID #REQUIRED>
+  <!ELEMENT titulo (#PCDATA)>
+  <!ELEMENT fechaPublicacion (#PCDATA)>
+]>
+
+
+
+<tebeos xmlns:bio="http:cde"
+xmlns:ref="http:abc" >
+  <autor>Bernardo Garcia  Marcial</autor>
+  <UltimaModificacion>20120601</UltimaModificacion>
+  <personajes>
+    <bio:personaje id="P001" especie="humano">Astérix</bio:personaje>
+    <bio:personaje id="P002" especie="animal">Idéfix</bio:personaje>
+    <bio:personaje id="P003" especie="humano">Lucky Luke</bio:personaje>
+    <bio:personaje id="P004" especie="animal">Jolly Jumper</bio:personaje>
+    <bio:personaje id="P005" especie="humano">Averrell Dalton</bio:personaje>
+    <bio:personaje id="P006" especie="humano">Cayo coyuntural</bio:personaje>
+  </personajes>
+  <autores>
+    <dibujantes>
+      <bio:dibujante id="D001">
+        <nombre>Albert Uderzo</nombre>
+        <nacimientoFecha>1927</nacimientoFecha>
+        <nacimientoPais>Francia</nacimientoPais>
+      </bio:dibujante>
+      <bio:dibujante id="D002">
+        <nombre>Maurice de Bévère</nombre>
+        <apodo>Morris</apodo>
+        <nacimientoFecha>1923</nacimientoFecha>
+        <nacimientoPais>Bélgica</nacimientoPais>
+        <fallecimientoFecha>2001</fallecimientoFecha>
+      </bio:dibujante>
+    </dibujantes>
+    <guionistas>
+      <bio:guionista id="G001">
+        <nombre>René Goscinny</nombre>
+        <nacimientoFecha>1926</nacimientoFecha>
+        <nacimientoPais>Francia</nacimientoPais>
+        <fallecimientoFecha>1977</fallecimientoFecha>
+      </bio:guionista>
+    </guionistas>
+  </autores>
+  <albumes>
+    <album id="A001">
+      <titulo>Astérix, el galo</titulo>
+      <personajes>
+        <ref:personaje>P001</ref:personaje>
+        <ref:personaje>P002</ref:personaje>
+      </personajes>
+      <autores>
+      <dibujantes>
+      <ref:dibujante>D001</ref:dibujante>
+      </dibujantes>
+      <guionistas>
+      <ref:guionista>G001</ref:guionista>
+      </guionistas>
+      </autores>
+      <fechaPublicacion>1961</fechaPublicacion>
+    </album>
+    <album id="A002">
+      <titulo>Indulto para los Dalton</titulo>
+      <personajes>
+        <ref:personaje>P003</ref:personaje>
+        <ref:personaje>P004</ref:personaje>
+        <ref:personaje>P005</ref:personaje>
+      </personajes>
+      <autores>
+      <dibujantes>
+      <ref:dibujante>D002</ref:dibujante>
+      </dibujantes>
+      <guionistas>
+      <ref:guionista>G001</ref:guionista>
+      </guionistas>
+      </autores>
+      <fechaPublicacion>1965</fechaPublicacion>
+    </album>
+    <album id="A003">
+      <titulo>Obélix y compañia</titulo>
+      <personajes>
+        <ref:personaje>P001</ref:personaje>
+        <ref:personaje>P002</ref:personaje>
+        <ref:personaje>P006</ref:personaje>
+      </personajes>
+      <autores>
+      <dibujantes>
+      <ref:dibujante>D001</ref:dibujante>
+      </dibujantes>
+      <guionistas>
+      <ref:guionista>G001</ref:guionista>
+      </guionistas>
+      </autores>
+      <fechaPublicacion>1976</fechaPublicacion>
+    </album>
+    
+  </albumes>
+</tebeos>

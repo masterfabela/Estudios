@@ -3,6 +3,7 @@ package exemplo_atrib_obx;
 public class Conta {
     private Persoa titular;//non ten valores por non estar o obxeto creado.
     private double saldo;
+    private static float xuro=0.04f;
     public Conta(){
         titular=new Persoa();//Isto é equivalente a: "int v; v=0;", xa que esta é a evaluacon.
     
@@ -47,5 +48,12 @@ public class Conta {
     public String toString(){
     return("O titular é "+titular+".\nE o saldo dispoñible é de "+//Por herdanza, recoñoce o toString de persoa, por defecto
             saldo+" euros.");
+    }
+    public double saldofinal(){
+      
+        return saldo+saldo*xuro;
+    }
+    public static double getxuro(){
+    return xuro;
     }
 }

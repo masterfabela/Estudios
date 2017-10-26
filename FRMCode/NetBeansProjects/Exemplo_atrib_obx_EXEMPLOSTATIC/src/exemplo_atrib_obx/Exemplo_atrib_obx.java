@@ -8,6 +8,8 @@ public class Exemplo_atrib_obx {
         Persoa p=new Persoa("Pobre","2222222");
         c1.setTitular(p);
         System.out.println(c1.toString());
+        System.out.println(c1.saldofinal());
+        System.out.println("xuro="+Conta.getxuro());
     }
     
 }

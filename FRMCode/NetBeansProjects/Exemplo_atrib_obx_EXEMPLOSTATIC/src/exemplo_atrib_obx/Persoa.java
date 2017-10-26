@@ -4,6 +4,7 @@ package exemplo_atrib_obx;
 public class Persoa {
  String nome;
  String dni;
+ 
  public Persoa(){
  };
  

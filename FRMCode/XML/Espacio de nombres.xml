@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  datos [
+<!ELEMENT datos (aten:direccion,correo:direccion)>
+<!ELEMENT aten:direccion (#PCDATA)>
+<!ELEMENT correo:direccion (#PCDATA)>
+<!ATTLIST datos xmlns:aten CDATA #IMPLIED>
+<!ATTLIST datos xmlns:correo CDATA #IMPLIED>
+]>
+<datos xmlns:aten="/home" xmlns:correo="/home">
+<aten:direccion>GB</aten:direccion>
+<correo:direccion>colegio@sdx.com</correo:direccion>
+</datos>

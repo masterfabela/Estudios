@@ -5,3 +5,17 @@
 *.classpath
 *.idea
 .DS_Store
+/FRMCode/NetBeansProjects/Exemplo_atrib_obx/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin3_1/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin3_2/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin3_3/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin3_4/nbproject/private/
+/FRMCode/NetBeansProjects/Exemplo_atrib_obx/build/
+/FRMCode/NetBeansProjects/Exemplo_atrib_obx_copia/nbproject/private/
+/FRMCode/NetBeansProjects/Exemplo_atrib_obx_copia/build/
+/FRMCode/NetBeansProjects/Exemplo_atrib_obx_EXEMPLOSTATIC/nbproject/private/
+/FRMCode/NetBeansProjects/Exemplo_atrib_obx_EXEMPLOSTATIC/build/
+/FRMCode/NetBeansProjects/Alumno/nbproject/private/
+/FRMCode/NetBeansProjects/Test entregable/nbproject/private/
+/FRMCode/NetBeansProjects/Factura/nbproject/private/
+/FRMCode/NetBeansProjects/Factura/build/

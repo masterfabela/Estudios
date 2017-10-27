@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cartas[
+<!ELEMENT cartas (naipe:carta,rest:carta)>
+<!ELEMENT naipe:carta (palo,numero)>
+<!ELEMENT palo (#PCDATA)>
+<!ELEMENT numero (#PCDATA)>
+<!ELEMENT rest:carta (carnes,pescados)>
+<!ELEMENT carnes (filete_de_ternera,solomillo_a_la_pimienta )>
+<!ELEMENT filete_de_ternera (#PCDATA)>
+<!ELEMENT solomillo_a_la_pimienta (#PCDATA)>
+<!ATTLIST filete_de_ternera precio CDATA #IMPLIED>
+<!ATTLIST solomillo_a_la_pimienta precio CDATA #IMPLIED>
+<!ELEMENT pescados (lenguado_al_horno,merluza_en_salsa_verde)>
+<!ELEMENT lenguado_al_horno (#PCDATA)>
+<!ELEMENT merluza_en_salsa_verde (#PCDATA)>
+<!ATTLIST lenguado_al_horno precio CDATA #IMPLIED>
+<!ATTLIST merluza_en_salsa_verde precio CDATA #IMPLIED>
+<!ATTLIST cartas xmlns:naipe CDATA #IMPLIED>
+<!ATTLIST cartas xmlns:rest CDATA #IMPLIED>
+]>
+<cartas xmlns:naipe="/home" xmlns:rest="/home">
+<naipe:carta>
+<palo>Corazones</palo>
+<numero>7</numero>
+</naipe:carta>
+<rest:carta>
+<carnes>
+<filete_de_ternera precio="12.95"/>
+<solomillo_a_la_pimienta precio="13.60"/>
+</carnes>
+<pescados>
+<lenguado_al_horno precio="16.20"/>
+<merluza_en_salsa_verde precio="15.85"/>
+</pescados>
+</rest:carta>
+</cartas>

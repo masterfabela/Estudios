@@ -15,4 +15,11 @@ public class Datospersoais {
    public String gettlfn(){
    return tlfn;
    }
+   public Datospersoais(){
+
+   }
+   public Datospersoais(String d,String t){
+    direccion=d;
+    tlfn=t;
+       }   
 }

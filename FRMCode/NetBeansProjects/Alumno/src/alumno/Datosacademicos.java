@@ -15,4 +15,9 @@ public class Datosacademicos {
    public int getnota(){
    return nota;
    }
+   public Datosacademicos(){}
+   public Datosacademicos(String r, int n){
+      referencia=r;
+      nota=n;
+   }
 }

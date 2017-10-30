@@ -15,7 +15,7 @@ Esto so o faremos a cando o engadamos ao repositorio, despois non teremos que vo
 
 Un exemplo poderia ser:
 
-    git submodule add https://github.com/masterfabela/Homepanion.git 'Jose Ramón/Proxecto Homepanion'
+    git submodule add https://github.com/masterfabela/Homepanion.git 'JoseRamon/ProxectoHomepanion'
 
 E asi de sinxelo xa o teriamos engadido, pero para poderen ver os seus arquivos e modificalo teremos que inicialo e updatealo, xa que agora tan so teremos a sua referencia 
 

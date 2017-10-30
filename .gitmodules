@@ -4,3 +4,6 @@
 [submodule "FRMCode/Java Sources"]
 	path = FRMCode/Java Sources
 	url = https://github.com/FranRM/Exercicios-Boletin2.git
+[submodule "JoseRamon/ProxectoHomepanion"]
+	path = JoseRamon/ProxectoHomepanion
+	url = https://github.com/masterfabela/Homepanion.git

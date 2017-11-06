@@ -1,21 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package boletin5_5;
-
-/**
- *
- * @author femio23
- */
+import java.util.Scanner;
 public class Boletin5_5 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Introduza o primeiro numero a comparar:");
+        int n=sc.nextInt();
+        Numero n1=new Numero(n);
+        System.out.println("Introduza o segundo numero a comparar:");
+        n=sc.nextInt();
+        Numero n2=new Numero(n);
+        System.out.println("Introduza o terceiro numero a comparar:");
+        n=sc.nextInt();
+        Numero n3=new Numero(n);
+        if (n1.getv()>n2.getv()&&n1.getv()>n3.getv()){
+            System.out.println("O numero maior é "+n1.getv());
+        }else{if(n2.getv()>n3.getv()){
+            System.out.println("O numero maior é "+n2.getv());
+        }else{
+            System.out.println("O numero maior é "+n3.getv());
+        }
+            
+            }
     }
     
 }

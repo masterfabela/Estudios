@@ -1,21 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package boletin5_7;
-
-/**
- *
- * @author femio23
- */
+import java.util.Scanner;
 public class Boletin5_7 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc=new Scanner(System.in);
+        Parametros ej=new Parametros();
+        System.out.println("Elixa a opcion da figura da que vai a calculala superficie, premendo o boton indicado:"+
+                "\nRectangulo=1.\nTriangulo=2.\nCirculo=3.");
+        int mem=sc.nextInt();
+        switch (mem){
+            case 1:{
+                System.out.println("Introduza os datos do rectangulo:\nBase:");
+                float n=sc.nextFloat();
+                ej.setb(n);
+                System.out.println("Altura:");
+                n=sc.nextFloat();
+                ej.seta(n);
+                System.out.println("A superficie do rectangulo = "+(ej.base*ej.altura));
+            }
+            break;
+            case 2:{
+             System.out.println("Introduza os datos do triangulo:\nBase:");
+                float n=sc.nextFloat();
+                ej.setb(n);
+                System.out.println("Altura:");
+                n=sc.nextFloat();
+                ej.seta(n);
+                 System.out.println("A superficie do triangulo = "+((ej.base*ej.altura)/2));
+            }
+            break;
+            case 3:{
+                System.out.println("Introduza os datos do circulo:\nRadio:");
+                float n=sc.nextFloat();
+                ej.setr(n);
+                 System.out.println("A superficie do circulo = "+(ej.radio*ej.radio*ej.pi));
+            }
+            break;
+            
+            }
+        
+        }
     }
-    
-}

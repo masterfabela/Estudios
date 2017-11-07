@@ -4,7 +4,6 @@ public class Boletin5_2 {
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        int testVar = 43;
         System.out.println("Introduza o primeiro valor:");
         short n=sc.nextShort();
         Numero n1=new Numero(n);

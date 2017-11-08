@@ -11,7 +11,7 @@ public class Extradescontos {
         System.out.println("Introduza a cantidade de productos:");
         int n=sc.nextInt();
         d.setc(n);
-        d.facturar();
+        d.facturar(d);
         
     }
     

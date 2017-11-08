@@ -3,7 +3,7 @@ package extradescontos;
 public class Factura {
     double preciou;
     int cantidade;
-    private double bruto;
+    double bruto;
     public Factura(){}
     public void setp(double p){
     preciou=p;
@@ -11,7 +11,7 @@ public class Factura {
     public void setc(int c){
     cantidade=c;
     }
-    public void facturar(){
+    public void facturar(Factura n){
         System.out.println("Precio bruto= "+bruto);
     if (cantidade>=200&&preciou>=4000){
         bruto=bruto-bruto/10;

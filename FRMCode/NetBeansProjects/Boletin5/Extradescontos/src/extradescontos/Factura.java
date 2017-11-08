@@ -12,6 +12,7 @@ public class Factura {
     cantidade=c;
     }
     public void facturar(Factura n){
+        bruto=preciou*cantidade;
         System.out.println("Precio bruto= "+bruto);
     if (cantidade>=200&&preciou>=4000){
         bruto=bruto-bruto/10;

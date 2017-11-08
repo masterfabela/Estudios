@@ -33,10 +33,10 @@ public class Boletin5_7 {
                 System.out.println("Introduza os datos do circulo:\nRadio:");
                 float n=sc.nextFloat();
                 ej.setr(n);
-                 System.out.println("A superficie do circulo = "+(ej.radio*ej.radio*ej.pi));
+                 System.out.println("A superficie do circulo = "+Math.pow(ej.radio,2)*ej.pi);
             }
             break;
-            
+            default:System.out.println("Error, introducido valor erroneo.");
             }
         
         }

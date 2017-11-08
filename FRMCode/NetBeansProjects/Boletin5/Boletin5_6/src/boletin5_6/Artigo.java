@@ -12,16 +12,18 @@ public class Artigo {
     public int getc(){
     return cantidade;
     }
-    public void tipo(String n){
-    if(n.getc()>1000){
-        System.out.println("Este artigo é de primeira necesidade");
+    public void tipo(Artigo n){
+    if(cantidade>1000){
+        //para consultar o atrivuto de calquera obxeto, usar unha variable "consulta", e asignolle un get
+        //ou tamen podo recivir un obxeto da clase, e despois operar cos atributos.
+    System.out.println("Este artigo é de primeira necesidade");
     }else{
-    if(n.getc()>=500){
+    if(cantidade>=500){
     System.out.println("Este artigo é de consumo alto");
     }else{
-    if(n.getc()>=100){
+    if(cantidade>=100){
     System.out.println("Este artigo é de consumo medio");
-    }else{if(n.getc()<100){
+    }else{if(cantidade<100){
     System.out.println("Este artigo é de consumo baixo");
     }
         

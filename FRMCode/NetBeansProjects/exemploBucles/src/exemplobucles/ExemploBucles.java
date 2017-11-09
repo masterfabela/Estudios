@@ -4,6 +4,9 @@ public class ExemploBucles {
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
+        
+        String sig;
+        do{
         System.out.println("Elixa a estructura repetitiva que vai a usar:"+
                 "\n1=While.\n2=Do...while.\n3=For.");
         int mem=sc.nextInt();
@@ -21,9 +24,10 @@ public class ExemploBucles {
                 System.out.println(bf.calcf());
                 break;
                 
-        }
-        
-        
+                }
+            System.out.println("¿Desexa repetir?");
+                sig=sc.nextLine();
+            }while(sig !="no");
         
         }
         

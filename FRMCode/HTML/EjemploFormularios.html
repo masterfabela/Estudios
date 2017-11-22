@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head><title>Formularios</title></head>
+<body>
+    
+<form method="post" action="mailto:chiscazo.paco@gmail.com">
+    <fieldset><legend>Datos personales.</legend> <br>
+    <p>Introduzca o seu apodo.</p>
+    <input type="text" name="apodo" size="40" maxlenght="10" 
+    placeholder="apodo" autofocus required>
+    <input type="password" name="contraseña" size="20" maxlenght="10" 
+    placeholder="Password" required>
+    <input type="datetime-local">
+    <input type="color">
+<br>
+    <textarea name="Caixal1" cols="30" rows="10">Mira, me comentas</textarea>
+</fieldset>
+    <br>
+    <fieldset><legend>Datos de movilidad.</legend><br>
+    <select name="transportes usados" size="3" multiple="multiple">
+        <option >Coche</option>
+        <option >Bus</option>
+        <option >Moto</option>
+    </select>
+    <br>
+    <input type="radio" name="transporte" value="1" checked>Coche<br>
+    <input type="radio" name="transporte" value="2">Moto<br>
+    <input type="radio" name="transporte" value="3">Bus<br>
+   
+    <br>
+    <input type="checkbox" name="transporte" value="1" >Coche<br>
+    <input type="checkbox" name="transporte" value="2" checked>Bus<br>
+    <input type="checkbox" name="transporte" value="3" >Moto<br>
+    
+</fieldset>
+</form>
+</body>

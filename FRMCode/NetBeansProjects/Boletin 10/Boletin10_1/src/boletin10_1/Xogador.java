@@ -13,19 +13,19 @@ public class Xogador {
     do{
         int n=(int) Float.parseFloat(JOptionPane.showInputDialog("Xogador 2, Introduza un numero, ten "+intentos+" intentos"));
         if(numero==n){
-            System.out.println("Acertaches!!! Noraboa.");
+            JOptionPane.showMessageDialog(null,"Acertaches!!! Noraboa.");
             intentos=0;
         }else{
-            System.out.print("Fallaches, o numero é ");
-        }if(numero>n){
-        System.out.println("maior que o teu.");
+        if(numero>n){
+        JOptionPane.showMessageDialog(null,"Fallaches, o numero é maior que o teu.");
         intentos--;
         }else{
-        System.out.println("menor que o teu");
+        JOptionPane.showMessageDialog(null,"Fallaches, o numero é menor que o teu");
         intentos--;
+            }
         }
         
     }while(intentos>0);
-        System.out.println("Fin do xogo.");
+        JOptionPane.showMessageDialog(null,"Fin do xogo.");
     }
 }

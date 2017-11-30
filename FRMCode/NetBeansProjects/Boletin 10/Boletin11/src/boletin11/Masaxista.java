@@ -1,17 +1,33 @@
 package boletin11;
 
 public class Masaxista extends Persoa{
-    String titulacion;
-    int anosExperiencia;
+    private String titulacion;
+    private int anosExperiencia;
     public Masaxista(String n, String a, int i, int di,int ae, String ti){
     super(n,a,i,di);
     titulacion=ti;
     anosExperiencia=ae;
     }
+
+    public String getTitulacion() {
+        return titulacion;
+    }
+
+    public void setTitulacion(String titulacion) {
+        this.titulacion = titulacion;
+    }
+
+    public int getAnosExperiencia() {
+        return anosExperiencia;
+    }
+
+    public void setAnosExperiencia(int anosExperiencia) {
+        this.anosExperiencia = anosExperiencia;
+    }
+    
     public void darMasaxes(){}
     
-    @Override
-    public String toString(){
-    return "Datos da persoa indicada:\nNome:"+nome+"\nApelidos:"+apelido+"\nId:"+id+"\nIdade:"+idade+"\nTitulacion:"+titulacion+"\nAnos de experiencia:"+anosExperiencia;
+    public String toString(Masaxista m){
+    return "Datos da persoa indicada:\nNome:"+m.getNome()+"\nApelidos:"+m.getApelido()+"\nId:"+getId()+"\nIdade:"+getIdade()+"\nTitulacion:"+m.getTitulacion()+"\nAnos de experiencia:"+m.getAnosExperiencia();
     }
 }

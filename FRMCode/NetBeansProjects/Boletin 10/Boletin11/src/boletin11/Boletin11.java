@@ -7,6 +7,7 @@ public class Boletin11 {
         Persoa p1=new Persoa("Ana","Cosme",25,1);
         p1.concentrarse();
         p1.viaxar();
+        //p1.getTitulacion();
         Xogador x1=new Xogador(2,25,7,"Pepe","Torres","Dianteiro");
         x1.concentrarse();
         x1.viaxar();

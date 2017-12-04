@@ -14,7 +14,7 @@ public class Boletin13 {
         }catch(TemperaturaErradaException ter1){
             System.out.println(ter1.getMessage());
         }
-        System.out.println(ct1.car(cel));
+        System.out.println(ct1.car());
     }
     
 }

@@ -9,6 +9,7 @@ public class ConversorTemperaturas {
 
     
     public float caf (float c) throws TemperaturaErradaException {
+        //f
         if(c<condicion){
             throw new TemperaturaErradaException("Non se pode operar con temperaturas inferiores a 80º celsius.");
         }else{

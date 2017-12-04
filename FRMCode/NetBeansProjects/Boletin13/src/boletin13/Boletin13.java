@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class Boletin13 {
 
     public static void main(String[] args) {
+        //com
         float cel;
         ConversorTemperaturas ct1=new ConversorTemperaturas();
         cel=Float.parseFloat(JOptionPane.showInputDialog("Introduzca a temperatura en grados Celsius"));

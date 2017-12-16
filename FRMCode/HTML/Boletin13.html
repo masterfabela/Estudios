@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head><title>Boletin 13</title></head>
+<body>
+<form method="post" action="mailto:a@amail.a">
+    <fieldset><legend>Formulario</legend><br>
+    <p>NIF:<input type="text" size="20" name="NIF" maxlenght="9" required></p><br>
+    <p>Nombre:<input type="text" size="20" name="Nombre" maxlenght="20" required><br>
+       Apellidos:<input type="text" size="20" name="Apellidos" maxlenght="41" required><br>
+    </p>
+    <p>Edad: <br>
+    <input type="radio" name="edad" value="1">15-19<br>
+    <input type="radio" name="edad" value="2" checked>20-29<br>
+    <input type="radio" name="edad" value="3">30-40<br></p>
+    <p>Estado civil: <br>
+        <select name="ecivil" size="3">
+            <option value="1">Soltero</option>
+            <option value="2">Casado</option>
+            <option value="3">Divoricado</option>
+        </select></p>
+    <p>Aficiones: <br>
+        <input type="checkbox" name="aficiones" value="1">Cine<br>            
+        <input type="checkbox" name="aficiones" value="2" checked>Deportes<br>
+        <input type="checkbox" name="aficiones" value="3">Lectura<br>
+        <input type="checkbox" name="aficiones" value="4">Senderismo<br></p>
+    <p>Comentarios: <br>
+    <textarea name="Comentarios" cols="30" rows="10" placeholder="Escriba aqui sus comentarios."></textarea></p>
+    </fieldset>
+</form>
+</body>

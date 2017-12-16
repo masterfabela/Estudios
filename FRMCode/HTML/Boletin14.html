@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head><title>Boletin 14</title></head>
+<body>
+    <form method="post" action="mailto:a@amail.am">
+        <p>Nombre:<input type="text" size="20" name="Nombre" maxlenght="20" required><br>
+        <p>Apellidos:<input type="text" size="20" name="Apellidos" maxlenght="20" required><br>
+        <p>Correo Electronico:<input type="email" size="20" name="Celec" value="@"maxlenght="20" required><br>
+        <p>Poblacion:<input type="text" size="20" name="Poblacion" maxlenght="10" required><br>
+        <p>Provincia:<input type="text" size="20" name="Provincia" maxlenght="10" required><br>
+        <P> <table> <tr><td>Edad:</td><td>¿Como nos conociste?</td></tr>
+            <tr><td>
+            <input type="radio" name="Edad" value="1">0-20<br>
+            <input type="radio" name="Edad" value="2" checked>20-40<br>
+            <input type="radio" name="Edad" value="3">40-60<br>
+            <input type="radio" name="Edad" value="4">60-100<br>
+        </td>
+        <td>
+         <input type="checkbox" name="cnc">Por un amigo.<br>
+         <input type="checkbox" name="cnc">A traves de un buscador.<br>
+         <input type="checkbox" name="cnc">Navegando por la red.<br>
+         <input type="checkbox" name="cnc">Otros.<br>
+        </td></tr>
+        </table></p>
+        <p>
+Opinion sobre nuestra pagina web <br><textarea name="opinion" cols="30" rows="10" placeholder="Escriba aqui su opinion..."></textarea><br>
+Tiene alguna sugerencia... <br><textarea name="sugerencias" cols="30" rows="10" placeholder="Escriba aqui sus sugerencias..."></textarea>
+        </p>
+        <p>
+            ¿Cuantas horas navegas por internet?(Señala la opcion que mas se acerque)<br><select name="hnavegacion" size="2">
+            <option value="1">2 horas al dia.</option>
+            <option value="2">4 horas al dia.</option>
+            </select>
+            <br>
+            <input type="submit" value="Enviar formulario">
+            <input type="reset" value="Borrar formulario">
+        </p>
+    </form>
+</body>

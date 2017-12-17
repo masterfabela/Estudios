@@ -21,7 +21,8 @@ public class Boletin15 {
                                  "\nBoletins: "+String.format("%.2f",m1)+
                                  "\nNota Total: "+String.format("%.2f",m1+m2+m3));*/
        String s="N";
-       while(s=="N") {
+       //Cando comparamos con Strings ahi que usar .equals() ou .compareTo() == serve para numeros
+       while(s.equals("N")) {
        s=JOptionPane.showInputDialog("Repetir?");
            System.out.println(s);
        }

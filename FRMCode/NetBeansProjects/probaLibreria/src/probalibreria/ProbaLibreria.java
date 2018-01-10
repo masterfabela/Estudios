@@ -1,9 +1,9 @@
 package probalibreria;
-import 
+import rectangulo.Rectangulo;
 public class ProbaLibreria {
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        Rectangulo.areaRectangulo(20, 4);
     }
     
 }

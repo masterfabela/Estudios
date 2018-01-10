@@ -1,9 +1,5 @@
 package boletin16;
 import com.fran.personal.Personal;
-/**
- *
- * @author femio23
- */
 public class Academia {
     private int numref;
     private String nome;
@@ -19,7 +15,7 @@ public class Academia {
     public Academia(int numref, String nome, float nota, Personal alumno) {
         this.numref = numref;
         this.nome = nome;
-        this.nota = -0;
+        this.nota = nota;
         this.alumno = alumno;
         nref++;
         

@@ -1,0 +1,18 @@
+h1{
+    text-align: center
+}
+h2{
+    color:red;text-transform: capitalize;background-color: rgb(82, 80, 80);
+}
+h3{
+    color:rgb(102, 8, 190);text-transform: capitalize;background-color: rgb(82, 80, 80);
+}
+p{
+    background-color: grey
+}
+em{
+    color: blue;text-decoration: underline;font-weight: bold;
+}
+strong{
+    font-weight: normal;color:green;
+}

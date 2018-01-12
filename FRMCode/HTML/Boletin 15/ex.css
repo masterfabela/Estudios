@@ -1,0 +1,12 @@
+h2{
+    -webkit-box-shadow: 3px 3px 60px 1px #F2F263;
+    box-shadow: 3px 3px 60px 1px #F2F263;
+}
+p{
+    -moz-column-count: 3;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 10px;
+    column-count: 3;
+    column-gap: 10px;
+}

@@ -4,7 +4,7 @@ function platzom(str) {
     let translation = str
 
     //Se a palabra orixinal e un palindromo ningunha regra anterior conta e devolvese a mesma palabra
-    /**Palabra entrante dada de volta */
+    /**Da de volta o Sring que se lle pase como argumento */
     const reverse = (str) => str.split('').reverse().join('')
     /**Funcion que nunha palabra intercambia maysculas e minusculas en todas as letras */
     const minMay = (str) => {

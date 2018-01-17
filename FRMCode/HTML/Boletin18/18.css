@@ -9,9 +9,40 @@ h2{
     color: rgb(59, 56, 56);
     font-size: 55px;
 }
-p{
-    color:white;
+body{
+    
     font-size: 40;
 }
-p#a{}
-p#b{}
+p#a{
+    border-style: solid;
+    border-color:orangered;
+    background-color: orange;
+    border-top-right-radius:20px;
+    border-bottom-right-radius:20px;
+    border-bottom-left-radius:20px;
+}
+p#b{
+    background-color:pink;
+    border-style: solid;
+    border-color:violet;
+    border-top-left-radius:20px;
+    border-bottom-right-radius:20px;
+}
+dev#c{
+    color:white;
+    background-color:orangered;
+    padding-right: 20px;
+}
+dev#d{
+    padding-right: 20px;
+    background-color:rgb(253, 103, 48);
+}
+dev#a{
+    background-color:violet;
+    color:white;
+    padding-right: 20px;
+}
+dev#b{
+    padding-right: 20px;
+    background-color:palevioletred;
+}

@@ -38,7 +38,7 @@ public class Persoa {
 
     @Override
     public String toString() {
-        return "Persoa{" + "nome=" + nome + ", dni=" + dni + '}';
+        return"nome=" + nome + ", dni=" + dni;
     }
     
 }

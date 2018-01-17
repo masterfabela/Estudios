@@ -30,13 +30,14 @@ public class MetodosArray {
         return persoas;
     }
     public Persoa buscar(Persoa[]lip, String dNi){
-        int acerto=0;
-        for(int i=0;i<lip.length;i++){
+        int i=0;
+        Persoa p1=new Persoa();
+        for(Persoa dni:lip){ 
         if(lip[i].dni.equals(dNi)){
-            acerto++;
-        return lip[i];
+        p1=lip[i];
         }
-        }if(acerto==0){
-        System.out.println("Non existen coincidencias");}
-    }
+        i++;
+        }
+         return p1;
+        }
 }

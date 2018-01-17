@@ -1,0 +1,17 @@
+h1{ font-weight: 600 ;
+    text-decoration:underline;}
+article{
+    text-transform: uppercase;
+    background-color: gray;
+}
+h2{
+    text-align: center;
+    color: rgb(59, 56, 56);
+    font-size: 55px;
+}
+p{
+    color:white;
+    font-size: 40;
+}
+p#a{}
+p#b{}

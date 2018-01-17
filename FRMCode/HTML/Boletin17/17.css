@@ -1,17 +1,49 @@
 h1{
+    text-align: center;
+    border-style:solid;
+    border-width:5px;
+    border-color:black;
 }
 h2{
-
+border-left-style: double;
+border-left-width:25px;
+border-left-color:red;
 }
 h3{
-
+    border-style: dotted;
+    border-top-width: 6px;
+    border-right-width: 10px;
+    border-left-width: 15px;
+    border-bottom-width: 12px;
+    border-top-color: lightskyblue;
+    border-bottom-color: lightskyblue;
+    border-left-color: violet;
+    border-right-color: violet;
 }
 h4{
-
+    border-top-style: double;
+    border-top-width:25px;
+    border-top-color:green;
+    border-bottom-style: double;
+    border-bottom-width:25px;
+    border-bottom-color:blue;
 }
 h5{
 
+    border-width: 7px;
+    border-top-style: dashed;
+    border-top-color: red;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-style: dotted;
 }
 h6{
-
+    border-width: 7px;
+    border-top-style: dotted;
+    border-left-color: red;
+    border-left-style: dotted;
+    border-top-width: 8px;
+    border-left-width: 6px;
+    border-right-style: solid;
+    border-bottom-style: dashed;
 }

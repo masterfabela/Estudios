@@ -1,48 +1,70 @@
-h1{ font-weight: 600 ;
-    text-decoration:underline;}
-article{
-    text-transform: uppercase;
+body{
+    font-size: 40;
     background-color: gray;
 }
-h2{
+h1{
+    text-decoration: underline;
+}
+
+h1#b{
     text-align: center;
     color: rgb(59, 56, 56);
     font-size: 55px;
+    text-transform: uppercase;
+    text-decoration: default; 
 }
-body{
-    
-    font-size: 40;
-}
-p#a{
+article.Politica{
     border-style: solid;
-    border-color:orangered;
-    background-color: orange;
-    border-top-right-radius:20px;
-    border-bottom-right-radius:20px;
-    border-bottom-left-radius:20px;
+    border-color: orangered;
+    background-color: rgba(255, 166, 0, 0.637);
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
 }
-p#b{
-    background-color:pink;
+div.nacimientop{
+    background-color: orange;
+    margin-left:5px;
+    margin-right:5px;
+}
+div.nacimientoa{
+    background-color: rgba(238, 130, 238, 0.63);
+    margin-left:5px;
+    margin-right:5px;
+}
+div.vidaa{
+    margin-left:10px;
+    margin-right:10px;
+}
+div.vidap{
+    margin-left:10px;
+    margin-right:10px;
+}
+article.Arte{
     border-style: solid;
     border-color:violet;
-    border-top-left-radius:20px;
-    border-bottom-right-radius:20px;
+    background-color:pink;
+    border-top-left-radius:10px;
+    border-bottom-right-radius:10px;
 }
-dev#c{
+h2{
     color:white;
-    background-color:orangered;
-    padding-right: 20px;
 }
-dev#d{
-    padding-right: 20px;
-    background-color:rgb(253, 103, 48);
+h2.p{
+    margin-top:2px;
+    margin-bottom:0px;
+    margin-left:5px;
+    margin-right:5px;
+    background-color: orangered;
+    border-top-right-radius:10px;
+    
+    
 }
-dev#a{
+h2.a{
+    margin-top:2px;
+    margin-bottom:0px;
+    margin-left:5px;
+    margin-right:5px;
     background-color:violet;
-    color:white;
-    padding-right: 20px;
+    border-top-left-radius:10px;
 }
-dev#b{
-    padding-right: 20px;
-    background-color:palevioletred;
-}
+

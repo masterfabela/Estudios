@@ -20,29 +20,41 @@ public class Metodos {
         }
     return array;
     }
-    public void cualificador(int[]array){
-        int aprobados=0,suspensos=0;
+    public void cualificador(int[]array,String[]arrai){
+        System.out.println("*****Lista de aprobados*****");
         for(int i=0;i<array.length;i++){
             if(array[i]>=5)
-                aprobados++;
-            else
-                suspensos++;
+                System.out.println("Alumno: "+arrai[i]+" - Nota: "+array[i]);
         }
-        System.out.println("Suspensos="+suspensos+".\nAprobados="+aprobados+".");
     }
-    public void mediador(int[]array){
-        int acumulador=0;
-    for(int i=0;i<array.length;i++){
-            acumulador=acumulador+array[i];
+    public void buscador(int[]array,String[]arrai){
+        String n=JOptionPane.showInputDialog("A quen desexas buscar?");
+        int acerto=0;
+        for(int i=0;i<arrai.length;i++){
+            if(n.equalsIgnoreCase(arrai[i])){
+                System.out.println("O alumno "+n+" ten unha nota de "+array[i]);
+                acerto++;
+            }
         }
-        System.out.println("A media do curso é de "+acumulador/array.length+".");
+        if (acerto==0)
+            System.out.println("Non se topou a ninguen con dito nome");
     }
-    public void mathonra(int[]array){
-        int nmax=0;
-    for(int i=0;i<array.length;i++){
-            if(array[i]>nmax)
-                nmax=array[i];
+    public int[] ordec(int[]array,String[]arrai){
+    int i,j;
+    int aux;
+    String aux1;
+    for(i=0;i<array.length-1;i++){
+        for(j=i+1;j<array.length;j++){
+            if(array[i]>array[j]){
+                aux=array[i];
+                array[i]=array[j];
+                array[j]=aux;
+                aux1=arrai[i];
+                arrai[i]=arrai[j];
+                arrai[j]=aux1;
+            }
         }
-        System.out.println("A nota maxima foi de "+nmax+".");
+    }
+        return array;
     }
 }

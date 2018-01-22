@@ -18,8 +18,8 @@ public class Metodos {
         r=r%23;
         return r;
     }
-    public String letra(int[]array,String[]arrai,int n){
-        String L="Ñ,Produceuse un erro.";
+    public char letra(int[]array,char[]arrai,int n){
+        char L='Ñ';
         int w=0;
         for(int i=0;i<array.length;i++){
         if(n==array[i]){
@@ -28,7 +28,7 @@ public class Metodos {
         }
         }
        if(w!=1){
-           L="Ñ,Produceuse un erro.";
+           L='ñ';
        }
         return L;
     }

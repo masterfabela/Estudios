@@ -7,3 +7,6 @@
 [submodule "JoseRamon/ProxectoHomepanion"]
 	path = JoseRamon/ProxectoHomepanion
 	url = https://github.com/masterfabela/Homepanion.git
+[submodule "FRMCode/NetBeansProjects/ProgramaComercio/mylib"]
+	path = FRMCode/NetBeansProjects/ProgramaComercio/mylib
+	url = https://github.com/FranRM/Omnitool

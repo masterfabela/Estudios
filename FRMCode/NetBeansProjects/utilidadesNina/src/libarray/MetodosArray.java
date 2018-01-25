@@ -1,5 +1,7 @@
 package libarray;
 
+import javax.swing.JOptionPane;
+
 public class MetodosArray {
     public static void reverseorder(float[]array){
     int i,j;
@@ -12,5 +14,10 @@ public class MetodosArray {
                 
             
         }
+    }
+    public static int lerint(){
+        int datos;
+        datos=Integer.parseInt(JOptionPane.showInputDialog("Introduza o dato."));
+        return datos;
     }
 }

@@ -7,9 +7,9 @@ public class Ventas {
     float[] cant;    
 
     public Ventas(String []f, String []g, float []l){
-        String [] s1=f;
-        String [] s2=g;
-        float[] f1=l;
+        String [] nv=f;
+        String [] rprod=g;
+        float[]cant=l;
         
     }
 }

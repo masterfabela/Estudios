@@ -9,9 +9,9 @@ public class ExemploMatrices {
         n1.amosar();
         n1.medialumno();
         medias=n1.medialumno2();
-        n1.amosar2(medias);
+        //n1.amosar2(medias);
         //medias=n1.mediamodulo();
-        //5n1.amosar2(medias);
+        //n1.amosar2(medias);
     }
     
 }

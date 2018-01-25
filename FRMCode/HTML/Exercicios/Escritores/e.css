@@ -1,12 +1,9 @@
 body{
-
-}
-header{
-
+    color:white;
 }
 h1{
     background-color: orangered;
-    
+
 }
 section {
     display: block;
@@ -19,14 +16,14 @@ article article.es{
     background-color: white;
     margin-left:60px;
     margin-right:60px;
-    margin-bottom:200px;
-
+    margin-bottom:20px;
+    padding-bottom:40px;
 }
 article.siglo{
-    background-color: rgba(255, 68, 0, 0.5);
+    background-color: rgba(255, 68, 0, 0.555);
     margin-left:60px;
     margin-right:60px;
-
+    margin-bottom:20px;
 }
 h2{
     background-color: orangered;
@@ -36,10 +33,13 @@ h3{
 }
 aside{
     float:right;
+    border-left:#ff7307 5px solid;
+    padding-left:10px;
 }
 p{
-
+    color:black;
 }
 footer{
     background-color: orangered;
+        color:white;
 }

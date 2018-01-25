@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(106, 165, 106);
+}
+h1{
+    text-align:right;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color:rgb(76, 0, 255);
+    font-weight: bold;
+}
+h2{
+    background-color: rgb(0, 77, 0);
+    color:white;
+}
+img#der{
+    float:left;
+}
+img#cen{
+    float:center;
+}
+footer{
+    font-size: 10px;
+    font-style: italic;
+}

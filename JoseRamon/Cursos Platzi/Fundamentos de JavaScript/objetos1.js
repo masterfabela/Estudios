@@ -31,12 +31,6 @@ console.log(p2.distancia(p1))
 
 
 
-
-
-
-
-
-
 class Punto {
     constructor(x , y){
         this.x = x

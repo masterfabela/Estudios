@@ -15,7 +15,8 @@ const MAX_POWER = 12
 const ambosSiguenVivos = () => vidaGoku > 0 && vidaSuperman > 0
 
 /**Calcula un ataque de dano aleatorio entre 5 e 12 puntos de dano*/
-const calcularGolpe = () => Math.round(Math.random() * (MAX_POWER - MIN_POWER) + MIN_POWER)
+const calcularGolpe = () => Math.round(
+    Math.random() * (MAX_POWER - MIN_POWER) + MIN_POWER)
 /**Dinos se goku segue vivo */
 const gokuSigueVivo = () => vidaGoku > 0
 

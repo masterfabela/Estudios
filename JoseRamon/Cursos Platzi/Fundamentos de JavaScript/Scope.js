@@ -1,4 +1,5 @@
 //Scope global
+var nombre = "Sacha"
 function saludar10(nombre) {
   //Scope local
   for (var i = 0; i < 10; i++){

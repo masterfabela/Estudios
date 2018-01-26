@@ -1,0 +1,46 @@
+body{
+    color:white;
+}
+h1{
+    background-color: orangered;
+
+}
+section {
+    display: block;
+    border-left: #ff7307 5px solid;
+    border-right:#ff7307 5px solid;
+    margin: 0 5%;  /*  0 para que se aplique el margin-top de  article.siglo */
+    padding: 0 5%;
+  }
+article article.es{
+    background-color: white;
+    margin-left:60px;
+    margin-right:60px;
+    margin-bottom:20px;
+    padding-bottom:40px;
+}
+article.siglo{
+    background-color: rgba(255, 68, 0, 0.555);
+    margin-left:60px;
+    margin-right:60px;
+    margin-bottom:20px;
+}
+h2{
+    background-color: orangered;
+}
+h3{
+    background-color: orangered;
+}
+aside{
+    float:right;
+    border-left:#ff7307 5px solid;
+    padding-left:10px;
+}
+p{
+    color:black;
+}
+
+footer{
+    background-color: orangered;
+        color:white;
+}

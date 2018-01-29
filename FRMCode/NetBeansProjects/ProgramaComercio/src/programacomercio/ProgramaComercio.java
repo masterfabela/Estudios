@@ -1,5 +1,8 @@
 package programacomercio;
-import com.fran.metodos.Entradaspred;
+//import com.fran.metodos.Entradaspred;
+
+import javax.swing.JOptionPane;
+
 public class ProgramaComercio {
 
     public static void main(String[] args) {
@@ -14,8 +17,9 @@ public class ProgramaComercio {
         String[]rprez={"rp2","rp1","rp3"};
         Prezos p1=new Prezos(rprez,prez);
         Metodos m1=new Metodos();
-        String mem=Entradaspred.pedirString("Introduce numero de venta");
-        String mem1=m1.buscarnv(v1,mem);
+        
+        int memo=Integer.parseInt(m1.entrada("Introduce numero de venta"));
+        String mem1=m1.buscarnv(v1,memo);
         System.out.println(v1);
         
     }

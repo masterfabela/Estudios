@@ -27,7 +27,7 @@ public class Notas {
     public void medialumno(){
         int media=0;
         System.out.println("");
-        System.out.println("    Prog||BD||COD");
+        System.out.print("    Prog||BD||COD");
     for(int f=0;f<notas.length;f++){
         System.out.println("");
         esquerda(f);
@@ -39,29 +39,23 @@ public class Notas {
         media=0;
     }
     }
-    public int[] medialumno2(){
-        int[]m1=new int[notas.length];
+    public int[] mediamodulo(){
+        int[]m1=new int[3];
     int media=0;
-    for(int f=0;f<notas.length;f++){
-        for(int c=0;c<notas[f].length;c++){
-            media=media+notas[f][c];
-            m1[f]=(media/notas[f].length);
+    for(int c=0;c<4;c++){
+        for(int f=0;f<3;f++){
+            //media=media+notas[c][f];
+            System.out.println(notas[c][f]);
         }
-    m1[f]=(media/notas[f].length);   
+    //m1[c]=media/4;
+    //media=0;
         }
     return m1;
     }
-    public int[] mediamodulo(){
-        int[]m1=new int[notas.length];
-    int media=0;
-    for(int c=0;c<notas.length;c++){
-        for(int f=0;f<notas[c].length;f++){
-            media=media+notas[f][c];
-            m1[c]=(media/notas[c].length);
-        }
-    m1[c]=(media/notas[c].length);   
-        }
-    return m1;
+    public void amosarnm(int[]n){
+        System.out.println("\n   Medias modulos.");
+        System.out.println("PROG||BD||COD");
+        System.out.println(" "+n[0]+"  ||"+n[1]+" ||"+n[2]);
     }
     public void esquerda (int i){
         switch(i){

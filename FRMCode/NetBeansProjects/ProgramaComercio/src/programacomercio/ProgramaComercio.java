@@ -1,26 +1,14 @@
 package programacomercio;
-//import com.fran.metodos.Entradaspred;
-
-import javax.swing.JOptionPane;
+import com.fran.metodos.Entradaspred;
 
 public class ProgramaComercio {
 
     public static void main(String[] args) {
-        //datos ventas
-        String [] nv= {"2","1","3"};
-        String [] rprod={"rf2","rf1","rf3"};
-        float[] cant={1.5f,2f,3f}; 
-        Ventas v1=new Ventas(nv,rprod,cant);
+        Ventas[]v1={new Ventas("1","rf1",7),new Ventas("2","rf2",9),new Ventas("3","rf3",4)};
+        Productos[]p1={new Productos("1","rf1","7"),new Productos("2","rf2","9"),new Productos("3","rf3","4")};
+        Prezos[]pr1={new Prezos("rp1",2),new Prezos("rp2",5),new Prezos("rp3",4)};
         
-        //datos prezos
-        float[]prez={2,3,8};
-        String[]rprez={"rp2","rp1","rp3"};
-        Prezos p1=new Prezos(rprez,prez);
-        Metodos m1=new Metodos();
-        
-        int memo=Integer.parseInt(m1.entrada("Introduce numero de venta"));
-        String mem1=m1.buscarnv(v1,memo);
-        System.out.println(v1);
+        String memo=Entradaspred.pedirString("Introduce numero de venta");
         
     }
     

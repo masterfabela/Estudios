@@ -10,6 +10,7 @@ public class ExemploArraisObxetos {
         /*String dni=JOptionPane.showInputDialog("Que DNI buscas?");
         System.out.println(ma1.buscar(pa1,dni));*/
         //ordenar
+        System.out.println("");
         Arrays.sort(pa1);
         ma1.amosar(pa1);
         

@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package exemploarraisobxetos;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author femio23
- */
 public class MetodosArray {
     public void amosar(Persoa[]lp){
         //bucle for forage

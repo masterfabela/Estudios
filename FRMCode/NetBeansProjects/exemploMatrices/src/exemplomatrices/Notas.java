@@ -1,10 +1,8 @@
 package exemplomatrices;
-/**
- *
- * @author femio23
- */
+
 public class Notas {
     int[][]notas=new int[4][3];
+     int[]m1=new int[3];
     
     public void crearTaboa(){
     for(int f=0;f<notas.length;f++){
@@ -39,23 +37,21 @@ public class Notas {
         media=0;
     }
     }
-    public int[] mediamodulo(){
-        int[]m1=new int[3];
-    int media=0;
-    for(int c=0;c<4;c++){
-        for(int f=0;f<3;f++){
-            //media=media+notas[c][f];
-            System.out.println(notas[c][f]);
+    public void mediamodulo(){
+    for(int f=0;f<3;f++){
+        int m=0;
+        for(int c=0;c<4;c++){
+            m+=notas[c][f];
         }
-    //m1[c]=media/4;
-    //media=0;
+
+        m1[f]=m/4;
         }
-    return m1;
+
     }
-    public void amosarnm(int[]n){
+    public void amosarnm(){
         System.out.println("\n   Medias modulos.");
         System.out.println("PROG||BD||COD");
-        System.out.println(" "+n[0]+"  ||"+n[1]+" ||"+n[2]);
+        System.out.println(" "+m1[0]+"  ||"+m1[1]+" ||"+m1[2]);
     }
     public void esquerda (int i){
         switch(i){

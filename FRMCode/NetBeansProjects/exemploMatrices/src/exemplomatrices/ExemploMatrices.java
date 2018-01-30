@@ -8,8 +8,9 @@ public class ExemploMatrices {
         n1.crearTaboa();
         n1.amosar();
         n1.medialumno();
-        medmod=n1.mediamodulo();
-        //n1.amosarnm(medmod);
+        System.out.println("");
+        n1.mediamodulo();
+        n1.amosarnm();
 
     }
     

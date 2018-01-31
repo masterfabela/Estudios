@@ -1,48 +1,68 @@
-Elementos de unha canle RSS 2.0
-
-Canal: És el origen de donde obtenemos los contenidos a publicar, sean páginas web o apartados de las mismas.
-Item: Indica cada una de las entradas o posts que se realizaran en el feed.
-
-Elementos:
-
-elementos obligatorios de canal;
-
-    <title> :Titulo del canal.
-    <link> :Enlace a la pagina de la que se nutre el canal.
-    <description> Resumen de lo que versa el feed.
-
-elementos opcionales de canal:
-    <ttl> :Elemento que indica el tiempo de vida(time to live) del canal.
-    <category>
-    <cloud>
-    <copyright> :Indica los derechos de copia que conciernen a lo publicado en el canal.
-    <docs>
-    <generator> :Indica el programa, mediante el cual, se ha generado el RSS.
-    <image> :Esta etiqueta identifica la inserción de una imagen en el canal. Posee varias etiquetas subordinadas:
-        <url> :Indica la dirección de la que se obtiene la pagina.
-        <link> Indica el enlace a laimagen.
-        <title> Titulo de la misma.
-    <lenguage> :Sirve para categorizar por idiomas nuestros canales para que los agregadores los puedan discriminar.
-    <lastBuildDate> :Indica la fecha de la última generación del RSS.
-    <managingEditor> Indica el correo electronico de quien
-    <webmaster> Indica el correo electronico de quien gestiona la web.
-    <pubDate> Muestra la fecha de publicación del item.
-    <skipHours> :Indica a las horas en las que no se publicará nada.
-    <skipDays> :A diferencia del anterior, indica los dias en los que no se actualizará.
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>Apuntes1</title>
+    <link rel="stylesheet" type="text/css" href="man.css"/>
+</head>
     
-elementos obligatorios de item.
+<body>
 
-<title>: Titulo del item.
-<link>: Enlace del item.
-<description>: Descripcion.
-<guid> :Identificacion inuvoca de nuestro item.
+<h1>Elementos de unha canle RSS 2.0</h1>
+<h2>Canal</h2>
+Canal: Es el origen de donde obtenemos los contenidos a publicar, sean páginas web o apartados de las mismas.<br>
+<h2>Item</h2>
+Item: Indica cada una de las entradas o posts que se realizaran en el feed.<br>
+
+<h3>Elementos del canal:</h3>
+
+<h4>Elementos obligatorios de canal:</h4>
+<p>
+    <b>title></b>:Titulo del canal.<br>
+    <b>link></b>:Enlace a la pagina de la que se nutre el canal.<br>
+    <b>description></b> Resumen de lo que versa el feed.<br>
+
+<h4>Elementos opcionales de canal:</h4>
+    <b>ttl></b>:Elemento que indica el tiempo de vida(time to live) del canal.<br>
+    <b>category domain="enlace"></b>:Permite clasificar los canales por temática.Además, el atributo domain<br>
+    sirve para añadir un enlace a una pagina donde se puede encontrar información sobre la temática<br>
+    <b>cloud></b>:Permite contactar con la aplicación que hostea el canal, pudiendo aumentar la velocidad de actualización del mismo.<br>
+    cloud tiene otros 5 atributos, domain, que indica el dominio del interfaz,<br>
+    port, que indica el puertopor el que accede, path, que indica la carpeta del registro del servidor,<br>
+    registerprocedure, que indica el nombre de la aplicación de registro y finalmente protocol, que indica el protocolo de comunicación.<br>
+    <b>copyright></b>:Indica los derechos de copia que conciernen a lo publicado en el canal.<br>
+    <b>docs></b>:Indica la url donde se puede acceder a información sobre el canal.<br>
+    <b>generator></b>:Indica el programa, mediante el cual, se ha generado el RSS.<br>
+    <b>image></b>:Esta etiqueta identifica la inserción de una imagen en el canal. Posee varias etiquetas subordinadas:<br>
+        <b>url></b>:Indica la dirección de la que se obtiene la pagina.<br>
+        <b>link></b>:Indica el enlace a la imagen.<br>
+        <b>title></b>:Titulo de la misma.<br>
+    <b>lenguage></b>:Sirve para categorizar por idiomas nuestros canales para que los agregadores los puedan discriminar.<br>
+    <b>lastBuildDate></b>:Indica la fecha de la última generación del RSS.<br>
+    <b>managingEditor></b>:Indica el correo electronico de quien gestiona el canal.<br>
+    <b>webmaster></b>:Indica el correo electronico de quien gestiona los problemas tecnicos relacionados con el feed.<br>
+    <b>pubDate></b>:Muestra la fecha de publicación del item.<br>
+    <b>skipHours></b>:Indica a las horas en las que no se publicará nada.<br>
+    <b>skipDays></b>:A diferencia del anterior, indica los dias en los que no se actualizará.<br>
+    <h3>Elementos del item:</h3>
+<H4>Elementos obligatorios de item:</H4><br>
+
+<b>title></b>:Titulo del item.<br>
+<b>link></b>:Enlace del item.<br>
+<b>description></b>:Descripcion.<br>
+<b>guid></b>:Identificacion inuvoca de nuestro item.
 
 
-elementos optativos de item.
+<H4>Elementos optativos de item:</H4>
 
-    <author>
-    <category>permite discriminar las entradas por temática.
-    <comments>Indica comentarios o segundos enlaces a los mismos.
-    <enclosure> aportando url,tipo y longitud, permite añadir un objeto
-<pubdate> Muestra la fecha de publicación del item.
-    <source>
+<b>author></b>:Direccion de correo electrónico del autor del feed.<br>
+<b>image></b>:Esta etiqueta identifica la inserción de una imagen en el item. Posee varias etiquetas subordinadas:<br>
+        <b>url></b>:Indica la dirección de la que se obtiene la pagina.<br>
+        <b>link></b>:Indica el enlace a la imagen.<br>
+        <b>title></b>:Titulo de la misma.<br>
+<b>category></b>:Permite discriminar las entradas por temática.<br>
+<b>comments></b>:Indica comentarios o segundos enlaces a los mismos.<br>
+<b>enclosure></b>:Aportando url,tipo y longitud, permite añadir un objeto.<br>
+<b>pubdate></b>:Muestra la fecha de publicación del item.<br>
+<b>source></b>:Indica la fuente de donde se han sacado la información del item.<br>
+</p>
+    </body></html>

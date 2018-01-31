@@ -5,8 +5,8 @@ public class Prezos {
     String rprez;
     
     public Prezos(String p,float f){
-    float pf=f;
-    String ps=p;
+    this.prez=f;
+    this.rprez=p;
     }
 
     public float getPrez() {

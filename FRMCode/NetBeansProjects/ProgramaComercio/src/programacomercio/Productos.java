@@ -2,10 +2,10 @@ package programacomercio;
 
 public class Productos {
     String rprod,nome,rprez;
-    public Productos(String rp,String n,String pr){
-        this.rprod=rp;
+    public Productos(String pro,String n,String pre){
+        this.rprod=pro;
         this.nome=n;
-        this.rprez=pr;
+        this.rprez=pre;
     }
 
     public String getRprod() {

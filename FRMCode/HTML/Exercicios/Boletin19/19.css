@@ -7,16 +7,24 @@ h1{
     text-transform: uppercase;
     color:rgb(76, 0, 255);
     font-weight: bold;
+    margin-bottom:5px;
 }
 h2{
     background-color: rgb(0, 77, 0);
     color:white;
+    clear: both;
 }
-img#der{
-    float:left;
+img.iz{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
-img#cen{
-    float:center;
+img.der{
+    float:right;
+}
+p.cen{
+    text-align: center;
+
 }
 footer{
     font-size: 10px;

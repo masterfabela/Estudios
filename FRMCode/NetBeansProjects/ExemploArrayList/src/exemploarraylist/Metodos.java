@@ -7,7 +7,8 @@ public class Metodos {
     ArrayList <Integer> lista1=new ArrayList();
         
     public void creador(){
-        for(int i=0;i<(Integer.parseInt(JOptionPane.showInputDialog("Cantos elementos desexa engadir?")));i++){
+        int b=Integer.parseInt(JOptionPane.showInputDialog("Cantos elementos desexa engadir?"));
+        for(int i=0;i<b;i++){
         //Xerar enteiros aleatorios.
         int v=(int)(1+Math.random()*10);
             lista1.add(v);
@@ -46,6 +47,14 @@ public class Metodos {
         lista1.set(aux, v);
     }
     public void menmay(){
+        Iterator it=lista1.iterator();
+        Object[] in=new Object[lista1.size()];
+        for(int i=0;i<lista1.size();i++){
+            in[i]=it.next();
+            
+        }
+        Arrays.sort(in);
+        System.out.println("O valor menor é: "+in[0]+" e o maior: "+in[lista1.size()-1]);
         
     }
 }

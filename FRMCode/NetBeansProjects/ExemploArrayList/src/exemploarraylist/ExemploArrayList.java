@@ -16,13 +16,14 @@ public class ExemploArrayList {
 //            System.out.println(lista.get(i));
 //        }
         Metodos m1=new Metodos();
-        m1.engadir(2);
-        m1.engadir(7);
+        //m1.engadir(2);
+        //m1.engadir(7);
+        m1.creador();
         //Este arraylist non adminte -->Stringlista1.add('r');
-        m1.amosarit();
+        //m1.amosarit();
         //Menu de opcions.
         JOptionPane.showMessageDialog(null, "Benvido a o menú de opcións, introduza a accion a realizar.");
-        String o=JOptionPane.showInputDialog("e:Engadir\ndp:borrado por posición\nde:borrado por elemento\nmp:modificar por posicion\nme:modificar por elemento");
+        String o=JOptionPane.showInputDialog("e:Engadir\ndp:borrado por posición\nde:borrado por elemento\nmp:modificar por posicion\nme:modificar por elemento\nmame:buscar elementos maior e menor");
         
         switch(o){
             case "e":
@@ -39,6 +40,9 @@ public class ExemploArrayList {
                 break;
             case "me":
                 m1.mudarelem(Integer.parseInt(JOptionPane.showInputDialog("Indique o valor a buscar para sustituir")), Integer.parseInt(JOptionPane.showInputDialog("Indique o valor co que sustituir")));
+                break;
+            case "mame":
+                m1.menmay();
                 break;
             default:
                 System.out.println("Caracter introducido non válido.");

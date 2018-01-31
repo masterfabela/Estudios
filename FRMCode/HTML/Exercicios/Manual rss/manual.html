@@ -1,0 +1,48 @@
+Elementos de unha canle RSS 2.0
+
+Canal: És el origen de donde obtenemos los contenidos a publicar, sean páginas web o apartados de las mismas.
+Item: Indica cada una de las entradas o posts que se realizaran en el feed.
+
+Elementos:
+
+elementos obligatorios de canal;
+
+    <title> :Titulo del canal.
+    <link> :Enlace a la pagina de la que se nutre el canal.
+    <description> Resumen de lo que versa el feed.
+
+elementos opcionales de canal:
+    <ttl> :Elemento que indica el tiempo de vida(time to live) del canal.
+    <category>
+    <cloud>
+    <copyright> :Indica los derechos de copia que conciernen a lo publicado en el canal.
+    <docs>
+    <generator> :Indica el programa, mediante el cual, se ha generado el RSS.
+    <image> :Esta etiqueta identifica la inserción de una imagen en el canal. Posee varias etiquetas subordinadas:
+        <url> :Indica la dirección de la que se obtiene la pagina.
+        <link> Indica el enlace a laimagen.
+        <title> Titulo de la misma.
+    <lenguage> :Sirve para categorizar por idiomas nuestros canales para que los agregadores los puedan discriminar.
+    <lastBuildDate> :Indica la fecha de la última generación del RSS.
+    <managingEditor> Indica el correo electronico de quien
+    <webmaster> Indica el correo electronico de quien gestiona la web.
+    <pubDate> Muestra la fecha de publicación del item.
+    <skipHours> :Indica a las horas en las que no se publicará nada.
+    <skipDays> :A diferencia del anterior, indica los dias en los que no se actualizará.
+    
+elementos obligatorios de item.
+
+<title>: Titulo del item.
+<link>: Enlace del item.
+<description>: Descripcion.
+<guid> :Identificacion inuvoca de nuestro item.
+
+
+elementos optativos de item.
+
+    <author>
+    <category>permite discriminar las entradas por temática.
+    <comments>Indica comentarios o segundos enlaces a los mismos.
+    <enclosure> aportando url,tipo y longitud, permite añadir un objeto
+<pubdate> Muestra la fecha de publicación del item.
+    <source>

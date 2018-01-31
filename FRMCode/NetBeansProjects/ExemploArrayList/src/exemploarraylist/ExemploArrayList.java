@@ -16,28 +16,35 @@ public class ExemploArrayList {
 //            System.out.println(lista.get(i));
 //        }
         Metodos m1=new Metodos();
-        ArrayList <Integer> lista1=new ArrayList();
-        lista1.add(2);
-        lista1.add(new Integer(7));
-        //Este arraylist non adminte Stringlista1.add('r');
-        m1.amosarit(lista1);
+        m1.engadir(2);
+        m1.engadir(7);
+        //Este arraylist non adminte -->Stringlista1.add('r');
+        m1.amosarit();
         //Menu de opcions.
-        JOptionPane.showMessageDialog(null, "Benvido a o menú de opcións.");
-        String o=JOptionPane.showInputDialog("Para engadir elemento, introduza a letra \"e\"\n,e para eliminalo,introduza \"d\" ");
+        JOptionPane.showMessageDialog(null, "Benvido a o menú de opcións, introduza a accion a realizar.");
+        String o=JOptionPane.showInputDialog("e:Engadir\ndp:borrado por posición\nde:borrado por elemento\nmp:modificar por posicion\nme:modificar por elemento");
         
         switch(o){
             case "e":
-                m1.engadir(lista1);
+                m1.engadir(Integer.parseInt(JOptionPane.showInputDialog("Indique o valor enteiro a engadir")));
                 break;
-            case "d":
-                m1.borrarit(lista1);
+            case "dp":
+                m1.quitarposicion(Integer.parseInt(JOptionPane.showInputDialog("Indique a posicion a borrar")));
+                break;
+            case "de":
+                m1.borrarelemento(Integer.parseInt(JOptionPane.showInputDialog("Indique o elemento a borrar")));
+                break;
+            case "mp":
+                m1.mudarposicio(Integer.parseInt(JOptionPane.showInputDialog("Indique a posicion do elemento a modificar")),Integer.parseInt(JOptionPane.showInputDialog("Indique o valor co que sustituir")));
+                break;
+            case "me":
+                m1.mudarelem(Integer.parseInt(JOptionPane.showInputDialog("Indique o valor a buscar para sustituir")), Integer.parseInt(JOptionPane.showInputDialog("Indique o valor co que sustituir")));
                 break;
             default:
                 System.out.println("Caracter introducido non válido.");
                 break;
         }
-        m1.amosarit(lista1);
-        
+        m1.amosarit();
     }
     
 }

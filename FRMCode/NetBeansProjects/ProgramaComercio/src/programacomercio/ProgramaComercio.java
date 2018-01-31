@@ -10,6 +10,7 @@ public class ProgramaComercio {
         Metodos m1=new Metodos();
         m1.impfact(v1, p1, pr1);
         
+        
         //String memo=Entradaspred.pedirString("Introduce numero de venta");
         
     }

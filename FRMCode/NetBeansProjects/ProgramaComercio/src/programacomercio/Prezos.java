@@ -8,4 +8,13 @@ public class Prezos {
     float pf=f;
     String ps=p;
     }
+
+    public float getPrez() {
+        return prez;
+    }
+
+    public String getRprez() {
+        return rprez;
+    }
+    
 }

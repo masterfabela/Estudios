@@ -7,5 +7,17 @@ public class Productos {
         this.nome=n;
         this.rprez=pr;
     }
+
+    public String getRprod() {
+        return rprod;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getRprez() {
+        return rprez;
+    }
     
 }

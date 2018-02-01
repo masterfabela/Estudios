@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 
 public class Metodos {
     ArrayList <Integer> lista1=new ArrayList();
+    
+    static int maior,menor;
         
     public void creador(){
         int b=Integer.parseInt(JOptionPane.showInputDialog("Cantos elementos desexa engadir?"));
@@ -27,6 +29,8 @@ public class Metodos {
         Iterator it=lista1.iterator();
         while(it.hasNext())
             System.out.println(it.next());
+        
+        System.out.println();
     }
     public void quitarposicion(int p){
         //usar p como contador para o for, e saltar as posicions con it.next .
@@ -55,6 +59,16 @@ public class Metodos {
         }
         Arrays.sort(in);
         System.out.println("O valor menor é: "+in[0]+" e o maior: "+in[lista1.size()-1]);
-        
+        menor=(int)in[0];
+        maior=(int)in[lista1.size()-1];
+    }
+    public ArrayList<Integer> pares(ArrayList<Integer> n){
+        for (int i=0;i<lista1.size();i++) {
+          if(lista1.get(i)%2==0){
+            System.out.println(lista1.get(i));
+            n.add(lista1.get(i));
+          }
+        }   
+    return n;
     }
 }

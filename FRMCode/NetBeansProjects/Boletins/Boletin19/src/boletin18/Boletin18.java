@@ -18,6 +18,10 @@ public class Boletin18 {
         }
         System.out.println(m1.amosa(Integer.parseInt(JOptionPane.showInputDialog("Que correo (por orde de chegada) desexa ver?"))));
         m1.scramble();
+        m1.engade(new Correo("Estaría vostede interesado en invertir en criptomoedas?",false));
+        m1.scramble();
+        m1.elimina(2);
+        m1.scramble();
         
     }
     

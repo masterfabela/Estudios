@@ -16,8 +16,9 @@ public class Boletin18 {
         }else{
             System.out.println("Todo lido");
         }
-        m1.amosa(Integer.parseInt(JOptionPane.showInputDialog("Que correo (por orde de chegada) desexa ver?")));
+        System.out.println(m1.amosa(Integer.parseInt(JOptionPane.showInputDialog("Que correo (por orde de chegada) desexa ver?"))));
         m1.scramble();
+        
     }
     
 }

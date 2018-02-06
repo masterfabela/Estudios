@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="8.css" type="text-css"?>
+<rss version="2.0">
+<channel>
+   <title>Novidades Carmiña</title>
+   <description>Canle de novidades sobre aplicacións para android</description>
+   <link>http://www.meusitio..com</link>
+   <item>
+    <title>VLC para Android</title>
+    <link>http://www.meusitio.com/android</link>
+    <description>
+               Liberarase pronto unha versión de VLC para Android
+   </description>
+  </item>
+  <item>
+    <title>Nova versión de Firefox</title>
+    <link>http://www.meusitio.com/firefox</link>
+<description>A liberación da nova versión quantum de Firefox está próxima.</description>
+   </item>
+<item>
+    <title>Aplicacións maliciosas e criptomoedas</title>
+    <link>http://www.meusitio.com/malware</link>
+<description>Como ralentizan o rendemento dos nosos terminais aplicacións supostamente inocuas e a relación coas moedas de moda</description>
+<author>chispazo.jaco@pmail.gal</author>
+<pubDate>MON,28 JAN 2018 12:56:03</pubDate>
+   </item>
+
+</channel>
+</rss>

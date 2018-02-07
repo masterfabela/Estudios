@@ -1,0 +1,31 @@
+body{
+    background-color:rgb(4, 156, 4);
+    font-family:sans serif;
+}
+h1{
+    font-variant: small-caps;
+    color:black;
+}
+p{
+    font-size:20px;
+}
+p.infancia{
+    font-family:serif;
+    font-style: italic;
+    color:white;
+}
+p.animales{
+    font-family:sans serif;
+    color:rgb(255, 255, 140);
+    letter-spacing: 2px;
+}
+p.literatura{
+    font-family:monospace;
+    font-size:25px;
+    color:yellow;
+}
+p.numeros{
+    font-family:cursive;
+    color:rgb(255, 47, 82);
+    word-spacing: 3px;
+}

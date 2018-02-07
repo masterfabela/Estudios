@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="8.css" type="text-css"?>
+<?xml-stylesheet href="8.css" type="text/css"?>
 <rss version="2.0">
 <channel>
    <title>Novidades Carmiña</title>
    <description>Canle de novidades sobre aplicacións para android</description>
-   <link>http://www.meusitio..com</link>
+   <link>http://www.meusitio.com</link>
    <item>
     <title>VLC para Android</title>
     <link>http://www.meusitio.com/android</link>

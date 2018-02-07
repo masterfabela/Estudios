@@ -1,2 +1,6 @@
-channel{display:block}
-channel title{display:none}
+channel,item{
+    display:block;
+    background-color: blue;
+}
+pubDate,author,description{display:none}
+

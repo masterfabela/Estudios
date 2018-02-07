@@ -1,0 +1,10 @@
+
+titulo{
+    color:blue;
+    font-size: 40px;
+    display:block;
+}
+autor,fechaPublicacion{
+    display:block;
+    margin-left:3em;
+}

@@ -1,0 +1,18 @@
+
+biblioteca{
+    border-style:solid;
+}
+titulo,autor,fechaPublicacion{
+    margin-left:2em;
+}
+titulo{
+    font-weight: bold;
+    display:block;
+}
+autor,fechaPublicacion{
+    display:block;
+}
+
+libro{
+    
+}

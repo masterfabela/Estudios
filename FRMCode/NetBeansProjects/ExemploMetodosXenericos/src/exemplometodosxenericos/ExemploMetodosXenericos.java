@@ -18,6 +18,7 @@ public class ExemploMetodosXenericos {
         Metodos.amosar(p1);
         Metodos.eliminar(c1, 2);
         Metodos.amosar(c1);
+        Metodos.eliminarsiten(l1,"Ofensa");
     }
     
 }

@@ -12,5 +12,15 @@ public class Libro {
         this.prezo=p;
         this.unidades=u;
     }
+
+    public int getUnidades() {
+        return unidades;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "titulo=" + titulo + ", isbn=" + isbn + ", autor=" + autor + ", prezo=" + prezo + ", unidades=" + unidades + '}';
+    }
+    
     
 }

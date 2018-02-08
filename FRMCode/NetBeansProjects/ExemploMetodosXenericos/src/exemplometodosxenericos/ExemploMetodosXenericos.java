@@ -19,6 +19,7 @@ public class ExemploMetodosXenericos {
         Metodos.eliminar(c1, 2);
         Metodos.amosar(c1);
         Metodos.eliminarsiten(l1,"Ofensa");
+        
     }
     
 }

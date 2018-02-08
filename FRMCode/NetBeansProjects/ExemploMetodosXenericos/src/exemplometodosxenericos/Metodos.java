@@ -12,7 +12,7 @@ public class Metodos {
    public static <T> void eliminar(ArrayList<T>lista,int pos){
        lista.remove(pos);
    }
-   public static <T> void eliminarsiten(ArrayList<T> lista,String s){
+   public static <T> void eliminarsiten(ArrayList<T>lista,String s){
        Iterator it=lista.iterator();
        while(it.hasNext()){
            if(it.equals(s)){

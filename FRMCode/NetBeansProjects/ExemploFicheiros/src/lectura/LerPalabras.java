@@ -1,21 +1,29 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package lectura;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-public class LerFicheiro {
+
+/**
+ *
+ * @author femio23
+ */
+public class LerPalabras {
     Scanner sc;
     File fich;
-    public void leerliñas(){
+    public void leerp(){
 
         fich=new File("prime.txt");
         String lectura;
         try {
-            sc=new Scanner(fich);
+            sc=new Scanner(fich).useDelimiter("\\s*,\\s*");
             while(sc.hasNext()){
-                lectura=sc.nextLine();
-                System.out.println(lectura);
+                System.out.println(sc.next());
 
             }                
             sc.close();
@@ -29,5 +37,4 @@ public class LerFicheiro {
         }
         System.out.println(fich.exists());
     }
-    
 }

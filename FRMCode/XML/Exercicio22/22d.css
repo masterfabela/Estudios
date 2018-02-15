@@ -1,0 +1,16 @@
+nombreCentro{
+    display:list-item;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+}
+web{
+    display:list-item;
+    color:blue;
+}
+
+ciclo{
+    display:list-item;
+    list-style-type: disc;
+    margin-left:20px;
+}

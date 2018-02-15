@@ -1,0 +1,18 @@
+acercade{
+    color:red;
+    text-decoration: underline;
+    font-weight: bold;
+}
+persona{
+    display:list-item;
+    list-style-type: disc;
+    margin-left:20px;
+}
+nombre{
+    font-weight: bold;
+}
+cargo,pais{
+    display:list-item;
+    list-style-type: circle;
+    margin-left:20px;
+}

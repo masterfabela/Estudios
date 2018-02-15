@@ -1,13 +1,17 @@
-centro,nombreCentro,web{
+centro,nombreCentro,web,nombre{
     display:list-item;
 }
-nombre,grado,decretoTitulo{
+
+grado,decretoTitulo{
     display:list-item;
     margin-left:50px;
-    list-style-type: disc;
+    list-style-type: square;
 }
 nombreCentro{
     text-decoration:underline;
     font-weight: bold;
     font-size: 30px;
+}
+web{
+    color: blue
 }

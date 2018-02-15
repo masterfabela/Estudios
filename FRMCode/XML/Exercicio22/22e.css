@@ -1,0 +1,18 @@
+nombreCentro{
+    display:block;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+}
+web{
+    display:block;
+    color:blue;
+}
+nombre,grado,decretoTitulo{
+    display:list-item;
+}
+ciclo{
+    display:block;
+    list-style-type: decimal-leading-zero;
+    margin-left:20px;
+}

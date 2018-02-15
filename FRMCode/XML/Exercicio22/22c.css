@@ -1,0 +1,14 @@
+nombreCentro{
+    display:list-item;
+    font-weight: bold;
+    font-size: 20px;
+}
+web{
+    display:list-item;
+}
+
+ciclo{
+    display:list-item;
+    list-style-type: lower-alpha;
+    margin-left:20px;
+}

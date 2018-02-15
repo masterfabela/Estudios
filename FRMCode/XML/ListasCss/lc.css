@@ -1,0 +1,13 @@
+acercade{
+    color:red;
+    text-decoration: underline;
+    font-weight: bold;
+}
+persona{
+    display:list-item;
+    list-style-type: decimal;
+    margin-left:20px;
+}
+nombre{
+    font-weight: bold;
+}

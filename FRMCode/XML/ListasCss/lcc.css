@@ -1,0 +1,25 @@
+reyes{
+    background-color: orange;
+}
+acercade{
+    font-size: 30px;
+    margin-left: 25%;
+}
+persona{
+    display:list-item;
+}
+
+
+cargo::before{
+    content:'=>';
+}
+pais::after{
+    content:'"';
+}
+pais::before{
+    content:'"';
+}
+nombre{
+    font-weight: bold;
+    text-decoration: underline;
+}

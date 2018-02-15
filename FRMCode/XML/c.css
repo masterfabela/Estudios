@@ -1,0 +1,24 @@
+coches{
+    display:table;border:solid;border-width: 2px;border-spacing: 15px;
+}
+usuario,cabecera{
+    display:table-row;border:solid;border-width: 2px;
+}
+nombre,marcaCoche,anho{
+    display:table-cell;border:solid;border-width: 2px;height: 70px;width: 70px;
+}
+cabecera nombre,cabecera marcaCoche,cabecera anho{
+    background-color: olivedrab;
+}
+nombre{
+    background-color: blue;
+}
+anho{
+    background-color: greenyellow;vertical-align: bottom;
+}
+marcaCoche{
+    background-color: red;height: 10px;width: 10px;vertical-align:middle;
+}
+titulo{
+    display:table-caption;font-size: 40px;font-weight: bolder;color: peru;
+}

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="c.css" type="text/css"?>
+<coches>
+<titulo>Marcas e usuarios.</titulo>
+<cabecera>
+<nombre>Nombre</nombre>
+<marcaCoche>Marca</marcaCoche>
+<anho>Año</anho>
+</cabecera>
+<usuario>
+<nombre>Pepe</nombre>
+<marcaCoche>Seat</marcaCoche>
+<anho>2014</anho>
+</usuario>
+<usuario>
+<nombre>Carlos</nombre>
+<marcaCoche>BMW</marcaCoche>
+<anho>1996</anho>
+</usuario>
+</coches>

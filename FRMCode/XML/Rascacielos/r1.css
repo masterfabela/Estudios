@@ -1,0 +1,23 @@
+rascacielos{
+    background-color: rgb(41, 101, 151);
+}
+
+resumen{
+    font-size: 40px;
+    font-weight: bold;
+    text-transform:uppercase;
+}
+edificio{
+
+    display:list-item;
+    margin-left:3em;
+    list-style-type:disc;
+}
+ciudad{
+    font-style: oblique
+}
+altura,pisos,completado{
+    margin-left:6em;
+    display:list-item;
+    list-style-type:circle;
+}

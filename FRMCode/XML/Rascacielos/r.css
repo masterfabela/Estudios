@@ -1,0 +1,20 @@
+rascacielos{
+    background-color: rgb(32, 102, 32);
+}
+resumen{
+    font-size: 40px;
+    font-weight: bold;
+    text-transform:capitalize;
+}
+edificio{
+    display:block;
+}
+nombre{
+    font-weight: bold;
+}
+ciudad::before{
+    content:"(";
+}
+ciudad::after{
+    content:"):";
+}

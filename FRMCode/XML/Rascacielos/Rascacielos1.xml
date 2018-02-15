@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="r1.css" type="text/css"?>
+<rascacielos>
+  <resumen>Rascacielos del mundo</resumen>
+  <edificios>
+    <edificio>
+      <nombre>Burj Khalifa</nombre>
+      <ciudad>Dubai</ciudad>
+      <datos>
+        <altura>828 metros.</altura>
+        <pisos>163 pisos.</pisos>
+        <completado>Completado en 2010</completado>
+      </datos>
+    </edificio>
+    <edificio>
+      <nombre>Shangai Tower</nombre>
+      <ciudad>Shangai</ciudad>
+      <datos>
+        <altura>632 metros.</altura>
+        <pisos>128 pisos.</pisos>
+        <completado>Completado en 2015</completado>
+      </datos>
+    </edificio>
+    <edificio>
+      <nombre>One World Trade Center</nombre>
+      <ciudad>Nueva York</ciudad>
+      <datos>
+        <altura>541 metros.</altura>
+        <pisos>104 pisos.</pisos>
+        <completado>Completado en 2014</completado>
+      </datos>
+    </edificio>
+    <edificio>
+      <nombre>CTF Finance Center</nombre>
+      <ciudad>Guangzhou</ciudad>
+      <datos>
+        <altura>530 metros.</altura>
+        <pisos>111 pisos.</pisos>
+        <completado>Completado en 2016</completado>
+      </datos>
+    </edificio>
+  </edificios>
+</rascacielos>

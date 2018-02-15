@@ -1,0 +1,23 @@
+<?xml version="1.0"encoding="UTF-8"?>
+<?xml-stylesheet href="22a.css" type="text/css"?>
+<centro>
+  <nombreCentro>Daniel Castelao</nombreCentro>
+  <web>www.danielcastelao.org</web>
+  <ciclos>
+    <ciclo id="ASIR">
+      <nombre>Administración de Sistemas Informáticos en Rede</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo>2009</decretoTitulo>
+    </ciclo>
+    <ciclo id="DAM">
+      <nombre>Desenvolvemento  de Aplicacións Multiplataforma</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo>2010</decretoTitulo>
+    </ciclo>
+    <ciclo id="XA">
+      <nombre>Xestión Administrativa</nombre>
+      <grado>Medio</grado>
+      <decretoTitulo>2010</decretoTitulo>
+    </ciclo>
+  </ciclos>
+ </centro>

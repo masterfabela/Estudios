@@ -1,0 +1,15 @@
+
+titulo{
+    font-weight: bold;
+    display:block;
+}
+autor,fechaPublicacion{
+    display:block;
+    display:table-row;
+}
+
+libro{
+    display:table;
+    border-style:solid;
+    margin-top:5px;
+}

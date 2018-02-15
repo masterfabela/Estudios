@@ -1,10 +1,7 @@
-
 biblioteca{
     border-style:solid;
-    padding:1em;
-}
-titulo,autor,fechaPublicacion{
-    margin-left:2em;
+    border-width: 5px;
+    margin-left:5px;
 }
 titulo{
     font-weight: bold;
@@ -13,7 +10,8 @@ titulo{
 autor,fechaPublicacion{
     display:block;
 }
-
 libro{
     
+    border-style:solid;
+    margin-top:5px;
 }

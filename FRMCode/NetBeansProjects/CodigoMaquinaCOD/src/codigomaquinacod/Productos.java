@@ -5,17 +5,22 @@
  */
 package codigomaquinacod;
 
+
+
 /**
  *
  * @author femio23
  */
 public class Productos {
     private String pelegido,producto;
-    private float precio;
+    private float precio,prelegido;
 
     public Productos(String producto, float precio) {
         this.producto = producto;
         this.precio = precio;
+    }
+
+    public Productos() {
     }
 
     public String getPelegido() {
@@ -28,6 +33,18 @@ public class Productos {
 
     public float getPrecio() {
         return precio;
+    }
+
+    public void setPelegido(String pelegido) {
+        this.pelegido = pelegido;
+    }
+
+    public float getPrelegido() {
+        return prelegido;
+    }
+
+    public void setPrelegido(float prelegido) {
+        this.prelegido = prelegido;
     }
     
 }

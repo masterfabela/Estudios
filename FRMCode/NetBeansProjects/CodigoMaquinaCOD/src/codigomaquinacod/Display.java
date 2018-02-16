@@ -10,16 +10,23 @@ package codigomaquinacod;
  * @author femio23
  */
 public class Display {
-    public void mostrarcredito(){
-        
+    public void mostrarcredito(Dinero d){
+        System.out.println("Actualmente tiene un crédito de "+d.getCrédito()+" €.");
     }
-    public void mostraraz(){
-        
+    public void mostraraz(Cafetera c){
+        System.out.println("Cantidad seleccionada de azucar: "+c.getCantazucar());
     }
-    public void mostrarprecios(){
-        
-    }
-    public void mostrarcambio(){
-        
+    public float mostrarprecio(Productos[] prod,String e){
+        float aux=0;
+        for(Productos p1:prod){
+            if(p1.getProducto().equalsIgnoreCase(e)){
+                System.out.println(p1.getPrecio()+" €");
+                aux= p1.getPrecio();
+            }
+        }
+        return aux;
+        }
+    public void mostrarcambio(Dinero c){
+        System.out.println("El cambio a devolver es de "+c.getCambio()+" €.");
     }
 }

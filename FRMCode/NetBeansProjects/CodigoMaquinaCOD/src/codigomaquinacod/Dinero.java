@@ -5,12 +5,14 @@
  */
 package codigomaquinacod;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author femio23
  */
 public class Dinero {
-    private float crédito,cambio;
+    private float crédito=0,cambio=0;
 
     public float getCrédito() {
         return crédito;
@@ -28,22 +30,36 @@ public class Dinero {
         this.cambio = cambio;
     }
     
-    public void introducirmonedas(){
-        
+    public float introducirmonedas(){
+        float aux=0;
+        aux=Float.parseFloat(JOptionPane.showInputDialog("Introduzca crédito:"));
+        return aux;
     }
-    public void pedircredito(){
-        
+    public float calcularcambio(Productos p, Dinero d){
+        float aux=0;
+        aux=d.getCrédito()-p.getPrelegido();
+        d.setCambio(aux);
+        return aux;
     }
-    public void contarcredito(){
-        
+    public boolean comprobarcredito(Dinero d,Productos p){
+        boolean aux=false;
+        if(d.crédito>=p.getPrelegido()){
+        aux=true;
+        }
+       return aux; 
     }
-    public void calcularcambio(){
-        
-    }
-//    public boolean comprobarcredito(){
-//        
-//    }
-    public void devolvercambio(){
-        
+    public void devolvercambio(Dinero d){
+        float aux=d.getCambio();
+        int u=(int)aux/1;
+        aux=aux%1;
+        int c=(int)(aux/0.5f);
+        aux=aux%0.5f;
+        int v=(int)(aux/0.2f);
+        aux=aux%0.2f;
+        int di=(int)(aux/0.1f);
+        System.out.println("Devolvense:\n"+u+"Moedas de 1€,\n"+
+                c+"Moeda de 0.5€,\n"+
+                v+"Moedas de 0.2€,\n"+
+                di+"Moedas de 0.1€.\n");
     }
 }

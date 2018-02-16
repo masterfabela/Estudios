@@ -10,14 +10,24 @@ package codigomaquinacod;
  * @author femio23
  */
 public class Cafetera {
-    private int cantazucar;
+    private int cantazucar=5;
     public void soltarvaso(){
-        
+        System.out.println("Plock, cae el vaso");
     }
-    public void elaborarbebida(){
+    public void elaborarbebida(Productos p){
+        System.out.println("Bssss, sale "+p.getPelegido()+" con "+cantazucar+" azucar.");
         
     }
     public void soltarpalo(){
-        
+        System.out.println("Click, cae el palo.");
     }
+
+    public int getCantazucar() {
+        return cantazucar;
+    }
+
+    public void setCantazucar(int cantazucar) {
+        this.cantazucar = cantazucar;
+    }
+    
 }

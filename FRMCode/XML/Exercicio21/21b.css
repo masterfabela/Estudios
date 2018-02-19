@@ -1,0 +1,7 @@
+libro{
+    display:table;
+    display:table-row;
+    display:list-item;
+    border-style: solid;
+    border:2px;
+}

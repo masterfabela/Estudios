@@ -1,0 +1,27 @@
+biblioteca{
+    display:table;
+    border-spacing: 7px;
+    border:solid;
+}
+nombre{
+    font-weight: bold;
+    font-size:30px;
+    text-decoration:underline;
+    display:table-caption;
+}
+libro{
+    display:table row;
+    display:list-item;
+}
+autor,fechaPublicacion,titulo{
+    display:table-cell;
+    border:solid;
+    background-color:grey;
+    height: 30px;
+    width: 200px;
+    vertical-align: top;
+    text-align: left;
+}
+titulo{
+    font-weight: bold;
+}

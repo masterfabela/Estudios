@@ -1,0 +1,31 @@
+nombre{
+    font-weight: bold;
+    font-size:30px;
+    text-decoration:underline;
+}
+libro{
+    border:solid;
+    display:table;
+    border-spacing: 7px;
+    display:table row;
+
+}
+autor,fechaPublicacion{
+    display:table-cell;
+    border:solid;
+    height: 20px;
+    width: 200px;
+}
+autor{
+    text-align: left;
+}
+fechaPublicacion{
+    text-align: center;
+
+}
+titulo{
+    display:table-caption;
+    color:red;
+    font-size:30px;
+    text-align: center
+}

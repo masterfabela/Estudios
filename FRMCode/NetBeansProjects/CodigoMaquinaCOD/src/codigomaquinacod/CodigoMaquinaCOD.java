@@ -16,7 +16,7 @@ public class CodigoMaquinaCOD {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
         Botonera b1=new Botonera();
         Productos p1=new Productos();
@@ -30,20 +30,22 @@ public class CodigoMaquinaCOD {
         prod[0]=new Productos("Chocolate",1.50f);
         prod[1]=new Productos("Café",0.90f);
         prod[2]=new Productos("Té",0.80f);
+        boolean exit=true;
         
+        while(exit){
         p1.setPelegido(b1.elegirbebida(prod));
         p1.setPrelegido(dp1.mostrarprecio(prod,p1.getPelegido()));
         while(d1.comprobarcredito(d1,p1)==false){ 
-        aux=d1.introducirmonedas();
+        aux=d1.introducirmonedas(p1.getPrelegido());
         d1.setCrédito(d1.getCrédito()+aux);
         dp1.mostrarcredito(d1);
         }
-        System.out.println("Suficiente");
+        System.out.println("Suficiente crédito.");
         
         JOptionPane.showMessageDialog(null,"Elija la cantidad de azucar.");
         boolean suf=false;
         while(suf==false){
-        int mem=Integer.parseInt(JOptionPane.showInputDialog("Azucar = "+c1.getCantazucar()+"\nMais=2\nMenos=1\nSuficiente=0"));
+        int mem=Integer.parseInt(JOptionPane.showInputDialog("Cantidad actual= "+c1.getCantazucar()+"\nPoner más,pulse 2.\nPoner menos, pulse 1.\nSi ya está a su gusto, pulse 0."));
         switch (mem){
         case(1):b1.azless(c1);
         break;
@@ -68,9 +70,13 @@ public class CodigoMaquinaCOD {
         d1.calcularcambio(p1, d1);
         dp1.mostrarcambio(d1);
         d1.devolvercambio(d1);
-        
-        
+        Thread.sleep(5000);
+        String ve=JOptionPane.showInputDialog("Volver a empezar?");
+        if(ve.equalsIgnoreCase("no")){
+            exit=false;
+        }
+        }
+        System.out.println("Adios.");
     }
-    
     
 }

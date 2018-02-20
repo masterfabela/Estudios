@@ -30,9 +30,9 @@ public class Dinero {
         this.cambio = cambio;
     }
     
-    public float introducirmonedas(){
+    public float introducirmonedas(float p){
         float aux=0;
-        aux=Float.parseFloat(JOptionPane.showInputDialog("Introduzca crédito:"));
+        aux=Float.parseFloat(JOptionPane.showInputDialog("Precio: "+p+"\nIntroduzca crédito:"));
         return aux;
     }
     public float calcularcambio(Productos p, Dinero d){
@@ -49,7 +49,7 @@ public class Dinero {
        return aux; 
     }
     public void devolvercambio(Dinero d){
-        float aux=d.getCambio();
+        float aux=d.getCambio()+0.01f;
         int u=(int)aux/1;
         aux=aux%1;
         int c=(int)(aux/0.5f);
@@ -57,9 +57,10 @@ public class Dinero {
         int v=(int)(aux/0.2f);
         aux=aux%0.2f;
         int di=(int)(aux/0.1f);
-        System.out.println("Devolvense:\n"+u+"Moedas de 1€,\n"+
-                c+"Moeda de 0.5€,\n"+
-                v+"Moedas de 0.2€,\n"+
-                di+"Moedas de 0.1€.\n");
+        System.out.println("Se devuelve:\n"+
+                        u+" Monedas de 1€,\n"+
+                        c+" Moneda de 0.5€,\n"+
+                        v+" Monedas de 0.2€,\n"+
+                        di+" Monedas de 0.1€.\n");
     }
 }

@@ -20,7 +20,7 @@ public class Display {
         float aux=0;
         for(Productos p1:prod){
             if(p1.getProducto().equalsIgnoreCase(e)){
-                System.out.println(p1.getPrecio()+" €");
+                System.out.println("Precio: "+p1.getPrecio()+" €");
                 aux= p1.getPrecio();
             }
         }

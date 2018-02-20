@@ -26,8 +26,8 @@ public class Botonera {
         return true;
     }
     public String elegirbebida(Productos[]menu){
-        String elexido=JOptionPane.showInputDialog(null, "Opcions:"+"\n"+menu[0].getProducto()+
-        "\n"+menu[1].getProducto()+"\n"+menu[2].getProducto()+"\nIntroduza o nome da bebida elixida.");
+        String elexido=JOptionPane.showInputDialog(null, "Opciones:"+"\n"+menu[0].getProducto()+
+        "\n"+menu[1].getProducto()+"\n"+menu[2].getProducto()+"\nIntroduzca el nome de la bebida deseada.");
         return elexido;
     }
 }

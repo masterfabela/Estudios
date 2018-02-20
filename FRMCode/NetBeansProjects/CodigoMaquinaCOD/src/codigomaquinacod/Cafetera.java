@@ -15,7 +15,7 @@ public class Cafetera {
         System.out.println("Plock, cae el vaso");
     }
     public void elaborarbebida(Productos p){
-        System.out.println("Bssss, sale "+p.getPelegido()+" con "+cantazucar+" azucar.");
+        System.out.println("Bssss, sale "+p.getPelegido()+" con "+cantazucar+"/10 azucar.");
         
     }
     public void soltarpalo(){

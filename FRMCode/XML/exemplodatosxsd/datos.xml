@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="datos.xsd">
+    <cadena>Hola</cadena>
+    <decimal>25.3</decimal>
+    <entero>25</entero>
+    <boleano>true</boleano>
+    <fecha>2018-07-09</fecha>
+    <fechah>2018-07-09T23:00:00</fechah>
+    <enteropos>36</enteropos>
+    <enteroneg>-36</enteroneg>
+</datos>

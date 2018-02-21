@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alumno xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="alumno.xsd">
+<nombre>Carlos Perez</nombre>
+<dni>7654466-X</dni>
+<telefono>653522500</telefono>
+<direccion>c/Zamora,29</direccion>
+</alumno>

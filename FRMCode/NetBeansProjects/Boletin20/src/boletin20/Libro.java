@@ -8,7 +8,7 @@ public class Libro {
 
     public Libro() {
     }
-    public Libro(String autor, String titulo, float prezo, int unidades) {
+    public Libro(String titulo, String autor, float prezo, int unidades) {
         this.autor = autor;
         this.titulo = titulo;
         this.prezo = prezo;

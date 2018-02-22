@@ -1,4 +1,4 @@
 La sombra del Águila,Arturo Perez Reverte,12.5,20,
-La Celestina,Fernando de Rojas,10,0,
-La Orbita de Plutón,Dross,5,1,
-El Silmarilion,John Ronald Revold Tolkkien,12.5,30,
+La Celestina,Fernando de Rojas,14,1
+La Orbita de Plutón,Dross,5.0,1,
+El Silmarilion,John Ronald Revold Tolkkien,12.5,3,

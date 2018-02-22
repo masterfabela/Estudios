@@ -1,4 +1,4 @@
-La sombra del √Åguila,Arturo Perez Reverte,12.5,20,
-La Celestina,Fernando de Rojas,14,1
-La Orbita de Plut√≥n,Dross,5.0,1,
+La sombra del ¡guila,Arturo Perez Reverte,12.5,20,
+La Celestina,Fernando de Rojas,14,1,
+La Orbita de PlutÛn,Dross,5.0,1,
 El Silmarilion,John Ronald Revold Tolkkien,12.5,3,

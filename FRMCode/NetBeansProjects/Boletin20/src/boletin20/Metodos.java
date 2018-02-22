@@ -28,10 +28,8 @@ public class Metodos {
         }
     }
     public void existe(String d){
-        Scanner sc= null;
         File fich=new File(d);
         System.out.println(fich.exists());
-        
     }
     public void visualizar(ArrayList l){
         for(Object l2:l){
@@ -115,7 +113,6 @@ public class Metodos {
                 l1=(Libro)l.get(i);
             escribir.println(l1.getTitulo()+","+l1.getAutor()+","+l1.getPrezo()+","+l1.getUnidades()+",");
             }
-            escribir.close();
             }
         catch(FileNotFoundException fnfe2){
             System.out.println("Erro: "+fnfe2.getMessage());

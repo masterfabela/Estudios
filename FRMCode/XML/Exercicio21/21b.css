@@ -1,7 +1,13 @@
-libro{
-    display:table;
-    display:table-row;
-    display:list-item;
-    border-style: solid;
-    border:2px;
+libro {
+    display: block;
+    padding-top: 5px;
+    border-bottom: 1px solid;
+}
+
+titulo, autor, fechaPublicacion {
+  display: block;
+}
+ 
+titulo {
+  font-weight: bold;
 }

@@ -28,7 +28,7 @@ public class Metodos {
         }
     }
     public void existe(String d){
-        File fich=new File(d);
+        fich=new File(d);
         System.out.println(fich.exists());
     }
     public void visualizar(ArrayList l){

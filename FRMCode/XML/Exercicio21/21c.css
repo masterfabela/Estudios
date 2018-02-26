@@ -7,7 +7,6 @@ autor,fechaPublicacion{
     display:block;
     display:table-row;
 }
-
 libro{
     display:table;
     border-style:solid;

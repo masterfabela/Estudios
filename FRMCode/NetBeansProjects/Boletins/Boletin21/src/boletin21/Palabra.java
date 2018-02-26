@@ -1,6 +1,6 @@
 package boletin21;
 
-public class Palabra{
+public class Palabra {
     private String pal;
 
     public Palabra(String pal) {

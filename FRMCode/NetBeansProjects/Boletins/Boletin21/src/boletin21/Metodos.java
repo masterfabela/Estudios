@@ -9,8 +9,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,8 +35,10 @@ public class Metodos {
         try{
             grab=new PrintWriter(fich);
             System.out.println(fich.exists());
+            int i=1;
             for(Palabra l1:l){
-                grab.println(l1.getPal());
+                grab.println(i+"º "+l1.getPal());
+                i++;
                 System.out.println("Grabando ");
                 
             }
@@ -52,6 +52,8 @@ public class Metodos {
             grab.close();
         }
     }
+
+    
     
     
     

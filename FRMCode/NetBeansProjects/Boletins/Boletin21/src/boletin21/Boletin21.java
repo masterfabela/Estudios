@@ -7,6 +7,7 @@ package boletin21;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -20,15 +21,22 @@ public class Boletin21 {
     public static void main(String[] args) {
         ArrayList lista=new ArrayList();
         Metodos m1=new Metodos();
+        Palabra p1=new Palabra();
+        Comparator c =new Comparator<Palabra>() {
+            @Override
+            public int compare(Palabra o1, Palabra o2) {
+                return o1.getPal().compareTo(o2.getPal());
+            }
+        };
         lista=m1.creador();
         for(Object l1:lista){
             System.out.println(l1.toString());
         }
-        m1.ordenar(lista);
+        lista.sort(c);
         for(Object l1:lista){
             System.out.println(l1.toString());
         }
-//        m1.grabar(lista, "Lista.txt");
+        m1.grabar(lista, "Lista.txt");
         
     }
     

@@ -81,7 +81,7 @@ public class ProxectoAlarma {
             hora=new Date();
             try {
                 Date a=formato.parse("Thu Jan 01 10:07:30 CET 1970");
-                horad=formato.format(a);
+                //horad=formato.format(a);
             } catch (ParseException ex) {
                 Logger.getLogger(ProxectoAlarma.class.getName()).log(Level.SEVERE, null, ex);
             }

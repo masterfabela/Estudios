@@ -103,6 +103,36 @@ public class Metodos {
             }
         }
     }
+    public void volcartitulo(String d, String a){
+        File f1=new File(d);
+        File f2=new File("Titautor.txt");
+        PrintWriter p1=null;
+        Scanner mc=null;
+        String[] linea=new String[4];
+        int aux=0;
+        
+        try{
+           mc=new Scanner(f1).useDelimiter(",\\s*");
+            while(mc.hasNext()){ 
+                for(int i=0;i<linea.length;i++){
+                    linea[i]=mc.next();
+                }
+                if(a.equalsIgnoreCase(linea[1])){
+                p1=new PrintWriter(f2);
+                p1.println(linea[0]);
+                aux++;
+                }
+            }  
+             System.out.println("Libros atopados: "+aux);
+        }
+        catch(FileNotFoundException fnfe1){
+            System.out.println("Error: "+fnfe1.getMessage());
+        }
+        finally{
+            mc.close();
+            p1.close();
+        }
+    }
     public void volcado(ArrayList l,String d){
         PrintWriter escribir=null;
         fich=new File(d);

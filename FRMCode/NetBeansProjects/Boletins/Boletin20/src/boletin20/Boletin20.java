@@ -15,7 +15,7 @@ public class Boletin20 {
             m1.existe("Libreria.txt");
             m1.importar(libreria,"Libreria.txt");
             int menu=Integer.parseInt(JOptionPane.showInputDialog("Menú de opcions:\n"+
-                    "engadir→1\n"+"consultar→2\n"+"visualizar→3\n"+"borrar→4\n"+"modificar→5"));
+                    "engadir→1\n"+"consultar→2\n"+"visualizar→3\n"+"borrar→4\n"+"modificar→5\n"+"imprimir titulos→6"));
             switch(menu){
                 case 1:m1.engadir(libreria);
                 break;
@@ -26,6 +26,8 @@ public class Boletin20 {
                 case 4:m1.borrar(libreria);
                 break;
                 case 5:m1.modificar(libreria,JOptionPane.showInputDialog("Titulo do libro a modificar."));
+                break;
+                case 6:m1.volcartitulo("Libreria.txt",JOptionPane.showInputDialog("Introduza o autor do que desexa imprimir os seus libros."));
                 break;
                 default:System.out.println("Opcion non valida.");
                 break;

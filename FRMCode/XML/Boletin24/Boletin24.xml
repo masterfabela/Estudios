@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persona xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:noNamespaceSchemaLocation="24.xsd">
-    <dni>111111111</dni>  
-    <name>José  Serrano</name>  
-    <estadoCivil>Soltero</estadoCivil>  
-    <company>  
-        <name>Autentia</name>  
-        <url>http://www.autentia.com</url>  
-        <telefono>+34916753306</telefono>  
-    </company>  
-</persona>    
+<alumnos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="24.xsd">
+    <alumno dni="111">
+        <nombre>Juan Garcia</nombre>
+        <direccion>
+            <calle>Avenida de la Fuente</calle>
+            <numero>6</numero>
+            <ciudad>Vigo</ciudad>
+            <provincia>Pontevedra</provincia>
+        </direccion>
+        <telefono>924555555</telefono>
+    </alumno>
+    <alumno dni="222">
+        <nombre>Jose Sanchez</nombre>
+        <direccion>
+            <calle>Calle Ancha</calle>
+            <numero>3</numero>
+            <ciudad>Lalín</ciudad>
+            <provincia>Pontevedra</provincia>
+        </direccion>
+        <telefono>924550000</telefono>
+    </alumno>
+</alumnos>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persona xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="24.xsd">
+    <dni>111111111</dni>  
+    <name>José  Serrano</name>  
+    <estadoCivil>Soltero</estadoCivil>  
+    <company>  
+        <name>Autentia</name>  
+        <url>http://www.autentia.com</url>  
+        <telefono>+34916753306</telefono>  
+    </company>  
+</persona>    

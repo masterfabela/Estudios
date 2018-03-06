@@ -5,6 +5,7 @@
  */
 package proxectoalarma;
 
+import java.awt.Toolkit;
 import java.util.Date;
 
 /**
@@ -14,6 +15,7 @@ import java.util.Date;
 public class Config {
     Date hora;
     Date halarma;
+    Toolkit toolkit=Toolkit.getDefaultToolkit();
 
     public Config() {
         hora=new Date();
@@ -32,7 +34,9 @@ public class Config {
     
     public boolean compH(){
         boolean toca=false;
-        
+        if(hora.getHours()==halarma.getHours()&&hora.getMinutes()==halarma.getMinutes()){
+            toca=true;
+        }
         return toca;
     }
 }

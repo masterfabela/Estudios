@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="24.xsd">
+  <libro>
+    <titulo>Los hombres que no amaban a las mujeres</titulo>
+    <autor>Stieg Larson</autor>
+    <fecha>2008</fecha>
+    <isbn>978-84-232</isbn>
+    <editor>Destino</editor>
+    <categoria>ficcion</categoria>
+    <stock>Si</stock>
+  </libro>
+  <libro revisor="Luis Rodrigo">
+    <titulo>Java a través de los tiempos</titulo>
+    <autor>Jesus Bobadilla y Adela Sancho</autor>
+    <fecha>2003</fecha>
+    <isbn>978-84-567</isbn>
+    <editor>Ra-Ma</editor>
+    <categoria>no ficción</categoria>
+    <stock>No</stock>
+  </libro>
+</libros>

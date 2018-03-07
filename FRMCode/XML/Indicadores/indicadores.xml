@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="i.xsd">
+    <persona>
+        <nombre>Pepe</nombre>
+        <apellido>Vazquez</apellido>
+    </persona>
+    <persona>
+        <apellido>Milla</apellido>
+        <nombre>Ana</nombre>
+    </persona>
+    <trabajadores>
+        <miembros>asd</miembros>
+    </trabajadores>
+    <trabajadores>
+        <empleado>asd</empleado>
+    </trabajadores>
+</personas>

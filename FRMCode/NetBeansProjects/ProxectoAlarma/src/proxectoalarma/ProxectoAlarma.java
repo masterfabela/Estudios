@@ -2,7 +2,7 @@ package proxectoalarma;
 
 import java.awt.Toolkit;
 import java.util.TimerTask;
-import javax.swing.Timer;
+import java.util.Timer;
 
 /**
  *
@@ -10,10 +10,11 @@ import javax.swing.Timer;
  */
 public class ProxectoAlarma {
             Timer timer;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
 
         Display d1=new Display();
         Config c1=new Config();
+        new ProxectoAlarma();
         d1.visualizar(c1);
         d1.cambiovista();
         d1.visualizar(c1);
@@ -27,7 +28,7 @@ public class ProxectoAlarma {
     }
     public ProxectoAlarma(){
         timer=new Timer();
-        timer.schedule
+        timer.schedule(new Reloj(),0,1000);
     }
 
 public class Reloj extends TimerTask{
@@ -45,6 +46,8 @@ public class Reloj extends TimerTask{
             System.out.println("Despertaaa");
             ti.cancel();
             ti.purge();
+        }else{
+            System.out.println("Segue dormindo.");
         }
     }
 }

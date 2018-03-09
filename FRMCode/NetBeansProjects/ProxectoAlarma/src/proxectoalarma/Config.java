@@ -20,6 +20,7 @@ public class Config {
     public Config() {
         hora=new Date();
         halarma=new Date();
+        halarma.setMinutes(hora.getMinutes()+1);
     }
     
     public void inchora(){

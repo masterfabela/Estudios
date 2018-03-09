@@ -10,26 +10,26 @@ package proxectoalarma;
  * @author femio23
  */
 public class Display {
-    int vista;
+    static int vista;
 
     public Display() {
         this.vista =0;
     }
     
-    public void showhora(Config c){
+    public static void showhora(Config c){
         System.out.println("Hora actual "+c.hora.getHours()+":"+c.hora.getMinutes()+":"+c.hora.getSeconds());
     }
-    public void showhalarma(Config c){
+    public static void showhalarma(Config c){
         System.out.println("Alarma actual "+c.halarma.getHours()+":"+c.halarma.getMinutes()+":"+c.halarma.getSeconds());
     }
-    public void cambiovista(){
+    public static void cambiovista(){
         if(vista==0){
             vista=1;
         }else{
             vista=0;
         }
     }
-    public void visualizar(Config c){
+    public static void visualizar(Config c){
         if(vista==0){
             showhora(c);
         }else{

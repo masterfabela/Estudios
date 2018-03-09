@@ -16,11 +16,11 @@ public class Display {
         this.vista =0;
     }
     
-    public static void showhora(Config c){
-        System.out.println("Hora actual "+c.hora.getHours()+":"+c.hora.getMinutes()+":"+c.hora.getSeconds());
+    public static void showhora(){
+        System.out.println("Hora actual "+Config.hora.getHours()+":"+Config.hora.getMinutes()+":"+Config.hora.getSeconds());
     }
-    public static void showhalarma(Config c){
-        System.out.println("Alarma actual "+c.halarma.getHours()+":"+c.halarma.getMinutes()+":"+c.halarma.getSeconds());
+    public static void showhalarma(){
+        System.out.println("Alarma actual "+Config.halarma.getHours()+":"+Config.halarma.getMinutes()+":"+Config.halarma.getSeconds());
     }
     public static void cambiovista(){
         if(vista==0){
@@ -29,11 +29,11 @@ public class Display {
             vista=0;
         }
     }
-    public static void visualizar(Config c){
+    public static void visualizar(){
         if(vista==0){
-            showhora(c);
+            showhora();
         }else{
-            showhalarma(c);
+            showhalarma();
         }
     }
 }

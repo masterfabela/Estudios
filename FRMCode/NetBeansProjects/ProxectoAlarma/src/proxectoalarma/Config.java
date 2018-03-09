@@ -13,27 +13,28 @@ import java.util.Date;
  * @author femio23
  */
 public class Config {
-    Date hora;
-    Date halarma;
+    static Date hora;
+    static Date halarma;
     Toolkit toolkit=Toolkit.getDefaultToolkit();
 
     public Config() {
         hora=new Date();
         halarma=new Date();
-        halarma.setMinutes(hora.getMinutes()+1);
     }
-    
-    public void inchora(){
+    public static void refresh(){
+        hora=new Date();
+    }
+    public static void inchora(){
         halarma.setHours(halarma.getHours()+1);
         System.out.println(halarma);
     }
     
-    public void incmin(){
+    public static void incmin(){
         halarma.setMinutes(halarma.getMinutes()+1);
         System.out.println(halarma);
     }
     
-    public boolean compH(){
+    public static boolean compH(){
         boolean toca=false;
         if(hora.getHours()==halarma.getHours()&&hora.getMinutes()==halarma.getMinutes()){
             toca=true;

@@ -14,16 +14,14 @@ public class ProxectoAlarma {
     public static void main(String[] args) throws InterruptedException{
         new ProxectoAlarma();
         new Display();
-        
+        Config.incmin();
        
         Display.cambiovista();
-        Display.visualizar(c1);
-        c1.inchora();
-        c1.incmin();
-        d1.cambiovista();
-        d1.visualizar(c1);
-        d1.cambiovista();
-        d1.visualizar(c1);
+        Display.visualizar();
+        Display.cambiovista();
+        Display.visualizar();
+        Display.cambiovista();
+        Display.visualizar();
         //pasar as funcions a o run.
 
     }
@@ -31,7 +29,7 @@ public class ProxectoAlarma {
         c1=new Config();
         timer=new Timer();
         timer.schedule(new Reloj(),0,1000);
-        Display.visualizar(c1);
+        Display.visualizar();
     }
 
 public class Reloj extends TimerTask{
@@ -43,6 +41,7 @@ public class Reloj extends TimerTask{
     @Override
     public void run(){
         
+        Config.refresh();
         if(a.compH()==true){
             al.beep();
             System.out.println("Despertaaa");
@@ -50,6 +49,7 @@ public class Reloj extends TimerTask{
             timer.purge();
         }else{
             System.out.println("Segue dormindo.");
+            Display.showhora();
         }
     }
 }

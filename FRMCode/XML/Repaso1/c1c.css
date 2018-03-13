@@ -1,0 +1,45 @@
+centro{
+display:table;
+border:solid;
+border-width: 1px;
+}
+nombreCentro{
+    display:none;
+}
+ciclos{
+    margin:25px;
+    display:table;
+    border:solid;
+    border-width: 1px;
+    text-align:center;
+    background-color: grey;
+}
+ciclo#ASIR{
+    display:table-row;
+    border:solid;
+    border-width: 1px;
+}
+ciclo#DAM{
+    display:table-row;
+    border:solid;
+    border-width: 1px;
+    margin:10px;
+}
+ciclo#DAW{
+    display:table-row;
+    border:solid;
+    border-width: 1px;
+    margin:10px;
+}
+ciclo#SMR{
+    display:table-row;
+    border:solid;
+    border-width: 1px;
+    margin:10px;
+}
+nombre,grado,decretoTitulo{
+    display:table-cell;
+    border:solid;
+    border-width: 1px;
+    margin:10px;
+}

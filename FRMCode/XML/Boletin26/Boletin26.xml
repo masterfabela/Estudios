@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alumno xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="26.xsd">
+    <nombre>Juan Garcia</nombre>
+    <edad>25</edad>
+    <electrodomestico>Balay</electrodomestico>
+    <letra>A</letra>
+    <let>y</let>
+    <letras>ASD</letras>
+    <clave>asd632</clave>
+    <password>986744755</password>
+    <direccion>
+        <calle>Avenida de la Fuente</calle>
+        <ciudad>Vigo</ciudad>
+    </direccion>
+    <telefono>986744755</telefono>
+</alumno>

@@ -1,0 +1,18 @@
+centro{
+
+}
+ciclo{
+    margin-left:15px;
+    display:list-item;
+    list-style-type:disc;
+}
+nombreCentro::before{
+    content:"Ciclos ";
+}
+nombreCentro{
+    font-weight: bold;
+    text-decoration: underline;
+}
+grado,decretoTitulo{
+    display:none;
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:element name="alumno">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="edad">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="electrodomestico">
+            <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="AEG"/>
+                        <xs:enumeration value="Sony"/>
+                        <xs:enumeration value="Balay"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="letra">
+            <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[X|Y|Z]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="let">
+            <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[x|y|z]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="letras">
+            <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[A-Z]{3}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="clave">
+            <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[a-z0-1]{6}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="password">
+            <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:length value="9"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="direccion" maxOccurs="Unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                    <xs:element name="calle" type="xs:string"/>
+                    <xs:element name="ciudad" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="telefono">
+            <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:length value="9"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+</xs:schema>

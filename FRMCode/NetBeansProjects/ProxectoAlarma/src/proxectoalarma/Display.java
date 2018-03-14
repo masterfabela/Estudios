@@ -10,27 +10,34 @@ package proxectoalarma;
  * @author femio23
  */
 public class Display {
-    static int vista;
-
-    public Display() {
-        this.vista =0;
-    }
-    
+    static int modoalarma=0;
+    /**
+     *Metodo para imprimir a hora actual do reloxo.
+     */
     public static void showhora(){
         System.out.println("Hora actual "+Config.hora.getHours()+":"+Config.hora.getMinutes()+":"+Config.hora.getSeconds());
     }
+    /**
+     * Metodo para imprimir a hora da alarma do reloxo
+     */
     public static void showhalarma(){
         System.out.println("Alarma actual "+Config.halarma.getHours()+":"+Config.halarma.getMinutes()+":"+Config.halarma.getSeconds());
     }
+    /**
+     * Metodo para cambiar o modo de visualización do reloxo
+     */
     public static void cambiovista(){
-        if(vista==0){
-            vista=1;
+        if(modoalarma==0){
+            modoalarma=1;
         }else{
-            vista=0;
+            modoalarma=0;
         }
     }
+    /**
+     * Metodo que en función do modo de visualización, imprime ou a hora ou a a alarma
+     */
     public static void visualizar(){
-        if(vista==0){
+        if(modoalarma==0){
             showhora();
         }else{
             showhalarma();

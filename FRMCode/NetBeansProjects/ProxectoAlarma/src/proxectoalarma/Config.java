@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package proxectoalarma;
-
-import java.awt.Toolkit;
 import java.util.Date;
 
 /**
@@ -15,7 +13,7 @@ import java.util.Date;
 public class Config {
     static Date hora;
     static Date halarma;
-    private static boolean end=false;
+    private static boolean end=false,activa=true;
  /**
   * Constructor da clase, que se encarga de inicializar tanto a hora, como a hora de alarma, á cal lle engade un minuto, para evitar que coincidan o principio.
   */
@@ -23,6 +21,20 @@ public class Config {
         hora=new Date();
         halarma=new Date();
         halarma.setMinutes(halarma.getMinutes()+1);
+    }
+    /**
+     * Metodo de consulta para a variable activa.
+     * @return se a alarma está activa, retornará true, senón, false.
+     */
+    public static boolean getactiva(){
+        return activa;
+    }
+    /**
+     * Setter para a variable activa.
+     * @param a Cambia o valor da variable activa polo valor introducido.
+     */
+    public static void setactiva( boolean a){
+        activa=a;
     }
     /**
      * Este método encargase de facer avanzar a hora.
@@ -81,7 +93,7 @@ public class Config {
      */
     public static boolean compH(){
         boolean toca=false;
-        if(hora.getHours()==halarma.getHours()&&hora.getMinutes()==halarma.getMinutes()){
+        if(hora.getHours()==halarma.getHours()&&hora.getMinutes()==halarma.getMinutes()&&activa==true){
             toca=true;
         }
         return toca;

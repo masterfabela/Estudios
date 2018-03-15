@@ -20,11 +20,11 @@ public class ProxectoAlarma {
         
         while(Config.fin()==false){
             if(!Display.isModoalarma()){
-                auxil=Integer.parseInt(JOptionPane.showInputDialog("Menú modo hora"+"\n1-Cambiar modo."
-                    + "\n2-Incrementar horas."+ "\n3-Incrementar minutos."));
+                auxil=Integer.parseInt(JOptionPane.showInputDialog("Alarma activa:"+Config.getactiva()+"\nMenú modo hora"+"\n1-Cambiar modo."
+                    + "\n2-Incrementar horas."+ "\n3-Incrementar minutos."+"\n4-Alarma on/off."));
             }else{
-                auxil=Integer.parseInt(JOptionPane.showInputDialog("Menú modo alarma\n1-Cambiar modo."
-                    + "\n2-Incrementar horas."+ "\n3-Incrementar minutos."));
+                auxil=Integer.parseInt(JOptionPane.showInputDialog("Alarma activa:"+Config.getactiva()+"\nMenú modo alarma\n1-Cambiar modo."
+                    + "\n2-Incrementar horas."+ "\n3-Incrementar minutos."+"\n4-Alarma on/off."));
             }
              switch(auxil){
                 case 1:Display.cambiovista();
@@ -38,17 +38,31 @@ public class ProxectoAlarma {
                 Display.visualizar();
                 auxil=0;
                 break;
+                case 4:
+                if(Config.getactiva()==true){
+                    Config.setactiva(false);
+                }else{
+                    Config.setactiva(true);
+                }
+                Display.visualizar();
+                auxil=0;
+                break;
                 default:
                 break;
             }
         }
     }
+    /**
+     * Constructor da clase principal, necesario para iniciar o fio.
+     */
     public ProxectoAlarma(){
         new Config();
         timer=new Timer();
         timer.schedule(new Reloj(),0,1000);
     }
-
+/**
+ * Inner class que se utiliza para poder realizar os traballos cos fios.
+ */
 public class Reloj extends TimerTask{
     Toolkit al=Toolkit.getDefaultToolkit();
     /**

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<encargados clase=”A1” xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="e3.xsd">
+    <encargado>
+        <nombre>Manuel</nombre>
+        <apellidos>Pérez</apellidos>
+    </encargado>
+    <encargado>
+        <nombre>Marta</nombre>
+        <apellidos>González</apellidos>
+    </encargado>
+</encargados>

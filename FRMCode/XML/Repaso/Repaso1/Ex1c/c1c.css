@@ -1,13 +1,17 @@
 centro{
-display:table;
-border:solid;
-border-width: 1px;
+    display:table;
+    border:solid;
+    border-width: 1px;
+
 }
 nombreCentro{
     display:none;
 }
 ciclos{
-    margin:25px;
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:5px;
     display:table;
     border:solid;
     border-width: 1px;

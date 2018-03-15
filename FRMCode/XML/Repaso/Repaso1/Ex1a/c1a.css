@@ -4,7 +4,7 @@ centro{
 ciclo{
     margin-left:15px;
     display:list-item;
-    list-style-type:disc;
+    list-style-type:decimal;
 }
 nombreCentro::before{
     content:"Ciclos ";

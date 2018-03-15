@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<empleados numero="5657" dni="43111544A" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rc.xsd"> 
+<empleados xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rd.xsd"> 
  <empleado>
-  <nombre>Juanjo Alonso</nombre>
-  <puesto>Gerente</puesto>
-  <claveUsuario>a1234B</claveUsuario>
-<sueldo>........</sueldo>
-</empleado>
-<empleado>
-  <nombre>Pedro García</nombre>
-  <puesto>Administrativo</puesto>
-  <claveUsuario>D6789s</claveUsuario>
-<sueldo>.......</sueldo>
-</empleado>
-<empleado>
-  <nombre>Juan Alonso</nombre>
-  <puesto>Director</puesto>
-  <claveUsuario>1234as</claveUsuario>
-<sueldo>......</sueldo>
-</empleado>
- </empleados>
+    <nombre>Juanjo Alonso</nombre>
+    <puesto>Gerente</puesto>
+    <claveUsuario>a1234B</claveUsuario>
+    <sueldo>1500</sueldo>
+  </empleado>
+  <empleado>
+    <nombre>Pedro García</nombre>
+    <puesto>Administrativo</puesto>
+    <claveUsuario>D6789s</claveUsuario>
+    <sueldo>2000</sueldo>
+  </empleado>
+  <empleado>
+    <nombre>Juan Alonso</nombre>
+    <puesto>Director</puesto>
+    <claveUsuario>1234as</claveUsuario>
+    <sueldo>2290</sueldo>
+  </empleado>
+</empleados>

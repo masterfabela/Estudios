@@ -15,14 +15,31 @@ public class ProxectoAlarma {
             static int auxil=0;
              String s="p";
     public static void main(String[] args) throws InterruptedException{
+        Display.setModoalarma(false);
         new ProxectoAlarma();
+        
         while(Config.fin()==false){
-            if(Display.modoalarma==0){
-                auxil=Integer.parseInt(JOptionPane.showInputDialog("Menú modo "+Display.modoalarma+"\n1-Cambiar modo."
+            if(!Display.isModoalarma()){
+                auxil=Integer.parseInt(JOptionPane.showInputDialog("Menú modo hora"+"\n1-Cambiar modo."
                     + "\n2-Incrementar horas."+ "\n3-Incrementar minutos."));
             }else{
                 auxil=Integer.parseInt(JOptionPane.showInputDialog("Menú modo alarma\n1-Cambiar modo."
                     + "\n2-Incrementar horas."+ "\n3-Incrementar minutos."));
+            }
+             switch(auxil){
+                case 1:Display.cambiovista();
+                auxil=0;
+                break;
+                case 2:Config.inchora(1);
+                Display.visualizar();
+                auxil=0;
+                break;
+                case 3:Config.incmin(1);
+                Display.visualizar();
+                auxil=0;
+                break;
+                default:
+                break;
             }
         }
     }
@@ -30,7 +47,6 @@ public class ProxectoAlarma {
         new Config();
         timer=new Timer();
         timer.schedule(new Reloj(),0,1000);
-        Display.visualizar();
     }
 
 public class Reloj extends TimerTask{
@@ -45,28 +61,23 @@ public class Reloj extends TimerTask{
             al.beep();
             s=JOptionPane.showInputDialog("¿Retrasar alarma?\n        y/n.");
             if(s.equals("y")){
-            Config.incmin(5);
-            s="p";
+                if(!Display.isModoalarma()){
+                    Display.cambiovista();
+                    Config.incmin(5);
+                    s="p";
+                    Display.cambiovista();
+                }else{
+                    Config.incmin(5);
+                    s="p";
+                }
             }else{
-            timer.cancel();
-            timer.purge();
-            System.out.println("Que teña un bo dia.");
-            Config.sfinalizar(true);
+                timer.cancel();
+                timer.purge();
+                System.out.println("Que teña un bo dia.");
+                Config.sfinalizar(true);
             }
         }else{
-            switch(auxil){
-                case 1:Display.cambiovista();
-                auxil=0;
-                break;
-                case 2:Config.inchora(1);
-                auxil=0;
-                break;
-                case 3:Config.incmin(1);
-                auxil=0;
-                break;
-                default:
-                break;
-            }
+            
             Display.visualizar();
             Config.sfinalizar(false);
         }

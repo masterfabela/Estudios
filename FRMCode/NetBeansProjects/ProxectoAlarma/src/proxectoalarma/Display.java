@@ -10,7 +10,7 @@ package proxectoalarma;
  * @author femio23
  */
 public class Display {
-    static int modoalarma=0;
+    static boolean modoalarma=true;
     /**
      *Metodo para imprimir a hora actual do reloxo.
      */
@@ -27,17 +27,26 @@ public class Display {
      * Metodo para cambiar o modo de visualización do reloxo
      */
     public static void cambiovista(){
-        if(modoalarma==0){
-            modoalarma=1;
+        if(!isModoalarma()){
+            setModoalarma(true);
         }else{
-            modoalarma=0;
+            setModoalarma(false);
         }
     }
+
+    public static boolean isModoalarma() {
+        return modoalarma;
+    }
+
+    public static void setModoalarma(boolean modoalarma) {
+        Display.modoalarma = modoalarma;
+    }
+    
     /**
      * Metodo que en función do modo de visualización, imprime ou a hora ou a a alarma
      */
     public static void visualizar(){
-        if(modoalarma==0){
+        if(!isModoalarma()){
             showhora();
         }else{
             showhalarma();

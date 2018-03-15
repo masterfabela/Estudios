@@ -35,7 +35,7 @@ public class Config {
      * @param n Este parámetro indica o numero de unidades que se ha de aumentar.
      */
     public static void inchora(int n){
-        if(Display.modoalarma==0){
+        if(!Display.isModoalarma()){
              if(hora.getHours()+n>=24){
                 int aux=24-(hora.getHours()+n);
                 hora.setHours(aux);
@@ -59,7 +59,7 @@ public class Config {
      * @param n Este parámetro indica o numero de unidades que se ha de aumentar.
      */
     public static void incmin(int n){
-         if(Display.modoalarma==0){
+         if(!Display.isModoalarma()){
              if(hora.getMinutes()+n>=60){
                 int aux=60-(hora.getMinutes()+n);
                 hora.setMinutes(aux);

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alumno xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ra.xsd"> 
+  <nombre>Marta</nombre>
+  <apellidos>Pérez</apellidos>
+    <direccion>
+        <calle>G Barbón</calle>
+        <numero>56</numero>
+    </direccion> 
+</alumno>

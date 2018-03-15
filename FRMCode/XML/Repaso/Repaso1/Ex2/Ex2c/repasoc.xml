@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alumno numero="5657" dni="43111544A" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rc.xsd"> 
+    <nombre>Juan Garcia</nombre>
+    <direccion>Avenida de la Fuente 6 Vigo</direccion>
+    <telefonos>
+        <fijo>1234</fijo>
+        <movil>5678</movil>
+    </telefonos>
+</alumno>

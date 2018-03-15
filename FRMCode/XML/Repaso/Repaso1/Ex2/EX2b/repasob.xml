@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rb.xsd"> 
+Título: <titulo>John Smith</titulo>.
+  Autor: <autor>1032</autor>.
+Editorial: <editorial>2011-01-19</editorial>.
+</libro>

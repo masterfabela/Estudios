@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exemplolayout;
+package composicionlayouts;
 
 /**
  *
  * @author femio23
  */
-public class ExemploLayout {
+public class ComposicionLayouts {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         VentanaLayout vl1=new VentanaLayout();
-        vl1.disGridLayout();
+        vl1.dist();
     }
     
 }

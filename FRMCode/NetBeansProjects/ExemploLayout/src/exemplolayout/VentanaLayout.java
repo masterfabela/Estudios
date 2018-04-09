@@ -77,4 +77,20 @@ public class VentanaLayout {
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco.setVisible(true);
     }
+    public void disGridLayout(){
+        
+        panel.setLayout(new GridLayout(2,3));
+        panel.add(boton1);
+        panel.add(boton2);
+        panel.add(boton3);
+        panel.add(boton4);
+        panel.add(boton5);
+        
+        marco.add(panel);
+        //axustamos o marco os compoñentes
+        marco.pack();
+        
+        marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        marco.setVisible(true);
+    }
 }

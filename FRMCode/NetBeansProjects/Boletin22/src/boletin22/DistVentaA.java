@@ -95,7 +95,7 @@ public class DistVentaA {
     fin.add(p7);
     fin.add(p8);
     fin.add(p9);
-    marco=new JFrame();
+    marco=new JFrame("New User");
     marco.add(fin);
     marco.pack();
     marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

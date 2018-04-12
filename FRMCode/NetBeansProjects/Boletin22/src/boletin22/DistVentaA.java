@@ -13,7 +13,7 @@ import javax.swing.*;
  *
  * @author femio23
  */
-public class DistVenta {
+public class DistVentaA {
     JFrame marco;
     JLabel info,user,nome,id,grupo,directorio,shell,pass,pass2;
     JTextField tuser,tnome,tid,tdirectorio;
@@ -22,7 +22,7 @@ public class DistVenta {
     ArrayList agrupo=new ArrayList();
     ArrayList adir=new ArrayList();
     
-    public DistVenta(){
+    public DistVentaA(){
     info=new JLabel("Create a new user");
     user=new JLabel("User Name:");
     nome=new JLabel("Full Name:");
@@ -35,7 +35,10 @@ public class DistVenta {
     tuser=new JTextField("mary",15);
     tnome=new JTextField("User Mary",15);
     tid=new JTextField("[Automatic]",15);
+    tid.setEditable(false);
+    
     tdirectorio=new JTextField("[Automatic]",15);
+    tdirectorio.setEditable(false);
     tpass=new JPasswordField("1234567890",15);
     tpass2=new JPasswordField("1234567890",15);
     cgrupo=new JComboBox();

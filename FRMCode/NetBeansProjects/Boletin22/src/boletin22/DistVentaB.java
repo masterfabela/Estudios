@@ -9,13 +9,6 @@ package boletin22;
  *
  * @author femio23
  */
-public class Boletin22 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        DistVentaA vl1=new DistVentaA();
-    }
+public class DistVentaB {
     
 }

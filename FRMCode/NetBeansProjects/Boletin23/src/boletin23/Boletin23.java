@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package boletin22;
+package boletin23;
 
 /**
  *
  * @author femio23
  */
-public class Boletin22 {
+public class Boletin23 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        DistVentaA vl1=new DistVentaA();
+        
     }
     
 }

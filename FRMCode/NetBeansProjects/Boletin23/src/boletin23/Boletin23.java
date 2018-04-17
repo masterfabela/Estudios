@@ -15,7 +15,9 @@ public class Boletin23 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+//        VentanaA va1=new VentanaA();
+//        VentanaB va1=new VentanaB();
+        VentanaC va1=new VentanaC();
     }
     
 }

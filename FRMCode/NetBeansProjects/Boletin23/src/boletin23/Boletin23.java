@@ -17,7 +17,8 @@ public class Boletin23 {
     public static void main(String[] args) {
 //        VentanaA va1=new VentanaA();
 //        VentanaB va1=new VentanaB();
-        VentanaC va1=new VentanaC();
+//        VentanaC va1=new VentanaC();
+        VentanaD va1=new VentanaD();
     }
     
 }

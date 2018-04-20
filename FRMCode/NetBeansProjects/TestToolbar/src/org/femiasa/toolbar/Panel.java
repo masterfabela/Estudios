@@ -6,7 +6,10 @@
 package org.femiasa.toolbar;
 
 import java.awt.FlowLayout;
+import java.net.URL;
+import java.net.URLEncoder;
 import javax.swing.*;
+import org.openide.awt.HtmlBrowser.URLDisplayer;
 
 /**
  *
@@ -24,5 +27,8 @@ public class Panel {
     panel.add(etiqueta);
     panel.add(entrada);
     panel.setVisible(true);
+    
+    
     }
+    
 }

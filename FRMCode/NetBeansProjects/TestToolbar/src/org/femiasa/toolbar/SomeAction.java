@@ -7,9 +7,12 @@ package org.femiasa.toolbar;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
+import java.net.URLEncoder;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionRegistration;
+import org.openide.awt.HtmlBrowser;
 import org.openide.util.NbBundle.Messages;
 
 @ActionID(
@@ -26,6 +29,12 @@ public final class SomeAction implements ActionListener {
     Panel p1=new Panel();
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Hola Mundo");
+        try {
+        String searchText = URLEncoder.encode(p1.entrada.getText(), "UTF-8");
+        HtmlBrowser.URLDisplayer.getDefault().showURL
+           (new URL("http://www.google.com/search?hl=en&q="+searchText+"&btnG=Google+Search"));
+    } catch (Exception eee){
+        return;//nothing much to do
+    }
     }
 }

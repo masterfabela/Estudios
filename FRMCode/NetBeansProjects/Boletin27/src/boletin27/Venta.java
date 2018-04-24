@@ -15,22 +15,20 @@ import javax.swing.border.LineBorder;
  * @author femio23
  */
 public class Venta {
-    LineBorder m1,m2;
     JFrame marco;
-    JPanel vista,pestado,pboton,ptotal;
+    JPanel vista,vista2,pestado,pboton,ptotal;
     JTextArea visual;
     JButton on;
     JButton off;
     JButton z,u,d,t,c,ci,s,se,o,n;
     JButton div,mul,sum,res,dec,resul;
     public Venta(){
-        m1=new LineBorder(Color.BLACK);
         visual=new JTextArea();
         visual.setText("0123456789");
         vista=new JPanel();
         vista.setLayout(new FlowLayout(FlowLayout.CENTER));
-        //vista.add(m1);
         vista.add(visual);
+        vista.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         
         
         
@@ -80,12 +78,16 @@ public class Venta {
         pboton.add(resul);
         pboton.add(sum);
         pboton.setSize(250,300);
+        vista2=new JPanel();
+        vista2.setLayout(new BoxLayout(vista2,BoxLayout.Y_AXIS));
+        vista2.add(pestado);
+        vista2.add(pboton);
+        vista2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         
         ptotal=new JPanel();
         ptotal.setLayout(new BoxLayout(ptotal,BoxLayout.Y_AXIS));
         ptotal.add(vista);
-        ptotal.add(pestado);
-        ptotal.add(pboton);
+        ptotal.add(vista2);
         
         marco=new JFrame();
         marco.add(ptotal);

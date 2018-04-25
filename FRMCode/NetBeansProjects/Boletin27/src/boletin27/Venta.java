@@ -19,18 +19,21 @@ import javax.swing.border.LineBorder;
 public class Venta implements ActionListener{
     JFrame marco;
     JPanel vista,vista2,pestado,pboton,ptotal;
-    JTextArea visual;
+    JTextField visual;
     JButton on;
     JButton off;
     JButton z,u,d,t,c,ci,s,se,oi,n;
     JButton div,mul,sum,res,dec,resul;
-    float mem1=0,mem2=0;
+    float mem1,mem2;
+    String signo=null;
     boolean cambio;
     public Venta(){
         cambio=false;
-        visual=new JTextArea(1,9);
+        visual=new JTextField(9);
         visual.setText("");
         visual.setBackground(Color.GRAY);
+        visual.setFont(new Font("Arial",Font.BOLD,25));
+        visual.setHorizontalAlignment(JTextField.RIGHT);
         vista=new JPanel();
         vista.setLayout(new FlowLayout(FlowLayout.CENTER));
         vista.add(visual);
@@ -140,8 +143,14 @@ public class Venta implements ActionListener{
         return show;
     }
     public float concatenar(String s,Float f){
-        String se=s+String.valueOf(f);
-        float v=Float.parseFloat(se);
+         String se;
+         float v;
+        if(f==0){
+        se=s;
+         v=Float.parseFloat(se);
+        }
+       se=String.valueOf(f)+s;
+        v=Float.parseFloat(se);
         return v;
     }
     @Override
@@ -160,19 +169,22 @@ public class Venta implements ActionListener{
         }
         if(o==div){
         cambio=true;
-        operar(mem1,mem2,"/");
+        signo="/";
         }
         if(o==mul){
         cambio=true;
-        operar(mem1,mem2,"*");
+        signo="*";
         }
         if(o==sum){
         cambio=true;
-        operar(mem1,mem2,"+");
+        signo="+";
         }
         if(o==res){
         cambio=true;
-        operar(mem1,mem2,"-");
+        signo="-";
+        }
+        if(o==resul){
+            visual.setText(String.valueOf(operar(mem1,mem2,signo)));
         }
         if(o==z){
             if(cambio=false){

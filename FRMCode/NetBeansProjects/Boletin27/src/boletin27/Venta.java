@@ -24,11 +24,12 @@ public class Venta implements ActionListener{
     JButton off;
     JButton z,u,d,t,c,ci,s,se,oi,n;
     JButton div,mul,sum,res,dec,resul;
-    float mem1,mem2;
+    String mem1,mem2;
     String signo=null;
-    boolean cambio;
+    boolean cambio,p;
     public Venta(){
         cambio=false;
+        p=true;
         visual=new JTextField(9);
         visual.setText("");
         visual.setBackground(Color.GRAY);
@@ -124,34 +125,36 @@ public class Venta implements ActionListener{
         
     }
     
-    public String operar(float operador1,float operador2, String signo){
+    public String operar(String operador1,String operador2, String signo){
         float resultado=0;
         String show=null;
         switch(signo){
-        case"/":resultado=operador1/operador2;
+        case"/":resultado=Float.parseFloat(operador1)/Float.parseFloat(operador2);
             show=String.valueOf(resultado);
-            if(operador1==0||operador2==0){
+            if(operador1=="0"||operador2=="0"){
                 show="Math Error";
             }
-        case"*":resultado=operador1*operador2;
+            break;
+        case"*":resultado=Float.parseFloat(operador1)*Float.parseFloat(operador2);
             show=String.valueOf(resultado);
-        case"+":resultado=operador1+operador2;
+            break;
+        case"+":resultado=Float.parseFloat(operador1)+Float.parseFloat(operador2);
             show=String.valueOf(resultado);
-        case"-":resultado=operador1-operador2;
+            break;
+        case"-":resultado=Float.parseFloat(operador1)-Float.parseFloat(operador2);
             show=String.valueOf(resultado);
+            break;
         }
         return show;
     }
-    public float concatenar(String s,Float f){
+    public String concatenar(String s,String f){
          String se;
-         float v;
-        if(f==0){
+        if(f==null){
         se=s;
-         v=Float.parseFloat(se);
+        }else{
+       se=f+s;
         }
-       se=String.valueOf(f)+s;
-        v=Float.parseFloat(se);
-        return v;
+        return se;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -160,139 +163,144 @@ public class Venta implements ActionListener{
         visual.setBackground(Color.WHITE);
         visual.setText("");
         cambio=false;
-        mem1=0;
-        mem2=0;
+            System.out.println(mem1+" "+mem2+" "+signo);
+        
+        mem1=null;
+        mem2=null;
         }
         if(o==off){
         visual.setText("");
         visual.setBackground(Color.GRAY);
         }
         if(o==div){
-        cambio=true;
+        cambio=!cambio;
         signo="/";
         }
         if(o==mul){
-        cambio=true;
+        cambio=!cambio;
         signo="*";
         }
         if(o==sum){
-        cambio=true;
+        cambio=!cambio;
         signo="+";
         }
         if(o==res){
-        cambio=true;
+        cambio=!cambio;
         signo="-";
         }
         if(o==resul){
+            System.out.println(operar(mem1,mem2,signo));
             visual.setText(String.valueOf(operar(mem1,mem2,signo)));
+            
         }
         if(o==z){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("0",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar("0",mem2);
+                visual.setText(mem2);
             }
         }
         if(o==u){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("1",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar("1",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==d){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("2",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar("2",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==t){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("3",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar("3",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==c){
-            if(cambio=false){
+            if(cambio==true){
                  mem1=concatenar("4",mem1);
-                 visual.setText(String.valueOf(mem1));
+                 visual.setText(mem1);
             }
             else{
                 mem2=concatenar("4",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==ci){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("5",mem1);
-                visual.setText(String.valueOf(mem1));
+               visual.setText(mem1);
             }
             else{
                 mem2=concatenar("5",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==s){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("6",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar("6",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==se){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("7",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar("7",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==oi){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("8",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar("8",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==n){
-            if(cambio=false){
+            if(cambio==true){
                 mem1=concatenar("9",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar("9",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
         if(o==dec){
-        if(cambio=false){
+        if(cambio==true){
                 mem1=concatenar(".",mem1);
-                visual.setText(String.valueOf(mem1));
+                visual.setText(mem1);
             }
             else{
                 mem2=concatenar(".",mem2);
-                visual.setText(String.valueOf(mem2));
+                visual.setText(mem2);
             }
         }
     }

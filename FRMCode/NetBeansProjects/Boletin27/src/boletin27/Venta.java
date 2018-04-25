@@ -7,6 +7,8 @@ package boletin27;
 
 import java.awt.Color;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -14,7 +16,7 @@ import javax.swing.border.LineBorder;
  *
  * @author femio23
  */
-public class Venta {
+public class Venta implements ActionListener{
     JFrame marco;
     JPanel vista,vista2,pestado,pboton,ptotal;
     JTextArea visual;
@@ -23,8 +25,8 @@ public class Venta {
     JButton z,u,d,t,c,ci,s,se,o,n;
     JButton div,mul,sum,res,dec,resul;
     public Venta(){
-        visual=new JTextArea();
-        visual.setText("0123456789");
+        visual=new JTextArea(1,9);
+        visual.setText("a");
         vista=new JPanel();
         vista.setLayout(new FlowLayout(FlowLayout.CENTER));
         vista.add(visual);
@@ -34,8 +36,10 @@ public class Venta {
         
         on=new JButton("AC");
         on.setBackground(Color.red);
+        on.addActionListener(this);
         off=new JButton("OFF");
         off.setBackground(Color.blue);
+        off.addActionListener(this);
         
         pestado=new JPanel();
         pestado.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -43,21 +47,37 @@ public class Venta {
         pestado.add(off);
         
         z=new JButton("0");
+        z.addActionListener(this);
         u=new JButton("1");
+        u.addActionListener(this);
         d=new JButton("2");
+        d.addActionListener(this);
         t=new JButton("3");
+        t.addActionListener(this);
         c=new JButton("4");
+        c.addActionListener(this);
         ci=new JButton("5");
+        ci.addActionListener(this);
         s=new JButton("6");
+        s.addActionListener(this);
         se=new JButton("7");
+        se.addActionListener(this);
         o=new JButton("8");
+        o.addActionListener(this);
         n=new JButton("9");
+        n.addActionListener(this);
         div=new JButton("/");
+        div.addActionListener(this);
         mul=new JButton("*");
+        mul.addActionListener(this);
         res=new JButton("-");
+        res.addActionListener(this);
         sum=new JButton("+");
+        sum.addActionListener(this);
         dec=new JButton(".");
+        dec.addActionListener(this);
         resul=new JButton("=");
+        resul.addActionListener(this);
         pboton=new JPanel();
         pboton.setLayout(new GridLayout(4,4,5,5));
         
@@ -98,4 +118,17 @@ public class Venta {
         
         
     }    
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object o=e.getSource();
+        if(o==on){
+        visual.setBackground(Color.WHITE);
+        visual.setText("_");
+        }
+        if(o==off){
+        visual.setText("");
+        visual.setBackground(Color.GRAY);
+        }
+    }
 }

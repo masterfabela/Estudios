@@ -27,6 +27,8 @@
         <!--Aqui vai a instruccion se a condicion se cumple-->
           <xsl:value-of select="nombre"/>:<xsl:value-of select="horasSemanales"/><br/>
         </xsl:for-each>
+        <!--Condición multiple-->
+        <xsl:choose>
       </body>
     </html>
   </xsl:template>

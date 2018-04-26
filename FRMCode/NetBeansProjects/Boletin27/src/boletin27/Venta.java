@@ -125,27 +125,36 @@ public class Venta implements ActionListener{
         
     }
     
-    public String operar(String operador1,String operador2, String signo){
+    public void operar(String operador1,String operador2, String signo){
         float resultado=0;
         String show=null;
         switch(signo){
         case"/":resultado=Float.parseFloat(operador1)/Float.parseFloat(operador2);
             show=String.valueOf(resultado);
+            visual.setText(String.valueOf(resultado));
             if(operador1=="0"||operador2=="0"){
+                visual.setText("Math Error");
                 show="Math Error";
             }
             break;
         case"*":resultado=Float.parseFloat(operador1)*Float.parseFloat(operador2);
             show=String.valueOf(resultado);
+            visual.setText(String.valueOf(resultado));
             break;
         case"+":resultado=Float.parseFloat(operador1)+Float.parseFloat(operador2);
             show=String.valueOf(resultado);
             break;
         case"-":resultado=Float.parseFloat(operador1)-Float.parseFloat(operador2);
+//            if(Float.parseFloat(operador1)<Float.parseFloat(operador2)){
             show=String.valueOf(resultado);
+            visual.setText(String.valueOf(resultado));
+//            show="-"+show;
+//            }else{
+            show=String.valueOf(resultado);
+//            }
             break;
         }
-        return show;
+        
     }
     public String concatenar(String s,String f){
          String se;
@@ -189,12 +198,11 @@ public class Venta implements ActionListener{
         signo="-";
         }
         if(o==resul){
-            System.out.println(operar(mem1,mem2,signo));
-            visual.setText(String.valueOf(operar(mem1,mem2,signo)));
+            operar(mem1,mem2,signo);
             
         }
         if(o==z){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("0",mem1);
                 visual.setText(mem1);
             }
@@ -204,7 +212,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==u){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("1",mem1);
                 visual.setText(mem1);
             }
@@ -214,7 +222,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==d){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("2",mem1);
                 visual.setText(mem1);
             }
@@ -224,7 +232,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==t){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("3",mem1);
                 visual.setText(mem1);
             }
@@ -234,7 +242,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==c){
-            if(cambio==true){
+            if(cambio==false){
                  mem1=concatenar("4",mem1);
                  visual.setText(mem1);
             }
@@ -244,7 +252,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==ci){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("5",mem1);
                visual.setText(mem1);
             }
@@ -254,7 +262,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==s){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("6",mem1);
                 visual.setText(mem1);
             }
@@ -264,7 +272,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==se){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("7",mem1);
                 visual.setText(mem1);
             }
@@ -274,7 +282,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==oi){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("8",mem1);
                 visual.setText(mem1);
             }
@@ -284,7 +292,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==n){
-            if(cambio==true){
+            if(cambio==false){
                 mem1=concatenar("9",mem1);
                 visual.setText(mem1);
             }
@@ -294,7 +302,7 @@ public class Venta implements ActionListener{
             }
         }
         if(o==dec){
-        if(cambio==true){
+        if(cambio==false){
                 mem1=concatenar(".",mem1);
                 visual.setText(mem1);
             }

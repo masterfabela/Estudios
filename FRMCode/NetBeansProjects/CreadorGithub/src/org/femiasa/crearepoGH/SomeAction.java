@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionRegistration;
@@ -33,7 +32,7 @@ public final class SomeAction implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    GitHub gh1;
+    GitHub gh1 ;
     Scanner sc=null;
     File fich=null;
     String user="0";
@@ -44,7 +43,8 @@ public final class SomeAction implements ActionListener {
             sc=new Scanner(fich);
             user=sc.nextLine();
             pass=sc.nextLine();
-            
+            gh1=GitHub.connectUsingPassword(user, pass);
+            novorep("Testeando",gh1);
             
         }catch(FileNotFoundException fnfe1){
             System.out.println("error:"+fnfe1.getMessage());
@@ -54,12 +54,6 @@ public final class SomeAction implements ActionListener {
             pass="0";
         }
         sc.close();
-        
-        try{
-            gh1=GitHub.connectUsingPassword(user, pass);
-            novorep("Testeando",gh1);
-        }catch(IOException ioe1){
-            System.out.println("error:"+ioe1.getMessage());}
     }
     public static void novorep(String repoNombre,GitHub gh1) throws IOException {
         GHCreateRepositoryBuilder repo = gh1.createRepository(repoNombre);

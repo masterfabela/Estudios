@@ -14,10 +14,10 @@ public class Alumno {
     private int nota;
     private Enderezo enderezo;
     Enderezo e1;
-    public Alumno(){
-    nome="Juan";
-    nota=5;
-    e1=new Enderezo("Albarello",24);
+    public Alumno(String nom,int not,String d,int num){
+    this.nome=nom;
+    this.nota=not;
+    e1=new Enderezo(d,num);
     }
 
     public String getNome() {
@@ -51,6 +51,9 @@ public class Alumno {
     public void cambiarnota(int n){
         this.nota=n;
     }
+     public void cambiorua(String r){
+            e1.setRua(r);
+        }
     public void amosar(){
         
         System.out.println(toString()+e1.toString());
@@ -63,7 +66,7 @@ public class Alumno {
         rua=nome;
         numero=n;
         }
-
+       
         public String getRua() {
             return rua;
         }

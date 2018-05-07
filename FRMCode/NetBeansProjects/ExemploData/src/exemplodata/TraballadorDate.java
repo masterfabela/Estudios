@@ -55,7 +55,10 @@ public class TraballadorDate {
         listrab.stream().forEach(t1->System.out.println("Dado de alta: "+t1.dataAlta));
     }
     public void tempoAlta(){
-    listrab.stream().forEach(t1->System.out.println("Este empregado leva de alta "+(t1.dataBaixa.getDay()-t1.dataAlta.getDay())+" dias,"+(t1.dataBaixa.getMonth()-t1.dataAlta.getMonth())+" meses,"+(t1.dataBaixa.getYear()-t1.dataAlta.getYear())+" anos"));
+    listrab.stream().forEach(t1->System.out.println("Este empregado leva de alta "+
+            (t1.dataBaixa.getDate()-t1.dataAlta.getDate())+" dias,"+
+            (t1.dataBaixa.getMonth()-t1.dataAlta.getMonth())+" meses,"+
+            (t1.dataBaixa.getYear()-t1.dataAlta.getYear())+" anos"));
     }
     public void antiguidade(){
         listrab.stream().forEach(t1->System.out.println((t1.dataBaixa.getYear()-t1.dataAlta.getYear())+" anos de antiguidade."));

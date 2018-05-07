@@ -18,7 +18,6 @@ public class ExemploData {
         TraballadorDate td1=new TraballadorDate();
         td1.inicializar();
         System.out.println(td1.listrab.get(0).dataAlta);
-        System.out.println(td1.listrab.get(0).dataAlta.getDate());
         td1.tempoAlta();
         td1.antiguidade();
         

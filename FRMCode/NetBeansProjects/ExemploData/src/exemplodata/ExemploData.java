@@ -16,10 +16,15 @@ public class ExemploData {
      */
     public static void main(String[] args) {
         TraballadorDate td1=new TraballadorDate();
-        td1.inicializar();
-        System.out.println(td1.listrab.get(0).dataAlta);
-        td1.tempoAlta();
-        td1.antiguidade();
+        ClaseTime ct1=new ClaseTime();
+//        td1.inicializar();
+//        System.out.println(td1.listrab.get(0).dataAlta);
+//        td1.tempoAlta();
+//        td1.antiguidade();
+        ct1.inicializar();
+        System.out.println(ct1.listrab.get(0).dataAlta);
+        ct1.tempoAlta();
+        ct1.antiguidade();
         
     }
     

@@ -180,5 +180,13 @@ JoseRamon/Swift/Aplicacion iOS de prueba
 /FRMCode/NetBeansProjects/Boletin29/build/
 /FRMCode/NetBeansProjects/ModuloTest/nbproject/private/
 /FRMCode/NetBeansProjects/ModuloTest/build/
+<<<<<<< HEAD
 /FRMCode/NetBeansProjects/testSerializable/nbproject/private/
 /FRMCode/NetBeansProjects/testSerializable/build/
+=======
+/FRMCode/NetBeansProjects/ProbandoPaquetes/nbproject/private/
+/FRMCode/NetBeansProjects/ProbandoPaquetes/build/
+/FRMCode/NetBeansProjects/ProbandoPaquetes/dist/
+/FRMCode/NetBeansProjects/Boletin30/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin30/build/
+>>>>>>> 701b8dc1b9140132c5b66d334296a47ca6a157da

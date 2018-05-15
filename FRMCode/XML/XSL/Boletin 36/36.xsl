@@ -67,8 +67,21 @@
             </table>
             <b>El numero de libros es de </b> = <xsl:value-of select="count(libros/libro)"/> <br/>
             Exercicio 8<br/>
-            
-
+            <table border="2" style="border-color:grey;text-align:center">
+                <xsl:for-each select="libros/libro">
+                <xsl:choose>
+                    <xsl:when test="precio>30">
+                        <tr><td><xsl:value-of select="titulo"/></td><td><xsl:value-of select="autor"/></td><td><xsl:value-of select="isbn"/></td><td style="background-color:red"><xsl:value-of select="precio"/></td></tr>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <tr><td><xsl:value-of select="titulo"/></td><td><xsl:value-of select="autor"/></td><td><xsl:value-of select="isbn"/></td><td><xsl:value-of select="precio"/></td></tr>
+                    </xsl:otherwise>
+                    
+                </xsl:choose>
+                </xsl:for-each>
+                
+            </table>
+                <b>El precio medio es de </b> = <xsl:value-of select="sum(//precio)div(count(//libro))"/> <br/>
             </body>    
         </html>
     </xsl:template>

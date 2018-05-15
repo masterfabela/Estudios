@@ -44,7 +44,6 @@
         </li>
         </xsl:for-each>
         </ul>
-
         <xsl:for-each select="colegio/modulos/modulo[curso=2]">
             <ul>
             <lh>Lista ciclos:</lh>
@@ -58,7 +57,6 @@
               </ul>
             </li>
         </xsl:for-each>
-
         <table>
         <caption>Taboa de modulos</caption>
         <th>Nombre</th><th>curso</th><th>H.Sem</th>
@@ -68,7 +66,6 @@
             <td><xsl:value-of select="horasSemanales"/></td></tr>
         </xsl:for-each>
             </table>
-
       </body>
     </html>
   </xsl:template>

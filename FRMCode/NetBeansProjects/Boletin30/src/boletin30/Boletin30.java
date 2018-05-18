@@ -31,8 +31,6 @@ public class Boletin30 {
         for(SeleccionFutbol l1:lista){
             System.out.println(l1.toString());
         }
-        Predicate<SeleccionFutbol> consultidade=(l1)->l1.id>10;
-        System.out.println(lista.stream().allMatch(consultidade));
     }
     
 }

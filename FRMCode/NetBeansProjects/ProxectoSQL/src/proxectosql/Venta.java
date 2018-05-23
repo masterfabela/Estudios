@@ -6,23 +6,29 @@
 package proxectosql;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
  * @author femio23
  */
-public class Venta {
+public class Venta implements ActionListener{
     JFrame marco;
     JPanel p1,p2,p3,p4;
     JTextField nome,idade,codigo;
     JLabel n,i,c;
     JTable taboa;
     JButton cons,borr,act,add;
-    public Venta(){
+    DefaultTableModel modelo=new DefaultTableModel();
+    Conector c1;
+
+    public Venta(Conector cs){
+        Conector c1=cs;
         p1=new JPanel(new FlowLayout());
         n=new JLabel("Nome:");
         i=new JLabel("Idade:");
@@ -42,17 +48,13 @@ public class Venta {
         
         p2=new JPanel(new FlowLayout());
         taboa=new JTable();
-        DefaultTableModel modelo=new DefaultTableModel();
+        
+        Vector v1=new Vector();
         modelo.addColumn("Nome");
         modelo.addColumn("Idade");
         modelo.addColumn("Codigo");
-
-        Vector v1=new Vector();
-        v1.add("a");
-        v1.add("b");
-        v1.add("c");
-        modelo.setColumnIdentifiers(v1);
-        taboa.setTableHeader();
+        taboa.setModel(modelo);
+        System.out.println(taboa.getColumnName(0));
         p2.add(taboa);
 
         
@@ -61,13 +63,16 @@ public class Venta {
 
         modelo.addRow(v1);
         taboa.setModel(modelo);
-        p2.add(taboa);
         
         p3=new JPanel(new FlowLayout());
         cons=new JButton("Consulta");
+        cons.addActionListener(this);
         borr=new JButton("Borrado");
+        borr.addActionListener(this);
         act=new JButton("Actualizar");
+        act.addActionListener(this);
         add=new JButton("Engadir");
+        add.addActionListener(this);
         p3.add(add);
         p3.add(cons);
         p3.add(act);
@@ -85,6 +90,32 @@ public class Venta {
 
         marco.setVisible(true);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        Object e=ae.getSource();
+        if(e==borr){
+        
+        }
+        if(e==cons){
+            c1.conectar();
+            ArrayList<Programador> l=c1.consultar("select * from EquipoProg;");
+            Vector v1=new Vector();
+            for(Programador l1:l){
+                v1.add(new Programador(l1.nome,l1.idade,l1.codigo));
+                modelo.addRow(v1);
+                v1.clear();
+        }
+        taboa.setModel(modelo);
+        }
+        if(e==add){
+        
+        }
+        if(e==act){
+        
+        }
     }
     
 }

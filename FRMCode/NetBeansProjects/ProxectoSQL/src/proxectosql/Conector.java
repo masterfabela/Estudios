@@ -10,8 +10,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,26 +41,30 @@ public class Conector {
             Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-public void consultar(String consulta){        
+public ArrayList consultar(String consulta){        
     ResultSet result = null;
+    ArrayList <Programador>lista=new ArrayList();
         try {
             PreparedStatement st = connect.prepareStatement(consulta);
             result = st.executeQuery();
+            
             while (result.next()) {
-                System.out.print("Nome: ");
-                System.out.println(result.getString("nome"));
- 
-                System.out.print("Idade: ");
-                System.out.println(result.getInt("idade"));
- 
-                System.out.print("Codigo: ");
-                System.out.println(result.getString("codigo"));
- 
-                System.out.println("=======================");
+                    lista.clear();
+//                System.out.print("Nome: ");
+//                System.out.println(result.getString("nome"));
+//                System.out.print("Idade: ");
+//                System.out.println(result.getInt("idade"));
+//                System.out.print("Codigo: ");
+//                System.out.println(result.getString("codigo"));
+//                System.out.println("=======================");
+                    lista.add(new Programador(result.getString("nome"),result.getInt("idade"),result.getString("codigo")));
+
             }
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+        return lista;
+        
     }
     public void insertar(String nome,int idade,String codigo){
      try {

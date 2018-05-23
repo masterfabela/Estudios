@@ -15,15 +15,13 @@ public class ProxectoSQL {
      */
     public static void main(String[] args) {
         Conector con1=new Conector();
-        con1.conectar();
-        con1.consultar("select * from EquipoProg;");
+        //con1.consultar("select * from EquipoProg;");
         //con1.insertar("Pepe",25,"4");
         //con1.actualizar("update EquipoProg set codigo='c04' where codigo=4");
         //con1.borrar("delete from EquipoProg where codigo='c04';");
         //con1.consultar("select * from EquipoProg;");
-        
-        Venta v1=new Venta();
-        con1.pechar();
+        Venta v1=new Venta(con1);
+
     }
     
 }

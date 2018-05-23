@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package proxectosql;
-
-import java.sql.Connection;
-
 /**
  *
  * @author femio23
@@ -21,7 +18,7 @@ public class ProxectoSQL {
         con1.conectar();
         con1.consultar("select * from EquipoProg;");
         //con1.insertar("Pepe",25,"4");
-        //con1.actualizar("update EquipoProg set codigo='c04' where codigo=4");a
+        //con1.actualizar("update EquipoProg set codigo='c04' where codigo=4");
         //con1.borrar("delete from EquipoProg where codigo='c04';");
         //con1.consultar("select * from EquipoProg;");
         con1.pechar();

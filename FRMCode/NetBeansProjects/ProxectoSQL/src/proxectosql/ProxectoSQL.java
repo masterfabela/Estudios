@@ -21,6 +21,8 @@ public class ProxectoSQL {
         //con1.actualizar("update EquipoProg set codigo='c04' where codigo=4");
         //con1.borrar("delete from EquipoProg where codigo='c04';");
         //con1.consultar("select * from EquipoProg;");
+        
+        Venta v1=new Venta();
         con1.pechar();
     }
     

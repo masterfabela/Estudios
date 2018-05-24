@@ -71,6 +71,7 @@ public ArrayList consultar(String consulta){
             st.setInt(2,idade);
             st.setString(3,codigo);
             st.execute();
+            
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }

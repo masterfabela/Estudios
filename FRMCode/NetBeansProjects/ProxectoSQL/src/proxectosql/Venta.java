@@ -88,13 +88,13 @@ public class Venta implements ActionListener{
         Object e=ae.getSource();
         if(e==borr){
             c1.conectar();
-            if(nome.getText()!=null){
+            if(idade.getText().equals("")&& codigo.getText().equals("")){
             c1.borrar("delete from EquipoProg where nome='"+nome.getText()+"';");
             }
-            if(idade.getText()!=null){
+            if(nome.getText().equals("")&& codigo.getText().equals("")){
                 c1.borrar("delete from EquipoProg where idade='"+idade.getText()+"';");
             }
-            if(codigo.getText()!=null){
+            if(idade.getText().equals("")&& nome.getText().equals("")){
                 c1.borrar("delete from EquipoProg where codigo='"+codigo.getText()+"';");
             }
         

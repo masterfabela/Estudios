@@ -49,8 +49,8 @@ public class Venta implements ActionListener{
         p2=new JPanel(new FlowLayout());
         taboa=new JTable();
         modelo.addColumn("nombre");
-            modelo.addColumn("idade");
-            modelo.addColumn("codigo");
+        modelo.addColumn("idade");
+        modelo.addColumn("codigo");
         p2.add(taboa);
         
         
@@ -102,11 +102,24 @@ public class Venta implements ActionListener{
             c1.pechar();
         }
         if(e==cons){
-            System.out.println("\""+nome.getText()+"\"");
             c1.conectar();
             modelo.setRowCount(0);
             taboa.setModel(modelo);
-            ArrayList<Programador> l=c1.consultar("select * from EquipoProg;");
+            ArrayList<Programador> l=new ArrayList();
+            if(idade.getText().equals("")&& codigo.getText().equals("")&& nome.getText().equals("")){
+                 l=c1.consultar("select * from EquipoProg;");
+            }else{
+            if(idade.getText().equals("")&& codigo.getText().equals("")){
+                l=c1.consultar("select * from EquipoProg where nome='"+nome.getText()+"';");
+            }
+            if(nome.getText().equals("")&& codigo.getText().equals("")){
+                l=c1.consultar("select * from EquipoProg where idade="+idade.getText()+";");
+            }
+            if(idade.getText().equals("")&& nome.getText().equals("")){
+                l=c1.consultar("select * from EquipoProg where codigo='"+codigo.getText()+"';");
+            }
+            }
+            
             for(Programador l1:l){
                 modelo.addRow(new Object[]{l1.nome,l1.idade,l1.codigo});
             }

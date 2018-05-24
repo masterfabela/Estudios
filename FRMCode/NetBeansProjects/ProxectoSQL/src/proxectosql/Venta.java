@@ -25,10 +25,10 @@ public class Venta implements ActionListener{
     JTable taboa;
     JButton cons,borr,act,add;
     DefaultTableModel modelo=new DefaultTableModel();
-    Conector c1;
+    Conector c1 = new Conector();
 
-    public Venta(Conector cs){
-        Conector c1=cs;
+    public Venta(){
+//        Conector c1=cs;
         p1=new JPanel(new FlowLayout());
         n=new JLabel("Nome:");
         i=new JLabel("Idade:");
@@ -48,21 +48,11 @@ public class Venta implements ActionListener{
         
         p2=new JPanel(new FlowLayout());
         taboa=new JTable();
-        
-        Vector v1=new Vector();
-        modelo.addColumn("Nome");
-        modelo.addColumn("Idade");
-        modelo.addColumn("Codigo");
-        taboa.setModel(modelo);
-        System.out.println(taboa.getColumnName(0));
+        modelo.addColumn("nombre");
+            modelo.addColumn("idade");
+            modelo.addColumn("codigo");
         p2.add(taboa);
-
         
-        
-        
-
-        modelo.addRow(v1);
-        taboa.setModel(modelo);
         
         p3=new JPanel(new FlowLayout());
         cons=new JButton("Consulta");
@@ -97,24 +87,54 @@ public class Venta implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object e=ae.getSource();
         if(e==borr){
+            c1.conectar();
+            if(nome.getText()!=null){
+            c1.borrar("delete from EquipoProg where nome='"+nome.getText()+"';");
+            }
+            if(idade.getText()!=null){
+                c1.borrar("delete from EquipoProg where idade='"+idade.getText()+"';");
+            }
+            if(codigo.getText()!=null){
+                c1.borrar("delete from EquipoProg where codigo='"+codigo.getText()+"';");
+            }
         
+        
+            c1.pechar();
         }
         if(e==cons){
+            System.out.println("\""+nome.getText()+"\"");
             c1.conectar();
+            modelo.setRowCount(0);
+            taboa.setModel(modelo);
             ArrayList<Programador> l=c1.consultar("select * from EquipoProg;");
-            Vector v1=new Vector();
             for(Programador l1:l){
-                v1.add(new Programador(l1.nome,l1.idade,l1.codigo));
-                modelo.addRow(v1);
-                v1.clear();
-        }
+                modelo.addRow(new Object[]{l1.nome,l1.idade,l1.codigo});
+            }
         taboa.setModel(modelo);
+        c1.pechar();
         }
         if(e==add){
-        
+            c1.conectar();
+            c1.insertar(nome.getText(),Integer.parseInt(idade.getText()),codigo.getText());
+            c1.pechar();
         }
         if(e==act){
-        
+            c1.conectar();
+            if(idade.getText().equals("")&& codigo.getText().equals("")){
+                String var=JOptionPane.showInputDialog("Introduza o novo nome:");
+                c1.actualizar("update EquipoProg set nome='"+var+"' where nome='"+nome.getText()+"';");
+            }
+            if(nome.getText().equals("")&& codigo.getText().equals("")){
+                String var=JOptionPane.showInputDialog("Introduza a nova idade:");
+                System.out.println("update EquipoProg set idade="+Integer.parseInt(var)+" where idade="+idade.getText()+";");
+
+                c1.actualizar("update EquipoProg set idade="+Integer.parseInt(var)+" where idade="+idade.getText()+";");
+            }
+            if(idade.getText().equals("")&& nome.getText().equals("")){
+                String var=JOptionPane.showInputDialog("Introduza o novo codigo:");
+                c1.actualizar("update EquipoProg set codigo='"+var+"' where codigo='"+codigo.getText()+"';");
+            }
+            c1.pechar();
         }
     }
     

@@ -47,9 +47,9 @@ public ArrayList consultar(String consulta){
         try {
             PreparedStatement st = connect.prepareStatement(consulta);
             result = st.executeQuery();
-            
+            lista.clear();
             while (result.next()) {
-                    lista.clear();
+                 lista.add(new Programador(result.getString("nome"),result.getInt("idade"),result.getString("codigo")));
 //                System.out.print("Nome: ");
 //                System.out.println(result.getString("nome"));
 //                System.out.print("Idade: ");
@@ -57,8 +57,6 @@ public ArrayList consultar(String consulta){
 //                System.out.print("Codigo: ");
 //                System.out.println(result.getString("codigo"));
 //                System.out.println("=======================");
-                    lista.add(new Programador(result.getString("nome"),result.getInt("idade"),result.getString("codigo")));
-
             }
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -80,7 +78,7 @@ public ArrayList consultar(String consulta){
     public void actualizar(String consulta){
     try {
             PreparedStatement st = connect.prepareStatement(consulta);
-            st.execute();
+            st.executeUpdate();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -89,6 +87,7 @@ public ArrayList consultar(String consulta){
     try {
             PreparedStatement st = connect.prepareStatement(consulta);
             st.execute();
+            System.out.println("Borrado.");
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }

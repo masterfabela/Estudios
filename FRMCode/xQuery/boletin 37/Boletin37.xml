@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="37.xsl"?>
+<alumnos>
+<alumno dni="41293940">
+<nombre>Jose</nombre>
+<apells>Bernardo</apells>
+<nota>7</nota>
+</alumno>
+<alumno dni="23456782">
+<nombre>Sonia</nombre>
+<apells>Montero</apells>
+<nota>8</nota>
+</alumno>
+<alumno dni="12367845">
+<nombre>Juan</nombre>
+<apells>Lpez</apells>
+<nota>4</nota>
+</alumno>
+<alumno dni="34567821">
+<nombre>Manuel</nombre>
+<apells>Ruiz</apells>
+<nota>3</nota>
+</alumno>
+<alumno dni="12345678">
+<nombre>Ana</nombre>
+<apells>Perez</apells>
+<nota>9</nota>
+</alumno>
+</alumnos>

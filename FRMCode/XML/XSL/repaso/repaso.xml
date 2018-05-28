@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="repaso.xsl"?>
+<fichero>
+    <cotizacion  cnae="A009">
+        <nombre>Autentia</nombre>
+        <mercado>Madrid</mercado>
+        <precio>12</precio>
+        <fecha>
+            <dia>24</dia>
+            <mes>04</mes>
+            <anio>2013</anio>
+        </fecha>
+    </cotizacion>
+    <cotizacion cnae="C047">
+        <nombre>Bcaltia</nombre>
+        <mercado>Barcelona</mercado>
+        <precio>21</precio>
+        <fecha>
+            <dia>23</dia>
+            <mes>04</mes>
+            <anio>2016</anio>
+        </fecha>
+    </cotizacion>
+    <cotizacion cnae="B017">
+        <nombre>Aceltia</nombre>
+        <mercado>Vigo</mercado>
+        <precio>17</precio>
+        <fecha>
+            <dia>20</dia>
+            <mes>04</mes>
+            <anio>2017</anio>
+        </fecha>
+    </cotizacion>
+</fichero>

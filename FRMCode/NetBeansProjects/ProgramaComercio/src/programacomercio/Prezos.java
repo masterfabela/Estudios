@@ -1,10 +1,10 @@
 package programacomercio;
 
 public class Prezos {
-    float prez;
+    int prez;
     String rprez;
     
-    public Prezos(String p,float f){
+    public Prezos(String p,int f){
     this.prez=f;
     this.rprez=p;
     }

@@ -4,7 +4,7 @@ public class Ventas {
     
     String nv;
     String rprod;
-    float cant;    
+    int cant;    
 
     public String getNv() {
         return nv;
@@ -18,7 +18,7 @@ public class Ventas {
         return cant;
     }
 
-    public Ventas(String f, String g, float l){
+    public Ventas(String f, String g, int l){
         this.nv=f;
         this.rprod=g;
         this.cant=l;

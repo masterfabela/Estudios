@@ -1,6 +1,17 @@
 package programacomercio;
 
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 public class Metodos {
+    
+    Connection connv,connp,connpr;
+    ArrayList<Prezos> pre;
+    ArrayList<Productos>pro;
+    ArrayList<Ventas>ven;
     public void impfact(Ventas[]v,Productos[]pro,Prezos[]pre){
         System.out.println("Factura final");
         String aux;
@@ -37,12 +48,57 @@ public class Metodos {
                     for(int y=0;y<3;y++){
                         if(aux.equals(pre[y].getRprez())){
                             System.out.println("Prezo unitario do producto: "+pre[y].getPrez()+"€");
-                           
                         }
                     }
                 }
             }
         }
+        }
+    }
+    public void conectar(){
+        
+        try {
+            connv=DriverManager.getConnection("jdbc:sqlite: Ventas.sqlite3");
+            connp=DriverManager.getConnection("jdbc:sqlite: Productos.sqlite3");
+            connpr=DriverManager.getConnection("jdbc:sqlite: Prezos.sqlite3");
+            if(connv!=null)
+                System.out.println("Base de Ventas conectada.");
+            if(connp!=null)
+                System.out.println("Base de Productos conectada.");
+            if(connpr!=null)
+                System.out.println("Base de Prezos conectada.");
+        } catch (SQLException ex) {
+            Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }public void pechar(){
+        try {
+            connv.close();
+            connp.close();
+            connpr.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void cargadatos(){
+        ResultSet resul;
+        try {
+            PreparedStatement v = connv.prepareStatement("select * from Ventas;");
+            resul=v.executeQuery();
+            while(resul.next()){
+            ven.add(new Ventas(resul.getNString(0),resul.getNString(1),resul.getInt(2)));
+            }
+            PreparedStatement pr = connv.prepareStatement("select * from Productos;");
+            resul=pr.executeQuery();
+            while(resul.next()){
+            pro.add(new Productos(resul.getNString(0),resul.getNString(1),resul.getNString(2)));
+            }
+            PreparedStatement pe = connv.prepareStatement("select * from Prezos;");
+            resul=v.executeQuery();
+            while(resul.next()){
+            pre.add(new Prezos(resul.getNString(0),resul.getInt(1)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

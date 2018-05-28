@@ -4,19 +4,14 @@
  * and open the template in the editor.
  */
 package proxectosql;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author femio23
@@ -50,13 +45,6 @@ public ArrayList consultar(String consulta){
             lista.clear();
             while (result.next()) {
                  lista.add(new Programador(result.getString("nome"),result.getInt("idade"),result.getString("codigo")));
-//                System.out.print("Nome: ");
-//                System.out.println(result.getString("nome"));
-//                System.out.print("Idade: ");
-//                System.out.println(result.getInt("idade"));
-//                System.out.print("Codigo: ");
-//                System.out.println(result.getString("codigo"));
-//                System.out.println("=======================");
             }
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());

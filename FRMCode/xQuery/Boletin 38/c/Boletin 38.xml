@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros>
+  <libro codigo="1">
+    <isbn>1234</isbn>
+    <titulo>El Quijote</titulo>
+    <autores>
+      <autor>
+        <nombre>Miguel</nombre>
+        <apellido>Cervantes</apellido>
+      </autor>
+    </autores>
+    <editor>
+      <nombre>Casa del Libro</nombre>
+    </editor>
+    <precio>60</precio>
+    <año>1605</año>
+  </libro>
+  <libro codigo="2">
+    <isbn>4321</isbn>
+    <titulo>Programas ERP</titulo>
+    <autores>
+      <autor>
+        <nombre>Axel</nombre>
+        <apellido>García</apellido>
+        <email>Axel@abc.com</email>
+      </autor>
+      <autor>
+        <nombre>Jorge</nombre>
+        <apellido>Pérez</apellido>
+        <email>JorgeP@cdf.com</email>
+      </autor>
+    </autores>
+    <editor>
+      <nombre>McGraw-Hill</nombre>
+    </editor>
+    <precio>34.50</precio>
+    <año>2009</año>
+    <revisiones>
+      <nombre>Alejandro</nombre>
+    </revisiones>
+  </libro>
+</libros>
+

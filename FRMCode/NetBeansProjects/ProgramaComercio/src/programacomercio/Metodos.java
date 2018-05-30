@@ -9,9 +9,9 @@ import java.util.logging.Logger;
 public class Metodos {
     
     Connection connv,connp,connpr;
-    ArrayList<Prezos> pre;
-    ArrayList<Productos>pro;
-    ArrayList<Ventas>ven;
+    ArrayList<Prezos> pre=new ArrayList();
+    ArrayList<Productos>pro=new ArrayList();
+    ArrayList<Ventas>ven=new ArrayList();
     public void impfact(Ventas[]v,Productos[]pro,Prezos[]pre){
         System.out.println("Factura final");
         String aux;
@@ -58,9 +58,9 @@ public class Metodos {
     public void conectar(){
         
         try {
-            connv=DriverManager.getConnection("jdbc:sqlite: Ventas.sqlite3");
-            connp=DriverManager.getConnection("jdbc:sqlite: Productos.sqlite3");
-            connpr=DriverManager.getConnection("jdbc:sqlite: Prezos.sqlite3");
+            connv=DriverManager.getConnection("jdbc:sqlite:Ventas.sqlite3");
+            connp=DriverManager.getConnection("jdbc:sqlite:Productos.sqlite3");
+            connpr=DriverManager.getConnection("jdbc:sqlite:Prezos.sqlite3");
             if(connv!=null)
                 System.out.println("Base de Ventas conectada.");
             if(connp!=null)
@@ -85,17 +85,17 @@ public class Metodos {
             PreparedStatement v = connv.prepareStatement("select * from Ventas;");
             resul=v.executeQuery();
             while(resul.next()){
-            ven.add(new Ventas(resul.getNString(0),resul.getNString(1),resul.getInt(2)));
+            ven.add(new Ventas(resul.getString(1),resul.getString(2),resul.getInt(3)));
             }
-            PreparedStatement pr = connv.prepareStatement("select * from Productos;");
+            PreparedStatement pr = connp.prepareStatement("select * from Productos;");
             resul=pr.executeQuery();
             while(resul.next()){
-            pro.add(new Productos(resul.getNString(0),resul.getNString(1),resul.getNString(2)));
+            pro.add(new Productos(resul.getString(1),resul.getString(2),resul.getString(3)));
             }
-            PreparedStatement pe = connv.prepareStatement("select * from Prezos;");
-            resul=v.executeQuery();
+            PreparedStatement pe = connpr.prepareStatement("select * from Prezos;");
+            resul=pe.executeQuery();
             while(resul.next()){
-            pre.add(new Prezos(resul.getNString(0),resul.getInt(1)));
+            pre.add(new Prezos(resul.getString(1),resul.getInt(2)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);

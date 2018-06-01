@@ -1,4 +1,4 @@
-package com.mycompany.exerciciosmaven;
+package com.mycompany.mavengit;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -118,4 +118,3 @@ try{
         System.out.println("Listo");
     }
 }
-© 2018 GitHub, Inc.

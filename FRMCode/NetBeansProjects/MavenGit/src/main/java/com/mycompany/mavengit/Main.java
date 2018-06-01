@@ -110,6 +110,7 @@ try{
         }
     
         System.out.println("HolaMundo");
+        git.close();
     }
     public static void novorep(String repoNombre) throws IOException {
         GHCreateRepositoryBuilder repo = gh1.createRepository(repoNombre);

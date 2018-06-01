@@ -69,6 +69,7 @@ public class Main {
     Git git=new Git(repository);
                 AddCommand add=git.add();
                 add.addFilepattern("C:\\Users\\Femio\\Documents\\NetBeansProjects\\CodigoMaquinaCOD\\ExerciciosMaven\\nueva\\.git").call();
+                git.close();
   //inicializado do repositorio
     InitCommand repositorio=new InitCommand();
         try{
@@ -79,6 +80,7 @@ public class Main {
                 
                 CommitCommand commit=git.commit();
                 commit.setMessage("Commit de pro").call();
+                git.close();
             }catch(GitAPIException ex){
                 System.out.println("Error:"+ex);
             }
@@ -103,14 +105,13 @@ try{
             pushCommand.setCredentialsProvider(new UsernamePasswordCredentialsProvider(user,pass));
             
             pushCommand.call();
+            git.close();
         }catch(URISyntaxException ex){
             System.out.println("Error: "+ex);
         }catch(GitAPIException ex){
             System.out.println("Error: "+ex);
         }
-    
-        System.out.println("HolaMundo");
-        git.close();
+        
     }
     public static void novorep(String repoNombre) throws IOException {
         GHCreateRepositoryBuilder repo = gh1.createRepository(repoNombre);

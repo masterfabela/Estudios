@@ -37,14 +37,16 @@ public final class SomeAction implements ActionListener {
     File fich=null;
     String user="0";
     String pass="0";
-    System.out.println("HolaMundo");
         try{
             fich=new File("user.txt");
             sc=new Scanner(fich);
             user=sc.nextLine();
             pass=sc.nextLine();
+            //creamos un ficheiro para as credenciais de usuario e cargamolas no programa.
             gh1=GitHub.connectUsingPassword(user, pass);
+            //conectamonos a git coas credenciais.
             novorep("Testeando",gh1);
+            //creamos o repositorio.
             
         }catch(FileNotFoundException fnfe1){
             System.out.println("error:"+fnfe1.getMessage());
@@ -55,6 +57,12 @@ public final class SomeAction implements ActionListener {
         }
         sc.close();
     }
+    /**
+     * Método de creación de repositorios novos.
+     * @param repoNombre Variable que garda o nome do repositorio a crear.
+     * @param gh1 Obxeto de tipo GitHub que trae o usuario xa iniciado.
+     * @throws IOException 
+     */
     public static void novorep(String repoNombre,GitHub gh1) throws IOException {
         GHCreateRepositoryBuilder repo = gh1.createRepository(repoNombre);
         repo.autoInit(true)

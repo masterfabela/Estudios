@@ -1,39 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package test.jlabel;
-
-import java.net.URL;
 import javax.swing.*;
-
+import static java.awt.GraphicsDevice.*;
 /**
  *
  * @author femio23
  */
 public class Venta {
     JFrame marco;
-    JPanel p1;
-    JButton b1;
+    JPanel p1,p2;
+    JButton b,b1,b2;
     JLabel l1;
     public Venta (){
-    b1=new JButton("Barco");
-    b1.setOpaque(true);
-    b1.setAlignmentX(200);
-    b1.setAlignmentY(200);
-    l1=new JLabel("hola");
-    l1.setAlignmentX(200);
-    l1.setAlignmentY(200);
-    l1.setIcon(new ImageIcon("submarino.jpg"));
-    l1.add(b1);
-    
     p1=new JPanel();
+    p2=new JPanel();
+    b=new JButton("1");
+    b1=new JButton("2");
+    b2=new JButton("3");
+    b.setBounds(200,200,60,60);
+    b1.setBounds(300,200,60,60);
+    b2.setBounds(400,200,60,60);
     
-    p1.add(l1);
+    
+    l1=new JLabel("hola");
+    l1.setIcon(new ImageIcon("submarino.jpg"));
+    l1.setBounds(0,0, 705,375);
     marco=new JFrame();
-    marco.add(p1);
-    marco.setSize(400,450);
+    marco.setLayout(null);
+    marco.add(b);
+    marco.add(b1);
+    marco.add(b2);
+    marco.add(l1);
+    
+    
+    marco.setSize(800,600);
     marco.setVisible(true);
     marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

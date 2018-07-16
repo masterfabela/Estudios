@@ -38,5 +38,4 @@ def ejercicio3():
         float(input("Inserta numero 3: "))
     )
 
-
 ejercicio3()

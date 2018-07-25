@@ -70,6 +70,20 @@ def ejercicio5():
 # Crea un programa que evalue si unha direccion de correo electronica e valida 
 # ou non en funcion de se posue @ ou . Hay que ter en conta que a direccion 
 # considerase correcta si solo ten un @ e se ten un ou mais .
+def comprobarEmail(email):
+    contenPunto = False
+    numeroArrobas = 0
+    for caracter in email:
+        if caracter == ".":
+            contenPunto = True
+        if caracter == "@":
+            numeroArrobas=+1
+    if contenPunto and 0 < numeroArrobas < 2:
+        print("O email e valido")
+    else:
+        print("O email non e valido")
 
+def ejercicio6():
+    comprobarEmail(input("Introduzca o seu email: "))
 
-ejercicio5()
+ejercicio6()

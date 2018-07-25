@@ -38,4 +38,38 @@ def ejercicio3():
         float(input("Inserta numero 3: "))
     )
 
-ejercicio3()
+#--------- EXERCICIO 4 ---------
+# Mostra os numeros impares do 1 ao 100
+def ejercicio4():
+    for numero in range(1, 100, 2):
+        print(numero)
+
+#--------- EXERCICIO 5 ---------
+# Programa que pide ao usuario unha contrasinal, a contraseña non pode ter menos
+# de 8 caracteres nin espacios en branco, se a contrasinal e correcta o programa
+# imprime "Contraseña ok" en caso contrario imprime, contraseña erronea
+def comprobarContrasinal(contrasinal):
+    lonxitudeValida = False
+    contenEspacio = False
+    if len(contrasinal) > 7:
+        lonxitudeValida = True
+        for indice in range(len(contrasinal)):
+            if contrasinal[indice] == " ":
+                contenEspacio = True
+    if lonxitudeValida and !contenEspacio:
+        print("Contrasinal OK")
+    else:
+        print("Contrasinal erronea")
+    
+def ejercicio5():
+    comprobarContrasinal(input("Introduza unha contrasinal valida: "))
+
+
+
+# ------------ EXERCICIO 6 --------------
+# Crea un programa que evalue si unha direccion de correo electronica e valida 
+# ou non en funcion de se posue @ ou . Hay que ter en conta que a direccion 
+# considerase correcta si solo ten un @ e se ten un ou mais .
+
+
+ejercicio5()

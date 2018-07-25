@@ -55,7 +55,7 @@ def ejemploAsignaturas():
         input("Que asignatura desea?: "),
         list(listaDeAsignaturas)
     ):
-        print("Asignatura Asignada")
+        print("Asignatura Asignada: ")
     else:
         print("La asignatura no existe en la lista")
 

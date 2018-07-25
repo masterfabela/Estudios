@@ -10,3 +10,6 @@
 [submodule "FRMCode/NetBeansProjects/ProgramaComercio/mylib"]
 	path = FRMCode/NetBeansProjects/ProgramaComercio/mylib
 	url = https://github.com/FranRM/Omnitool
+[submodule "JoseRamon/Python"]
+	path = JoseRamon/Python
+	url = git://github.com/masterfabela/practicas-pyton.git

@@ -56,7 +56,7 @@ def comprobarContrasinal(contrasinal):
         for indice in range(len(contrasinal)):
             if contrasinal[indice] == " ":
                 contenEspacio = True
-    if lonxitudeValida and !contenEspacio:
+    if lonxitudeValida and not contenEspacio:
         print("Contrasinal OK")
     else:
         print("Contrasinal erronea")

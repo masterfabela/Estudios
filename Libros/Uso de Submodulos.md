@@ -11,11 +11,11 @@ O proceso e relativamente moi sinxelo e so necesitaremos un par de comandos
 ### 1. Clonar o Repositorio propio dentro do que queremos que sexa o que o gardara como submodulo 
 Esto so o faremos a cando o engadamos ao repositorio, despois non teremos que volver a facelo bastaranos con clonar o repositorio no que se engloba para telo
 
-    ```git submodule add <direccion_de_repositorio_a_engadir> <Ruta_do_noso_repositorio_onde_o_gardaremos>
+    git submodule add <direccion_de_repositorio_a_engadir> <Ruta_do_noso_repositorio_onde_o_gardaremos>
 
 Un exemplo poderia ser:
 
-    ```git submodule add https://github.com/masterfabela/Homepanion.git 'JoseRamon/ProxectoHomepanion'```
+    git submodule add https://github.com/masterfabela/Homepanion.git 'JoseRamon/ProxectoHomepanion'
 
 E asi de sinxelo xa o teriamos engadido, pero para poderen ver os seus arquivos e modificalo teremos que inicialo e updatealo, xa que agora tan so teremos a sua referencia 
 
@@ -27,10 +27,10 @@ Inicia o repositorio:
 
 Actualiza os arquivos:
 
-    ```git submodule update```
+    git submodule update
 
 
-# Como traballo nos meus submodulos?
+## Como traballo nos meus submodulos?
 Como os submodulos son repositorios de git individuais deberas usalo como un proxecto de git en si mesmo, ainda que se pode ver o que hai dentro dende o repositorio que o alberga non podes comitear os seus arquivos dende ahi, teras que facelo dende a subcarpeta, esto permitiranos poder ter proxectos grandes que se garden nos dous lugares de forma totalmente eficiente.
 
 

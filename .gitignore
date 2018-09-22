@@ -155,13 +155,8 @@ JoseRamon/Swift/Aplicacion iOS de prueba
 /FRMCode/NetBeansProjects/ExemploPaleta2/build/
 /FRMCode/NetBeansProjects/Boletin23/build/
 /FRMCode/NetBeansProjects/Boletin23/dist/
-<<<<<<< HEAD
-/FRMCode/NetBeansProjects/TestToolbar/nbproject/private/
-/FRMCode/NetBeansProjects/TestToolbar/build/
-=======
 /FRMCode/NetBeansProjects/Boletin24/nbproject/private/
 /FRMCode/NetBeansProjects/Boletin24/build/
->>>>>>> 9f72bcbac6de90f1fde94d14837d0d5f7933ebd5
 /FRMCode/NetBeansProjects/Boletin27/nbproject/private/
 /FRMCode/NetBeansProjects/Boletin27/build/
 /FRMCode/NetBeansProjects/CreadorGithub/nbproject/private/
@@ -180,13 +175,61 @@ JoseRamon/Swift/Aplicacion iOS de prueba
 /FRMCode/NetBeansProjects/Boletin29/build/
 /FRMCode/NetBeansProjects/ModuloTest/nbproject/private/
 /FRMCode/NetBeansProjects/ModuloTest/build/
-<<<<<<< HEAD
-/FRMCode/NetBeansProjects/testSerializable/nbproject/private/
-/FRMCode/NetBeansProjects/testSerializable/build/
-=======
 /FRMCode/NetBeansProjects/ProbandoPaquetes/nbproject/private/
 /FRMCode/NetBeansProjects/ProbandoPaquetes/build/
 /FRMCode/NetBeansProjects/ProbandoPaquetes/dist/
 /FRMCode/NetBeansProjects/Boletin30/nbproject/private/
 /FRMCode/NetBeansProjects/Boletin30/build/
->>>>>>> 701b8dc1b9140132c5b66d334296a47ca6a157da
+/FRMCode/NetBeansProjects/Boletin25/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin 26/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin 26/build/
+/FRMCode/NetBeansProjects/Boletin25/build/
+/FRMCode/NetBeansProjects/Boletin31/nbproject/private/
+/FRMCode/NetBeansProjects/Boletin31/build/
+/FRMCode/NetBeansProjects/ProxectoSQL/nbproject/private/
+/FRMCode/NetBeansProjects/ProxectoSQL/build/
+/FRMCode/NetBeansProjects/ProxectoSQL/dist/
+/FRMCode/NetBeansProjects/Test JLabel/nbproject/private/
+/FRMCode/NetBeansProjects/Test JLabel/build/
+/FRMCode/NetBeansProjects/Test JLabel/dist/
+/FRMCode/NetBeansProjects/ProbaBotonlist/nbproject/private/
+/FRMCode/NetBeansProjects/ProbaBotonlist/build/
+.vscode/settings.json
+
+# Created by https://www.gitignore.io/api/java,netbeans
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+
+# End of https://www.gitignore.io/api/java,netbeans

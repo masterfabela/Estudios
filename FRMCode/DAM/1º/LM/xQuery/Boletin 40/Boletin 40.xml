@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiniela jornada ="01-06-2013">
+        <partido id='1' valor='X'>
+                <local>Mallorca</local>
+                <visitante>Sevilla</visitante>
+        </partido>
+        <partido id='2' valor='1'>
+                <local>Zaragoza</local>
+                <visitante>Getafe</visitante>
+        </partido>
+        <partido id='3' valor='1'>
+                <local>Barcelona</local>
+                <visitante>Almeria</visitante>
+        </partido>
+        <partido id='4' valor='2'>
+                <local>Athletic Club</local>
+                <visitante>R.Madrid</visitante>
+        </partido>
+        <partido id='5' valor='1'>
+                <local>Sporting</local>
+                <visitante>Osasuna</visitante>
+        </partido>
+        <partido id='6' valor='1'>
+                <local>At.Madrid</local>
+                <visitante>R.Sociedad</visitante>
+        </partido>
+        <partido id='7' valor='X'>
+                <local>Hercules</local>
+                <visitante>Espanyol</visitante>
+        </partido>
+        <partido id='8' valor='X'>
+                <local>Racing</local>
+                <visitante>Levante</visitante>
+        </partido>
+        <partido id='9' valor='X'>
+                <local>Malaga</local>
+                <visitante>Deportivo</visitante>
+        </partido>
+        <partido id='10' valor='1'>
+                <local>Elche</local>
+                <visitante>Gimnastic</visitante>
+        </partido>
+        <partido id='11' valor='2'>
+                <local>Cartagena</local>
+                <visitante>Recreativo</visitante>
+        </partido>
+        <partido id='12' valor='2'>
+                <local>Xerez</local>
+                <visitante>Betis</visitante>
+        </partido>
+        <partido id='13' valor='1'>
+                <local>Celta</local>
+                <visitante>Valladolid</visitante>
+        </partido>
+        <partido id='14' valor='X'>
+                <local>Barcelona</local>
+                <visitante>Las Palmas</visitante>
+        </partido>
+        <partido id='15' valor='1'>
+                <local>Valencia</local>
+                <visitante>Villareal</visitante>
+        </partido>
+</quiniela>

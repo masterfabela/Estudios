@@ -1,0 +1,1 @@
+replace value of node doc("E:/Godsave´sthecode/Estudios/FRMCode/xQuery/Boletin 40/Boletin 40.xml")/quiniela/partido[@id="6"]/@valor with 2

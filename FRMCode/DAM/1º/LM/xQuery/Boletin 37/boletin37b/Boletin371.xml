@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="37.xsl"?>
+<libros>
+<libro tema="Humanidades">
+<titulo ISBN="8434453096">La vida eterna</titulo>
+<autor>Fernando Savater</autor>
+<fecha>2007</fecha>
+<precio>17.50</precio>
+</libro>
+<libro tema="Literatura">
+<titulo ISBN="8476697635">Los irlandeses</titulo>
+<autor>Rodolfo Walsh</autor>
+<fecha>2007</fecha>
+<precio>16</precio>
+</libro>
+
+<libro tema="Gastronomía">
+<titulo ISBN="8496434559">Galicia en el paladar</titulo>
+<autor>Cristóbal Ramírez</autor>
+<autor>Miguel Pazos</autor>
+<autor>Mantel Xose Santos Díaz</autor>
+<fecha>2007</fecha>
+<precio>24.90</precio>
+</libro>
+<libro tema="Artes">
+<titulo ISBN="8496445550">Los tesoros de Rembrandt</titulo>
+<autor>Michiel Roscam Abbing</autor>
+<fecha>2006</fecha>
+<precio>35</precio>
+</libro>
+ </libros>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="34.xsl"?>
+ <libros>
+    <libro> 
+        <titulo>Mis almuerzos con gente inquietante</titulo>   
+        <autor>Vazquez Montalban</autor>  
+        <isbn>978-84-9899-250-2</isbn>  
+        <precio>32</precio>    
+    </libro> 
+    <libro>     
+        <titulo>Imperium</titulo>   
+        <autor>Robert Harris</autor>   
+        <isbn>978-84-8346-685-8</isbn>    
+        <precio>50</precio>  
+    </libro> 
+    <libro>  
+        <titulo>Fuente Ovejuna</titulo>   
+        <autor>Lope de Vega</autor>     
+        <isbn>84-9815-002-7</isbn> 
+        <precio>38</precio>
+    </libro> 
+    <libro>
+        <titulo>La Celestina</titulo>  
+        <autor>Fernando de Rojas</autor> 
+        <isbn>84-96390-96-9</isbn>  
+    </libro> 
+    <libro>   
+        <titulo>Don Juan Tenorio</titulo>   
+        <autor>Jose Zorilla</autor>
+        <isbn>84-96390-97-7</isbn> 
+    </libro> 
+ </libros> 

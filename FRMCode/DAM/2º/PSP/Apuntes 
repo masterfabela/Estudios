@@ -1,0 +1,7 @@
+Temario dividido en 5 temas:
+    Unidade 1. Procesamento de procesos.
+    Unidade 2. Programación de fios. (Cada nucleo xestiona un fio,
+        denominase programacion paralela)
+    Unidade 3. Programación distribuida. (Aplicacion executada en multiples equipos)
+    Unidade 4. Programación de servizos.
+    Unidade 5. Técnicas de programación segura.

@@ -18,18 +18,38 @@
         <property name="orientation">vertical</property>
         <property name="homogeneous">True</property>
         <child>
-          <placeholder/>
+          <object class="GtkLabel" id="lblsaudo">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
+            <property name="margin_top">20</property>
+            <property name="margin_bottom">20</property>
+            <property name="label" translatable="yes">Bos dias, benvido.</property>
+            <attributes>
+              <attribute name="style" value="oblique"/>
+              <attribute name="weight" value="semibold"/>
+              <attribute name="background" value="#34346565a4a4"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
         </child>
         <child>
-          <object class="GtkButton" id="btnsair">
-            <property name="label" translatable="yes">Sair</property>
+          <object class="GtkButton" id="btnmostrar">
+            <property name="label" translatable="yes">Mostrar</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="margin_left">15</property>
-            <property name="margin_right">15</property>
-            <property name="margin_top">15</property>
-            <property name="margin_bottom">15</property>
+            <property name="margin_left">170</property>
+            <property name="margin_right">170</property>
+            <property name="margin_top">45</property>
+            <property name="margin_bottom">45</property>
+            <signal name="clicked" handler="on_btnsair_clicked" swapped="no"/>
+            <signal name="destroy" handler="on_btnsair_destroy" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>

@@ -1,7 +1,21 @@
 Temario dividido en 5 temas:
     Unidade 1. Procesamento de procesos.
+
         Programacion multiproceso(como minimo de 1 proceso, e pode ser unha arbore 
-        de n procesos executandose concurrentemente.)
+        de n procesos executandose concurrentemente, ainda que en cada momento só 
+        se executa un proceso.)
+
+        *Bloque de memoria   -espacio de direccion do proceso
+                            -imaxe de memoria
+        Buffer de entrada estandard(conectado co teclado).
+        Buffer de saida estandard(conectado co monitor).
+        Buffer de erros.
+        O SO tamén é un conxunto de procesos(dividido en Kernel e aplicacions).
+            A parte do SO que proporciona a execucion concurrente dos seus procesos 
+            é o planificador de procesos.
+            -Kernel(programa residente)atende á instruccion en execución, e 
+            comunicase mediante interrupccions.
+            -Aplicacións
     Unidade 2. Programación de fios. (Cada nucleo xestiona un fio,
         denominase programacion paralela)
     Unidade 3. Programación distribuida. (Aplicacion executada en multiples equipos)

@@ -1,5 +1,7 @@
 Temario dividido en 5 temas:
     Unidade 1. Procesamento de procesos.
+        Programacion multiproceso(como minimo de 1 proceso, e pode ser unha arbore 
+        de n procesos executandose concurrentemente.)
     Unidade 2. Programación de fios. (Cada nucleo xestiona un fio,
         denominase programacion paralela)
     Unidade 3. Programación distribuida. (Aplicacion executada en multiples equipos)

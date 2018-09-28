@@ -27,32 +27,31 @@ public class CreaTaboas {
                     "nacionalidad VARCHAR(30) NOT NULL, "+
                     "PRIMARY KEY(IdAutor));");
             ps.execute();
-            System.out.println("1");
             ps=conexion.prepareStatement("CREATE TABLE IF NOT EXISTS libros ( "+
                     "IdLibro INT(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, "+
                     "titulo VARCHAR(30) NOT NULL, "+
                     "precio FLOAT NOT NULL, "+
                     "PRIMARY KEY(IdLibro));");
             ps.execute();
-            ps=conexion.prepareStatement("CREATE TABLE IF NOT EXISTS librosautores ( "+
-                    "autor INT(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, "+
-                    "libro INT(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, "+
-                    "PRIMARE KEY(autor,libro), "+
+            ps=conexion.prepareStatement("CREATE TABLE IF NOT EXISTS  librosautores ( "+
+                    "autor INT(11) UNSIGNED ZEROFILL NOT NULL, "+
+                    "libro INT(11) UNSIGNED ZEROFILL NOT NULL, "+
+                    "PRIMARY KEY(autor,libro), "+
                     "INDEX fk_autor(autor), "+
                     "INDEX fk_libro(libro), "+
-                    "CONTRAINT fk_autor "+
-                    "FOREING KEY (autor)"+
+                    "CONSTRAINT fk_autor "+
+                    "FOREIGN KEY (autor)"+
                     "   REFERENCES autores(IdAutor)"+
                     "       ON DELETE CASCADE "+
                     "       ON UPDATE CASCADE, "+
-                    "CONTRAINT fk_libro "+
-                    "FOREING KEY (libro)"+
-                    "   REFERENCES autores(IdLibro)"+
+                    "CONSTRAINT fk_libro "+
+                    " FOREIGN KEY (libro)"+
+                    "   REFERENCES libros(IdLibro)"+
                     "       ON DELETE CASCADE "+
-                    "       ON UPDATE CASCADE, "+
-                    ");"
+                    "       ON UPDATE CASCADE );"
                     );
-//                    System.out.println("Creada a estructura da BD.");
+            ps.execute();
+                    System.out.println("Creada a estructura da BD.");
         }catch(SQLException sqle1){
             System.out.println("Error:"+sqle1.getMessage());
         }

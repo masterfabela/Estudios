@@ -15,9 +15,39 @@ Temario dividido en 5 temas:
             é o planificador de procesos.
             -Kernel(programa residente)atende á instruccion en execución, e 
             comunicase mediante interrupccions.
-            -Aplicacións
-    Unidade 2. Programación de fios. (Cada nucleo xestiona un fio,
-        denominase programacion paralela)
+                -Posúe un modo dual(usuario-supervisor) que permite compartimentar as 
+                execucions mediante permisos.
+                -Non se pode considerar un proceso demonio, porque si interactua.
+
+            -Aplicacións:
+
+            -Procesos:
+                -Proceso demonio: proceso de execucion concurrente que se executa sen 
+                interaccion co usuario.
+                -Estado dun proceso: Conxunto de valores que forman parte do proceso, 
+                sendo os valores dos distintos rexistros da ALU.
+                -Planificador de procesos.
+                    -Curto prazo:multiples rutinas que traballan no orde dos 
+                    milisegundos.
+                    -Longo prazo:rutinas menos frecuentes que traballan no orde dos 
+                    segundos(Creación de procesos, por exemplo).
+                -Cambio de estado dun proceso: salvagarda dun proceso que sae de 
+                execucion e cargar o estado do proceso que entra en execucion.
+                -Estados dun proceso:
+                    -Novo:Lista de entrada á espera de ser admitido.
+                    -Listo:Lista de procesos admitidos á espera de ter tempo de
+                     execución(tamén coñecida coma Cola de Procesos Preparados).
+                    -En execucion:cada vez que un proceso entra neste estado, iniciase 
+                    unha conta de tempo(quanto de execución), que se non se interrumpe 
+                    antes de que este quanto acabe, o bloquea. 
+                    -Bloqueado:Proceso á espera de que, ou se liberen recursos que 
+                    precisan para a sua execucion(Varias Colas de Dispositivo).
+                    -Terminado: estado no que entra un proceso ó terminar a sua 
+                    execición:
+                        - total e exitosamente.
+                        - erroneamente.
+    Unidade 2. Programación de fios. 
+        Cada nucleo xestiona un fio, denominase programacion paralela
     Unidade 3. Programación distribuida. (Aplicacion executada en multiples equipos)
     Unidade 4. Programación de servizos.
     Unidade 5. Técnicas de programación segura.

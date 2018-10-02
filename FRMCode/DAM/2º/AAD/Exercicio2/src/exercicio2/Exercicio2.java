@@ -24,20 +24,20 @@ public class Exercicio2 {
         c1.estructurar();
         int opcion;
         do{
-            v1.menu();
+            v1.main_menu();
             opcion=0;
             opcion=sc.nextInt();
             switch(opcion){
-                    case 1:System.out.println("hola");;
-                    break;
-                    case 2:;
-                    break;
-                    case 3:;
-                    break;
-                    case 4:;
-                    break;
-                    case 5:c1.pechar();
-                    break;
+                case 1:System.out.println("hola");;
+                break;
+                case 2:;
+                break;
+                case 3:;
+                break;
+                case 4:;
+                break;
+                case 5:c1.pechar();
+                break;
             }
         }while(opcion!=5);
         

@@ -117,26 +117,33 @@ public class Conector {
         }
     }
     public void consultar(Scanner sc, int n){
-//        ResultSet resul;
-//        switch(n){
-//                     case 1:System.out.println("Introduza o título.");
-//                     int titulo=sc.nextInt();
-//                             try{
-//        PreparedStatement ps=conect.prepareStatement("select nombre from autores where IdAutor in ( select IdAutor from librosautores where IdLibro in(select IdLibro from libros where titulo =\"+titulo+\"));");
-//PreparedStatement ps=conect.prepareStatement("select nombre from autores where IdAutor =(select autor from librosautores where libro =\"+titulo+\")");
-//        resul=ps.executeQuery();
-//        System.out.println(resul.get);
-//        
-//
-//        }catch(SQLException sqle1){
-//            System.out.println(sqle1.getMessage());
-//        }
-//                     break;
-//                     case 2:c1.ereseAutor(sc);
-//                     break;
-//                     default:System.out.println("Engada un valor válido:");
-//                     break;
-//    }
+        ResultSet resul;
+        switch(n){
+                     case 1:System.out.println("Introduza o título.");
+                     String titulo=sc.next();
+                             try{
+                                 
+        PreparedStatement ps=conect.prepareStatement(
+//                "select nombre from autores where IdAutor in ( "
+//                + 
+                        "select autor from librosautores where libro in ("
+                + "select IdLibro from libros where titulo =\""+titulo+"\");"); 
+
+        resul=ps.executeQuery();
+        resul.next();
+        System.out.println(resul.getStatement());
+        System.out.println(resul.getString(1));
+        
+
+        }catch(SQLException sqle1){
+            System.out.println(sqle1.getMessage());
+        }
+                     break;
+                     case 2:System.out.println("Segunda Opcion");
+                     break;
+                     default:System.out.println("Engada un valor válido.");
+                     break;
+        }
     }
         
 }

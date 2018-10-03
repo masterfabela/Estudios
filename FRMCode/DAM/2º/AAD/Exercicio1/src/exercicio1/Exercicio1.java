@@ -82,13 +82,13 @@ public class Exercicio1 {
                 break;
                 
                 case 5:
-//                    System.out.println("Eliminar:\n"
-//                + "1-Ver autor/es de un libro.\n"
-//                + "2-Ver libros de un autor.\n"
-//                + "3-Ver tódolos libros.\n"
-//                + "4-Ver todolos autores, xunto cos seus libros");
-//                  c1.consultar(sc, sc.nextInt());
-                    //Non son capaz de acceder a os datos do resultset, esta é a unica parte do exercicio que non son capaz de realizar.
+                    System.out.println("Consultas:\n"
+                + "1-Ver autor/es de un libro.\n"
+                + "2-Ver libros de un autor.\n"
+                + "3-Ver tódolos libros.\n"
+                + "4-Ver todolos autores, xunto cos seus libros");
+                    int x=sc.nextInt();
+                  c1.consultar(sc,x);
                     
                 break;
                 case 6:c1.pechar();

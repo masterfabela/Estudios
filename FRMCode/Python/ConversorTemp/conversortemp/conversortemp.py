@@ -9,7 +9,7 @@ class Conversor:
     def __init__(self):
         b = Gtk.Builder()
         b.add_from_file('Conversor.glade')
-        self.venConversor = b.get_object("cenConversor")
+        self.venConversor = b.get_object("venConversor")
         dic = {
             'on_venConversor_destroy': self.salir
                }

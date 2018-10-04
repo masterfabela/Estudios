@@ -121,23 +121,21 @@ public class Conector {
         switch(n){
                      case 1:System.out.println("Introduza o título.");
                      String titulo=sc.next();
-                             try{
-                                 
-        PreparedStatement ps=conect.prepareStatement(
-//                "select nombre from autores where IdAutor in ( "
-//                + 
-                        "select autor from librosautores where libro in ("
-                + "select IdLibro from libros where titulo =\""+titulo+"\");"); 
-
-        resul=ps.executeQuery();
-        resul.next();
-        System.out.println(resul.getStatement());
-        System.out.println(resul.getString(1));
-        
-
-        }catch(SQLException sqle1){
-            System.out.println(sqle1.getMessage());
-        }
+                            try{
+                                PreparedStatement ps=conect.prepareStatement("select IdLibro from libros where titulo =\""+titulo+"\";"); 
+                                resul=ps.executeQuery();
+                                resul.next();
+                                int auxiliar=resul.getInt(1);
+                                ps=conect.prepareStatement("select autor from librosautores where libro =\""+auxiliar+"\";"); 
+                                resul=ps.executeQuery();
+                                resul.next();
+                                auxiliar=resul.getInt(1);
+                                ps=conect.prepareStatement("select nombre from autores where IdAutor =\""+auxiliar+"\";"); 
+                                resul=ps.executeQuery();
+                                resul.next();
+                            }catch(SQLException sqle1){
+                                System.out.println(sqle1.getMessage());
+                            }
                      break;
                      case 2:System.out.println("Segunda Opcion");
                      break;

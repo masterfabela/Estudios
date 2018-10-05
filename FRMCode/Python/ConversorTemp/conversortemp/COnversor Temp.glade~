@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkWindow" id="venConversor">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Conversor de Temperaturas</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">99</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Temperatura</property>
+          </object>
+          <packing>
+            <property name="x">16</property>
+            <property name="y">45</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="txtTemp1">
+            <property name="width_request">166</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">16</property>
+            <property name="y">68</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">104</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Escala</property>
+          </object>
+          <packing>
+            <property name="x">196</property>
+            <property name="y">42</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">325</property>
+            <property name="height_request">27</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Conversor de Temperaturas</property>
+          </object>
+          <packing>
+            <property name="x">72</property>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">68</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Escala</property>
+          </object>
+          <packing>
+            <property name="x">212</property>
+            <property name="y">102</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">Calcular</property>
+            <property name="width_request">79</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">189</property>
+            <property name="y">189</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="cmbEscala1">
+            <property name="width_request">112</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="has_entry">True</property>
+            <items>
+              <item id="1" translatable="yes">Celsius</item>
+              <item id="2" translatable="yes">Kelvin</item>
+              <item id="3" translatable="yes">Farenheit</item>
+            </items>
+            <child internal-child="entry">
+              <object class="GtkEntry">
+                <property name="can_focus">False</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">197</property>
+            <property name="y">68</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="cmbEscala2">
+            <property name="width_request">100</property>
+            <property name="height_request">35</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="has_entry">True</property>
+            <items>
+              <item translatable="yes">Elixa unidade</item>
+              <item id="1" translatable="yes">Celsius</item>
+              <item id="2" translatable="yes">Kelvin</item>
+              <item id="3" translatable="yes">Farenheit</item>
+            </items>
+            <child internal-child="entry">
+              <object class="GtkEntry">
+                <property name="can_focus">False</property>
+                <property name="text" translatable="yes">Kelvin</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">197</property>
+            <property name="y">125</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

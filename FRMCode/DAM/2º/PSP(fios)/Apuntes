@@ -6,7 +6,7 @@ Temario dividido en 5 temas:
         se executa un proceso.)
 
         *Bloque de memoria   -espacio de direccion do proceso
-                            -imaxe de memoria
+                             -imaxe de memoria
         Buffer de entrada estandard(conectado co teclado).
         Buffer de saida estandard(conectado co monitor).
         Buffer de erros.
@@ -46,6 +46,38 @@ Temario dividido en 5 temas:
                     execición:
                         - total e exitosamente.
                         - erroneamente.
+                -Apuntes do luns 1.
+                -Exercicio "Aleatorios":
+                    Escribe un programa que arranque un proceso fillo que xenere números 
+                    aleatorios(que serán de 0 a 10 e se imprimiran por pantalla), en calquera 
+                    linguaxe, xenerando o seu ".exe"
+                -O buffer(definicion), graba en disco o seu contido cando se enche(cando 
+                    non ten espacio suficiente para realizar a seguinte escritura).
+                    Considerase limpo cando o seu punteiro apunta á primeira dirección.
+                -Unha aplicación multiproceso tratase por un arbore enario.ç
+                -Hai dous ou mais procesos que cooperan dentro da mesma aplicación multiproceso, 
+                    e reciben o nome de procesos cooperantes.
+                -cando un proceso finaliza, liberanse tanto os seus recursos como a sua imaxe 
+                    de memoria(memoria dinámica asignada para este proceso).
+                -Os procesos poden ser finalizados, ou polo Kernel, ou polo seu proceso pai(se o ten).
+                -Un proceso, para ser obxeto pai, debe instanciar un obxeto de tipo "porcess".
+                -o metodo start crea o novo proceso, e é o kernel quen o arranca.
+                -Para crear un proceso, temos que darlle  a o abxeto da clase proces, a 
+                    especificación en disco do executable a instanciar.Introducese 
+                como arguneto, e pode darselle como "args", "args[0]" ou  como a dirección do executable.
+                -os procesos executanse de forma asincronica, o fillo non se relaciona co 
+                    pai, pero o pais si co fillo.A execudión dos procesos dun mesmo árbore, 
+                    é unha execución sincrónica.
+
+                 Explicación do exemplo ALEATORIOS.
+                    ORDE DE TRABALLO:
+                    1º ".start": para crear o proceso.
+                    2º chamada á función "proceso.getInputString" para que lle envie o string 
+                        a o pai, para así comunicar, e é recollido polo pai mediante un "ImputStreamReader()", que é un buffer.
+                        -br é un buffer que recibe os datos de saida do fillo.
+                        -bps é o buffer que envia datos a o fillo, non a pantalla.
+                        -as instruccións proceso.getInput ou .getOutput son ordes do pai, non do fillo.
+
     Unidade 2. Programación de fios. 
         Cada nucleo xestiona un fio, denominase programacion paralela
     Unidade 3. Programación distribuida. (Aplicacion executada en multiples equipos)

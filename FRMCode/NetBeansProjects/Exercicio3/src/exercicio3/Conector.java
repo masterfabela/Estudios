@@ -16,6 +16,7 @@ import java.util.Scanner;
  * @author femio
  */
 public class Conector {
+    //alter session set nls_date_format = 'dd.mm.yyyy hh24:mi:ss';
     Connection conect;
     Scanner sc = new Scanner(System.in);
     int opcion2=0;

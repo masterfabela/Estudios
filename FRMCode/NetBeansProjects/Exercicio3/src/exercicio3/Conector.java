@@ -19,6 +19,7 @@ public class Conector {
     Connection conect;
     Scanner sc = new Scanner(System.in);
     int opcion2=0;
+    Statement orde;
     public void conectar(){
         try{
             conect=DriverManager.getConnection("jdbc:mysql://localhost:3306/?user=root");
@@ -37,7 +38,7 @@ public class Conector {
     }
     
     public void altas(){
-        Statement orde;
+        
         while(opcion2!=5){
             System.out.println("========ALTAS========\n"
                 + "1-Profesores\n"
@@ -79,6 +80,7 @@ public class Conector {
                     ;
                 break;
                 case 3:
+                    //Problemas co date.
                     System.out.println("Introduza o Id da asignatura:");
                     String idas=sc.next();
                     System.out.println("Introduza o Id do alumno:");
@@ -97,7 +99,19 @@ public class Conector {
                     ;
                 break;
                 case 4:
-                    
+                    System.out.println("Introduza o Id da asignatura:");
+                    idas=sc.next();
+                    System.out.println("Introduza o Id do alumno:");
+                    idal=sc.next();
+                    System.out.println("Introduza o dni:");
+                    dni=sc.next();
+                    try{
+                        orde=conect.createStatement();
+                        orde.execute("insert into profesoresalumnosasignaturas values(\""+idas+"\",\""+idal+"\"),\'"+dni+"\';");
+                        System.out.println("Inseiruse a relacion correctamente.");
+                    }catch(SQLException sqle1){
+                        System.out.println("Erro:"+sqle1.getMessage());
+                    }
                     ;
                 break;
             }
@@ -109,11 +123,44 @@ public class Conector {
                 + "1-Profesores\n"
                 + "2-Alumnos\n"
                 + "3-Sair");
+        opcion2=sc.nextInt();
+        switch(opcion2){
+            case 1:
+                System.out.println("Introduza o Dni do profesor a dar de baixa:");
+                    String dni=sc.next();
+                    try{
+                    orde=conect.createStatement();
+                    orde.execute("delete from profesores where dni=\'"+dni+"\'");
+                    }catch(SQLException sqle1){
+                        System.out.println("Erro: "+sqle1.getMessage());
+                    }
+                ;
+            break;
+            case 2:
+                System.out.println("Introduza o identificador do alumno a dar de baixa:");
+                    String idal =sc.next();
+                    try{
+                    orde=conect.createStatement();
+                    orde.execute("delete from alumnos where dni=\'"+idal+"\'");
+                    }catch(SQLException sqle1){
+                        System.out.println("Erro: "+sqle1.getMessage());
+                    }
+                ;
+            break;
+        }
         }
     }
     public void modificacions(){
         System.out.println("Introduce o identificador do alumno.");
+        String idal=sc.next();
         System.out.println("Introduza a nova nota.");
+        int nota=sc.nextInt();
+        try{
+        orde=conect.createStatement();
+        orde.execute("update from alumnos set nota=\'"+nota+"\' where Idal=\'"+idal+"\'");
+        }catch(SQLException sqle1){
+            System.out.println("Erro:"+sqle1.getMessage());
+        }
     }
     public void consultas(){
         while(opcion2!=5){

@@ -5,6 +5,8 @@
  */
 package exercicio3;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Femio
@@ -15,21 +17,50 @@ public class Exercicio3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*1-Creación
-	2-Altas
-            2.1 -Profesores.
-            2.2 -Alumnos.
-            2.3-Notas
-	    2.4-tabla relacional (profesor+asignatura+nota)	
-	3-Bajas
-            3.1 -Profesores.
-	    3.2 -Alumnos.
-	4-Modificaciones
-            4.1_Nota de un alumno.
-	5-Listado de un profesor con las asignaturas que imparte.
-	6-listado de un alumno con las notas que tiene en cada asignatura.
-	7-Listado de una asgnatura con los profesores que la imparten.
-        8-Fin.*/
+        Scanner sc=new Scanner(System.in);
+        Conector c1=new Conector();
+        int opcion=0;
+        while(opcion!=6){
+        System.out.println("========MENU========\n"
+                + "1-Creación Y/O Conexion\n"
+                + "2-Altas\n"
+                + "3-Baixas\n"
+                + "4-Modificacións\n"
+                + "5-Consultas\n"
+                + "6-Fin\n");
+        opcion=sc.nextInt();
+        switch(opcion){
+            case 1:
+                c1.conectar();
+                c1.crearBD();
+            ;
+            break;
+            
+            case 2:
+                c1.altas();
+                ;
+            break;
+            
+            case 3:
+                
+                ;
+            break;
+            
+            case 4:
+                
+                ;
+            break;
+            
+            case 5:
+                
+                ;
+            break;
+            case 6:
+                c1.pechar();
+                ;
+            break;
+        }
+        }
         /*
         Profesores y alumnos tienen una relación de varios a varios.
         Alumnos y asignaturas tienen una relación varioa a varios.

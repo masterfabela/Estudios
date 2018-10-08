@@ -132,7 +132,6 @@ public class Conector {
                     try{
                     orde=conect.createStatement();
                     orde.execute("delete from profesores where dni='"+dni+"'");
-                    orde.execute("delete from profesoresalumnosasignaturas where dni='"+dni+"'");
                     }catch(SQLException sqle1){
                         System.out.println("Erro: "+sqle1.getMessage());
                     }
@@ -144,8 +143,6 @@ public class Conector {
                     try{
                     orde=conect.createStatement();
                     orde.execute("delete from alumnos where Idal='"+idal+"'");
-                    orde.execute("delete from notas where Idal='"+idal+"'");
-                    orde.execute("delete from profesoresalumnosasignaturas where Idal='"+idal+"'");
                     }catch(SQLException sqle1){
                         System.out.println("Erro: "+sqle1.getMessage());
                     }

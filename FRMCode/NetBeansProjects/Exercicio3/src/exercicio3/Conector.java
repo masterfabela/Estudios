@@ -19,6 +19,7 @@ import java.util.Scanner;
 public class Conector {
     //alter session set nls_date_format = 'dd.mm.yyyy hh24:mi:ss';
     Connection conect;
+    Date data;
     Scanner sc = new Scanner(System.in);
     int opcion2=0;
     Statement orde;
@@ -87,7 +88,7 @@ public class Conector {
                     System.out.println("Introduza o Id do alumno:");
                     int idal=Integer.parseInt(sc.next());
                     System.out.println("Introduza a data:");
-                    Date data=Date.valueOf(sc.next());
+                    data=Date.valueOf(sc.next());
                     System.out.println("Introduza a nota:");
                     int nota= sc.nextInt();
                     try{
@@ -154,11 +155,15 @@ public class Conector {
     public void modificacions(){
         System.out.println("Introduce o identificador do alumno.");
         String idal=sc.next();
+        System.out.println("Introduce o codigo da asignatura.");
+        String idas=sc.next();
+        System.out.println("Introduce a data.");
+        data=Date.valueOf(sc.next());
         System.out.println("Introduza a nova nota.");
         int nota=sc.nextInt();
         try{
         orde=conect.createStatement();
-        orde.execute("update from alumnos set nota='"+nota+"' where Idal='"+idal+"'");
+        orde.execute("update notas set nota='"+nota+"' where Idal='"+idal+"' and fecha='"+data+"' and Idas='"+idas+"';");
         }catch(SQLException sqle1){
             System.out.println("Erro:"+sqle1.getMessage());
         }
@@ -171,6 +176,19 @@ public class Conector {
                 + "3-Asignatira/profesor\n"
                 + "4-Taboa PAAN\n"
                 + "5-Sair");
+                opcion2=sc.nextInt();
+                switch(opcion2){
+                    case 1:;
+                    break;
+                    case 2:;
+                    break;
+                    case 3:;
+                    break;
+                    case 4:;
+                    break;
+                    
+                    
+                }
         }
     }
     

@@ -42,17 +42,17 @@ public class Exercicio3 {
             break;
             
             case 3:
-                
+                c1.baixas();
                 ;
             break;
             
             case 4:
-                
+                c1.modificacions();
                 ;
             break;
             
             case 5:
-                
+                c1.consultas();
                 ;
             break;
             case 6:

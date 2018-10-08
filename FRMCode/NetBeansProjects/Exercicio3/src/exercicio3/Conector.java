@@ -58,7 +58,7 @@ public class Conector {
                     String tit=sc.next();
                     try{
                         orde=conect.createStatement();
-                        orde.execute("insert into profesores values(\""+dni+"\",\""+nome+"\",\""+tit+"\");");
+                        orde.execute("insert into profesores values('"+dni+"','"+nome+"','"+tit+"');");
                         System.out.println("Inseiruse a "+nome+" correctamente.");
                     }catch(SQLException sqle1){
                         System.out.println("Erro:"+sqle1.getMessage());
@@ -73,7 +73,7 @@ public class Conector {
                     nome= sc.next();
                     try{
                         orde=conect.createStatement();
-                        orde.execute("insert into alumnos values(\""+id+"\",\""+codigo+"\",\""+nome+"\");");
+                        orde.execute("insert into alumnos values('"+id+"','"+codigo+"','"+nome+"');");
                         System.out.println("Inseiruse a "+nome+" correctamente.");
                     }catch(SQLException sqle1){
                         System.out.println("Erro:"+sqle1.getMessage());
@@ -108,7 +108,7 @@ public class Conector {
                     dni=sc.next();
                     try{
                         orde=conect.createStatement();
-                        orde.execute("insert into profesoresalumnosasignaturas values(\""+idas+"\",\""+idal+"\"),\'"+dni+"\';");
+                        orde.execute("insert into profesoresalumnosasignaturas(dni,Idas,Idal) values ('"+dni+"','"+idas+"','"+idal+"')");
                         System.out.println("Inseiruse a relacion correctamente.");
                     }catch(SQLException sqle1){
                         System.out.println("Erro:"+sqle1.getMessage());
@@ -131,7 +131,8 @@ public class Conector {
                     String dni=sc.next();
                     try{
                     orde=conect.createStatement();
-                    orde.execute("delete from profesores where dni=\'"+dni+"\'");
+                    orde.execute("delete from profesores where dni='"+dni+"'");
+                    orde.execute("delete from profesoresalumnosasignaturas where dni='"+dni+"'");
                     }catch(SQLException sqle1){
                         System.out.println("Erro: "+sqle1.getMessage());
                     }
@@ -142,7 +143,9 @@ public class Conector {
                     String idal =sc.next();
                     try{
                     orde=conect.createStatement();
-                    orde.execute("delete from alumnos where dni=\'"+idal+"\'");
+                    orde.execute("delete from alumnos where Idal='"+idal+"'");
+                    orde.execute("delete from notas where Idal='"+idal+"'");
+                    orde.execute("delete from profesoresalumnosasignaturas where Idal='"+idal+"'");
                     }catch(SQLException sqle1){
                         System.out.println("Erro: "+sqle1.getMessage());
                     }
@@ -158,7 +161,7 @@ public class Conector {
         int nota=sc.nextInt();
         try{
         orde=conect.createStatement();
-        orde.execute("update from alumnos set nota=\'"+nota+"\' where Idal=\'"+idal+"\'");
+        orde.execute("update from alumnos set nota='"+nota+"' where Idal='"+idal+"'");
         }catch(SQLException sqle1){
             System.out.println("Erro:"+sqle1.getMessage());
         }

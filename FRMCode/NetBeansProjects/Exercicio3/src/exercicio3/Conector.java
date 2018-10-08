@@ -6,6 +6,7 @@
 package exercicio3;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,7 +38,6 @@ public class Conector {
             System.out.println("Erro:"+sqle1.getMessage());
         }
     }
-    
     public void altas(){
         
         while(opcion2!=5){
@@ -85,14 +85,14 @@ public class Conector {
                     System.out.println("Introduza o Id da asignatura:");
                     String idas=sc.next();
                     System.out.println("Introduza o Id do alumno:");
-                    String idal=sc.next();
+                    int idal=Integer.parseInt(sc.next());
                     System.out.println("Introduza a data:");
-                    String data=sc.next();
+                    Date data=Date.valueOf(sc.next());
                     System.out.println("Introduza a nota:");
                     int nota= sc.nextInt();
                     try{
                         orde=conect.createStatement();
-                        orde.execute("insert into notas values(\""+idas+"\",\""+idal+"\"),\'"+data+"\',\""+nota+"\";");
+                        orde.execute("insert into notas(Idas,Idal,fecha,nota) values('"+idas+"','"+idal+"','"+data+"','"+nota+"');");
                         System.out.println("Inseiruse a nota correctamente.");
                     }catch(SQLException sqle1){
                         System.out.println("Erro:"+sqle1.getMessage());
@@ -103,7 +103,7 @@ public class Conector {
                     System.out.println("Introduza o Id da asignatura:");
                     idas=sc.next();
                     System.out.println("Introduza o Id do alumno:");
-                    idal=sc.next();
+                    idal=sc.nextInt();
                     System.out.println("Introduza o dni:");
                     dni=sc.next();
                     try{

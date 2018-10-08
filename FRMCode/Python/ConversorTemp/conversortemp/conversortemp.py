@@ -34,21 +34,34 @@ class Conversor:
         var=str(var)
         return (var)
     def celtokel(self):
-
-        return ()
+        temp = self.entdato.get_text()
+        kel = float(temp) - 273.15
+        var = str(kel)
+        return (var)
 
     def fahtokel(self):
-
-        return ()
+        temp = self.entdato.get_text()
+        fah = 1.4 * (float(temp) - 32.0) + 273.15
+        var = fah
+        var = str(var)
+        return (var)
     def fahtocel(self):
-
-        return ()
+        temp = self.entdato.get_text()
+        fah = 1.4 * (float(temp) - 32.0)
+        var = fah
+        var = str(var)
+        return (var)
     def keltocel(self):
-
-        return ()
+        temp = self.entdato.get_text()
+        kel = float(temp) + 273.15
+        var = str(kel)
+        return (var)
     def keltofah(self):
-        #despois facer esto con radiobutton
-        return ()
+        temp = self.entdato.get_text()
+        fah = 1.4 * float(temp) + 32.0 -273.15
+        var = fah
+        var = str(var)
+        return (var)
 
     def calcula(self, widget):
         self.select1 = self.cmbuno.get_active_text()
@@ -57,24 +70,31 @@ class Conversor:
         if self.select1 == "Celsius" and self.select2 == "Farenheit":
             self.var = self.celtofah()
             self.resultado.set_text(self.var)
+
         if self.select1 == "Celsius" and self.select2 == "Kelvin":
-            self.celtokel()
-            self.resultado.set_text(self.select2)
+            self.var=self.celtokel()
+            self.resultado.set_text(self.var)
+
         if self.select1 == "Kelvin"and self.select2 == "Farenheit":
-            self.keltofah()
-            self.resultado.set_text(self.select2)
+            self.var =self.keltofah()
+            self.resultado.set_text(self.var)
+
         if self.select1 == "Kelvin" and self.select2 == "Celsius":
-            self.keltocel()
-            self.resultado.set_text(self.select2)
+            self.var =self.keltocel()
+            self.resultado.set_text(self.var)
+
         if self.select1 == "Farenheit" and self.select2 == "Celsius":
-            self.fahtocel()
-            self.resultado.set_text(self.select2)
+            self.var =self.fahtocel()
+            self.resultado.set_text(self.var)
+
         if self.select1 == "Farenheit" and self.select2 == "Kelvin":
-            self.fahtokel()
-            self.resultado.set_text(self.select2)
+            self.var =self.fahtokel()
+            self.resultado.set_text(self.var)
 
-
+        if self.select1==self.select2:
+            self.resultado.set_text("Erro.")
 
 if __name__ == '__main__':
     main = Conversor()
     Gtk.main()
+    # despois facer esto con radiobutton, con unha ventana secundaria

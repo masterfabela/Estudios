@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkWindow" id="venSecundario">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Con Radio Buttons</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="default_width">550</property>
+    <property name="default_height">270</property>
+    <property name="gravity">center</property>
+    <signal name="destroy" handler="on_venSecundario_destroy" swapped="no"/>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="label" translatable="yes">Temperatura:</property>
+          </object>
+          <packing>
+            <property name="x">22</property>
+            <property name="y">73</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Resultado:</property>
+          </object>
+          <packing>
+            <property name="x">31</property>
+            <property name="y">159</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">198</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Conversor de Temperaturas</property>
+            <attributes>
+              <attribute name="weight" value="semibold"/>
+              <attribute name="background" value="#fcfce9e94f4f"/>
+              <attribute name="gravity" value="auto"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="x">141</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entdato2">
+            <property name="width_request">166</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">122</property>
+            <property name="y">69</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblresultado2">
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">125</property>
+            <property name="y">156</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rbtcel1">
+            <property name="label" translatable="yes">Celsius</property>
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="x">324</property>
+            <property name="y">70</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rbtfah1">
+            <property name="label" translatable="yes">Fahrenheit</property>
+            <property name="width_request">110</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">rbtcel1</property>
+          </object>
+          <packing>
+            <property name="x">324</property>
+            <property name="y">105</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">ESCALAS</property>
+          </object>
+          <packing>
+            <property name="x">395</property>
+            <property name="y">48</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btncalcular2">
+            <property name="label" translatable="yes">Calcular</property>
+            <property name="width_request">100</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btncalcular2_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">152</property>
+            <property name="y">224</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnsalir">
+            <property name="label" translatable="yes">Salir</property>
+            <property name="width_request">100</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btnsalir_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">306</property>
+            <property name="y">224</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rbtkel1">
+            <property name="label" translatable="yes">Kelvin</property>
+            <property name="width_request">110</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">rbtcel1</property>
+          </object>
+          <packing>
+            <property name="x">323</property>
+            <property name="y">141</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rbtcel2">
+            <property name="label" translatable="yes">Celsius</property>
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="x">447</property>
+            <property name="y">71</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rbtfah2">
+            <property name="label" translatable="yes">Fahrenheit</property>
+            <property name="width_request">100</property>
+            <property name="height_request">27</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">rbtcel2</property>
+          </object>
+          <packing>
+            <property name="x">444</property>
+            <property name="y">105</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="rbtkel2">
+            <property name="label" translatable="yes">Kelvin</property>
+            <property name="width_request">110</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">rbtcel2</property>
+          </object>
+          <packing>
+            <property name="x">444</property>
+            <property name="y">141</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblaviso2">
+            <property name="width_request">141</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">207</property>
+            <property name="y">188</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="venprincipal">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Conversor Temperatura</property>
+    <property name="window_position">center</property>
+    <property name="default_width">600</property>
+    <property name="default_height">300</property>
+    <property name="gravity">center</property>
+    <signal name="destroy" handler="on_venprincipal_destroy" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="label" translatable="yes">Temperatura:</property>
+          </object>
+          <packing>
+            <property name="x">16</property>
+            <property name="y">58</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entdato">
+            <property name="width_request">166</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">124</property>
+            <property name="y">57</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">80</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Escala:</property>
+          </object>
+          <packing>
+            <property name="x">291</property>
+            <property name="y">60</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">235</property>
+            <property name="height_request">37</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Conversor de Temperaturas</property>
+            <attributes>
+              <attribute name="weight" value="semibold"/>
+              <attribute name="background" value="#fcfce9e94f4f"/>
+              <attribute name="gravity" value="auto"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="x">165</property>
+            <property name="y">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="cmbuno">
+            <property name="width_request">155</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="active">0</property>
+            <property name="has_entry">True</property>
+            <items>
+              <item translatable="yes">Elija Escala</item>
+              <item translatable="yes">farenheit</item>
+              <item translatable="yes">kelvin</item>
+              <item translatable="yes">celsius</item>
+            </items>
+            <child internal-child="entry">
+              <object class="GtkEntry">
+                <property name="can_focus">False</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">374</property>
+            <property name="y">58</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Resultado:</property>
+          </object>
+          <packing>
+            <property name="x">16</property>
+            <property name="y">153</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">80</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Escala:</property>
+          </object>
+          <packing>
+            <property name="x">290</property>
+            <property name="y">155</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="cmbdos">
+            <property name="width_request">193</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="active">0</property>
+            <property name="has_entry">True</property>
+            <items>
+              <item translatable="yes">Elija Escala</item>
+              <item translatable="yes">farenheit</item>
+              <item translatable="yes">kelvin</item>
+              <item translatable="yes">celsius</item>
+            </items>
+            <child internal-child="entry">
+              <object class="GtkEntry">
+                <property name="can_focus">False</property>
+                <property name="text" translatable="yes">Elija Escala</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">373</property>
+            <property name="y">155</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblresultado">
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_right">12</property>
+          </object>
+          <packing>
+            <property name="x">122</property>
+            <property name="y">154</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblaviso">
+            <property name="width_request">100</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_right">36</property>
+          </object>
+          <packing>
+            <property name="x">206</property>
+            <property name="y">200</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btncalcula">
+            <property name="label" translatable="yes">Calcular</property>
+            <property name="width_request">70</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btncalcula_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">158</property>
+            <property name="y">248</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnvendos">
+            <property name="label" translatable="yes">Otra forma</property>
+            <property name="width_request">90</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btnvendos_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">313</property>
+            <property name="y">250</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -8,6 +8,7 @@ package exercicio3;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -168,23 +169,79 @@ public class Conector {
         }
     }
     public void consultas(){
-        //acabar esto
         while(opcion2!=5){
                 System.out.println("======CONSULTAS======\n"
                 + "1-Profesores/Asignaturas\n"
                 + "2-Alumnos/Notas/Asignaturas\n"
                 + "3-Asignatira/profesor\n"
-                + "4-Taboa PAAN\n"
-                + "5-Sair");
+                + "4-Sair");
                 opcion2=sc.nextInt();
                 switch(opcion2){
-                    case 1:;
+                    case 1:
+                        System.out.println("Introduce o Nome do profesor a consultar");
+                        String nome=null;
+                        try{
+                            nome=sc.next();
+                            Statement sql=conect.createStatement();
+                            ResultSet res=sql.executeQuery("select dni from profesores where nome like '"+nome+"';");
+
+                            res.next();
+                            res=sql.executeQuery("select Idas from profesoresalumnosasignaturas where dni like '"+res.getString(1)+"';");
+                            while(res.next()){
+                                Statement sql2=conect.createStatement();
+                                ResultSet res2=sql2.executeQuery("select nome from asignaturas where Idas = '"+res.getString(1)+"';");
+                                res2.next();
+                                System.out.println(res2.getString(1));
+                                
+                            }
+
+
+                            
+                        }catch(SQLException sqle1){
+                            System.out.println("Erro:"+sqle1.getMessage());
+                        }
+                        ;
                     break;
-                    case 2:;
+                    case 2:
+                        System.out.println("Introduce o id do alumno en cuestion.");
+                        int idal;
+                        idal=sc.nextInt();
+                        System.out.println("Alumno: "+idal);
+                        try{
+                            Statement sql=conect.createStatement();
+                            ResultSet resul=sql.executeQuery("select Idas,nota from notas where Idal = '"+idal+"';");
+                            while(resul.next()){
+                                Statement sql2= conect.createStatement();
+                                ResultSet resul2=sql2.executeQuery("select nome from asignaturas where Idas = '"+resul.getString(1)+"';");
+                                resul2.next();
+                                System.out.println(resul2.getString(1)+" => "+resul.getString(2));
+                            }
+                        }catch(SQLException sqle1){
+                            System.out.println("Erro:"+sqle1.getMessage());
+                        }
+                        ;
                     break;
-                    case 3:;
-                    break;
-                    case 4:;
+                    case 3:
+                        try{
+                            Statement sql=conect.createStatement();
+                            ResultSet resul=sql.executeQuery("select nome, dni from profesores;");
+                            
+                            while(resul.next()){
+                                System.out.println("Profesor: "+resul.getString(1));
+                                System.out.println("Asignaturas: ");
+                                Statement sql2= conect.createStatement();
+                                ResultSet resul2=sql2.executeQuery("select Idas from profesoresalumnosasignaturas where dni = '"+resul.getString(2)+"';");
+                                while(resul2.next()){
+                                    Statement sql3=conect.createStatement();
+                                    ResultSet resul3=sql3.executeQuery("select nome from asignaturas where Idas = '"+resul2.getString(1)+"';");
+                                    resul3.next();
+                                    System.out.print(resul3.getString(1)+"\n");
+                                }
+                            }
+                        }catch(SQLException sqle1){
+                            System.out.println("Erro:"+sqle1.getMessage());
+                        }
+                        ;
                     break;
                 }
         }

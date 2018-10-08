@@ -35,22 +35,18 @@ public class Exercicio3 {
                 c1.crearBD();
             ;
             break;
-            
             case 2:
                 c1.altas();
                 ;
             break;
-            
             case 3:
                 c1.baixas();
                 ;
             break;
-            
             case 4:
                 c1.modificacions();
                 ;
             break;
-            
             case 5:
                 c1.consultas();
                 ;
@@ -61,11 +57,5 @@ public class Exercicio3 {
             break;
         }
         }
-        /*
-        Profesores y alumnos tienen una relación de varios a varios.
-        Alumnos y asignaturas tienen una relación varioa a varios.
-        Profesores y asignaturas tienen una relación varios a varios.
-        Alumnos y notas tienen una relación uno a varios.*/
     }
-    
 }

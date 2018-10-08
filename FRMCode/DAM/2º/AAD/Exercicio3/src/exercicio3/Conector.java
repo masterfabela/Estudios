@@ -40,7 +40,6 @@ public class Conector {
         }
     }
     public void altas(){
-        
         while(opcion2!=5){
             System.out.println("========ALTAS========\n"
                 + "1-Profesores\n"
@@ -82,7 +81,6 @@ public class Conector {
                     ;
                 break;
                 case 3:
-                    //Problemas co date.
                     System.out.println("Introduza o Id da asignatura:");
                     String idas=sc.next();
                     System.out.println("Introduza o Id do alumno:");
@@ -186,8 +184,6 @@ public class Conector {
                     break;
                     case 4:;
                     break;
-                    
-                    
                 }
         }
     }

@@ -17,7 +17,6 @@ import java.util.Scanner;
  * @author femio
  */
 public class Conector {
-    //alter session set nls_date_format = 'dd.mm.yyyy hh24:mi:ss';
     Connection conect;
     Date data;
     Scanner sc = new Scanner(System.in);
@@ -81,6 +80,7 @@ public class Conector {
                     ;
                 break;
                 case 3:
+                    //cambiar o formato da data
                     System.out.println("Introduza o Id da asignatura:");
                     String idas=sc.next();
                     System.out.println("Introduza o Id do alumno:");
@@ -151,6 +151,7 @@ public class Conector {
         }
     }
     public void modificacions(){
+        //cambiar o formato da data
         System.out.println("Introduce o identificador do alumno.");
         String idal=sc.next();
         System.out.println("Introduce o codigo da asignatura.");
@@ -167,6 +168,7 @@ public class Conector {
         }
     }
     public void consultas(){
+        //acabar esto
         while(opcion2!=5){
                 System.out.println("======CONSULTAS======\n"
                 + "1-Profesores/Asignaturas\n"
@@ -223,7 +225,6 @@ public class Conector {
             s.execute("create table if not exists notas ("
                     + "Idas int(5) ,"
                     + "Idal int(11) ,"
-                    //Problemas co formateo do date.
                     + "fecha date not null,"
                     + "nota float(3),"
                     + "primary key (Idas,Idal,fecha),"

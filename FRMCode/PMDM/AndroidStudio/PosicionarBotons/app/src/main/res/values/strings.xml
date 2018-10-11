@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PosicionarBotons</string>
+    <string name="b_1">Sup.Esq</string>
+    <string name="b_2">Sup.Der</string>
+    <string name="b_3">Central</string>
+    <string name="b_4">Inf.Esq</string>
+    <string name="b_5">Inf.Der.</string>
+</resources>

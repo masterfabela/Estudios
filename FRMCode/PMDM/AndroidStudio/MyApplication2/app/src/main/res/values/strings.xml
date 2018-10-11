@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Login Table</string>
+    <string name="funcion">Conectar</string>
+    <string name="user">Usuario</string>
+    <string name="pass">Contrasinal</string>
+    <string name="boton">INICIAR SESION</string>
+    <string name="olvido">¿Olvidou o seu contrasinal?</string>
+</resources>

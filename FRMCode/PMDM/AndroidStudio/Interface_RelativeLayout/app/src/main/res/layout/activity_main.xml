@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+    <!--o "+id" indica a creación do id,
+    sen o "+" rreferenciase a o propio id-->
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="HOLA"/>
+    <!-- La segunda TextView, con el contenido ADIOS, se
+    situará debajo (below)         de la primera (con id=texto1)
+    , y alineada a derecha en el Layout "padre"-->
+    <!--O align bottom fai que se coloque na mesma liña que
+    o elemento referenciado-->
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/texto1"
+        android:text="ADIOS" />
+
+</RelativeLayout>

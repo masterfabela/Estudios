@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Navegador_RelativeLayout</string>
+    <string name="p1">Soes usar Internet Explorer?</string>
+    <string name="b1">Si</string>
+    <string name="b2">Non</string>
+    <string name="b3">Ás veces</string>
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.a18franciscorm.componentesbasicos.MainActivity">
+        <!--TextView simple-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1º-Text view!"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/color_branco"
+            android:textSize="32sp"
+            android:typeface="monospace"
+            android:textStyle="italic|bold"
+            />
+        <!--EditText simple-->
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome"
+            android:textSize="32sp"
+            android:background="@color/color_fondotexto"
+            />
+        <!--EditText só para numeros, podendo ser positivos,
+        negativos, enteiros e decimais-->
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Numerais"
+            android:textSize="32sp"
+            android:background="@color/color_fondotexto"
+            android:textColorHint="@color/colorPrimary"
+            android:inputType="numberSigned|numberDecimal"
+            />
+        <!--Boton con texto e imaxe, mediante o drawable-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="presioname"
+            android:drawableRight="@drawable/ic_launcher"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher"/>
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Aceso"
+            android:textOff="Apagado"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patatas"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Katsup"
+            />
+        <RadioGroup
+            android:id="@+id/rbGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rbSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Si"
+                />
+            <RadioButton
+                android:id="@+id/rbNon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Non"
+                android:checked="true"
+                />
+        </RadioGroup>
+    </LinearLayout>
+
+
+</ScrollView>

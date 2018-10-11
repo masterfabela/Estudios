@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="letraPequena">15dp</dimen>
+    <dimen name="letraNormal">20dp</dimen>
     <dimen name="letraFuncion">30dp</dimen>
     <dimen name="anchoCredenciais">160dp</dimen>
     <dimen name="paddingVertical">30dp</dimen>

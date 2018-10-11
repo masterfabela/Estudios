@@ -39,7 +39,7 @@
         </child>
         <child>
           <object class="GtkButton" id="butLoteria">
-            <property name="label" translatable="yes">button</property>
+            <property name="label" translatable="yes">Loteria</property>
             <property name="width_request">100</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>

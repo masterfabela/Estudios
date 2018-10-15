@@ -4,7 +4,6 @@
 import gi
 import random
 from random import randrange
-from random import shuffle
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 

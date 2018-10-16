@@ -36,8 +36,8 @@ public class MetodosSQL {
                     + ");");
             creacion.execute("create table if not exists Autores("
                     + "dniautor int(8) not null,"
-                    + "nombre varchar (60),"
-                    + "nacionalidad varchar(30),"
+                    + "nome varchar (60),"
+                    + "nacionalidade varchar(30),"
                     + "primary key(dniautor)"
                     + ");");
             creacion.execute("create table if not exists Telefonos("

@@ -46,5 +46,9 @@ Contributor(s):
          name="exercicio4.Autores" 
          optimistic-lock="version" 
          polymorphism="implicit" 
-         select-before-update="false"/>
+         select-before-update="false"
+         table="Autores"
+  schema="dbo"
+  catalog="Autores"/>
+  <id></id>
 </hibernate-mapping>

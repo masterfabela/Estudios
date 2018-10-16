@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @author a18franciscorm
  */
 public class Libros implements Serializable {
+    private int id;
     private int idlibro;
     private String titulo;
     private float prezo;
@@ -19,10 +20,19 @@ public class Libros implements Serializable {
     public Libros() {
     }
 
-    public Libros(int idlibro, String titulo, float prezo) {
+    public Libros(int id, int idlibro, String titulo, float prezo) {
+        this.id = id;
         this.idlibro = idlibro;
         this.titulo = titulo;
         this.prezo = prezo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdlibro() {
@@ -48,5 +58,7 @@ public class Libros implements Serializable {
     public void setPrezo(float prezo) {
         this.prezo = prezo;
     }
+
+    
     
 }

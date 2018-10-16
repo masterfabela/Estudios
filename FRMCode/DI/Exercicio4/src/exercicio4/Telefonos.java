@@ -12,15 +12,25 @@ import java.io.Serializable;
  * @author a18franciscorm
  */
 public class Telefonos implements Serializable {
+    private int id;
     private int dni;
     private int ntel;
 
     public Telefonos() {
     }
 
-    public Telefonos(int dni, int ntel) {
+    public Telefonos(int id, int dni, int ntel) {
+        this.id = id;
         this.dni = dni;
         this.ntel = ntel;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getDni() {
@@ -38,5 +48,7 @@ public class Telefonos implements Serializable {
     public void setNtel(int ntel) {
         this.ntel = ntel;
     }
+
+    
     
 }

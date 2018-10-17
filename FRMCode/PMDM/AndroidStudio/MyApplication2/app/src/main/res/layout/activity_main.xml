@@ -20,15 +20,38 @@
             android:textStyle="bold"
             android:textSize="@dimen/letraFuncion"
             android:gravity="center"
+            android:padding="@dimen/paddingVertical"
             />
     </TableRow>
     <TableRow
         android:gravity="center">
+        <EditText
+            android:textSize="@dimen/letraNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/user"
+            android:inputType="textCapWords"/>
+    </TableRow>
+    <TableRow
+        android:gravity="center">
+        <EditText
+            android:textSize="@dimen/letraNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/pass"
+            android:inputType="textPassword"/>
 
     </TableRow>
     <TableRow
         android:gravity="center">
 
+        <Button
+            android:text="@string/boton"
+            android:textStyle="bold"
+            android:textSize="@dimen/letraPequena"
+            android:padding="@dimen/paddingVertical"
+            android:layout_margin_bottom="@dimen/paddingVertical"
+            />
     </TableRow>
     <TableRow
         android:gravity="center">

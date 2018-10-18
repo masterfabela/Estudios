@@ -12,7 +12,6 @@ import java.io.Serializable;
  * @author a18franciscorm
  */
 public class Autores implements Serializable {
-    private int id;
     private int dniautor;
     private String nombre;
     private String nacionalidad;
@@ -20,19 +19,10 @@ public class Autores implements Serializable {
     public Autores() {
     }
 
-    public Autores(int id, int dniautor, String nombre, String nacionalidad) {
-        this.id = id;
+    public Autores( int dniautor, String nombre, String nacionalidad) {
         this.dniautor = dniautor;
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getDniautor() {

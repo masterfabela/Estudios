@@ -43,8 +43,8 @@ public class MetodosSQL {
             creacion.execute("create table if not exists Telefonos("
                     + "dni int(8) not null,"
                     + "ntel int(9),"
-                    + "primary key(dni),"
-                    + "foreign key(dni) references Autores(dniautor) on delete cascade on update cascade"
+                    + "foreign key(dni) references Autores(dniautor) on delete cascade on update cascade,"
+                    + "primary key(dni)"
                     + ");");
             
             System.out.println("Taboas creadas correctamente.");

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:orientation="horizontal"
+    android:background="@color/fondo"
+    tools:context="com.example.a18franciscorm.loginrelative.MainActivity">
+
+        <TextView
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/funcion"
+            android:textSize="24dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <EditText
+            android:layout_width="@dimen/anchoCredenciais"
+            android:layout_height="wrap_content"
+            android:hint="@string/user"
+            android:layout_gravity="center_horizontal"
+            android:inputType="textCapSentences"
+            />
+        <EditText
+            android:layout_width="@dimen/anchoCredenciais"
+            android:layout_height="wrap_content"
+            android:hint="@string/pass"
+            android:layout_gravity="center_horizontal"
+            android:password="true" />
+        <Button
+            android:paddingBottom="@dimen/paddingVertical"
+            android:paddingTop="@dimen/paddingVertical"
+            android:paddingLeft="@dimen/paddingHorizontal"
+            android:paddingRight="@dimen/paddingHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/boton"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/olvido"
+            android:textSize="@dimen/letraPequena"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="@dimen/paddingVertical"/>
+    </LinearLayout>
+
+</LinearLayout>

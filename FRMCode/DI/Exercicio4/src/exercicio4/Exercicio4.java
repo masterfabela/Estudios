@@ -16,11 +16,15 @@ public class Exercicio4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        Session sesion;
-//        sesion = HibernateUtil.getSessionFactory().openSession();
-//        Transaction tr=sesion.beginTransaction();
         MetodosSQL msql=new MetodosSQL();
         msql.creaTaboas();
+        Session sesion;
+        sesion = HibernateUtil.getSessionFactory().openSession();
+        Transaction tr=sesion.beginTransaction();
+        Libros l1 = new Libros(4563,"Lolita",29.3f);
+//        sesion.save(l1);
+//        tr.commit();
+        sesion.close();
         
     }
     

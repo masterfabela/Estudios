@@ -14,9 +14,11 @@ import org.hibernate.SessionFactory;
  */
 public class HibernateUtil {
     private static final SessionFactory sessionFactory;
+    static Configuration cfg=new Configuration().configure();
     static {
         try{
-            sessionFactory = new Configuration().configure().buildSessionFactory();
+            sessionFactory = cfg.buildSessionFactory();
+            
         }catch(Throwable ex){
             System.err.println("A creacion da SesionFactory fallou: "+ex);
             throw new ExceptionInInitializerError(ex);

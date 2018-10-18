@@ -17,6 +17,7 @@
         tools:context="com.example.a18franciscorm.componentesbasicos.MainActivity">
         <!--TextView simple-->
         <TextView
+            android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1º-Text view!"
@@ -28,6 +29,7 @@
             />
         <!--EditText simple-->
         <EditText
+            android:id="@+id/etextNome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome"
@@ -37,6 +39,7 @@
         <!--EditText só para numeros, podendo ser positivos,
         negativos, enteiros e decimais-->
         <EditText
+            android:id="@+id/etextNumeros"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Numerais"
@@ -47,30 +50,36 @@
             />
         <!--Boton con texto e imaxe, mediante o drawable-->
         <Button
+            android:id="@+id/butObvio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="presioname"
             android:drawableRight="@drawable/ic_launcher"/>
         <ImageButton
+            android:id="@+id/imgbutDroide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher"/>
         <ToggleButton
+            android:id="@+id/altbutEstado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textOn="Aceso"
             android:textOff="Apagado"/>
         <ImageView
+            android:id="@+id/imgvDroide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher"/>
 
         <CheckBox
+            android:id="@+id/cboxSi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Patatas"
             />
         <CheckBox
+            android:id="@+id/cboxNon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Katsup"

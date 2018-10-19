@@ -107,8 +107,10 @@ Temario dividido en 5 temas:
                 instancie un novo proceso, que pasará a competir por recursos e tempo de 
                 execución, pero que tamén estará comunicado co pai.
             -Ver diferencia entre arbore binaria e arbore enaria.
+            -Modos do SO,usuario ou kernel.
+            -Método .waitFor() fai que o pai se poña á espera de que o proceso fillo termine.
 
-O control está próximo, de enfoque practico-teórico , pero non de chapa.
+O control ponse o luns, de enfoque practico-teórico , pero non de chapa.
 
     Unidade 2. Programación de fios. 
         Cada nucleo xestiona un fio, denominase programacion paralela

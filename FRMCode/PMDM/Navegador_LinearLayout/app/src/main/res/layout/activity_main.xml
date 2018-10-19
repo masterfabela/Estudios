@@ -20,19 +20,29 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/butSi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Si"/>
+            android:text="Si"
+            android:onClick="onClickSi"/>
         <Button
+            android:id="@+id/butNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No"/>
+            android:text="No"
+            android:onClick="onClickNo"/>
         <Button
+            android:id="@+id/butVeces"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A veces"/>
+            android:text="A veces"
+            android:onClick="onClickVeces"/>
     </LinearLayout>
-
+    <TextView
+        android:id="@+id/texMostrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>
 

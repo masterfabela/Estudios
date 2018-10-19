@@ -16,12 +16,14 @@
         android:layout_height="wrap_content"
         android:text="@string/p1" />
     <Button
+        android:onClick="onClickbtn"
         android:id="@+id/botsi"
         android:layout_below="@id/texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/b1"/>
     <Button
+        android:onClick="onClickbtn"
         android:id="@+id/botnon"
         android:layout_toRightOf="@id/botsi"
         android:layout_below="@id/texto"
@@ -29,10 +31,18 @@
         android:layout_height="wrap_content"
         android:text="@string/b2"/>
     <Button
+        android:onClick="onClickbtn"
+        android:id="@+id/botveces"
         android:layout_toRightOf="@id/botnon"
         android:layout_below="@id/texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/b3"/>
+    <TextView
 
+        android:id="@+id/mostrar"
+        android:layout_below="@id/botnon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 </RelativeLayout>

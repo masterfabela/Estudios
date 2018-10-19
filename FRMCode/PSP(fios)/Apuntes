@@ -5,8 +5,8 @@ Temario dividido en 5 temas:
         de n procesos executandose concurrentemente, ainda que en cada momento só 
         se executa un proceso.)
 
-        *Bloque de memoria   -espacio de direccion do proceso
-                             -imaxe de memoria
+        *Bloque de memoria   -espacio de direccion do proceso.
+                             -imaxe de memoria.
         Buffer de entrada estandard(conectado co teclado).
         Buffer de saida estandard(conectado co monitor).
         Buffer de erros.
@@ -59,24 +59,56 @@ Temario dividido en 5 temas:
                     e reciben o nome de procesos cooperantes.
                 -cando un proceso finaliza, liberanse tanto os seus recursos como a sua imaxe 
                     de memoria(memoria dinámica asignada para este proceso).
-                -Os procesos poden ser finalizados, ou polo Kernel, ou polo seu proceso pai(se o ten).
+                -Os procesos poden ser finalizados, ou polo Kernel, ou polo seu proceso pai
+                    (se o ten).
                 -Un proceso, para ser obxeto pai, debe instanciar un obxeto de tipo "porcess".
                 -o metodo start crea o novo proceso, e é o kernel quen o arranca.
                 -Para crear un proceso, temos que darlle  a o abxeto da clase proces, a 
                     especificación en disco do executable a instanciar.Introducese 
-                como arguneto, e pode darselle como "args", "args[0]" ou  como a dirección do executable.
+                como arguneto, e pode darselle como "args", "args[0]" ou  como a dirección 
+                    do executable.
                 -os procesos executanse de forma asincronica, o fillo non se relaciona co 
-                    pai, pero o pais si co fillo.A execudión dos procesos dun mesmo árbore, 
-                    é unha execución sincrónica.
+                    pai, pero o pais si o fai co fillo. A execudión dos procesos dun mesmo 
+                    árbore, é unha execución sincrónica.
 
                  Explicación do exemplo ALEATORIOS.
                     ORDE DE TRABALLO:
                     1º ".start": para crear o proceso.
                     2º chamada á función "proceso.getInputString" para que lle envie o string 
-                        a o pai, para así comunicar, e é recollido polo pai mediante un "ImputStreamReader()", que é un buffer.
+                        a o pai, para así comunicar, e é recollido polo pai mediante un 
+                            "ImputStreamReader()", que é un buffer.
                         -br é un buffer que recibe os datos de saida do fillo.
                         -bps é o buffer que envia datos a o fillo, non a pantalla.
-                        -as instruccións proceso.getInput ou .getOutput son ordes do pai, non do fillo.
+                        -as instruccións proceso.getInput ou .getOutput son ordes do pai,
+                            non do fillo.
+        Facer un resume do tema ata agora que entre outras cousas inclua:
+            -Definicion de "Execucion concurrente de varios procesos" que é asincrónica.
+            -O proceso que se executa nun espacio de direccions de memoria(ou imaxe de memoria)
+            -Multiprogramación.
+            -Politicas(ou rutinas) de planificación de procesos (medio, curto e longo prazo)
+            -Tempo compartido nas politicas de curto prazo, cuanto de execucion
+                (tempo máximo ininterrompido que un proceso pode estar en execución).
+            -Cada proceso posue unha imaxe de memoria e un estado de proceso.
+            -Que é o codigo de operación.
+            -Qué e o contexto e o cambio de contexto, salvar o estado do proceso que sae da 
+                execución e cargar o estado do que entra.
+            -A cola xestionase como FIFO, e nunca se recorre completamente, so nos interesa 
+                coller o primeiro e insertar o ultimo.
+            -Xestion de prioridades polo SO.
+                Conxunto de pilas, cando a prioridade entre procesos é distinta.
+            -Aplicacions multiproceso, para o SO os procesos vense igual que os anteriores,
+                pero o formar parte de unha árbore de n procesos, eses procesos son cooperantes 
+                para a realizacion dunha tarefa. Estes procesos són síncronos a nivel de
+                aplicación, pero asíncrinos a nivel de SO.
+                Cada proceso debe poder funcionar independientemente.
+            -Dita sincronizacion lograse comunicando ambas imaxes de memoria, mediante os 
+                .getInput() e .getoutput()
+            - os procesos pais non arrancan procesos fillos, o proceso pai ordena a o SO que 
+                instancie un novo proceso, que pasará a competir por recursos e tempo de 
+                execución, pero que tamén estará comunicado co pai.
+            -Ver diferencia entre arbore binaria e arbore enaria.
+
+O control está próximo, de enfoque practico-teórico , pero non de chapa.
 
     Unidade 2. Programación de fios. 
         Cada nucleo xestiona un fio, denominase programacion paralela

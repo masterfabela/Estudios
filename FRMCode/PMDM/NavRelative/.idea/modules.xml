@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Navegador_LinearLayout.iml" filepath="$PROJECT_DIR$/Navegador_LinearLayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NavRelative.iml" filepath="$PROJECT_DIR$/NavRelative.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

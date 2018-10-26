@@ -18,23 +18,22 @@ public class Exercicio2 {
      */
     public static void main(String[] args) {
         Conector c1=new Conector();
-        Vistas v1=new Vistas();
         Scanner sc=new Scanner(System.in);
         c1.conectar();
         c1.estructurar();
         int opcion;
         do{
-            v1.main_menu();
+            c1.main_menu();
             opcion=0;
             opcion=sc.nextInt();
             switch(opcion){
-                case 1:System.out.println("hola");;
+                case 1:c1.insert_menu();
                 break;
-                case 2:;
+                case 2:c1.erese_menu();
                 break;
-                case 3:;
+                case 3:c1.query_menu();
                 break;
-                case 4:;
+                case 4:c1.update_menu();
                 break;
                 case 5:c1.pechar();
                 break;

@@ -5,8 +5,10 @@
  */
 package exercicio4;
 
+import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 /**
  *
@@ -14,10 +16,10 @@ import org.hibernate.SessionFactory;
  */
 public class HibernateUtil {
     private static final SessionFactory sessionFactory;
-    static Configuration cfg=new Configuration().configure();
+    
     static {
         try{
-            sessionFactory = cfg.buildSessionFactory();
+            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
             
         }catch(Throwable ex){
             System.err.println("A creacion da SesionFactory fallou: "+ex);
@@ -27,4 +29,8 @@ public class HibernateUtil {
     public static SessionFactory getSessionFactory(){
         return sessionFactory;
     }
+    public static Session getSession(){
+        return sessionFactory.openSession();
+    }
+    
 }

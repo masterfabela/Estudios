@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package exercicio4;
+import Obx.Libros;
 import org.hibernate.*;
 
 /**
@@ -16,14 +17,20 @@ public class Exercicio4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       
         MetodosSQL msql=new MetodosSQL();
         msql.creaTaboas();
-        Session sesion;
-        sesion = HibernateUtil.getSessionFactory().openSession();
+        SessionFactory sf= HibernateUtil.getSessionFactory();
+        
+        Session sesion =HibernateUtil.getSession();
+        sf.openSession();
         Transaction tr=sesion.beginTransaction();
+        
+        
+        
         Libros l1 = new Libros(4563,"Lolita",29.3f);
-//        sesion.save(l1);
-//        tr.commit();
+        sesion.save(l1);
+        tr.commit();
         sesion.close();
         
     }

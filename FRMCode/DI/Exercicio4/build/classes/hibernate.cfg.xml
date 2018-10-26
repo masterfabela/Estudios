@@ -4,10 +4,10 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/libreria/mysql?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="portamapas.MapeaAutores"/>
-    <mapping resource="portamapas.MapeaLibros"/>
-    <mapping resource="portamapas.MapeaTelefonos"/>
+    <mapping class="Obx.MapeaAutores" file="" jar="" package="" resource="portamapas/MapeaAutores.hbm.xml"/>
+    <mapping class="Obx.MapeaAutores" file="" jar="" package="" resource="portamapas/MapeaLibros.hbm.xml"/>    
+    <mapping class="Obx.MapeaTelefonos" file="" jar="" package="" resource="portamapas/MapeaTelefonos.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

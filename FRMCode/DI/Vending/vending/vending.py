@@ -101,6 +101,7 @@ class Vending:
 
     def showCarteira(self, widget):
         self.venCarteira.show()
+        
 
     #Métodos lóxicos
     def retirar(self,widget):

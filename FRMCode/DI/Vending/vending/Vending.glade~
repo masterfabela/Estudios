@@ -397,7 +397,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkLabel" id="texAviso">
+              <object class="GtkLabel" id="texAvisos">
                 <property name="width_request">100</property>
                 <property name="height_request">37</property>
                 <property name="visible">True</property>
@@ -428,6 +428,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_butPagar_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="x">309</property>

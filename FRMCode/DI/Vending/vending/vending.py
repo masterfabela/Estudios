@@ -24,7 +24,7 @@ class Vending:
         self.butRetirar = intVisual.get_object("butRetirar")
         self.texComprado = intVisual.get_object("texComprado")
         self.texCambio =intVisual.get_object("texCambio")
-        self.texAvisos = intVisual.get_object("texAviso")
+        self.texAvisos = intVisual.get_object("texAvisos")
 
         self.but2 =intVisual.get_object("but2")
         self.but1 = intVisual.get_object("but1")
@@ -45,12 +45,44 @@ class Vending:
             'on_butSaldo_clicked': self.showCarteira,
             'on_butRetirar_clicked': self.retirar,
             'on_but2_clicked': self.sum2,
+            'on_but1_clicked': self.sum1,
+            'on_but05_clicked': self.sum05,
+            'on_but02_clicked': self.sum02,
+            'on_but01_clicked': self.sum01,
+            'on_but005_clicked': self.sum005,
+            'on_but002_clicked': self.sum002,
+            'on_but001_clicked': self.sum001,
             'on_butPagar_clicked':self.pagar
         }
 
         intVisual.connect_signals(dic)
 
+    #Metodos dos Botons de moedas:
+    def sum2(self,widget):
+        self.saldo +=2
 
+    def sum1(self,widget):
+        self.saldo +=1
+
+    def sum05(self,widget):
+        self.saldo +=0.5
+
+    def sum02(self,widget):
+        self.saldo +=0.2
+
+    def sum01(self,widget):
+        self.saldo +=0.1
+
+    def sum005(self,widget):
+        self.saldo +=0.05
+
+    def sum002(self,widget):
+        self.saldo +=0.02
+
+    def sum001(self,widget):
+        self.saldo +=0.01
+
+    # Métodos de destroys e shows das ventás:
     def sair(self,widget,data=None):
         Gtk.main_quit()
 
@@ -61,17 +93,18 @@ class Vending:
         self.venAbout.hide()
 
     def hideCarteira(self, widget):
-        self.venCarteira.hide()
+        self.venCarteira.destroy()
+        self.texAvisos.set_text("Saldo: "+(str)(self.saldo)+"€")
 
     def showCarteira(self, widget):
         self.venCarteira.show()
 
+    #Métodos lóxicos
     def retirar(self,widget):
         self.texComprado.set_text("Vacio")
         self.texCambio.set_text("Vacio")
+        self.texAvisos.set_text("Avisos")
 
-    def sum2(self,widget):
-        self.saldo +=2
 
     def pagar(self,widget):
         self.texCambio.set_text((str)(self.saldo))

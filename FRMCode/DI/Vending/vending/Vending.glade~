@@ -2,6 +2,189 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkImage" id="0.01e">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/1cent.png</property>
+  </object>
+  <object class="GtkImage" id="0.02e">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/2cent.png</property>
+  </object>
+  <object class="GtkImage" id="0.05e">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/5cent.png</property>
+  </object>
+  <object class="GtkImage" id="0.1e">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/10cent.png</property>
+  </object>
+  <object class="GtkImage" id="0.2e">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/20cent.png</property>
+  </object>
+  <object class="GtkImage" id="0.5e">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/50cent.png</property>
+  </object>
+  <object class="GtkImage" id="1e">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/1euro.jpg</property>
+  </object>
+  <object class="GtkImage" id="2e">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/2euros.gif</property>
+  </object>
+  <object class="GtkWindow" id="venCarteira">
+    <property name="can_focus">False</property>
+    <signal name="destroy" handler="on_venCarteira_destroy" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkImage">
+            <property name="width_request">442</property>
+            <property name="height_request">321</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">Recursos/carteira.jpg</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="but2">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">2e</property>
+            <property name="always_show_image">True</property>
+            <signal name="clicked" handler="on_but2_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">25</property>
+            <property name="y">21</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but1">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">1e</property>
+            <signal name="clicked" handler="on_but1_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">194</property>
+            <property name="y">23</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but05">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">0.5e</property>
+            <signal name="clicked" handler="on_but05_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">324</property>
+            <property name="y">28</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but02">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">0.2e</property>
+            <signal name="clicked" handler="on_but02_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">49</property>
+            <property name="y">205</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but01">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">0.1e</property>
+            <signal name="clicked" handler="on_but01_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">196</property>
+            <property name="y">216</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but005">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">0.05e</property>
+            <signal name="clicked" handler="on_but005_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">339</property>
+            <property name="y">179</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but002">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">0.02e</property>
+            <signal name="clicked" handler="on_but002_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">115</property>
+            <property name="y">336</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but001">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">0.01e</property>
+            <signal name="clicked" handler="on_but001_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">297</property>
+            <property name="y">328</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkAboutDialog" id="venAbout">
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
@@ -211,13 +394,190 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkFixed">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="texAvisos">
+                <property name="width_request">100</property>
+                <property name="height_request">37</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Avisos</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="butSaldo">
+                <property name="label" translatable="yes">Engadir saldo</property>
+                <property name="width_request">105</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_butSaldo_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">169</property>
+                <property name="y">12</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="butPagar">
+                <property name="label" translatable="yes">Pagar</property>
+                <property name="width_request">100</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_butPagar_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">309</property>
+                <property name="y">12</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkFixed">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkFrame">
+                <property name="width_request">100</property>
+                <property name="height_request">80</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label_xalign">0</property>
+                <property name="shadow_type">none</property>
+                <child>
+                  <object class="GtkAlignment">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                  </object>
+                </child>
+                <child type="label">
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Productos dispoñibles:</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="x">81</property>
+                <property name="y">17</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkFixed">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkFrame">
+                <property name="width_request">100</property>
+                <property name="height_request">80</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label_xalign">0</property>
+                <property name="shadow_type">none</property>
+                <child>
+                  <object class="GtkAlignment">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <object class="GtkLabel" id="texComprado">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Nada</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="label">
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Productos:</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="y">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFrame">
+                <property name="width_request">100</property>
+                <property name="height_request">80</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label_xalign">0</property>
+                <property name="shadow_type">none</property>
+                <child>
+                  <object class="GtkAlignment">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <object class="GtkLabel" id="texCambio">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Nada</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="label">
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Cambio</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="x">334</property>
+                <property name="y">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="butRetirar">
+                <property name="label" translatable="yes">Retirar</property>
+                <property name="width_request">100</property>
+                <property name="height_request">32</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_butRetirar_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">205</property>
+                <property name="y">36</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
         </child>
       </object>
     </child>

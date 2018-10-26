@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         accion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(nome.getText().toString().equals("")){
+                if(nome.getText().toString().isEmpty()){
                     mensaxe="Introduza un nome";
                 }else if(rg1.getCheckedRadioButtonId()==R.id.M) {
                     mensaxe = "Hola, " +"Señor "+ nome.getText()+".";

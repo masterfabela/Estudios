@@ -44,6 +44,7 @@
   </object>
   <object class="GtkWindow" id="venCarteira">
     <property name="can_focus">False</property>
+    <signal name="destroy" handler="on_venCarteira_destroy" swapped="no"/>
     <child>
       <placeholder/>
     </child>

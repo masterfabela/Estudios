@@ -12,13 +12,16 @@ class Vending:
 
         self.saldo=0.0
         self.cambio=0.0
+        self.carrito=2.0
 
 
         self.venPrincipal = intVisual.get_object("venPrincipal")
         self.venCarteira = intVisual.get_object("venCarteira")
+        self.venCarteira.connect('delete-event', lambda w, e: w.hide() or True)
         self.butbarSair = intVisual.get_object("butbarSair")
         self.butbarAbout = intVisual.get_object("butbarAbout")
         self.venAbout = intVisual.get_object("venAbout")
+        self.venAbout.connect('delete-event', lambda w, e: w.hide() or True)
         self.butPagar = intVisual.get_object("butPagar")
         self.butSaldo = intVisual.get_object("butSaldo")
         self.butRetirar = intVisual.get_object("butRetirar")
@@ -40,8 +43,7 @@ class Vending:
             'on_venPrincipal_destroy': self.sair,
             'on_butbarSair_activate': self.sair,
             'on_butbarAbout_activate': self.showAbout,
-            'on_venAbout_destroy': self.hideAbout,
-            'on_venCarteira_destroy': self.hideCarteira,
+
             'on_butSaldo_clicked': self.showCarteira,
             'on_butRetirar_clicked': self.retirar,
             'on_but2_clicked': self.sum2,
@@ -60,27 +62,35 @@ class Vending:
     #Metodos dos Botons de moedas:
     def sum2(self,widget):
         self.saldo +=2
+        self.texAvisos.set_text("Saldo: " + (str)(self.saldo) + "€")
 
     def sum1(self,widget):
         self.saldo +=1
+        self.texAvisos.set_text("Saldo: " + (str)(self.saldo) + "€")
 
     def sum05(self,widget):
         self.saldo +=0.5
+        self.texAvisos.set_text("Saldo: " + (str)(self.saldo) + "€")
 
     def sum02(self,widget):
         self.saldo +=0.2
+        self.texAvisos.set_text("Saldo: " + (str)(self.saldo) + "€")
 
     def sum01(self,widget):
         self.saldo +=0.1
+        self.texAvisos.set_text("Saldo: " + (str)(self.saldo) + "€")
 
     def sum005(self,widget):
         self.saldo +=0.05
+        self.texAvisos.set_text("Saldo: " + (str)(self.saldo) + "€")
 
     def sum002(self,widget):
         self.saldo +=0.02
+        self.texAvisos.set_text("Saldo: " + (str)(self.saldo) + "€")
 
     def sum001(self,widget):
         self.saldo +=0.01
+        self.texAvisos.set_text("Saldo: " + (str)(self.saldo) + "€")
 
     # Métodos de destroys e shows das ventás:
     def sair(self,widget,data=None):
@@ -88,13 +98,6 @@ class Vending:
 
     def showAbout(self,widget):
         self.venAbout.show()
-
-    def hideAbout(self,widget):
-        self.venAbout.hide()
-
-    def hideCarteira(self, widget):
-        self.venCarteira.destroy()
-        self.texAvisos.set_text("Saldo: "+(str)(self.saldo)+"€")
 
     def showCarteira(self, widget):
         self.venCarteira.show()
@@ -107,7 +110,11 @@ class Vending:
 
 
     def pagar(self,widget):
-        self.texCambio.set_text((str)(self.saldo))
+        if(self.carrito>self.saldo):
+            self.texAvisos.set_text("Saldo Insuficiente")
+        else:
+            self.cambio=self.saldo-self.carrito
+            self.texCambio.set_text((str)(self.saldo))
 
 if __name__ == "__main__":
     print("Iniciando Vending:")

@@ -201,7 +201,6 @@ class Vending:
             self.texAvisos.set_text("Saldo Insuficiente")
             self.texComprado.set_text(self.carrito)
             self.texCambio.set_text("Vacio")
-            self.texAvisos.set_text("Avisos")
             self.saldo = 0.0;
             self.cambio = 0.0;
             self.carrito = 'Nada'
@@ -209,8 +208,8 @@ class Vending:
             self.factura = 0.0
 
         else:
-            self.cambio = self.saldo + self.factura
-            self.texCambio.set_text(str(self.saldo))
+            self.cambio = self.saldo - self.factura
+            self.texCambio.set_text(str(self.cambio))
             if self.carrito == 'Nada' or self.carrito == 'Vacio':
                 self.carrito = self.reserva
             else:

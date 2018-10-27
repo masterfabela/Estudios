@@ -185,6 +185,46 @@
       </object>
     </child>
   </object>
+  <object class="GtkImage" id="cacahuetes">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/cacahuetes.jpeg</property>
+  </object>
+  <object class="GtkImage" id="chicles">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/chicles.jpeg</property>
+  </object>
+  <object class="GtkImage" id="cola">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/cocacola.jpg</property>
+  </object>
+  <object class="GtkImage" id="fritos">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/fritos.jpeg</property>
+  </object>
+  <object class="GtkImage" id="kitkat">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/kitkat.png</property>
+  </object>
+  <object class="GtkImage" id="oreo">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/oreo.jpeg</property>
+  </object>
+  <object class="GtkImage" id="patatas">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/patatas.png</property>
+  </object>
+  <object class="GtkImage" id="sandwich">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/sandwich.jpg</property>
+  </object>
   <object class="GtkAboutDialog" id="venAbout">
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
@@ -222,6 +262,90 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkWindow" id="venPrezos">
+    <property name="can_focus">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkEntry" id="texcodigo">
+            <property name="width_request">168</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">132</property>
+            <property name="y">42</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="texprezo">
+            <property name="width_request">168</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="margin_right">114</property>
+          </object>
+          <packing>
+            <property name="x">132</property>
+            <property name="y">85</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">116</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Código do producto:</property>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">47</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">123</property>
+            <property name="height_request">26</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Prezo novo:</property>
+          </object>
+          <packing>
+            <property name="x">29</property>
+            <property name="y">87</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="butaplicar">
+            <property name="label" translatable="yes">Aplicar</property>
+            <property name="width_request">100</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="margin_bottom">38</property>
+            <signal name="clicked" handler="on_butaplicar_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">158</property>
+            <property name="y">128</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkImage" id="zumo">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Recursos/zumosol.jpg</property>
   </object>
   <object class="GtkWindow" id="venPrincipal">
     <property name="can_focus">False</property>
@@ -315,35 +439,18 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-cut</property>
+                      <object class="GtkImageMenuItem" id="propiedades">
+                        <property name="label">gtk-properties</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_propiedades_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
                       <object class="GtkImageMenuItem">
-                        <property name="label">gtk-copy</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-paste</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-delete</property>
+                        <property name="label">gtk-print</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -425,15 +532,15 @@
               <object class="GtkButton" id="butPagar">
                 <property name="label" translatable="yes">Pagar</property>
                 <property name="width_request">100</property>
-                <property name="height_request">29</property>
+                <property name="height_request">34</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <signal name="clicked" handler="on_butPagar_clicked" swapped="no"/>
               </object>
               <packing>
-                <property name="x">309</property>
-                <property name="y">12</property>
+                <property name="x">319</property>
+                <property name="y">11</property>
               </packing>
             </child>
           </object>
@@ -444,38 +551,157 @@
           </packing>
         </child>
         <child>
-          <object class="GtkFixed">
+          <object class="GtkFrame">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">none</property>
             <child>
-              <object class="GtkFrame">
-                <property name="width_request">100</property>
-                <property name="height_request">80</property>
+              <object class="GtkAlignment">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label_xalign">0</property>
-                <property name="shadow_type">none</property>
+                <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkAlignment">
+                  <object class="GtkFixed">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <placeholder/>
+                      <object class="GtkButton" id="but_zumo">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">zumo</property>
+                        <signal name="clicked" handler="on_but_zumo_clicked" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="but_sandwich">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">sandwich</property>
+                        <signal name="clicked" handler="on_but_sandwich_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">121</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="but_fritos">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">fritos</property>
+                        <signal name="clicked" handler="on_but_fritos_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">243</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="but_cola">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">cola</property>
+                        <signal name="clicked" handler="on_but_cola_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="y">118</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="but_patatas">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">patatas</property>
+                        <signal name="clicked" handler="on_but_patatas_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">120</property>
+                        <property name="y">121</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="but_cacahuetes">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">cacahuetes</property>
+                        <signal name="clicked" handler="on_but_cacahuetes_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">241</property>
+                        <property name="y">120</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="but_kitkat">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">kitkat</property>
+                        <signal name="clicked" handler="on_but_kitkat_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">118</property>
+                        <property name="y">246</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="but_chicle">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">chicles</property>
+                        <signal name="clicked" handler="on_but_chicle_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">240</property>
+                        <property name="y">243</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="but_oreo">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">oreo</property>
+                        <signal name="clicked" handler="on_but_oreo_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="y">248</property>
+                      </packing>
                     </child>
                   </object>
                 </child>
-                <child type="label">
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Productos dispoñibles:</property>
-                  </object>
-                </child>
               </object>
-              <packing>
-                <property name="x">81</property>
-                <property name="y">17</property>
-              </packing>
+            </child>
+            <child type="label">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Productos: </property>
+              </object>
             </child>
           </object>
           <packing>
@@ -548,7 +774,7 @@
                   <object class="GtkLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Cambio</property>
+                    <property name="label" translatable="yes">Cambio: </property>
                   </object>
                 </child>
               </object>
@@ -561,15 +787,15 @@
               <object class="GtkButton" id="butRetirar">
                 <property name="label" translatable="yes">Retirar</property>
                 <property name="width_request">100</property>
-                <property name="height_request">32</property>
+                <property name="height_request">34</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <signal name="clicked" handler="on_butRetirar_clicked" swapped="no"/>
               </object>
               <packing>
-                <property name="x">205</property>
-                <property name="y">36</property>
+                <property name="x">197</property>
+                <property name="y">33</property>
               </packing>
             </child>
           </object>

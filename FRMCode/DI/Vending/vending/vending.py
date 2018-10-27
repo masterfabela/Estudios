@@ -188,6 +188,7 @@ class Vending:
 
     def showCarteira(self, widget):
         self.venCarteira.show()
+        
 
     def alterarPrezos(self, widget):
         # A selección que o dispara é properties

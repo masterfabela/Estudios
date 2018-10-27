@@ -138,37 +138,9 @@ class Vending:
         self.reserva = "Chicles Mint"
         self.factura = self.diccionario_prezos['p09']
 
-# Metodos dos Botons de moedas:
-    def sum2(self, widget):
-        self.saldo +=2
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
-
-    def sum1(self, widget):
-        self.saldo += 1
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
-
-    def sum05(self, widget):
-        self.saldo += 0.5
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
-
-    def sum02(self, widget):
-        self.saldo += 0.2
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
-
-    def sum01(self, widget):
-        self.saldo += 0.1
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
-
-    def sum005(self, widget):
-        self.saldo += 0.05
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
-
-    def sum002(self, widget):
-        self.saldo += 0.02
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
-
-    def sum001(self, widget):
-        self.saldo += 0.01
+# Metodos dos Botons de moedas:            
+    def suma_saldo (self, widget, saldo_sumado):
+        self.saldo += saldo_sumado
         self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
 
 # Métodos de destroys e shows das ventás:

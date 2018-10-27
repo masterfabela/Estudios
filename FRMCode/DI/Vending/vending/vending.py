@@ -5,6 +5,8 @@ import gi
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 class Vending:
+#A modo de explicación, a pulsación dos botons de producto , ata que se lle da a pagar,
+#  só ten a funcionalidade de mostrar os prezos, só se cobraŕa o utimo elemento seleccionado
     def __init__(self):
 
         intVisual = Gtk.Builder()
@@ -198,8 +200,8 @@ class Vending:
         self.texComprado.set_text(self.carrito)
         self.texCambio.set_text("Vacio")
         self.texAvisos.set_text("Avisos")
-        self.saldo = 0.0;
-        self.cambio = 0.0;
+        self.saldo = 0.0
+        self.cambio = 0.0
         self.reserva = 'Nada'
         self.factura = 0.0
 
@@ -208,8 +210,8 @@ class Vending:
             self.texAvisos.set_text("Saldo Insuficiente")
             self.texComprado.set_text(self.carrito)
             self.texCambio.set_text("Vacio")
-            self.saldo = 0.0;
-            self.cambio = 0.0;
+            self.saldo = 0.0
+            self.cambio = 0.0
             self.carrito = 'Nada'
             self.reserva = 'Nada'
             self.factura = 0.0

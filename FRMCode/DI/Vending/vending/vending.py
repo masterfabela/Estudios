@@ -15,6 +15,8 @@ class Vending:
         self.carrito = 'Nada'
         self.factura = 0.0
         self.reserva = 'Nada'
+        self.moeda002 = 0
+        self.moeda001 = 0
         self.diccionario_prezos = {
             'p01': 0.70,
             'p02': 1.1,
@@ -68,7 +70,7 @@ class Vending:
             'on_venPrincipal_destroy': self.sair,
             'on_butbarSair_activate': self.sair,
             'on_butbarAbout_activate': self.showAbout,
-            'on_propiedades_activate': self.alterar,
+            'on_propiedades_activate': self.alterarPrezos,
             'on_butSaldo_clicked': self.showCarteira,
             'on_butRetirar_clicked': self.retirar,
             'on_but2_clicked': self.sum2,
@@ -80,7 +82,7 @@ class Vending:
             'on_but002_clicked': self.sum002,
             'on_but001_clicked': self.sum001,
             'on_butPagar_clicked': self.pagar,
-            'on_butaplicar_clicked': self.aplicar,
+            'on_butaplicar_clicked': self.cambiaprezos,
             'on_but_zumo_clicked': self.czumo,
             'on_but_sandwich_clicked': self.csandwich,
             'on_but_fritos_clicked': self.cfritos,
@@ -139,6 +141,12 @@ class Vending:
         self.factura = self.diccionario_prezos['p09']
 
 # Metodos dos Botons de moedas:
+    # As moedas de 2 e 1 centimos teñen como única funcionalidade engadir ditas moedas directamente a o cambio.
+    def sumador(self,cantidade):
+        self.saldo +=cantidade
+        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
+        # Metodo multiparámetro para reducir o a repeticion do código, pero nn funcional.
+
     def sum2(self, widget):
         self.saldo +=2
         self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
@@ -164,15 +172,13 @@ class Vending:
         self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
 
     def sum002(self, widget):
-        self.saldo += 0.02
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
+        self.moeda002+= 1
 
     def sum001(self, widget):
-        self.saldo += 0.01
-        self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
+        self.moeda001 += 1
 
 # Métodos de destroys e shows das ventás:
-    def sair(self):
+    def sair(self, widget):
         Gtk.main_quit()
 
     def showAbout(self, widget):
@@ -181,7 +187,8 @@ class Vending:
     def showCarteira(self, widget):
         self.venCarteira.show()
 
-    def alterar(self, widget):
+    def alterarPrezos(self, widget):
+        # A selección que o dispara é properties
         self.venPrezos.show()
 
 # Métodos lóxicos
@@ -209,17 +216,40 @@ class Vending:
 
         else:
             self.cambio = self.saldo - self.factura
-            self.texCambio.set_text(str(self.cambio))
+            self.cambiofraccionado()
             if self.carrito == 'Nada' or self.carrito == 'Vacio':
                 self.carrito = self.reserva
             else:
                 self.carrito += ', ' + self.reserva
             self.texComprado.set_text(self.carrito)
+            self.texAvisos.set_text('Avisos')
 
-    def aplicar(self, widget):
-        self.texprezo.set_text(self.texcodigo.get_text())
+    def cambiaprezos(self, widget):
+        self.diccionario_prezos[self.texcodigo.get_text()] = self.texprezo.get_text()
 
 
+    def cambiofraccionado(self):
+        self.moeda2 = self.cambio // 2
+        self.aux = self.cambio % 2
+        self.moeda1 = self.aux // 1
+        self.aux = self.aux % 1
+        self.moeda05 = self.aux // 0.5
+        self.aux = self.aux % 0.5
+        self.moeda02 = self.aux // 0.2
+        self.aux = self.aux % 0.2
+        self.moeda01 = self.aux // 0.1
+        self.aux = self.aux % 0.1
+        self.moeda005 = self.aux // 0.05
+        self.aux = self.aux % 0.05
+        self.texCambio.set_text("Moedas:\n"
+                                "2€ x "+ str(self.moeda2)+"\n"
+                                "1€ x " + str(self.moeda1) + "\n"
+                                "0.5€ x " + str(self.moeda05) + "\n"
+                                "0.2€ x " + str(self.moeda02) + "\n"
+                                "0.1€ x " + str(self.moeda01) + "\n"
+                                "0.05€ x " + str(self.moeda005) + "\n"
+                                "0.002€ x " + str(self.moeda002) + "\n"
+                                "0.01€ x " + str(self.moeda001))
 
 
 if __name__ == "__main__":

@@ -12,6 +12,7 @@
     <session id="1291587083">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -38,6 +39,7 @@
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
+<<<<<<< HEAD
     <session id="2055935907">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
@@ -62,16 +64,18 @@
       <usages-collector id="statistics.file.types.open" />
       <usages-collector id="statistics.file.extensions.open" />
     </session>
+=======
+>>>>>>> 53b85bf9eb1312a9627b38612de017d6c9f7a96c
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vending/vending.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+            <state relative-caret-position="285">
+              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding>
-                <marker date="1540544457664" expanded="true" signature="2497:2506" ph="..." />
+                <marker date="1540398880666" expanded="true" signature="286:1105" ph="..." />
               </folding>
             </state>
           </provider>
@@ -101,6 +105,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -117,11 +122,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -177,22 +178,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="67" y="25" width="1213" height="999" extended-state="6" />
+=======
+    <frame x="50" y="-1" width="1870" height="1080" extended-state="6" />
+>>>>>>> 53b85bf9eb1312a9627b38612de017d6c9f7a96c
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24957983" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24959394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32984293" />
+>>>>>>> 53b85bf9eb1312a9627b38612de017d6c9f7a96c
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -204,10 +213,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/vending/vending.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+        <state relative-caret-position="285">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding>
-            <marker date="1540544457664" expanded="true" signature="2497:2506" ph="..." />
+            <marker date="1540398880666" expanded="true" signature="286:1105" ph="..." />
           </folding>
         </state>
       </provider>

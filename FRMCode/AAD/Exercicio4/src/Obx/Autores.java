@@ -13,16 +13,16 @@ import java.io.Serializable;
  */
 public class Autores implements Serializable {
     private int dniautor;
-    private String nombre;
-    private String nacionalidad;
+    private String nome;
+    private String nacionalidade;
 
     public Autores() {
     }
 
-    public Autores( int dniautor, String nombre, String nacionalidad) {
+    public Autores( int dniautor, String nome, String nacionalidade) {
         this.dniautor = dniautor;
-        this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
+        this.nome = nome;
+        this.nacionalidade = nacionalidade;
     }
 
     public int getDniautor() {
@@ -33,20 +33,20 @@ public class Autores implements Serializable {
         this.dniautor = dniautor;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
+    public String getNacionalidade() {
+        return nacionalidade;
     }
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
     }
 
     

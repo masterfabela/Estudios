@@ -7,14 +7,8 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/libreria/mysql?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-<<<<<<< HEAD
-    <mapping class="Obx.MapeaAutores" file="" jar="" package="" resource="portamapas\MapeaAutores.hbm.xml"/>
-    <mapping class="Obx.MapeaLibros" resource="portamapas/MapeaLibros"/>
-    <mapping class="Obx.MapeaTelefonos" file="" jar="" package="" resource="portamapas\MapeaTelefonos"/>
-=======
+    <mapping class="Obx.MapeaLibros" resource="portamapas/MapeaLibros.hbm.xml"/>
     <mapping class="Obx.MapeaAutores" file="" jar="" package="" resource="portamapas/MapeaAutores.hbm.xml"/>
-    <mapping class="Obx.MapeaAutores" file="" jar="" package="" resource="portamapas/MapeaLibros.hbm.xml"/>    
     <mapping class="Obx.MapeaTelefonos" file="" jar="" package="" resource="portamapas/MapeaTelefonos.hbm.xml"/>
->>>>>>> 3c42eab52e993dd96468c11052ca48400b966f32
   </session-factory>
 </hibernate-configuration>

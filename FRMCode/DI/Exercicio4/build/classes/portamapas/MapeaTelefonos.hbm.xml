@@ -3,8 +3,6 @@
 <hibernate-mapping>
   <class column="Telefonos" name="Obx.Telefonos">
   <id column="dni" name="dni"/>
-  <property column="ntel" name="ntel">
-      
-  </property>
+  <property column="ntel" name="ntel"/>
   </class>
 </hibernate-mapping>

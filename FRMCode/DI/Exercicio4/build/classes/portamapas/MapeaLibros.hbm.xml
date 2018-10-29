@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="Obx.Libros" table="Libros"/>
+  <class name="Obx.Libros" table="Libros">
   <id column="idlibro" name="idlibro"/>
   <property column="titulo" name="titulo">
       
@@ -9,4 +9,5 @@
   <property column="prezo" name="prezo">
       
   </property>
+  </class>
 </hibernate-mapping>

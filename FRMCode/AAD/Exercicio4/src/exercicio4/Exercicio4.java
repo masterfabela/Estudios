@@ -49,17 +49,8 @@ public class Exercicio4 {
         /*
         La relación entre Autores  y Libros  es de  uno a varios:un autor puede escribir
         varios libros y un libro  solo puede tener un autor, en los pojos pondremos la 
-        relación bidireccional. La relación entre Autores yteléfonos es de uno a uno,
+        relación bidireccional. La relación entre Autores y teléfonos es de uno a uno,
         un autor solo puede tener un tf.Y un tf solo puede pertenecer a un autor.
-        
-        Realizar un  programa en java, utilizando la herramienta O.R.M hibernate,
-        que  cargue un driver JDBC y establezca la conexión con una BD MySQL  ,
-        la  cual reside en la misma máquina cliente junto al driver ,la aplicación
-        y el servidor USBW portable,  esta generará un menú que invoque a las 
-        distintas clases con sus respectivos métodos, que se exponen a continuación:
-
-        Creación  de la Base de Datos y tablas.
-        Creación de pojos y mapeos.
         MENÚ
         2- Inserción de nuevas filas.
             a. Inserción autor.

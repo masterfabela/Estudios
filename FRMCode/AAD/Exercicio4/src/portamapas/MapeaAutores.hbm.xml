@@ -5,5 +5,7 @@
   <id column="dniautor" name="dniautor"/>
   <property column="nome" name="nome"/>
   <property column="nacionalidade" name="nacionalidade"/>
+  <one-to-many name="Libros" class="Obx.Libros" />
+  <one-to-one name="Telefonos" class="Obx.Telefonos"/>
   </class>
 </hibernate-mapping>

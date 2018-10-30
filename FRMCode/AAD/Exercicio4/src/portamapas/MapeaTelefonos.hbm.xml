@@ -4,5 +4,8 @@
   <class table="Telefonos" name="Obx.Telefonos">
   <id column="dni" name="dni"/>
   <property column="ntel" name="ntel"/>
+  <many-to-one class="Obx.Autores" name="Autores">
+      <column name="dniautor" not-null="true"/>
+  </many-to-one>
   </class>
 </hibernate-mapping>

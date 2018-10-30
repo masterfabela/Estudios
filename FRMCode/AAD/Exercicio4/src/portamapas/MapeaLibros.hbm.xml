@@ -4,6 +4,6 @@
   <class name="Obx.Libros" table="Libros">
   <id column="idlibro" name="idlibro"/>
   <property column="titulo" name="titulo"/>
-  <property column="prezo" name="prezo"/>
+  <property column="prezo" name="prezo"/> 
   </class>
 </hibernate-mapping>

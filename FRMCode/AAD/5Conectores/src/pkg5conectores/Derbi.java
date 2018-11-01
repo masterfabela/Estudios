@@ -17,9 +17,9 @@ public class Derbi {
     public void conectar(){
     try{
         Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:3306/?user=root;create=true");
+        Connection conn = DriverManager.getConnection("jdbc:derby:DB/BaseApache;create=true");
         if(conn!=null){
-            System.out.println("Conexion Correcta co driver Derbi.");
+            System.out.println("Creación correcta da base Apache.");
         }
     }catch(SQLException sqle1){
             System.out.println("Erro: "+sqle1.getMessage());

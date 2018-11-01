@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class table="Telefonos" name="Obx.Telefonos">
+  <id column="dni" name="dni"/>
+  <property column="ntel" name="ntel"/>
+  <many-to-one class="Obx.Autores" name="Autores">
+      <column name="dniautor" not-null="true"/>
+  </many-to-one>
+  </class>
+</hibernate-mapping>

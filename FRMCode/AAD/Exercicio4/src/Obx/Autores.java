@@ -15,6 +15,7 @@ public class Autores implements Serializable {
     private int dniautor;
     private String nome;
     private String nacionalidade;
+    private Libros libro;
 
     public Autores() {
     }

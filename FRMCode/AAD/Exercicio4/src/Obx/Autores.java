@@ -6,6 +6,7 @@
 package Obx;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  *
@@ -15,9 +16,18 @@ public class Autores implements Serializable {
     private int dniautor;
     private String nome;
     private String nacionalidade;
-    private Libros libros;
+    private Telefonos telefonos;
+    private Set<Libros> libros;
 
     public Autores() {
+    }
+
+    public Telefonos getTelefonos() {
+        return telefonos;
+    }
+
+    public void setTelefonos(Telefonos telefonos) {
+        this.telefonos = telefonos;
     }
 
     public Autores( int dniautor, String nome, String nacionalidade) {
@@ -26,13 +36,15 @@ public class Autores implements Serializable {
         this.nacionalidade = nacionalidade;
     }
 
-    public Libros getLibros() {
+    public Set<Libros> getLibros() {
         return libros;
     }
 
-    public void setLibros(Libros libros) {
+    public void setLibros(Set<Libros> libros) {
         this.libros = libros;
     }
+
+    
 
     public int getDniautor() {
         return dniautor;

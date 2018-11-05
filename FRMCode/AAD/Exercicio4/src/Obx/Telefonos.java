@@ -14,6 +14,15 @@ import java.io.Serializable;
 public class Telefonos implements Serializable {
     private int dni;
     private int ntel;
+    private Autores autores;
+
+    public Autores getAutores() {
+        return autores;
+    }
+
+    public void setAutores(Autores autores) {
+        this.autores = autores;
+    }
 
     public Telefonos() {
     }

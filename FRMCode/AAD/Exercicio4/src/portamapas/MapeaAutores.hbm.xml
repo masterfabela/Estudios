@@ -5,6 +5,12 @@
     <id column="dniautor" name="dniautor"/>
     <property column="nome" name="nome"/>
     <property column="nacionalidade" name="nacionalidade"/>
-    <one-to-one name="libros" cascade="all"/>
+    <one-to-one name="telefonos" cascade="all"/>
+    <set name="libros" cascade="all" inverse="true">
+        <key>
+            <column name="idlibro"/>
+        </key>
+        <one-to-many class="Obx.Libros"/>
+    </set>
   </class>
 </hibernate-mapping>

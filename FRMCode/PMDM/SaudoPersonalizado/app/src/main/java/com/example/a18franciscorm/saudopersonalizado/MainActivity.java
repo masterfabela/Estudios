@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView saudo;
     private EditText nome;
     private Button accion;
-    private RadioGroup rg1;
+    private RadioGroup rg1,rg2;
     private CheckBox despedida;
     private String mensaxe=null;
     @Override
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     mensaxe = "Hola, " +"Señor "+ nome.getText()+".";
                 }else
                     mensaxe = "Hola, " +"Señora "+ nome.getText()+".";
-                if (despedida.isChecked())
+                if (!despedida.isChecked())
                     mensaxe+="\nAdeus.";
                 saudo.setText(mensaxe);
             }

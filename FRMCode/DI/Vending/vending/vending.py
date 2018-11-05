@@ -144,7 +144,7 @@ class Vending:
 
 # Metodos dos Botons de moedas:
     # As moedas de 2 e 1 centimos teñen como única funcionalidade engadir ditas moedas directamente a o cambio.
-    def sumador(self,cantidade):
+    def sumador(self, widget, cantidade):
         self.saldo +=cantidade
         self.texAvisos.set_text("Saldo: " + str(self.saldo) + "€")
         # Metodo multiparámetro para reducir o a repeticion do código, pero nn funcional.

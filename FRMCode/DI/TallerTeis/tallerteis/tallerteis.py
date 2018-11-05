@@ -5,6 +5,10 @@ import gi
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 import xestionclientes
+import datos
+import testDNI
+
+
 
 class Taller:
     def __init__(self):
@@ -26,6 +30,7 @@ class Taller:
             'on_but_alta_clicked': self.altacliente
         }
         int_visual.connect_signals(dic)
+        datos.pecharconexion()
         self.lblavisos.hide()
         self.venPrincipal.show()
         self.venPrincipal.maximize()
@@ -33,7 +38,6 @@ class Taller:
         Gtk.main_quit()
 
     def altacliente(self,widget):
-        try:
             self.lblavisos.show()
             self.dni = self.entdni.get_text()
             self.mat = self.entmat.get_text()
@@ -42,20 +46,25 @@ class Taller:
             self.mail = self.entmail.get_text()
             self.movil = self.entmovil.get_text()
             if self.dni != '' and self.mat != '' and self.apel != '':
+                if datos.comprobarDNI(self.entdni):
 
-                self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil)
-                xestionclientes.altacli(self.treeclientes, self.listclientes, self.filacli)
-                self.limpacli()
+                    self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil)
+                    if datos.comprobarMail(self.mail):
+                        xestionclientes.altacli(self.treeclientes, self.listclientes, self.filacli)
+                    else:
+                        self.lblavisos.set_text("Email Incorrecto.")
+                    self.limpacli()
+                else:
+                    self.lblavisos.set_text("DNI Incorrecto.")
+
             else:
                 self.lblavisos.set_text("Faltan datos.")
-
-        except:
-            self.lblavisos.set_text("Erro na alta.")
     def limpacli(self):
 
         self.lmpcli = (self.entdni, self.entmat, self.entapel, self.entnom, self.entmail, self.entmovil)
         xestionclientes.limpiacli(self.lmpcli)
-
+#engadir comporbador de dn1,expresion regular de email, e modulo datos.py e control de maiusculas en
+# dni e Matricula(todas), e en nome e apelidos, só as primeiras.
 
 if __name__ == "__main__":
     print("Inicio")

@@ -15,7 +15,7 @@ public class Autores implements Serializable {
     private int dniautor;
     private String nome;
     private String nacionalidade;
-    private Libros libro;
+    private Libros libros;
 
     public Autores() {
     }
@@ -24,6 +24,14 @@ public class Autores implements Serializable {
         this.dniautor = dniautor;
         this.nome = nome;
         this.nacionalidade = nacionalidade;
+    }
+
+    public Libros getLibros() {
+        return libros;
+    }
+
+    public void setLibros(Libros libros) {
+        this.libros = libros;
     }
 
     public int getDniautor() {

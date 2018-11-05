@@ -15,6 +15,7 @@ public class Libros implements Serializable {
     private int idlibro;
     private String titulo;
     private float prezo;
+    private Autores autores;
 
     public Libros() {
     }
@@ -23,6 +24,14 @@ public class Libros implements Serializable {
         this.idlibro = idlibro;
         this.titulo = titulo;
         this.prezo = prezo;
+    }
+
+    public Autores getAutores() {
+        return autores;
+    }
+
+    public void setAutores(Autores autores) {
+        this.autores = autores;
     }
 
     

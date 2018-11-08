@@ -22,11 +22,11 @@ public class Exercicio4 {
        
         MetodosSQL msql=new MetodosSQL();
         Metodos m1= new Metodos();
-        ArrayList dataSesion= null;
+        ArrayList dataSesion= new ArrayList();
         Scanner sc=new Scanner(System.in);
         int opcion=0;
-        int intentos=0;
         while(opcion!=6){
+            opcion=m1.menuPrincipal();
             switch(opcion){
                 case 1:dataSesion=m1.conectar();
                 break;
@@ -39,11 +39,6 @@ public class Exercicio4 {
                 case 5:m1.switchQuery();
                 break;
                 case 6:System.out.println("Saindo, Adeus");;
-                break;
-                default: 
-                    ArrayList opcionIntentos = m1.loopMenuPrincipal(intentos);
-                    opcion=(int)opcionIntentos.get(0);
-                    intentos=(int)opcionIntentos.get(1);
                 break;
             }
         }

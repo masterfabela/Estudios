@@ -27,9 +27,9 @@ public class Metodos {
         Session sesion =HibernateUtil.getSession();
         sf.openSession();
         Transaction tr=sesion.beginTransaction();
-        ArrayList dataSesion=null;
-        dataSesion.add(sf);
+        ArrayList dataSesion=new ArrayList();
         dataSesion.add(sesion);
+        dataSesion.add(tr);
         return dataSesion;
     }
     public void desconectar(Session sesion, SessionFactory sf){
@@ -46,6 +46,24 @@ public class Metodos {
         Autores a1=new Autores(dni,nome,nacionalidade);
         return a1;
     }
+    public Libros pedirLibros(){
+        System.out.println("Introduza o Id:");
+        int id=sc.nextInt();
+        System.out.println("Introduza o titulo:");
+        String titulo=sc.next();
+        System.out.println("Introduza o prezo:");
+        Float prezo=sc.nextFloat();
+        Libros l1=new Libros(id,titulo,prezo);
+        return l1;
+    }
+    public Telefonos pedirTelefonos(){
+        System.out.println("Introduza o DNI do usuario:");
+        int dni=sc.nextInt();
+        System.out.println("Introduza o teléfono:");
+        int tlfn=sc.nextInt();
+        Telefonos t1=new Telefonos(dni,tlfn);
+        return t1;
+    }
     public int menuPrincipal(){
         int opcion;
         System.out.println("----Menu principal:----\n"
@@ -56,7 +74,6 @@ public class Metodos {
                 + "5-Consultas.\n"
                 + "6-Fin");
         opcion=sc.nextInt();
-        System.out.println("Opcion= "+ opcion);
         if(opcion>=1 && opcion<=6)
             return opcion;
         else
@@ -127,15 +144,18 @@ public class Metodos {
         } 
             return opcion;
     }
-    public void switchInsert(ArrayList sesion){
+    public void switchInsert(ArrayList al){
+        Session sesion=(Session)al.get(0);
+        Transaction tr=(Transaction)al.get(1);
         switch(menuInsercion()){
-            case 1:;
+            case 1:sesion.save(pedirAutores());
+                tr.commit();;
             break;
-            case 2:;
+            case 2:sesion.save(pedirLibros());
+                tr.commit();;
             break;
-            case 3:;
-            break;
-            default:;
+            case 3:sesion.save(pedirTelefonos());
+                tr.commit();;
             break;
         }
         
@@ -156,18 +176,5 @@ public class Metodos {
     }
     public void switchQuery(){
         int opcion=menuConsulta();
-    }
-    public ArrayList loopMenuPrincipal(int intentos){
-        ArrayList saidaOpcionIntentos = null;
-        if(intentos>0){
-            System.out.println("Insertado un valor non valido");
-        }
-        intentos++;
-        if (saidaOpcionIntentos.size()==0) {
-            saidaOpcionIntentos.clear();
-        }
-        saidaOpcionIntentos.add(menuPrincipal());
-        saidaOpcionIntentos.add(intentos);
-        return saidaOpcionIntentos;               
     }
 }

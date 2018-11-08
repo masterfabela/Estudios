@@ -44,8 +44,6 @@ public class Autores implements Serializable {
         this.libros = libros;
     }
 
-    
-
     public int getDniautor() {
         return dniautor;
     }

@@ -22,12 +22,7 @@ public class Exercicio4 {
        
         MetodosSQL msql=new MetodosSQL();
         Metodos m1= new Metodos();
-        msql.creaTaboas();
-        SessionFactory sf= HibernateUtil.getSessionFactory();
-        Session sesion =HibernateUtil.getSession();
-        sf.openSession();
         ArrayList dataSesion= null;
-        Transaction tr=sesion.beginTransaction();
         Scanner sc=new Scanner(System.in);
         int opcion=0;
         int intentos=0;
@@ -45,25 +40,16 @@ public class Exercicio4 {
                 break;
                 case 6:System.out.println("Saindo, Adeus");;
                 break;
-                default:int[] opcionIntentos=m1.loopMenuPrincipal(intentos);
-                        opcion=opcionIntentos[0];
-                        intentos=opcionIntentos[1];
+                default: 
+                    ArrayList opcionIntentos = m1.loopMenuPrincipal(intentos);
+                    opcion=(int)opcionIntentos.get(0);
+                    intentos=(int)opcionIntentos.get(1);
                 break;
             }
         }
-        Libros l1 = new Libros(4563,"Lolita",29.3f);
-                    sesion.save(l1);
-                    Autores a1= new Autores(77416900,"Francisco Romay","Española");
-                    sesion.save(a1);
-                    Telefonos t1=new Telefonos(77416900,986744755);
-                    sesion.save(t1);
-                    tr.commit();
+
                     
         /*
-        La relación entre Autores  y Libros  es de  uno a varios:un autor puede escribir
-        varios libros y un libro  solo puede tener un autor, en los pojos pondremos la 
-        relación bidireccional. La relación entre Autores y teléfonos es de uno a uno,
-        un autor solo puede tener un tf.Y un tf solo puede pertenecer a un autor.
         MENÚ
         2- Inserción de nuevas filas.
             a. Inserción autor.

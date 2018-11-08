@@ -20,7 +20,9 @@ import org.hibernate.Transaction;
  */
 public class Metodos {
     Scanner sc=new Scanner(System.in);
+    MetodosSQL msql1= new MetodosSQL();
     public ArrayList conectar(){
+        msql1.creaTaboas();
         SessionFactory sf= HibernateUtil.getSessionFactory();
         Session sesion =HibernateUtil.getSession();
         sf.openSession();
@@ -54,11 +56,12 @@ public class Metodos {
                 + "5-Consultas.\n"
                 + "6-Fin");
         opcion=sc.nextInt();
+        System.out.println("Opcion= "+ opcion);
         if(opcion>=1 && opcion<=6)
             return opcion;
         else
             System.out.println("Insertado un valor non válido.");
-            return 0;
+            return 0 ;
     }
     public int menuInsercion(){
         int opcion;
@@ -135,6 +138,15 @@ public class Metodos {
             default:;
             break;
         }
+        
+//                Libros l1 = new Libros(4563,"Lolita",29.3f);
+//                    sesion.save(l1);
+//                    Autores a1= new Autores(77416900,"Francisco Romay","Española");
+//                    sesion.save(a1);
+//                    Telefonos t1=new Telefonos(77416900,986744755);
+//                    sesion.save(t1);
+//                    tr.commit();
+        
     }
     public void switchDelete(){
         int opcion=menuBorrado();
@@ -145,15 +157,17 @@ public class Metodos {
     public void switchQuery(){
         int opcion=menuConsulta();
     }
-    public int[] loopMenuPrincipal(int intentos){
-        int[] saidaOpcionIntentos = null;
+    public ArrayList loopMenuPrincipal(int intentos){
+        ArrayList saidaOpcionIntentos = null;
         if(intentos>0){
             System.out.println("Insertado un valor non valido");
-            intentos++;
         }
         intentos++;
-        saidaOpcionIntentos[0]=menuPrincipal();
-        saidaOpcionIntentos[1]=intentos;
+        if (saidaOpcionIntentos.size()==0) {
+            saidaOpcionIntentos.clear();
+        }
+        saidaOpcionIntentos.add(menuPrincipal());
+        saidaOpcionIntentos.add(intentos);
         return saidaOpcionIntentos;               
     }
 }

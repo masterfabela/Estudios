@@ -48,6 +48,7 @@
             android:text="Elixa o tipo de despedida:"
             android:id="@+id/eleccion"/>
         <RadioGroup
+            android:id="@+id/rg2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/eleccion">
@@ -70,6 +71,6 @@
         android:id="@+id/saudo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l5"
+        android:layout_below="@id/accion"
         android:text="Hola"/>
 </LinearLayout>

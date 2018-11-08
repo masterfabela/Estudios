@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Obx.Libros" table="Libros">
+  <id column="idlibro" name="id"/>
+  <property column="titulo" name="titulo"/>
+  <property column="prezo" name="prezo"/> 
+  <many-to-one name="autores">
+      <column name="id"/>
+  </many-to-one>
+  </class>
+</hibernate-mapping>

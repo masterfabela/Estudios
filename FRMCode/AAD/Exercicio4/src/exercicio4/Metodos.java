@@ -20,14 +20,16 @@ import org.hibernate.Transaction;
  */
 public class Metodos {
     Scanner sc=new Scanner(System.in);
+    MetodosSQL msql1= new MetodosSQL();
     public ArrayList conectar(){
+        msql1.creaTaboas();
         SessionFactory sf= HibernateUtil.getSessionFactory();
         Session sesion =HibernateUtil.getSession();
         sf.openSession();
         Transaction tr=sesion.beginTransaction();
-        ArrayList dataSesion=null;
-        dataSesion.add(sf);
+        ArrayList dataSesion=new ArrayList();
         dataSesion.add(sesion);
+        dataSesion.add(tr);
         return dataSesion;
     }
     public void desconectar(Session sesion, SessionFactory sf){
@@ -44,6 +46,24 @@ public class Metodos {
         Autores a1=new Autores(dni,nome,nacionalidade);
         return a1;
     }
+    public Libros pedirLibros(){
+        System.out.println("Introduza o Id:");
+        int id=sc.nextInt();
+        System.out.println("Introduza o titulo:");
+        String titulo=sc.next();
+        System.out.println("Introduza o prezo:");
+        Float prezo=sc.nextFloat();
+        Libros l1=new Libros(id,titulo,prezo);
+        return l1;
+    }
+    public Telefonos pedirTelefonos(){
+        System.out.println("Introduza o DNI do usuario:");
+        int dni=sc.nextInt();
+        System.out.println("Introduza o teléfono:");
+        int tlfn=sc.nextInt();
+        Telefonos t1=new Telefonos(dni,tlfn);
+        return t1;
+    }
     public int menuPrincipal(){
         int opcion;
         System.out.println("----Menu principal:----\n"
@@ -58,7 +78,7 @@ public class Metodos {
             return opcion;
         else
             System.out.println("Insertado un valor non válido.");
-            return 0;
+            return 0 ;
     }
     public int menuInsercion(){
         int opcion;
@@ -124,17 +144,29 @@ public class Metodos {
         } 
             return opcion;
     }
-    public void switchInsert(ArrayList sesion){
+    public void switchInsert(ArrayList al){
+        Session sesion=(Session)al.get(0);
+        Transaction tr=(Transaction)al.get(1);
         switch(menuInsercion()){
-            case 1:;
+            case 1:sesion.save(pedirAutores());
+                tr.commit();;
             break;
-            case 2:;
+            case 2:sesion.save(pedirLibros());
+                tr.commit();;
             break;
-            case 3:;
-            break;
-            default:;
+            case 3:sesion.save(pedirTelefonos());
+                tr.commit();;
             break;
         }
+        
+//                Libros l1 = new Libros(4563,"Lolita",29.3f);
+//                    sesion.save(l1);
+//                    Autores a1= new Autores(77416900,"Francisco Romay","Española");
+//                    sesion.save(a1);
+//                    Telefonos t1=new Telefonos(77416900,986744755);
+//                    sesion.save(t1);
+//                    tr.commit();
+        
     }
     public void switchDelete(){
         int opcion=menuBorrado();
@@ -144,16 +176,5 @@ public class Metodos {
     }
     public void switchQuery(){
         int opcion=menuConsulta();
-    }
-    public int[] loopMenuPrincipal(int intentos){
-        int[] saidaOpcionIntentos = null;
-        if(intentos>0){
-            System.out.println("Insertado un valor non valido");
-            intentos++;
-        }
-        intentos++;
-        saidaOpcionIntentos[0]=menuPrincipal();
-        saidaOpcionIntentos[1]=intentos;
-        return saidaOpcionIntentos;               
     }
 }

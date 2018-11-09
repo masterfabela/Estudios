@@ -6,4 +6,4 @@ Aplicación multiproceso:
     Arbore n-ario de fios.
     Cada fio executase nun núcleo do procesador.
     A cada intre, temos N instruccions en execución ó mesmo tempo.
-    Ó mesmo tempo=paralelismo real=Multitarefa.
+    Ó mesmo tempo = paralelismo real = Multitarefa.

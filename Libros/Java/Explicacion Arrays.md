@@ -24,7 +24,7 @@ O array que acabamos de crear levaria os seguintes parametros
 
 Se separamos a sua definicion por partes seria:
 
-Indicamos o tipo de dato:
+### Indicamos o tipo de dato:
 
 <pre>Int []</pre>
 
@@ -34,6 +34,6 @@ Isto por suposto e perfectemente aplicable a calquera tipo de dato, tanto datos 
 - `Double []`
 - `String []`
 
-Damoslle nome:
+### Damoslle nome:
 
 <pre>numeros</pre>

@@ -28,7 +28,7 @@ Se separamos a sua definicion por partes seria:
 
 <pre>Int []</pre>
 
-Isto por suposto e perfectemente aplicable a calquera tipo de dato, tanto datos fisicos como referenciales alguns posibles exemplos poderian ser:
+Isto por suposto e perfectamente aplicable a calquera tipo de dato, tanto datos fisicos como referenciales alguns posibles exemplos poderian ser:
 
 - `Float []`
 - `Double []`
@@ -37,3 +37,23 @@ Isto por suposto e perfectemente aplicable a calquera tipo de dato, tanto datos 
 ### Damoslle nome:
 
 <pre>numeros</pre>
+
+## Asignacion de valor a un array
+
+Un array pode ter como valor un **array do tipo de dato que lle prometemos** ou **`null`** poñamos esto en practica
+
+O valor asignado ao array creado anteriormente poderia ser
+
+<pre>numeros = {0, 0, 0, 0, 0};</pre>
+
+O que acabamos de facer e crear un array de ceros que son numeros enteiros, e igualar o noso array a iso
+
+O que seria igual a facer
+
+<pre>numeros = new Int [5];</pre>
+
+O que lle estamos asignado e un **novo** `new` **array de ints** `Int []` de **tamaño** `5`, por defecto o valor dos ints e 0.
+
+Ademais como menciomanos anteriormente tamen admite o valor de `null` do mesmo xeito que calquera obxeto neste caso se intentamos acceder a el daranos un error `NullPointerException` , pero esto veremolo mais adiante
+
+<pre>numeros = null;</pre>

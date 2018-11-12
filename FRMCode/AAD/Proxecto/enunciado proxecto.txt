@@ -1,0 +1,18 @@
+Venta de coches de segunda man
+    Os coches son suministrados por proveedores, coñecendo:
+        Marca, modelo, matricula, prezo de compre, e de venta
+        Tipos de coches:turismos, industriais e todo-terreo.
+        Se precisan ou non de ser reparados e as pezas que o son,
+        divididas en mecánicas, electricas ou chapa.
+    Vendedores: 
+        Asalariados ou por comisión.
+        Dos asalariados necesitamos o salario e dos de comision 
+            a cantidade de coches vendidos.
+    Dos clientes, se son compradores como se reservaron un.
+    Existen exposicións, e debemos saber en cal está cada coche.
+    
+    
+    Precisanse accions para realizar as accions anteriormente vistas
+        (Compra, reparación e venta)
+    Tamen debemos poder obter o cliente que comprou certo coche 
+        e listados dos mesmos que esteas en stock.

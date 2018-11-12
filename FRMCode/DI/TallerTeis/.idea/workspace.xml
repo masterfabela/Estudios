@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41995217-f431-4cb9-8820-12136886da11" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tallerteis/tallerteis.py" beforeDir="false" afterPath="$PROJECT_DIR$/tallerteis/tallerteis.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tallerteis/Taller.sqbpro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tallerteis/XestionClientes.glade" beforeDir="false" afterPath="$PROJECT_DIR$/tallerteis/XestionClientes.glade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tallerteis/datos.py" beforeDir="false" afterPath="$PROJECT_DIR$/tallerteis/datos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tallerteis/tallerteis.py" beforeDir="false" afterPath="$PROJECT_DIR$/tallerteis/tallerteis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tallerteis/testDNI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tallerteis/xestionclientes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tallerteis/xestionclientes.py" afterDir="false" />
+>>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,32 +25,35 @@
     <session id="1741045053">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="py" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="Python" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2510" />
+          <entry key="py" value="3971" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2510" />
+          <entry key="Python" value="3971" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -70,8 +83,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tallerteis/tallerteis.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="427">
               <caret line="69" column="58" selection-start-line="69" selection-start-column="58" selection-end-line="69" selection-end-column="58" />
+=======
+            <state relative-caret-position="210">
+              <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+              <folding>
+                <marker date="1542031407888" expanded="true" signature="1977:2114" ph="..." />
+                <marker date="1542031407888" expanded="true" signature="2217:2255" ph="..." />
+              </folding>
+>>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
             </state>
           </provider>
         </entry>
@@ -79,8 +101,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tallerteis/xestionclientes.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="15">
               <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+=======
+            <state relative-caret-position="45">
+              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <folding>
+                <marker date="1542031407784" expanded="true" signature="129:134" ph="..." />
+              </folding>
+>>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
             </state>
           </provider>
         </entry>
@@ -88,10 +118,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tallerteis/datos.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="450">
               <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+=======
+            <state relative-caret-position="195">
+              <caret line="23" column="58" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1542031549680" expanded="true" signature="308:310" ph="..." />
+                <marker date="1542031549680" expanded="true" signature="332:366" ph="..." />
+                <marker date="1542031549680" expanded="true" signature="397:406" ph="..." />
+                <marker date="1542031549680" expanded="true" signature="634:639" ph="..." />
+                <marker date="1542031549680" expanded="true" signature="1036:1037" ph="..." />
+                <marker date="1542031549680" expanded="true" signature="1719:1720" ph="..." />
+>>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
               </folding>
             </state>
           </provider>
@@ -112,8 +155,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tallerteis/xestionclientes.py" />
         <option value="$PROJECT_DIR$/tallerteis/testDNI.py" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/tallerteis/xestionclientes.py" />
+        <option value="$PROJECT_DIR$/tallerteis/tallerteis.py" />
+>>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
         <option value="$PROJECT_DIR$/tallerteis/datos.py" />
         <option value="$PROJECT_DIR$/tallerteis/tallerteis.py" />
       </list>
@@ -121,9 +168,9 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
-    <option name="y" value="27" />
-    <option name="width" value="1213" />
-    <option name="height" value="997" />
+    <option name="y" value="25" />
+    <option name="width" value="1243" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -207,14 +254,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="50" y="-1" width="1870" height="1080" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24905252" />
+=======
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24918033" />
+>>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32756758" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39930955" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -232,6 +286,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tallerteis/testDNI.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -239,15 +294,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+=======
+    <entry file="file://$PROJECT_DIR$/tallerteis/testDNI.py" />
+    <entry file="file://$PROJECT_DIR$/tallerteis/tallerteis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+          <folding>
+            <marker date="1542031407888" expanded="true" signature="1977:2114" ph="..." />
+            <marker date="1542031407888" expanded="true" signature="2217:2255" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tallerteis/xestionclientes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding>
+            <marker date="1542031407784" expanded="true" signature="129:134" ph="..." />
+          </folding>
+>>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tallerteis/datos.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="450">
           <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+=======
+        <state relative-caret-position="195">
+          <caret line="23" column="58" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1542031549680" expanded="true" signature="308:310" ph="..." />
+            <marker date="1542031549680" expanded="true" signature="332:366" ph="..." />
+            <marker date="1542031549680" expanded="true" signature="397:406" ph="..." />
+            <marker date="1542031549680" expanded="true" signature="634:639" ph="..." />
+            <marker date="1542031549680" expanded="true" signature="1036:1037" ph="..." />
+            <marker date="1542031549680" expanded="true" signature="1719:1720" ph="..." />
+>>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
           </folding>
         </state>
       </provider>

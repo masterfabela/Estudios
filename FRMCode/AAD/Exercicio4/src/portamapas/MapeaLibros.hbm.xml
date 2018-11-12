@@ -6,7 +6,7 @@
   <property column="titulo" name="titulo"/>
   <property column="prezo" name="prezo"/> 
   <many-to-one name="autores">
-      <column name="id"/>
+      <column name="idlibro"/>
   </many-to-one>
   </class>
 </hibernate-mapping>

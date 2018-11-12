@@ -65,6 +65,9 @@ class Taller:
         xestionclientes.limpiacli(self.lmpcli)
 #engadir comporbador de dn1,expresion regular de email, e modulo datos.py e control de maiusculas en
 # dni e Matricula(todas), e en nome e apelidos, só as primeiras.
+#engadir canlendario
+#engadir as funcionalidades de medificacion "a tempo real"
+#carga de datos da base a o programa ó abrir a aplicación.
 
 if __name__ == "__main__":
     print("Inicio")

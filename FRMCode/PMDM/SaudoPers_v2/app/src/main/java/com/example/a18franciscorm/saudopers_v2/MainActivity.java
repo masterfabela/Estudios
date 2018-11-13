@@ -4,11 +4,30 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private final int CODIGO_CHAMADA=0;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+           if (requestCode==CODIGO_CHAMADA){
+               Toast.makeText(this, data.getStringExtra("Saudo"), Toast.LENGTH_SHORT).show();
+               if (resultCode==RESULT_OK){
+                   Toast.makeText(this, "Rematou", Toast.LENGTH_LONG).show();
+                   Log.i("Cambios", "Rematou ben");}else{
+                   Toast.makeText(this,"Fallou", Toast.LENGTH_LONG).show();
+                   Log.i("Cambios", "Rematou mal");
+               }
+           }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
                 Bundle datos = new Bundle();
                 Intent i= new Intent (MainActivity.this,Main2Activity.class);
                 if (comprobaEdits(etIdade,etNome)){
+                    Log.i("Cambios", "Chamouse á actividade");
                     datos.putString("nome",etNome.getText().toString());
                     datos.putInt("idade",Integer.parseInt(etIdade.getText().toString()));
                     i.putExtras(datos);
-                    startActivity(i);}
+                    startActivityForResult(i,CODIGO_CHAMADA);}
             }
         });
     }

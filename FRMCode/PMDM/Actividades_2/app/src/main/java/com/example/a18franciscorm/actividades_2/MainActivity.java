@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i=new Intent(MainActivity.this,Main2Activity.class);
                 i.putExtra("mensaxe",mensaxe);
                 startActivityForResult(i,CODIGO_LLAMADA);
+
             }
         });
 

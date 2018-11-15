@@ -29,25 +29,21 @@ public class Main2Activity extends AppCompatActivity {
         final RadioButton rb2=(RadioButton)findViewById(R.id.rb2);
         LL1=(LinearLayout)findViewById(R.id.LL1);
         TextView textosaida =(TextView)findViewById(R.id.textosaida);
-        Bundle b1=getIntent().getExtras();
+        final Bundle b1=getIntent().getExtras();
         Button botvol=(Button)findViewById(R.id.butvolv);
-        botvol.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i3= new Intent(Main2Activity.this,MainActivity.class);
-                if (cb1.isChecked()){
-                    Bundle b= new Bundle();
-                    b.putString("Saudo","Ata a vista");
-                    i3.putExtras(b);
-                    startActivity(i3);
-                }else{
-                    startActivity(i3);
-                }
-            }
-        });
         if (b1.getInt("idade")>=18)
             textosaida.setText("Hola, "+b1.getString("nome")+",és maior de idade.");
         else
             textosaida.setText("Hola, "+b1.getString("nome")+",és menor de idade.");
+        botvol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cb1.isChecked()){
+                    b1.putString("Saudo","Ata a vista");
+                }
+                setResult(RESULT_OK);
+                finish();
+            }
+        });
     }
 }

@@ -12,23 +12,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private final int CODIGO_CHAMADA=0;
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-           if (requestCode==CODIGO_CHAMADA){
-               Toast.makeText(this, data.getStringExtra("Saudo"), Toast.LENGTH_SHORT).show();
-               if (resultCode==RESULT_OK){
-                   Toast.makeText(this, "Rematou", Toast.LENGTH_LONG).show();
-                   Log.i("Cambios", "Rematou ben");}else{
-                   Toast.makeText(this,"Fallou", Toast.LENGTH_LONG).show();
-                   Log.i("Cambios", "Rematou mal");
-               }
-           }
-
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,5 +43,19 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         else return true;
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i("Cambios", "Ping");
+        if (requestCode==CODIGO_CHAMADA){
+            if (resultCode==RESULT_OK){
+                Toast.makeText(this, "Rematou", Toast.LENGTH_LONG).show();
+                Log.i("Cambios", "Rematou ben");}
+            else{
+                Toast.makeText(this,"Fallou", Toast.LENGTH_LONG).show();
+                Log.i("Cambios", "Rematou mal");
+            }
+        }
     }
 }

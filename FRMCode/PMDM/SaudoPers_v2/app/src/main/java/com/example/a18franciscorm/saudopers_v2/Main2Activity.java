@@ -35,14 +35,36 @@ public class Main2Activity extends AppCompatActivity {
             textosaida.setText("Hola, "+b1.getString("nome")+",és maior de idade.");
         else
             textosaida.setText("Hola, "+b1.getString("nome")+",és menor de idade.");
+        if(cb1.isChecked())
+            LL1.setVisibility(View.VISIBLE);
+        else
+            LL1.setVisibility(View.GONE);
         botvol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (cb1.isChecked()){
-                    b1.putString("Saudo","Ata a vista");
-                }
-                setResult(RESULT_OK);
+                    if (rg1.getCheckedRadioButtonId()==R.id.rb1)
+                        b1.putString("Saudo","Adeus");
+                    else
+                        b1.putString("Saudo","Deica logo");
+                    Intent i1=new Intent();
+                    i1.putExtras(b1);
+                    setResult(RESULT_OK,i1);
+                }else
+                    setResult(RESULT_CANCELED);
+
                 finish();
+            }
+        });
+        cb1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("Cambios", "Click");
+                if(LL1.getVisibility()==View.GONE)
+                    LL1.setVisibility(View.VISIBLE);
+                else
+                    LL1.setVisibility(View.GONE);
+
             }
         });
     }

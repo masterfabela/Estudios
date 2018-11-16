@@ -47,14 +47,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.i("Cambios", "Ping");
         if (requestCode==CODIGO_CHAMADA){
             if (resultCode==RESULT_OK){
-                Toast.makeText(this, "Rematou", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, data.getExtras().getString("Saudo"), Toast.LENGTH_LONG).show();
                 Log.i("Cambios", "Rematou ben");}
             else{
-                Toast.makeText(this,"Fallou", Toast.LENGTH_LONG).show();
-                Log.i("Cambios", "Rematou mal");
+                Log.i("Cambios", "Sen saudo");
             }
         }
     }

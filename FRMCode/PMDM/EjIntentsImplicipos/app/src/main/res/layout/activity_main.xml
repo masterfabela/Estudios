@@ -8,27 +8,32 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.example.a18franciscorm.act_calculadora.MainActivity">
+    android:gravity="center"
+    tools:context="com.example.a18franciscorm.ejintentsimplicipos.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
     <Button
-        android:id="@+id/Boton"
+        android:id="@+id/b1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calculadora"/>
+        android:text="Navegador"/>
     <Button
-        android:id="@+id/Boton2"
+        android:id="@+id/b2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"/>
+        android:text="contactos"/>
     <Button
-        android:id="@+id/Boton3"
+        android:id="@+id/b3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Camara"/>
+        android:text="Telefono"/>
+    <Button
+        android:id="@+id/b4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dial"/>
 </LinearLayout>

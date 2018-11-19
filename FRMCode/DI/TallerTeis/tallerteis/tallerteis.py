@@ -114,6 +114,8 @@ class Taller:
 # engadir as funcionalidades de medificacion "a tempo real"
 # funcionalidade de BD
 # Engadir boton de limpeza de seleccion.
+# facturas con Man de obra, cambio de aceite, cambio de rodas(discriminando dianteiras e traseiras),bateria, pastillas de freo e filtros.
+# clientes e reparacións terán cadansua taboa.
 
 if __name__ == "__main__":
     print("Inicio")

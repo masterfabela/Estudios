@@ -72,3 +72,6 @@ def comprobarMail(mail):
         return True
     else:
         return False
+
+def mamarracho():
+    print("Mamarracho")

@@ -27,6 +27,7 @@ class Taller:
         self.lblavisos = int_visual.get_object("lblavisos")
         self.venCalendar = int_visual.get_object("venCalendar")
         self.but_calendar = int_visual.get_object("but_calendar")
+        self.selectorClientes = int_visual.get_object("selectorClientes")
         self.fecha = int_visual.get_object("fecha")
         dic = {
             'on_venPrincipal_destroy': self.sair,
@@ -37,6 +38,7 @@ class Taller:
             'on_but_editar_clicked': datos.edicion,
             'on_but_eliminar_clicked': datos.eliminacion,
             'on_but_pechar_clicked': self.sair,
+            'on_selectorClientes_changed': self.cargandodatos
         }
         int_visual.connect_signals(dic)
         self.lblavisos.hide()
@@ -45,15 +47,31 @@ class Taller:
         #self.venPrincipal.maximize()
 
     def showfecha(self,widget):
-        print ("Hola")
-        ano,mes,dia=self.fecha.get_date()
+        ano, mes, dia = self.fecha.get_date()
         self.entdata.set_text(str(dia)+'/'+str(mes)+'/'+str(ano))
+
+    def cargandodatos(self,widget):
+        model, iter = self.treeclientes.get_selection().get_selected()
+        if iter != None:
+            sdni = model.get_value(iter, 0)
+            self.entdni.set_text(sdni)
+            smat = model.get_value(iter, 1)
+            self.entmat.set_text(smat)
+            sapel = model.get_value(iter, 2)
+            self.entapel.set_text(sapel)
+            snome = model.get_value(iter, 3)
+            self.entnom.set_text(snome)
+            smail = model.get_value(iter, 4)
+            self.entmail.set_text(smail)
+            smovil = model.get_value(iter, 5)
+            self.entmovil.set_text(smovil)
+            sdata = model.get_value(iter, 6)
+            self.entdata.set_text(sdata)
 
     def showcalendar(self, widget):
         self.venCalendar.show()
 
-
-    def destroycalendar(self,widget):
+    def destroycalendar(self, widget):
         self.venCalendar.hide()
 
     def sair(self,widget):
@@ -85,22 +103,17 @@ class Taller:
                     self.limpacli()
                 else:
                     self.lblavisos.set_text("DNI Incorrecto.")
-
             else:
                 self.lblavisos.set_text("Faltan datos.")
     def limpacli(self):
 
         self.lmpcli = (self.entdni, self.entmat, self.entapel, self.entnom, self.entmail, self.entmovil,self.entdata)
         xestionclientes.limpiacli(self.lmpcli)
-#engadir comporbador de dn1,expresion regular de email, e modulo datos.py e control de maiusculas en
-# dni e Matricula(todas), e en nome e apelidos, só as primeiras.
-#engadir canlendario
-#engadir as funcionalidades de medificacion "a tempo real"
-#carga de datos da base a o programa ó abrir a aplicación.
+
+# engadir canlendario
+# engadir as funcionalidades de medificacion "a tempo real"
 # funcionalidade de BD
-# modificación e eliminacion automatico-interactiva
-# funcionalidade de calendario.
-# instalar o sqlite.
+# Engadir boton de limpeza de seleccion.
 
 if __name__ == "__main__":
     print("Inicio")

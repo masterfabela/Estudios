@@ -7,24 +7,6 @@
     <property name="can_focus">False</property>
     <property name="stock">gtk-page-setup</property>
   </object>
-  <object class="GtkListStore" id="listclientes">
-    <columns>
-      <!-- column-name dni -->
-      <column type="gchararray"/>
-      <!-- column-name matricula -->
-      <column type="gchararray"/>
-      <!-- column-name apelidos -->
-      <column type="gchararray"/>
-      <!-- column-name nome -->
-      <column type="gchararray"/>
-      <!-- column-name mail -->
-      <column type="gchararray"/>
-      <!-- column-name movil -->
-      <column type="gchararray"/>
-      <!-- column-name data -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
   <object class="GtkWindow" id="venPrincipal">
     <property name="can_focus">False</property>
     <signal name="destroy" handler="on_venPrincipal_destroy" swapped="no"/>
@@ -282,6 +264,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
+                <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkFixed">
                     <property name="visible">True</property>
@@ -487,9 +470,12 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="model">listclientes</property>
+                        <property name="search_column">0</property>
                         <property name="ubuntu_almost_fixed_height_mode">True</property>
                         <child internal-child="selection">
-                          <object class="GtkTreeSelection"/>
+                          <object class="GtkTreeSelection">
+                            <signal name="changed" handler="on_selectorClientes_changed" swapped="no"/>
+                          </object>
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn">
@@ -598,7 +584,27 @@
               </packing>
             </child>
             <child>
-              <placeholder/>
+              <object class="GtkFixed">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkButton">
+                    <property name="label" translatable="yes">button</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">252</property>
+                    <property name="y">107</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
             </child>
             <child type="tab">
               <object class="GtkLabel">
@@ -653,6 +659,24 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkListStore" id="listclientes">
+    <columns>
+      <!-- column-name dni -->
+      <column type="gchararray"/>
+      <!-- column-name matricula -->
+      <column type="gchararray"/>
+      <!-- column-name apelidos -->
+      <column type="gchararray"/>
+      <!-- column-name nome -->
+      <column type="gchararray"/>
+      <!-- column-name mail -->
+      <column type="gchararray"/>
+      <!-- column-name movil -->
+      <column type="gchararray"/>
+      <!-- column-name data -->
+      <column type="gchararray"/>
+    </columns>
   </object>
   <object class="GtkWindow" id="venCalendar">
     <property name="can_focus">False</property>

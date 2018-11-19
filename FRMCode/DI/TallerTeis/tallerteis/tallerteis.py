@@ -92,18 +92,15 @@ class Taller:
 
         self.lmpcli = (self.entdni, self.entmat, self.entapel, self.entnom, self.entmail, self.entmovil,self.entdata)
         xestionclientes.limpiacli(self.lmpcli)
-<<<<<<< HEAD
 #engadir comporbador de dn1,expresion regular de email, e modulo datos.py e control de maiusculas en
 # dni e Matricula(todas), e en nome e apelidos, só as primeiras.
 #engadir canlendario
 #engadir as funcionalidades de medificacion "a tempo real"
 #carga de datos da base a o programa ó abrir a aplicación.
-=======
 # funcionalidade de BD
 # modificación e eliminacion automatico-interactiva
 # funcionalidade de calendario.
 # instalar o sqlite.
->>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e
 
 if __name__ == "__main__":
     print("Inicio")

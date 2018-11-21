@@ -1,52 +1,4 @@
-import os
-import sqlite3
 import re
-try:
-        """datos conexion"""
-        bbdd = 'DBTaller'
-        conex = sqlite3.connect(bbdd)
-        cur =conex.cursor()
-        print("Base de datos conectada.")
-except sqlite3.OperationalError as e:
-        print(e)
-
-
-def edicion(self):
-    print('click en editar')
-
-
-def eliminacion(self):
-    print('click en eliminar')
-
-
-def altacliente(fila):
-    try:
-        cur.execute("insert into clientes(dni,mat,apel,nom,mail,movil,data) values (?,?,?,?,?,?,?)",fila)
-        conex.commit()
-    except sqlite3.OperationalError as e:
-        print(e)
-        conex.rollback()
-
-
-def pecharconexion():
-    try:
-        conex.commit()
-        conex.close()
-        print("Pechando conexion coa BD.")
-    except sqlite3.OperationalError as e:
-        print(e)
-
-
-def listar():
-    try:
-        cur.execute("select * from clientes")
-        listado = cur.fetchall()
-        conex.commit()
-        print("Hei")
-        return listado
-    except sqlite3.Error as e:
-        print(e)
-        conex.rollback()
 
 
 def comprobarDNI(caixa):
@@ -73,5 +25,3 @@ def comprobarMail(mail):
     else:
         return False
 
-def mamarracho():
-    print("Mamarracho")

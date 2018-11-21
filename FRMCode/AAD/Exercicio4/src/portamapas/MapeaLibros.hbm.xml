@@ -2,11 +2,11 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
   <class name="Obx.Libros" table="Libros">
-  <id column="idlibro" name="id"/>
-  <property column="titulo" name="titulo"/>
-  <property column="prezo" name="prezo"/> 
-  <many-to-one name="autores">
-      <column name="idlibro"/>
+  <id name="idlibro"/>
+  <property name="titulo"/>
+  <property name="prezo"/> 
+  <many-to-one class="Obx.Libros" name="autores">
+      <column name="autores"/>
   </many-to-one>
   </class>
 </hibernate-mapping>

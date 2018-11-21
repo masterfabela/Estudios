@@ -151,7 +151,9 @@ public class Metodos {
             case 1:sesion.save(pedirAutores());
                 tr.commit();;
             break;
-            case 2:sesion.save(pedirLibros());
+            case 2:
+                Libros l1=pedirLibros();
+                sesion.save(l1);
                 tr.commit();;
             break;
             case 3:sesion.save(pedirTelefonos());

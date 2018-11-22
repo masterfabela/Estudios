@@ -6,8 +6,11 @@
     <property column="nome" name="nome"/>
     <property column="nacionalidade" name="nacionalidade"/>
     <one-to-one name="telefonos" cascade="all"/>
-        <one-to-many class="Obx.Libros">
-            <column name="dni"/>
-        </one-to-many>
+    <set table="Libros" name="libros" inverse="true">
+        <key>
+            <column name="Autor"/>
+        </key>
+        <one-to-many class="Obx.Libros" />
+    </set>
   </class>
 </hibernate-mapping>

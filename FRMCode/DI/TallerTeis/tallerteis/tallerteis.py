@@ -5,6 +5,7 @@ import gi
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 import xestion_clientes
+import datos
 
 
 class Taller:
@@ -27,22 +28,28 @@ class Taller:
         self.but_calendar = int_visual.get_object("but_calendar")
         self.selectorClientes = int_visual.get_object("selectorClientes")
         self.fecha = int_visual.get_object("fecha")
+        self.but_vaciador =int_visual.get_object("but_vaciador")
         dic = {
             'on_venPrincipal_destroy': self.sair,
             'on_but_alta_clicked': self.altacliente,
             'on_venCalendar_destroy': self.destroycalendar,
             'on_but_calendar_clicked': self.showcalendar,
             'on_fecha_day_selected_double_click': self.showfecha,
-            'on_but_editar_clicked': xestion_clientes.edicion,
+            'on_but_editar_clicked': self.editardatos,
             'on_but_eliminar_clicked': self.baixacliente,
             'on_but_pechar_clicked': self.sair,
-            'on_selectorClientes_changed': self.cargandodatos
+            'on_selectorClientes_changed': self.cargandodatos,
+            'on_but_vaciador_clicked': self.limpador
         }
         int_visual.connect_signals(dic)
+        self.dniprovisional="asd"
         self.lblavisos.hide()
         self.actualizar_lista_clientes()
         self.venPrincipal.show()
         self.venPrincipal.maximize()
+
+    def limpador(self,widget):
+        self.limpacli()
 
     def showfecha(self,widget):
         ano, mes, dia = self.fecha.get_date()
@@ -52,6 +59,7 @@ class Taller:
         model, iter = self.treeclientes.get_selection().get_selected()
         if iter != None:
             sdni = model.get_value(iter, 0)
+            self.dniprovisional=sdni
             self.entdni.set_text(sdni)
             smat = model.get_value(iter, 1)
             self.entmat.set_text(smat)
@@ -93,39 +101,41 @@ class Taller:
         return self.filacli
 
     def altacliente(self,widget):
-            self.lblavisos.show()
-            self.dni = self.entdni.get_text()
-            self.mat = self.entmat.get_text()
-            self.apel = self.entapel.get_text()
-            self.nom = self.entnom.get_text()
-            self.mail = self.entmail.get_text()
-            self.movil = self.entmovil.get_text()
-            self.data = self.entdata.get_text()
-            self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil, self.data)
-            if self.dni != '' and self.mat != '' and self.apel != '':
-                if xestion_clientes.comprobarDNI(self.entdni):
-                    self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil,self.data)
-                    if xestion_clientes.comprobarMail(self.mail):
-                        xestion_clientes.altacli(self.treeclientes, self.listclientes, self.filacli)
-                        xestion_clientes.altacliente(self.filacli)
-                    else:
-                        self.lblavisos.set_text("Email Incorrecto.")
-                    self.limpacli()
+        self.lblavisos.show()
+        self.dni = self.entdni.get_text()
+        self.mat = self.entmat.get_text()
+        self.apel = self.entapel.get_text()
+        self.nom = self.entnom.get_text()
+        self.mail = self.entmail.get_text()
+        self.movil = self.entmovil.get_text()
+        self.data = self.entdata.get_text()
+        self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil, self.data)
+        if self.dni != '' and self.mat != '' and self.apel != '':
+            if datos.comprobarDNI(self.entdni):
+                self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil,self.data)
+                if datos.comprobarMail(self.mail):
+                    xestion_clientes.altacli(self.treeclientes, self.listclientes, self.filacli)
+                    xestion_clientes.altacliente(self.filacli,self.lblavisos)
                 else:
-                    self.lblavisos.set_text("DNI Incorrecto.")
+                    self.lblavisos.set_text("Email Incorrecto.")
+                self.limpacli()
             else:
-                self.lblavisos.set_text("Faltan datos.")
+                self.lblavisos.set_text("DNI Incorrecto.")
+        else:
+            self.lblavisos.set_text("Faltan datos.")
 
     def baixacliente(self,widget):
         if self.entdni.get_text() == ''and self.mat == '' and self.apel == '':
             self.lblavisos.set_text('Faltan datos')
         else:
             self.fila = self.creafilas()
-            xestion_clientes.eliminacion(self.fila)
+            xestion_clientes.eliminacion(self.fila,self.lblavisos)
             self.listclientes.clear()
             self.actualizar_lista_clientes()
             self.limpacli()
 
+    def editardatos(self,widget):
+        xestion_clientes.edicion(self.creafilas(), self.dniprovisional, self.lblavisos)
 
     def limpacli(self):
 
@@ -138,6 +148,9 @@ class Taller:
 # (discriminando dianteiras e traseiras),bateria, pastillas de freo e filtros.
 # clientes e reparacións terán cadansua taboa.
 # Corrixir a reaparicion do calendario
+# Falta o about
+# Como pillar solo dous decimales
+# "{0:.2f}".format(variable)
 
 if __name__ == "__main__":
     print("Inicio")

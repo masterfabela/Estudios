@@ -10,8 +10,13 @@ except sqlite3.OperationalError as e:
 
 
 def altacli(treeclientes,listclientes,filacli):
-    listclientes.append(filacli)
-    treeclientes.show()
+    try:
+        listclientes.append(filacli)
+        treeclientes.show()
+
+    except sqlite3.OperationalError as e:
+        print(e)
+
 
 
 def limpiacli(caixas):
@@ -24,35 +29,36 @@ def consultar_clientes():
         cur.execute("select * from clientes")
         listado = cur.fetchall()
         conex.commit()
-        print("Hei")
         return listado
     except sqlite3.Error as e:
         print(e)
         conex.rollback()
 
 
-def edicion(fila):
+def edicion(fila,dni,lblavisos):
     try:
-        print('click en editar')
+        cur.execute("update clientes set dni = ?, mat = ?, apel =?, nom = ?, mail = ?, movil = ?, data = ? where dni = ?"+dni+";", fila)
+        lblavisos.set_text('Fila ' + fila[0] + ' actualizada.')
     except sqlite3.OperationalError as e:
         print(e);
         conex.rollback()
 
 
-def eliminacion(fila):
+def eliminacion(fila,lblavisos):
     try:
         cur.execute('delete from clientes where dni = ? and mat = ? and apel = ? and nom = ? and mail = ? and movil = ? and data = ? ;',fila)
         conex.commit
-        print('Fila '+fila[0]+' eliminada.')
+        lblavisos.set_text('Fila '+fila[0]+' eliminada.')
     except sqlite3.OperationalError as e:
         print(e);
         conex.rollback()
 
 
-def altacliente(fila):
+def altacliente(fila,lblavisos):
     try:
         cur.execute("insert into clientes(dni,mat,apel,nom,mail,movil,data) values (?,?,?,?,?,?,?)", fila)
         conex.commit()
+        lblavisos.set_text('Fila ' + fila[0] + ' engadida.')
     except sqlite3.OperationalError as e:
         print(e)
         conex.rollback()

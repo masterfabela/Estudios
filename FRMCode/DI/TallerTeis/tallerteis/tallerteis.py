@@ -50,6 +50,8 @@ class Taller:
 
     def limpador(self,widget):
         self.limpacli()
+        self.lblavisos.set_text('')
+        self.lblavisos.hide()
 
     def showfecha(self,widget):
         ano, mes, dia = self.fecha.get_date()
@@ -135,38 +137,44 @@ class Taller:
             self.limpacli()
 
     def editardatos(self,widget):
-        xestion_clientes.edicion(self.creafilas(), self.dniprovisional, self.lblavisos)
+        self.dni = self.entdni.get_text()
+        self.mat = self.entmat.get_text()
+        self.apel = self.entapel.get_text()
+        self.nom = self.entnom.get_text()
+        self.mail = self.entmail.get_text()
+        self.movil = self.entmovil.get_text()
+        self.data = self.entdata.get_text()
+        self.filacliedit = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil, self.data, self.dniprovisional)
+
+        xestion_clientes.edicion(self.filacliedit, self.lblavisos)
+        self.listclientes.clear()
+        self.actualizar_lista_clientes()
+        self.limpacli()
 
     def limpacli(self):
 
         self.lmpcli = (self.entdni, self.entmat, self.entapel, self.entnom, self.entmail, self.entmovil,self.entdata)
-<<<<<<< HEAD
-        xestionclientes.limpiacli(self.lmpcli)
-#engadir comporbador de dn1,expresion regular de email, e modulo datos.py e control de maiusculas en
+        xestion_clientes.limpiacli(self.lmpcli)
+
+# engadir comporbador de dn1,expresion regular de email, e modulo datos.py e control de maiusculas en
 # dni e Matricula(todas), e en nome e apelidos, só as primeiras.
-#engadir canlendario
-#engadir as funcionalidades de medificacion "a tempo real"
-#carga de datos da base a o programa ó abrir a aplicación.
+# engadir canlendario
+# engadir as funcionalidades de medificacion "a tempo real"
+# carga de datos da base a o programa ó abrir a aplicación.
 # funcionalidade de BD
 # modificación e eliminacion automatico-interactiva
 # funcionalidade de calendario.
 # instalar o sqlite.
-=======
-        xestion_clientes.limpiacli(self.lmpcli)
-
 # engadir as funcionalidades de medificacion "a tempo real"
 # Engadir boton de limpeza de seleccion.
 # facturas con Man de obra, cambio de aceite, cambio de rodas:
 # (discriminando dianteiras e traseiras),bateria, pastillas de freo e filtros.
 # clientes e reparacións terán cadansua taboa.
 # Corrixir a reaparicion do calendario
-<<<<<<< HEAD
 # Falta o about
 # Como pillar solo dous decimales
 # "{0:.2f}".format(variable)
-=======
->>>>>>> f9f4186659aa387036112f67c1aa77e25791cf1d
->>>>>>> 5db5b9019026df37f1cc450fe22e01f09ff00f9e
+
 
 if __name__ == "__main__":
     print("Inicio")

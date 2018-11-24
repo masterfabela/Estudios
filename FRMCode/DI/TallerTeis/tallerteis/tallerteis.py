@@ -1,11 +1,12 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-import gi
-gi.require_version('Gtk','3.0')
-from gi.repository import Gtk
 import xestion_clientes
 import datos
+import gi
+from gi.repository import Gtk
+gi.require_version('Gtk','3.0')
+
 
 
 class Taller:
@@ -42,7 +43,6 @@ class Taller:
             'on_but_vaciador_clicked': self.limpador
         }
         int_visual.connect_signals(dic)
-        self.dniprovisional="asd"
         self.lblavisos.hide()
         self.actualizar_lista_clientes()
         self.venPrincipal.show()

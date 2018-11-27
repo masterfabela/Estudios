@@ -29,9 +29,10 @@ public class MetodosSQL {
             creacion.execute("create database if not exists Libreria;");
             creacion.execute("use Libreria;");
             creacion.execute("create table if not exists Libros ("
-                    + "idlibro int(5) auto_increment not null,"
-                    + "titulo varchar(30),"
-                    + "prezo float(6),"
+                    + "idlibro int(3) unsigned zerofill auto_increment not null,"
+                    + "titulo varchar(30) not null,"
+                    + "prezo float not null,"
+                    + "autor int(8),"
                     + "primary key(idlibro)"
                     + ");");
             creacion.execute("create table if not exists Autores("

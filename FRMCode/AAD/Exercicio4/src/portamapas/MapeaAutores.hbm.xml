@@ -6,9 +6,9 @@
     <property column="nome" name="nome"/>
     <property column="nacionalidade" name="nacionalidade"/>
     <one-to-one name="telefonos" cascade="all"/>
-    <set table="Libros" name="libros" inverse="true">
+    <set table="libros" name="Libros" inverse="true">
         <key>
-            <column name="Autor"/>
+            <column name="autor"/>
         </key>
         <one-to-many class="Obx.Libros" />
     </set>

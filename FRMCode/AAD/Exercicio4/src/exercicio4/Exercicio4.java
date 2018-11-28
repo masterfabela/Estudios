@@ -38,18 +38,14 @@ public class Exercicio4 {
                 break;
                 case 5:m1.switchQuery();
                 break;
-                case 6:System.out.println("Saindo, Adeus");;
-                break;
+
             }
         }
+        System.out.println("Saindo, Adeus");
 
                     
         /*
         MENÚ
-        2- Inserción de nuevas filas.
-            a. Inserción autor.
-            b. Inserción libro(tiene que existir el autor).
-            c. Insercción teléfono.
         3- Borrado de filas.
             a. Borrado libro(El autor sigue existiendo).
             b. Borrado autor(Desaparecen todos los libros).
@@ -63,7 +59,7 @@ public class Exercicio4 {
             b. Introduciendo el nombre de un autor visualice sus libros.
             c. Visualización de todos los Libros de la tabla.
             d.Visualización  de todos los autores con sus libros.
-        7-Fin.
+        facer os sessions
 
         */
     }

@@ -28,19 +28,22 @@ public class MetodosSQL {
             Statement creacion=conect.createStatement();
             creacion.execute("create database if not exists Libreria;");
             creacion.execute("use Libreria;");
+            creacion.execute("create table if not exists Autores("
+                    + "dniautor int(8) not null,"
+                    + "nome varchar (60),"
+                    + "nacionalidade varchar(30),"
+                    + "primary key(dniautor)"
+                    + ");");
             creacion.execute("create table if not exists Libros ("
                     + "idlibro int(3) unsigned zerofill auto_increment not null,"
                     + "titulo varchar(30) not null,"
                     + "prezo float not null,"
                     + "autor int(8),"
                     + "primary key(idlibro),"
+                    + "unique key (titulo),"
+                    + "index fk_autor(autor),"
+                    + "constraint fk_autor "
                     + "foreign key(autor) references Autores(dniautor) on delete cascade on update cascade"
-                    + ");");
-            creacion.execute("create table if not exists Autores("
-                    + "dniautor int(8) not null,"
-                    + "nome varchar (60),"
-                    + "nacionalidade varchar(30),"
-                    + "primary key(dniautor)"
                     + ");");
             creacion.execute("create table if not exists Telefonos("
                     + "dni int(8) not null,"

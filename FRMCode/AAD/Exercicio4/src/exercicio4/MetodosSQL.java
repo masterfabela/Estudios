@@ -33,7 +33,8 @@ public class MetodosSQL {
                     + "titulo varchar(30) not null,"
                     + "prezo float not null,"
                     + "autor int(8),"
-                    + "primary key(idlibro)"
+                    + "primary key(idlibro),"
+                    + "foreign key(autor) references Autores(dniautor) on delete cascade on update cascade"
                     + ");");
             creacion.execute("create table if not exists Autores("
                     + "dniautor int(8) not null,"

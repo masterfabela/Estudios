@@ -8,16 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author a18franciscorm
- */
 public class Metodos {
     Scanner sc=new Scanner(System.in);
     MetodosSQL msql1= new MetodosSQL();
@@ -46,14 +36,20 @@ public class Metodos {
         Autores a1=new Autores(dni,nome,nacionalidade);
         return a1;
     }
-    public Libros pedirLibros(){
-        System.out.println("Introduza o Id:");
+    public Autores buscAutores(int dni, ArrayList al){
+        Session sesion=(Session)al.get(0);
+        Transaction tr=(Transaction)al.get(1);
+        Autores a1=(Autores)sesion.get(Autores.class, dni);
+        return a1;
+    }
+    public Libros pedirLibros(ArrayList al){
+        System.out.println("Introduza o dni do autor");
         int id=sc.nextInt();
         System.out.println("Introduza o titulo:");
         String titulo=sc.next();
         System.out.println("Introduza o prezo:");
         Float prezo=sc.nextFloat();
-        Libros l1=new Libros(id,titulo,prezo);
+        Libros l1=new Libros(titulo,prezo,buscAutores(id,al));
         return l1;
     }
     public Telefonos pedirTelefonos(){
@@ -152,7 +148,7 @@ public class Metodos {
                 tr.commit();;
             break;
             case 2:
-                Libros l1=pedirLibros();
+                Libros l1=pedirLibros(al);
                 sesion.save(l1);
                 tr.commit();;
             break;

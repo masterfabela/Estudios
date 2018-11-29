@@ -5,8 +5,8 @@
   <id name="idlibro"/>
   <property name="titulo"/>
   <property name="prezo"/> 
-  <many-to-one class="Obx.Libros" name="autores">
-      <column name="autores"/>
+  <many-to-one class="Obx.Autores" name="autor">
+      <column name="autor" not-null="true"/>
   </many-to-one>
   </class>
 </hibernate-mapping>

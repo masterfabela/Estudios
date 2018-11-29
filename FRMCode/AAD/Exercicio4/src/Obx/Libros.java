@@ -15,16 +15,16 @@ public class Libros implements Serializable {
     private int idlibro;
     private String titulo;
     private float prezo;
-    private Autores autores;
+    private Autores autor;
 
     public Libros() {
     }
 
-    public Libros(int idlibro, String titulo, float prezo, Autores autores) {
+    public Libros(String titulo, float prezo, Autores autor) {
         this.idlibro = idlibro;
         this.titulo = titulo;
         this.prezo = prezo;
-        this.autores = autores;
+        this.autor = autor;
     }
 
     public int getIdlibro() {
@@ -51,14 +51,12 @@ public class Libros implements Serializable {
         this.prezo = prezo;
     }
 
-    public Autores getAutores() {
-        return autores;
+    public Autores getAutor() {
+        return autor;
     }
 
-    public void setAutores(Autores autores) {
-        this.autores = autores;
+    public void setAutor(Autores autor) {
+        this.autor = autor;
     }
-
-
     
 }

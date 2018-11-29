@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Add project specific ProGuard rules here.
 # By default, the flags in this file are appended to flags specified
 # in C:\Users\a14damianld\AppData\Local\Android\Sdk/tools/proguard/proguard-android.txt
@@ -16,7 +15,6 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-=======
 # Add project specific ProGuard rules here.
 # By default, the flags in this file are appended to flags specified
 # in C:\Users\a14damianld\AppData\Local\Android\Sdk/tools/proguard/proguard-android.txt
@@ -34,4 +32,3 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
->>>>>>> 8a54fe81c6776c87b14b7c92832a135e0bd6503e

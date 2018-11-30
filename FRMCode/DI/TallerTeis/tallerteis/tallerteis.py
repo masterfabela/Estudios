@@ -163,8 +163,6 @@ class Taller:
 # carga de datos da base a o programa ó abrir a aplicación.
 # funcionalidade de BD
 # modificación e eliminacion automatico-interactiva
-# funcionalidade de calendario.
-# instalar o sqlite.
 # engadir as funcionalidades de medificacion "a tempo real"
 # Engadir boton de limpeza de seleccion.
 # facturas con Man de obra, cambio de aceite, cambio de rodas:
@@ -172,6 +170,9 @@ class Taller:
 # clientes e reparacións terán cadansua taboa.
 # Corrixir a reaparicion do calendario
 # Falta o about
+# Deseñar botons personalizados
+# Engadir e ocultar botons en funcion do notebook.
+# Ver a función de saida da facturación.
 # Como pillar solo dous decimales
 # "{0:.2f}".format(variable)
 

@@ -30,8 +30,11 @@ class Taller:
         self.selectorClientes = int_visual.get_object("selectorClientes")
         self.fecha = int_visual.get_object("fecha")
         self.but_vaciador =int_visual.get_object("but_vaciador")
+        self.but_about = int_visual.get_object("but_about")
+        self.ven_about = int_visual.get_object("ven_about")
         dic = {
             'on_venPrincipal_destroy': self.sair,
+            'on_but_about_activate':self.showAbout,
             'on_but_alta_clicked': self.altacliente,
             'on_venCalendar_destroy': self.destroycalendar,
             'on_but_calendar_clicked': self.showcalendar,
@@ -47,6 +50,10 @@ class Taller:
         self.actualizar_lista_clientes()
         self.venPrincipal.show()
         self.venPrincipal.maximize()
+
+    def showAbout(self,widget):
+        self.ven_about.show()
+
 
     def limpador(self,widget):
         self.limpacli()

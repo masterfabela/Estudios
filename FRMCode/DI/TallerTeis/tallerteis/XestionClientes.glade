@@ -2,44 +2,25 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkAboutDialog">
-    <property name="can_focus">False</property>
-    <property name="type_hint">dialog</property>
-    <property name="program_name">Taller de Teis</property>
-    <property name="version">1.0.1</property>
-    <property name="website">https://www.tallerteis.soportenegociosr.com/inicio</property>
-    <property name="authors">FranRM</property>
-    <property name="logo_icon_name">image-missing</property>
-    <property name="license_type">gpl-3-0</property>
-    <child>
-      <placeholder/>
-    </child>
-    <child internal-child="vbox">
-      <object class="GtkBox">
-        <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox">
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkImage" id="image1">
+  <object class="GtkImage" id="ImaxeCalendario">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-page-setup</property>
+    <property name="pixbuf">../Imaxes/calendar.png</property>
+  </object>
+  <object class="GtkImage" id="Imaxe_but_alta">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../Imaxes/BotonAddCliente.jpg</property>
+  </object>
+  <object class="GtkImage" id="Imaxe_but_editar">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../Imaxes/edit.png</property>
+  </object>
+  <object class="GtkImage" id="Imaxe_but_elim">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../Imaxes/elim.png</property>
   </object>
   <object class="GtkListStore" id="listclientes">
     <columns>
@@ -221,12 +202,13 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="but_about">
                         <property name="label">gtk-about</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_but_about_activate" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -250,7 +232,7 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">toolbutton</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-ok</property>
+                <property name="icon_widget">Imaxe_but_alta</property>
                 <signal name="clicked" handler="on_but_alta_clicked" swapped="no"/>
               </object>
               <packing>
@@ -262,9 +244,9 @@
               <object class="GtkToolButton" id="but_editar">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">__glade_unnamed_27</property>
+                <property name="label" translatable="yes">toolbutton</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-find-and-replace</property>
+                <property name="icon_widget">Imaxe_but_editar</property>
                 <signal name="clicked" handler="on_but_editar_clicked" swapped="no"/>
               </object>
               <packing>
@@ -276,9 +258,9 @@
               <object class="GtkToolButton" id="but_eliminar">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">__glade_unnamed_28</property>
+                <property name="label" translatable="yes">toolbutton</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-delete</property>
+                <property name="icon_widget">Imaxe_but_elim</property>
                 <signal name="clicked" handler="on_but_eliminar_clicked" swapped="no"/>
               </object>
               <packing>
@@ -483,7 +465,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="image">image1</property>
+                        <property name="image">ImaxeCalendario</property>
                         <signal name="clicked" handler="on_but_calendar_clicked" swapped="no"/>
                       </object>
                       <packing>
@@ -889,6 +871,40 @@
         <property name="month">10</property>
         <property name="day">8</property>
         <signal name="day-selected-double-click" handler="on_fecha_day_selected_double_click" swapped="no"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAboutDialog" id="ven_about">
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <property name="program_name">Taller de Teis</property>
+    <property name="version">1.0.1</property>
+    <property name="website">https://www.tallerteis.soportenegociosr.com/inicio</property>
+    <property name="authors">FranRM</property>
+    <property name="logo">../Imaxes/garage.png</property>
+    <property name="license_type">gpl-3-0</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
       </object>
     </child>
   </object>

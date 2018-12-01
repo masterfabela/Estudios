@@ -1,0 +1,6 @@
+C:\Program Files\Android\Android Studio\bin\studio64.exe.vmoptions
+
+Cambiar Esto
+
+-Xmx4096m
+-XX:MaxPermSize=1024m

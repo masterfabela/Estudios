@@ -1,0 +1,4 @@
+Preferences Editor File Types
+
+abajo en ignore files añadir esto
+Thumbs.db;

@@ -1,12 +1,8 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
 import xestion_clientes
 import datos
 import gi
 from gi.repository import Gtk
 gi.require_version('Gtk', '3.0')
-
 
 
 class Taller:
@@ -17,6 +13,10 @@ class Taller:
         self.venPrincipal = int_visual.get_object("venPrincipal")
         self.listclientes = int_visual.get_object("listclientes")
         self.treeclientes = int_visual.get_object("treeclientes")
+        self.listreparacion = int_visual.get_object("listreparacion")
+        self.treereparacion = int_visual.get_object("treereparacion")
+        self.listfacturas = int_visual.get_object("listfacturas")
+        self.treefacturas = int_visual.get_object("treefacturas")
         self.entdni = int_visual.get_object("entdni")
         self.entapel = int_visual.get_object("entapel")
         self.entmat = int_visual.get_object("entmat")
@@ -26,17 +26,19 @@ class Taller:
         self.entdata = int_visual.get_object("entdata")
         self.lblavisos = int_visual.get_object("lblavisos")
         self.venCalendar = int_visual.get_object("venCalendar")
+        self.venCalendar.connect('delete-event', lambda w, e: w.hide() or True)
         self.but_calendar = int_visual.get_object("but_calendar")
         self.selectorClientes = int_visual.get_object("selectorClientes")
         self.fecha = int_visual.get_object("fecha")
-        self.but_vaciador =int_visual.get_object("but_vaciador")
+        self.but_vaciador = int_visual.get_object("but_vaciador")
         self.but_about = int_visual.get_object("but_about")
         self.ven_about = int_visual.get_object("ven_about")
+        self.ven_about.connect('delete-event', lambda w, e: w.hide() or True)
+        self.notebook = int_visual.get_object("notebook")
         dic = {
             'on_venPrincipal_destroy': self.sair,
             'on_but_about_activate':self.showAbout,
-            'on_but_alta_clicked': self.altacliente,
-            'on_venCalendar_destroy': self.destroycalendar,
+            'on_but_alta_clicked': self.altas,
             'on_but_calendar_clicked': self.showcalendar,
             'on_fecha_day_selected_double_click': self.showfecha,
             'on_but_editar_clicked': self.editardatos,
@@ -47,28 +49,38 @@ class Taller:
         }
         int_visual.connect_signals(dic)
         self.lblavisos.hide()
-        self.actualizar_lista_clientes()
+        self.actualizar_listas()
         self.venPrincipal.show()
-        self.venPrincipal.maximize()
+        #self.venPrincipal.maximize()
 
-    def showAbout(self,widget):
+# Funcions de ventás:
+
+    def showcalendar(self, widget):
+        self.venCalendar.show()
+
+    def showAbout(self, widget):
         self.ven_about.show()
 
+# Funcions de limpeza:
 
-    def limpador(self,widget):
+    def limpador(self, widget):
         self.limpacli()
         self.lblavisos.set_text('')
         self.lblavisos.hide()
+        self.ver_paxina()
 
-    def showfecha(self,widget):
+    def ver_paxina(self):
+        print(self.notebook.get_current_page())
+
+    def showfecha(self , widget):
         ano, mes, dia = self.fecha.get_date()
         self.entdata.set_text(str(dia)+'/'+str(mes)+'/'+str(ano))
 
-    def cargandodatos(self,widget):
+    def cargandodatos(self, widget):
         model, iter = self.treeclientes.get_selection().get_selected()
         if iter != None:
             sdni = model.get_value(iter, 0)
-            self.dniprovisional=sdni
+            self.dniprovisional = sdni
             self.entdni.set_text(sdni)
             smat = model.get_value(iter, 1)
             self.entmat.set_text(smat)
@@ -83,20 +95,20 @@ class Taller:
             sdata = model.get_value(iter, 6)
             self.entdata.set_text(sdata)
 
-    def showcalendar(self, widget):
-        self.venCalendar.show()
-
-    def destroycalendar(self, widget):
-        self.venCalendar.hide()
-
-    def sair(self,widget):
+    def sair(self, widget):
         Gtk.main_quit()
         xestion_clientes.pechar_conexion()
 
-    def actualizar_lista_clientes(self):
-        lista = xestion_clientes.consultar_clientes()
-        for registro in lista:
-            self.listclientes.append(registro)
+    def actualizar_listas(self):
+        lista1 = xestion_clientes.consultar_clientes()
+        for registro1 in lista1:
+            self.listclientes.append(registro1)
+        lista2 = xestion_clientes.consultar_reparacion()
+        for registro2 in lista2:
+            self.listreparacion.append(registro2)
+        lista3 = xestion_clientes.consultar_factura()
+        for registro3 in lista3:
+            self.listfacturas.append(registro3)
 
     def creafilas(self):
         self.dni = self.entdni.get_text()
@@ -109,7 +121,13 @@ class Taller:
         self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil, self.data)
         return self.filacli
 
-    def altacliente(self,widget):
+    def altas(self,widget):
+        if self.ver_paxina()== '0':
+            self.altacliente()
+        else:
+            print(self.ver_paxina())
+
+    def altacliente(self):
         self.lblavisos.show()
         self.dni = self.entdni.get_text()
         self.mat = self.entmat.get_text()
@@ -132,18 +150,25 @@ class Taller:
                 self.lblavisos.set_text("DNI Incorrecto.")
         else:
             self.lblavisos.set_text("Faltan datos.")
+        self.dni = ''
+        self.mat = ''
+        self.apel = ''
+        self.nom = ''
+        self.mail = ''
+        self.movil = ''
+        self.data = ''
 
-    def baixacliente(self,widget):
+    def baixacliente(self, widget):
         if self.entdni.get_text() == ''and self.mat == '' and self.apel == '':
             self.lblavisos.set_text('Faltan datos')
         else:
             self.fila = self.creafilas()
-            xestion_clientes.eliminacion(self.fila,self.lblavisos)
+            xestion_clientes.eliminacion(self.fila, self.lblavisos)
             self.listclientes.clear()
-            self.actualizar_lista_clientes()
+            self.actualizar_listas()
             self.limpacli()
 
-    def editardatos(self,widget):
+    def editardatos(self, widget):
         self.dni = self.entdni.get_text()
         self.mat = self.entmat.get_text()
         self.apel = self.entapel.get_text()
@@ -155,7 +180,7 @@ class Taller:
 
         xestion_clientes.edicion(self.filacliedit, self.lblavisos)
         self.listclientes.clear()
-        self.actualizar_lista_clientes()
+        self.actualizar_listas()
         self.limpacli()
 
     def limpacli(self):
@@ -163,22 +188,12 @@ class Taller:
         self.lmpcli = (self.entdni, self.entmat, self.entapel, self.entnom, self.entmail, self.entmovil,self.entdata)
         xestion_clientes.limpiacli(self.lmpcli)
 
-# engadir comporbador de dn1,expresion regular de email, e modulo datos.py e control de maiusculas en
-# dni e Matricula(todas), e en nome e apelidos, só as primeiras.
-# engadir canlendario
-# engadir as funcionalidades de medificacion "a tempo real"
-# carga de datos da base a o programa ó abrir a aplicación.
-# funcionalidade de BD
-# modificación e eliminacion automatico-interactiva
-# engadir as funcionalidades de medificacion "a tempo real"
-# Engadir boton de limpeza de seleccion.
+# engadir as funcionalidades de modificacion "a tempo real"
 # facturas con Man de obra, cambio de aceite, cambio de rodas:
 # (discriminando dianteiras e traseiras),bateria, pastillas de freo e filtros.
 # clientes e reparacións terán cadansua taboa.
-# Corrixir a reaparicion do calendario
-# Falta o about
 # Deseñar botons personalizados
-# Engadir e ocultar botons en funcion do notebook.
+# Distintas funcións dos botons dependendo do notebook.
 # Ver a función de saida da facturación.
 # Como pillar solo dous decimales
 # "{0:.2f}".format(variable)

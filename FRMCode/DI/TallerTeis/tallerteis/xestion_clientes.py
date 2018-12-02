@@ -31,9 +31,31 @@ def altacli(treeclientes,listclientes,filacli):
         print(e)
 
 
-def consultar_clientes():
+def consultar():
     try:
         cur.execute("select * from clientes")
+        listado = cur.fetchall()
+        conex.commit()
+        return listado
+    except sqlite3.Error as e:
+        print(e)
+        conex.rollback()
+
+
+def consultar_reparacion():
+    try:
+        cur.execute("select * from reparacions")
+        listado = cur.fetchall()
+        conex.commit()
+        return listado
+    except sqlite3.Error as e:
+        print(e)
+        conex.rollback()
+
+
+def consultar_factura():
+    try:
+        cur.execute("select * from facturas")
         listado = cur.fetchall()
         conex.commit()
         return listado

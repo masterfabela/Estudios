@@ -22,6 +22,11 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../Imaxes/elim.png</property>
   </object>
+  <object class="GtkImage" id="Imaxe_but_vaciador">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../Imaxes/sweep.png</property>
+  </object>
   <object class="GtkListStore" id="listclientes">
     <columns>
       <!-- column-name dni -->
@@ -37,6 +42,34 @@
       <!-- column-name movil -->
       <column type="gchararray"/>
       <!-- column-name data -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="listfacturas">
+    <columns>
+      <!-- column-name nfact -->
+      <column type="gint64"/>
+      <!-- column-name mat -->
+      <column type="gchararray"/>
+      <!-- column-name datafact -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="listreparacion">
+    <columns>
+      <!-- column-name nfact -->
+      <column type="gint64"/>
+      <!-- column-name mobra -->
+      <column type="gint64"/>
+      <!-- column-name bat -->
+      <column type="gchararray"/>
+      <!-- column-name ac -->
+      <column type="gint64"/>
+      <!-- column-name pneu -->
+      <column type="gchararray"/>
+      <!-- column-name past -->
+      <column type="gchararray"/>
+      <!-- column-name fil -->
       <column type="gchararray"/>
     </columns>
   </object>
@@ -273,7 +306,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-clear</property>
+                <property name="icon_widget">Imaxe_but_vaciador</property>
                 <signal name="clicked" handler="on_but_vaciador_clicked" swapped="no"/>
               </object>
               <packing>
@@ -303,7 +336,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkNotebook">
+          <object class="GtkNotebook" id="notebook">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <child>
@@ -461,7 +494,7 @@
                     <child>
                       <object class="GtkButton" id="but_calendar">
                         <property name="width_request">100</property>
-                        <property name="height_request">26</property>
+                        <property name="height_request">44</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -469,8 +502,8 @@
                         <signal name="clicked" handler="on_but_calendar_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">239</property>
-                        <property name="y">133</property>
+                        <property name="x">263</property>
+                        <property name="y">95</property>
                       </packing>
                     </child>
                     <child>
@@ -483,20 +516,19 @@
     alta:</property>
                       </object>
                       <packing>
-                        <property name="x">163</property>
-                        <property name="y">99</property>
+                        <property name="y">96</property>
                       </packing>
                     </child>
                     <child>
                       <object class="GtkEntry" id="entdata">
-                        <property name="width_request">166</property>
+                        <property name="width_request">168</property>
                         <property name="height_request">30</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                       </object>
                       <packing>
-                        <property name="x">253</property>
-                        <property name="y">101</property>
+                        <property name="x">91</property>
+                        <property name="y">100</property>
                       </packing>
                     </child>
                   </object>
@@ -631,172 +663,290 @@
               </packing>
             </child>
             <child>
-              <object class="GtkFixed">
+              <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkCheckButton">
-                    <property name="label" translatable="yes">Bateria</property>
-                    <property name="width_request">79</property>
-                    <property name="height_request">20</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="x">2</property>
-                    <property name="y">96</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton">
-                    <property name="label" translatable="yes">Aceite</property>
-                    <property name="width_request">74</property>
-                    <property name="height_request">20</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="x">89</property>
-                    <property name="y">95</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton">
-                    <property name="label" translatable="yes">Pneumaticos</property>
-                    <property name="width_request">115</property>
-                    <property name="height_request">20</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="x">169</property>
-                    <property name="y">94</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton">
-                    <property name="label" translatable="yes">Pastillas </property>
-                    <property name="width_request">88</property>
-                    <property name="height_request">20</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="x">286</property>
-                    <property name="y">97</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton">
-                    <property name="label" translatable="yes">Filtros</property>
-                    <property name="width_request">72</property>
-                    <property name="height_request">20</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="x">389</property>
-                    <property name="y">97</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkComboBoxText">
-                    <property name="width_request">100</property>
-                    <property name="height_request">28</property>
+                  <object class="GtkFixed">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <items>
-                      <item id="1" translatable="yes">Dianteiros</item>
-                      <item id="2" translatable="yes">Traseiros</item>
-                      <item id="3" translatable="yes">Todos</item>
-                    </items>
+                    <child>
+                      <object class="GtkCheckButton">
+                        <property name="label" translatable="yes">Bateria</property>
+                        <property name="width_request">79</property>
+                        <property name="height_request">21</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">301</property>
+                        <property name="y">5</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton">
+                        <property name="label" translatable="yes">Aceite:</property>
+                        <property name="width_request">74</property>
+                        <property name="height_request">21</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">6</property>
+                        <property name="y">33</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton">
+                        <property name="label" translatable="yes">Neumaticos:</property>
+                        <property name="width_request">115</property>
+                        <property name="height_request">21</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">300</property>
+                        <property name="y">36</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton">
+                        <property name="label" translatable="yes">Pastillas:</property>
+                        <property name="width_request">88</property>
+                        <property name="height_request">21</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">2</property>
+                        <property name="y">72</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton">
+                        <property name="label" translatable="yes">Filtros:</property>
+                        <property name="width_request">72</property>
+                        <property name="height_request">21</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">300</property>
+                        <property name="y">68</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText">
+                        <property name="width_request">100</property>
+                        <property name="height_request">30</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <items>
+                          <item id="1" translatable="yes">Dianteiros</item>
+                          <item id="2" translatable="yes">Traseiros</item>
+                          <item id="3" translatable="yes">Todos</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="x">406</property>
+                        <property name="y">31</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText">
+                        <property name="width_request">101</property>
+                        <property name="height_request">33</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <items>
+                          <item id="1" translatable="yes">Dianteiras</item>
+                          <item id="2" translatable="yes">Traseiras</item>
+                          <item id="3" translatable="yes">Todas</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="x">85</property>
+                        <property name="y">65</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText">
+                        <property name="width_request">100</property>
+                        <property name="height_request">30</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <items>
+                          <item id="1" translatable="yes">Aire</item>
+                          <item id="2" translatable="yes">Aceite</item>
+                          <item id="3" translatable="yes">Todos</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="x">406</property>
+                        <property name="y">64</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry">
+                        <property name="width_request">168</property>
+                        <property name="height_request">29</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="placeholder_text" translatable="yes">Horas</property>
+                      </object>
+                      <packing>
+                        <property name="x">89</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">100</property>
+                        <property name="height_request">21</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Man de Obra:</property>
+                      </object>
+                      <packing>
+                        <property name="y">4</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry">
+                        <property name="width_request">168</property>
+                        <property name="height_request">29</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="placeholder_text" translatable="yes">Litros</property>
+                      </object>
+                      <packing>
+                        <property name="x">89</property>
+                        <property name="y">30</property>
+                      </packing>
+                    </child>
                   </object>
                   <packing>
-                    <property name="x">173</property>
-                    <property name="y">130</property>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText">
-                    <property name="width_request">101</property>
-                    <property name="height_request">33</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <items>
-                      <item id="1" translatable="yes">Dianteiras</item>
-                      <item id="2" translatable="yes">Traseiras</item>
-                      <item id="3" translatable="yes">Todas</item>
-                    </items>
-                  </object>
-                  <packing>
-                    <property name="x">275</property>
-                    <property name="y">127</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkComboBoxText">
-                    <property name="width_request">100</property>
-                    <property name="height_request">33</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <items>
-                      <item id="1" translatable="yes">Aire</item>
-                      <item id="2" translatable="yes">Aceite</item>
-                      <item id="3" translatable="yes">Todos</item>
-                    </items>
-                  </object>
-                  <packing>
-                    <property name="x">383</property>
-                    <property name="y">126</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry">
-                    <property name="width_request">166</property>
-                    <property name="height_request">29</property>
+                  <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="placeholder_text" translatable="yes">Horas</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkTreeView" id="treereparacion">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="model">listreparacion</property>
+                        <property name="ubuntu_almost_fixed_height_mode">True</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection"/>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Nº Factura</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="nfact"/>
+                              <attributes>
+                                <attribute name="text">0</attribute>
+                                <attribute name="width-chars">6</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Man obra</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="mobra"/>
+                              <attributes>
+                                <attribute name="text">1</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Bateria</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="bat"/>
+                              <attributes>
+                                <attribute name="text">2</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Aceite</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="ac"/>
+                              <attributes>
+                                <attribute name="text">3</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Neumaticos</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="pneu"/>
+                              <attributes>
+                                <attribute name="text">4</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Pastillas</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="past"/>
+                              <attributes>
+                                <attribute name="text">5</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Filtros</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="fil"/>
+                              <attributes>
+                                <attribute name="text">6</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                   <packing>
-                    <property name="x">109</property>
-                    <property name="y">47</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="width_request">100</property>
-                    <property name="height_request">21</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Man de Obra:</property>
-                  </object>
-                  <packing>
-                    <property name="x">9</property>
-                    <property name="y">49</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry">
-                    <property name="width_request">94</property>
-                    <property name="height_request">29</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="placeholder_text" translatable="yes">Litros</property>
-                  </object>
-                  <packing>
-                    <property name="x">47</property>
-                    <property name="y">171</property>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
               </object>
@@ -816,9 +966,91 @@
               </packing>
             </child>
             <child>
-              <object class="GtkFixed">
+              <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkFixed">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkEntry">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">114</property>
+                        <property name="y">41</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkTreeView" id="treefacturas">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="model">listfacturas</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection"/>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Nº factura</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="nfact1"/>
+                              <attributes>
+                                <attribute name="text">0</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Matricula</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="mat1"/>
+                              <attributes>
+                                <attribute name="text">1</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">Mais datos</property>
+                            <property name="expand">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="datafact"/>
+                              <attributes>
+                                <attribute name="text">2</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -859,7 +1091,6 @@
   </object>
   <object class="GtkWindow" id="venCalendar">
     <property name="can_focus">False</property>
-    <signal name="destroy" handler="on_venCalendar_destroy" swapped="no"/>
     <child>
       <placeholder/>
     </child>

@@ -31,7 +31,7 @@ def altacli(treeclientes,listclientes,filacli):
         print(e)
 
 
-def consultar():
+def consultar_clientes():
     try:
         cur.execute("select * from clientes")
         listado = cur.fetchall()

@@ -24,11 +24,25 @@ class Taller:
         self.entmail = int_visual.get_object("entmail")
         self.entmovil = int_visual.get_object("entmovil")
         self.entdata = int_visual.get_object("entdata")
+
+        self.enthoras = int_visual.get_object("enthoras")
+        self.entlitros = int_visual.get_object("entlitros")
+        self.entpastillas = int_visual.get_object("entpastillas")
+        self.entneumaticos = int_visual.get_object("entneumaticos")
+        self.entfiltros = int_visual.get_object("entfiltros")
+        self.checkaceite = int_visual.get_object("checkaceite")
+        self.checkpastillas = int_visual.get_object("checkpastillas")
+        self.checkneumaticos = int_visual.get_object("checkneumaticos")
+        self.checkbateria = int_visual.get_object("checkbateria")
+        self.checkfiltros = int_visual.get_object("checkfiltros")
         self.lblavisos = int_visual.get_object("lblavisos")
         self.venCalendar = int_visual.get_object("venCalendar")
         self.venCalendar.connect('delete-event', lambda w, e: w.hide() or True)
         self.but_calendar = int_visual.get_object("but_calendar")
+        self.but_calendarfact = int_visual.get_object("but_calendarfact")
         self.selectorClientes = int_visual.get_object("selectorClientes")
+        self.selectorReparacions = int_visual.get_object("selectorReparacions")
+        self.selectorFacturas = int_visual.get_object("selectorFacturas")
         self.fecha = int_visual.get_object("fecha")
         self.but_vaciador = int_visual.get_object("but_vaciador")
         self.but_about = int_visual.get_object("but_about")
@@ -40,18 +54,22 @@ class Taller:
             'on_but_about_activate':self.showAbout,
             'on_but_alta_clicked': self.altas,
             'on_but_calendar_clicked': self.showcalendar,
+            'on_but_calendarfact_clicked': self.showcalendar,
             'on_fecha_day_selected_double_click': self.showfecha,
             'on_but_editar_clicked': self.editardatos,
             'on_but_eliminar_clicked': self.baixacliente,
             'on_but_pechar_clicked': self.sair,
-            'on_selectorClientes_changed': self.cargandodatos,
+            'on_selectorClientes_changed': self.cargandodatos_clientes,
+            'on_selectorReparacions_changed': self.cargandodatos_reparacions,
+            'on_selectorFacturas_changed': self.cargandodatos_facturas,
             'on_but_vaciador_clicked': self.limpador
         }
         int_visual.connect_signals(dic)
         self.lblavisos.hide()
         self.actualizar_listas()
         self.venPrincipal.show()
-        #self.venPrincipal.maximize()
+        # self.venPrincipal.maximize()
+        self.paxina_actual = 0
 
 # Funcions de ventás:
 
@@ -70,13 +88,15 @@ class Taller:
         self.ver_paxina()
 
     def ver_paxina(self):
-        print(self.notebook.get_current_page())
+        self.paxina_actual=self.notebook.get_current_page()
+        print(self.paxina_actual)
+        return self.paxina_actual
 
     def showfecha(self , widget):
         ano, mes, dia = self.fecha.get_date()
         self.entdata.set_text(str(dia)+'/'+str(mes)+'/'+str(ano))
 
-    def cargandodatos(self, widget):
+    def cargandodatos_clientes(self, widget):
         model, iter = self.treeclientes.get_selection().get_selected()
         if iter != None:
             sdni = model.get_value(iter, 0)
@@ -94,6 +114,34 @@ class Taller:
             self.entmovil.set_text(smovil)
             sdata = model.get_value(iter, 6)
             self.entdata.set_text(sdata)
+
+    def cargandodatos_reparacions(self, widget):
+        model, iter = self.treereparacion.get_selection().get_selected()
+        if iter != None:
+            shoras = str(model.get_value(iter, 1))
+            self.horasprovisional = shoras
+            self.enthoras.set_text(shoras)
+            sbateria = model.get_value(iter, 2)
+            self.bateriaprovisional=sbateria
+            if sbateria == "Si":
+                self.checkbateria.set_active(True)
+            else:
+                elf.checkbateria.set_active(False)
+            saceite = model.get_value(iter, 3)
+            self.aceiteprovisional = saceite
+            if saceite > 0:
+                self.checkaceite.set_active(True)
+                self.entlitros.set_text(str(saceite))
+            else:
+                self.checkaceite.set_active(False)
+            sneumaticos = model.get_value(iter, 1)
+            self.neumaticosprovisional=sneumaticos
+            if sneumaticos != "Non":
+                self.checkneumaticos.set_active(True)
+
+
+    def cargandodatos_facturas(self, widget):
+        model, iter = self.treefacturas.get_selection().get_selected()
 
     def sair(self, widget):
         Gtk.main_quit()
@@ -191,11 +239,13 @@ class Taller:
 # engadir as funcionalidades de modificacion "a tempo real"
 # facturas con Man de obra, cambio de aceite, cambio de rodas:
 # (discriminando dianteiras e traseiras),bateria, pastillas de freo e filtros.
-# clientes e reparacións terán cadansua taboa.
 # Deseñar botons personalizados
+# Facer clickables os checkbox
 # Distintas funcións dos botons dependendo do notebook.
 # Ver a función de saida da facturación.
-# Como pillar solo dous decimales
+# Inter funcion de matricula
+# Engadir data para a factura.
+# Como pillar solo dous decimales:
 # "{0:.2f}".format(variable)
 
 

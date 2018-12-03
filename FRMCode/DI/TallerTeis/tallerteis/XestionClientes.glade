@@ -7,6 +7,11 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../Imaxes/calendar.png</property>
   </object>
+  <object class="GtkImage" id="ImaxeCalendario1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../Imaxes/calendar.png</property>
+  </object>
   <object class="GtkImage" id="Imaxe_but_alta">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -672,7 +677,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkCheckButton">
+                      <object class="GtkCheckButton" id="checkbateria">
                         <property name="label" translatable="yes">Bateria</property>
                         <property name="width_request">79</property>
                         <property name="height_request">21</property>
@@ -687,7 +692,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkCheckButton">
+                      <object class="GtkCheckButton" id="checkaceite">
                         <property name="label" translatable="yes">Aceite:</property>
                         <property name="width_request">74</property>
                         <property name="height_request">21</property>
@@ -702,7 +707,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkCheckButton">
+                      <object class="GtkCheckButton" id="checkneumaticos">
                         <property name="label" translatable="yes">Neumaticos:</property>
                         <property name="width_request">115</property>
                         <property name="height_request">21</property>
@@ -717,7 +722,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkCheckButton">
+                      <object class="GtkCheckButton" id="checkpastillas">
                         <property name="label" translatable="yes">Pastillas:</property>
                         <property name="width_request">88</property>
                         <property name="height_request">21</property>
@@ -732,7 +737,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkCheckButton">
+                      <object class="GtkCheckButton" id="checkfiltros">
                         <property name="label" translatable="yes">Filtros:</property>
                         <property name="width_request">72</property>
                         <property name="height_request">21</property>
@@ -747,9 +752,9 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkComboBoxText">
-                        <property name="width_request">100</property>
-                        <property name="height_request">30</property>
+                      <object class="GtkComboBoxText" id="entneumaticos">
+                        <property name="width_request">102</property>
+                        <property name="height_request">33</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <items>
@@ -759,12 +764,12 @@
                         </items>
                       </object>
                       <packing>
-                        <property name="x">406</property>
-                        <property name="y">31</property>
+                        <property name="x">410</property>
+                        <property name="y">30</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkComboBoxText">
+                      <object class="GtkComboBoxText" id="entpastillas">
                         <property name="width_request">101</property>
                         <property name="height_request">33</property>
                         <property name="visible">True</property>
@@ -776,14 +781,14 @@
                         </items>
                       </object>
                       <packing>
-                        <property name="x">85</property>
-                        <property name="y">65</property>
+                        <property name="x">96</property>
+                        <property name="y">63</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkComboBoxText">
+                      <object class="GtkComboBoxText" id="entfiltros">
                         <property name="width_request">100</property>
-                        <property name="height_request">30</property>
+                        <property name="height_request">33</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <items>
@@ -793,12 +798,12 @@
                         </items>
                       </object>
                       <packing>
-                        <property name="x">406</property>
-                        <property name="y">64</property>
+                        <property name="x">412</property>
+                        <property name="y">62</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry">
+                      <object class="GtkEntry" id="enthoras">
                         <property name="width_request">168</property>
                         <property name="height_request">29</property>
                         <property name="visible">True</property>
@@ -806,7 +811,7 @@
                         <property name="placeholder_text" translatable="yes">Horas</property>
                       </object>
                       <packing>
-                        <property name="x">89</property>
+                        <property name="x">97</property>
                       </packing>
                     </child>
                     <child>
@@ -822,7 +827,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry">
+                      <object class="GtkEntry" id="entlitros">
                         <property name="width_request">168</property>
                         <property name="height_request">29</property>
                         <property name="visible">True</property>
@@ -830,8 +835,8 @@
                         <property name="placeholder_text" translatable="yes">Litros</property>
                       </object>
                       <packing>
-                        <property name="x">89</property>
-                        <property name="y">30</property>
+                        <property name="x">96</property>
+                        <property name="y">32</property>
                       </packing>
                     </child>
                   </object>
@@ -853,7 +858,9 @@
                         <property name="model">listreparacion</property>
                         <property name="ubuntu_almost_fixed_height_mode">True</property>
                         <child internal-child="selection">
-                          <object class="GtkTreeSelection"/>
+                          <object class="GtkTreeSelection">
+                            <signal name="changed" handler="on_selectorReparacions_changed" swapped="no"/>
+                          </object>
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn">
@@ -975,15 +982,50 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkEntry">
-                        <property name="width_request">100</property>
-                        <property name="height_request">80</property>
+                      <object class="GtkButton" id="but_calendarfact">
+                        <property name="width_request">69</property>
+                        <property name="height_request">68</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">ImaxeCalendario1</property>
+                        <signal name="clicked" handler="on_but_calendarfact_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">114</property>
-                        <property name="y">41</property>
+                        <property name="x">414</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">100</property>
+                        <property name="height_request">20</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Nº de factura:</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">100</property>
+                        <property name="height_request">20</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Matricula:</property>
+                      </object>
+                      <packing>
+                        <property name="y">28</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">108</property>
+                        <property name="height_request">20</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Data de factura:</property>
+                      </object>
+                      <packing>
+                        <property name="y">57</property>
                       </packing>
                     </child>
                   </object>
@@ -1004,7 +1046,9 @@
                         <property name="can_focus">True</property>
                         <property name="model">listfacturas</property>
                         <child internal-child="selection">
-                          <object class="GtkTreeSelection"/>
+                          <object class="GtkTreeSelection">
+                            <signal name="changed" handler="on_selectorFacturas_changed" swapped="no"/>
+                          </object>
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn">

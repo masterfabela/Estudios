@@ -80,6 +80,7 @@
   </object>
   <object class="GtkWindow" id="venPrincipal">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Talleres Teis</property>
     <signal name="destroy" handler="on_venPrincipal_destroy" swapped="no"/>
     <child>
       <placeholder/>
@@ -90,18 +91,6 @@
         <property name="can_focus">False</property>
         <property name="margin_bottom">15</property>
         <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Taller Teis</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkMenuBar">
             <property name="visible">True</property>
@@ -1026,6 +1015,43 @@
                       </object>
                       <packing>
                         <property name="y">57</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">119</property>
+                        <property name="height_request">20</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">label</property>
+                      </object>
+                      <packing>
+                        <property name="x">103</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width_request">121</property>
+                        <property name="height_request">20</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">label</property>
+                      </object>
+                      <packing>
+                        <property name="x">102</property>
+                        <property name="y">27</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry">
+                        <property name="width_request">168</property>
+                        <property name="height_request">29</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="x">103</property>
+                        <property name="y">52</property>
                       </packing>
                     </child>
                   </object>

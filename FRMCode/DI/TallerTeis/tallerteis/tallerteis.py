@@ -35,6 +35,7 @@ class Taller:
         self.checkneumaticos = int_visual.get_object("checkneumaticos")
         self.checkbateria = int_visual.get_object("checkbateria")
         self.checkfiltros = int_visual.get_object("checkfiltros")
+        
         self.lblavisos = int_visual.get_object("lblavisos")
         self.venCalendar = int_visual.get_object("venCalendar")
         self.venCalendar.connect('delete-event', lambda w, e: w.hide() or True)
@@ -49,6 +50,7 @@ class Taller:
         self.ven_about = int_visual.get_object("ven_about")
         self.ven_about.connect('delete-event', lambda w, e: w.hide() or True)
         self.notebook = int_visual.get_object("notebook")
+        
         dic = {
             'on_venPrincipal_destroy': self.sair,
             'on_but_about_activate':self.showAbout,
@@ -70,6 +72,7 @@ class Taller:
         self.venPrincipal.show()
         # self.venPrincipal.maximize()
         self.paxina_actual = 0
+
 
 # Funcions de ventás:
 
@@ -134,11 +137,36 @@ class Taller:
                 self.entlitros.set_text(str(saceite))
             else:
                 self.checkaceite.set_active(False)
-            sneumaticos = model.get_value(iter, 1)
+            sneumaticos = model.get_value(iter, 4)
             self.neumaticosprovisional=sneumaticos
             if sneumaticos != "Non":
                 self.checkneumaticos.set_active(True)
-
+                if sneumaticos == "Dianteiros":
+                    self.entneumaticos.set_active(0)
+                elif sneumaticos == "Traseiros":
+                    self.entneumaticos.set_active(1)
+                elif sneumaticos == "Todos":
+                    self.entneumaticos.set_active(2)
+            spastillas = model.get_value(iter, 5)
+            self.pastillasprovisional=spastillas
+            if spastillas != "Non":
+                self.checkpastillas.set_active(True)
+                if spastillas == "Dianteiras":
+                    self.entpastillas.set_active(0)
+                elif spastillas == "Traseiras":
+                    self.entpastillas.set_active(0)
+                elif spastillas == "Todas":
+                    self.entpastillas.set_active(0)
+            sfiltros = model.get_value(iter,6)
+            self.filtrosprovisionais = sfiltros
+            if sfiltros != "Non":
+                self.checkfiltros.set_active(True)
+                if sfiltros == "Aire":
+                    self.entfiltros.set_active(0)
+                elif sfiltros == "Aceite":
+                    self.entfiltros.set_active(1)
+                elif sfiltros == "Todos":
+                    self.entfiltros.set_active(2)
 
     def cargandodatos_facturas(self, widget):
         model, iter = self.treefacturas.get_selection().get_selected()

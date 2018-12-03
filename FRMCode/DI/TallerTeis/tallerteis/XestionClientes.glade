@@ -1032,7 +1032,7 @@
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn">
-                            <property name="title" translatable="yes">Mais datos</property>
+                            <property name="title" translatable="yes">Data de alta</property>
                             <property name="expand">True</property>
                             <child>
                               <object class="GtkCellRendererText" id="datafact"/>

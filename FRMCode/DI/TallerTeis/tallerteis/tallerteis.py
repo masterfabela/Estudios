@@ -154,9 +154,9 @@ class Taller:
                 if spastillas == "Dianteiras":
                     self.entpastillas.set_active(0)
                 elif spastillas == "Traseiras":
-                    self.entpastillas.set_active(0)
+                    self.entpastillas.set_active(1)
                 elif spastillas == "Todas":
-                    self.entpastillas.set_active(0)
+                    self.entpastillas.set_active(2)
             sfiltros = model.get_value(iter,6)
             self.filtrosprovisionais = sfiltros
             if sfiltros != "Non":

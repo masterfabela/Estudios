@@ -51,9 +51,13 @@ class Taller:
         self.ven_about = int_visual.get_object("ven_about")
         self.ven_about.connect('delete-event', lambda w, e: w.hide() or True)
         self.notebook = int_visual.get_object("notebook")
+        self.bar_borrar = int_visual.get_object("bar_borrar")
+        self.bar_sair = int_visual.get_object("bar_sair")
         
         dic = {
             'on_venPrincipal_destroy': self.sair,
+            'on_bar_sair_activate': self.sair,
+            'on_bar_borrar_activate': self.limpador,
             'on_but_about_activate':self.showAbout,
             'on_but_alta_clicked': self.altas,
             'on_but_calendar_clicked': self.showcalendar,
@@ -117,6 +121,24 @@ class Taller:
         elif self.ver_paxina() == 2:
             ano, mes, dia = self.fecha.get_date()
             self.ent_data_factura.set_text(str(dia)+'/'+str(mes)+'/'+str(ano))
+
+    def sair(self, widget):
+        Gtk.main_quit()
+        xestion_clientes.pechar_conexion()
+
+    def actualizar_listas(self):
+        self.listreparacion.clear()
+        self.listclientes.clear()
+        self.listfacturas.clear()
+        lista1 = xestion_clientes.consultar_clientes()
+        for registro1 in lista1:
+            self.listclientes.append(registro1)
+        lista2 = xestion_clientes.consultar_reparacion()
+        for registro2 in lista2:
+            self.listreparacion.append(registro2)
+        lista3 = xestion_clientes.consultar_factura()
+        for registro3 in lista3:
+            self.listfacturas.append(registro3)
 
     def cargandodatos_clientes(self, widget):
         model, iter = self.treeclientes.get_selection().get_selected()
@@ -192,7 +214,7 @@ class Taller:
 
     def cargandodatos_facturas(self, widget):
         model, iter = self.treefacturas.get_selection().get_selected()
-        ssaida_factura = model.get_value(iter,0)
+        ssaida_factura = model.get_value(iter, 0)
         self.saida_facturaprovisional = ssaida_factura
         self.saida_factura.set_text(str(ssaida_factura))
         ssaida_matricula = model.get_value(iter, 1)
@@ -201,25 +223,6 @@ class Taller:
         sdata_factura = model.get_value(iter, 2)
         self.data_facturaprovisional = sdata_factura
         self.ent_data_factura.set_text(sdata_factura)
-
-    def sair(self, widget):
-        Gtk.main_quit()
-        xestion_clientes.pechar_conexion()
-
-    def actualizar_listas(self):
-        self.listreparacion.clear()
-        self.listclientes.clear()
-        self.listfacturas.clear()
-        lista1 = xestion_clientes.consultar_clientes()
-        for registro1 in lista1:
-            self.listclientes.append(registro1)
-        lista2 = xestion_clientes.consultar_reparacion()
-        for registro2 in lista2:
-            self.listreparacion.append(registro2)
-        lista3 = xestion_clientes.consultar_factura()
-        for registro3 in lista3:
-            self.listfacturas.append(registro3)
-
 
     def creafilas_clientes(self):
         self.dni = self.entdni.get_text()
@@ -272,6 +275,16 @@ class Taller:
         self.filarep = (self.horas, self.bateria, self.aceite, self.neumaticos, self.pastillas, self.filtros)
         return self.filarep
 
+    def creafilas_factura(self):
+        aux = self.saida_factura.get_text()
+        self.fnfactura = int(aux)
+        self.fmatricula = self.saida_matricula.get_text()
+        self.fdata = self.ent_data_factura.get_text()
+        self.filafact = (self.fnfactura, self.fmatricula, self.fdata)
+        return self.filafact
+
+# Métodos xerais para discernir as paxinas do Notebook segondo o boton que pulsamos
+
     def altas(self, widget):
         if self.ver_paxina() == 0:
             self.altacliente()
@@ -296,22 +309,12 @@ class Taller:
         elif self.ver_paxina() == 2:
             self.baixafactura()
 
-    def creafilas_factura(self):
-        aux = self.saida_factura.get_text()
-        self.fnfactura = int(aux)
-        self.fmatricula = self.saida_matricula.get_text()
-        self.fdata = self.ent_data_factura.get_text()
-        self.filafact = (self.fnfactura, self.fmatricula, self.fdata)
-        return self.filafact
-
     def altafactura(self):
         xestion_clientes.altafactura(self.creafilas_factura(), self.lblavisos)
         self.actualizar_listas()
         self.fnfactura = ''
         self.fmatricula = ''
         self.fdata = ''
-
-
 
     def altareparacions(self):
         xestion_clientes.altareparacion(self.creafilas_reparacion(), self.lblavisos)
@@ -365,7 +368,11 @@ class Taller:
             self.limpacli()
 
     def baixareparacion(self):
-        xestion_clientes.eliminacionreparacion(self.NUMEROFACTURA,self.lblavisos)
+        xestion_clientes.eliminacionreparacion(self.NUMEROFACTURA, self.lblavisos)
+        self.actualizar_listas()
+
+    def baixafactura(self):
+        xestion_clientes.eliminacionfactura(self.saida_factura.get_text, self.lblavisos)
         self.actualizar_listas()
 
     def editarreparacion(self):
@@ -422,6 +429,15 @@ class Taller:
         self.listclientes.clear()
         self.actualizar_listas()
         self.limpacli()
+
+    def editarfactura(self):
+        aux = self.saida_factura.get_text()
+        self.fnfactura = int(aux)
+        self.fmatricula = self.saida_matricula.get_text()
+        self.fdata = self.ent_data_factura.get_text()
+        self.filafact = (self.fmatricula, self.fdata, self.fnfactura)
+        xestion_clientes.edicionfactura(self.filafact,self.lblavisos)
+        self.actualizar_listas()
 
     def limpacli(self):
 

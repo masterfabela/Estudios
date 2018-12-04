@@ -85,6 +85,17 @@ def edicionreparacion(fila,lblavisos):
         conex.rollback()
 
 
+def edicionfactura(fila, lblavisos):
+    try:
+        cur.execute("update facturas set mat = ?, datafact = ? where nfac = ?;", fila)
+        conex.commit
+        lblavisos.show()
+        lblavisos.set_text('Fila ' + str(fila[2]) + ' actualizada.')
+    except sqlite3.OperationalError as e:
+        print(e);
+        conex.rollback()
+
+
 def eliminacioncliente(fila,lblavisos):
     try:
         cur.execute('delete from clientes where dni = ? and mat = ? and apel = ? and nom = ? and mail = ? and movil = ? and data = ? ;',fila)
@@ -106,6 +117,16 @@ def eliminacionreparacion(int,lblavisos):
         print(e);
         conex.rollback()
 
+
+def eliminacionfactura(int,lblavisos):
+    try:
+        cur.execute('delete from facturas where nfac = '+str(int)+' ;')
+        conex.commit
+        lblavisos.show()
+        lblavisos.set_text('Fila '+str(int)+' eliminada.')
+    except sqlite3.OperationalError as e:
+        print(e);
+        conex.rollback()
 
 def altacliente(fila,lblavisos):
     try:

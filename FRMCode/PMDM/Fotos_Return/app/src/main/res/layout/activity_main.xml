@@ -10,25 +10,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.example.a18franciscorm.planetas.MainActivity">
+    tools:context="com.example.a18franciscorm.fotos_return.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adaptadores e spinners" />
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/planetas">
-    </Spinner>
+        android:text="Fai unha foto e recuperaa:" />
     <Button
-        android:id="@+id/boton"
+        android:id="@+id/but"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ver a seleccion"/>
-    <TextView
+        android:text="Cámara"/>
+    <ImageView
+        android:id="@+id/visor"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_height="wrap_content" />
 </LinearLayout>

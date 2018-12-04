@@ -1018,7 +1018,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel">
+                      <object class="GtkLabel" id="saida_factura">
                         <property name="width_request">119</property>
                         <property name="height_request">20</property>
                         <property name="visible">True</property>
@@ -1030,7 +1030,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel">
+                      <object class="GtkLabel" id="saida_matricula">
                         <property name="width_request">121</property>
                         <property name="height_request">20</property>
                         <property name="visible">True</property>
@@ -1043,11 +1043,12 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry">
+                      <object class="GtkEntry" id="ent_data_factura">
                         <property name="width_request">168</property>
                         <property name="height_request">29</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <property name="primary_icon_tooltip_text" translatable="yes">Data de Facturacion</property>
                       </object>
                       <packing>
                         <property name="x">103</property>

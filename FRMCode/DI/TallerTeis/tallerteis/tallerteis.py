@@ -35,6 +35,9 @@ class Taller:
         self.checkneumaticos = int_visual.get_object("checkneumaticos")
         self.checkbateria = int_visual.get_object("checkbateria")
         self.checkfiltros = int_visual.get_object("checkfiltros")
+        self.saida_factura = int_visual.get_object("saida_factura")
+        self.saida_matricula = int_visual.get_object("saida_matricula")
+        self.ent_data_factura = int_visual.get_object("ent_data_factura")
         
         self.lblavisos = int_visual.get_object("lblavisos")
         self.venCalendar = int_visual.get_object("venCalendar")
@@ -154,9 +157,9 @@ class Taller:
                 if spastillas == "Dianteiras":
                     self.entpastillas.set_active(0)
                 elif spastillas == "Traseiras":
-                    self.entpastillas.set_active(0)
+                    self.entpastillas.set_active(1)
                 elif spastillas == "Todas":
-                    self.entpastillas.set_active(0)
+                    self.entpastillas.set_active(2)
             sfiltros = model.get_value(iter,6)
             self.filtrosprovisionais = sfiltros
             if sfiltros != "Non":
@@ -170,6 +173,15 @@ class Taller:
 
     def cargandodatos_facturas(self, widget):
         model, iter = self.treefacturas.get_selection().get_selected()
+        ssaida_factura = model.get_value(iter,0)
+        self.saida_facturaprovisional = ssaida_factura
+        self.saida_factura.set_text(str(ssaida_factura))
+        ssaida_matricula = model.get_value(iter, 1)
+        self.saida_matriculaprovisional = ssaida_matricula
+        self.saida_matricula.set_text(ssaida_matricula)
+        sdata_factura = model.get_value(iter, 2)
+        self.data_facturaprovisional = sdata_factura
+        self.ent_data_factura.set_text(sdata_factura)
 
     def sair(self, widget):
         Gtk.main_quit()

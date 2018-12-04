@@ -132,7 +132,7 @@ class Taller:
             if sbateria == "Si":
                 self.checkbateria.set_active(True)
             else:
-                elf.checkbateria.set_active(False)
+                self.checkbateria.set_active(False)
             saceite = model.get_value(iter, 3)
             self.aceiteprovisional = saceite
             if saceite > 0:

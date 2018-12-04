@@ -65,12 +65,12 @@
       <!-- column-name nfact -->
       <column type="gint64"/>
       <!-- column-name mobra -->
-      <column type="gint64"/>
+      <column type="gfloat"/>
       <!-- column-name bat -->
       <column type="gchararray"/>
       <!-- column-name ac -->
-      <column type="gint64"/>
-      <!-- column-name pneu -->
+      <column type="gfloat"/>
+      <!-- column-name pnue -->
       <column type="gchararray"/>
       <!-- column-name past -->
       <column type="gchararray"/>

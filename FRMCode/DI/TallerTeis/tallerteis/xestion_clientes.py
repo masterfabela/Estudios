@@ -64,7 +64,7 @@ def consultar_factura():
         conex.rollback()
 
 
-def edicion(fila,lblavisos):
+def edicioncliente(fila,lblavisos):
     try:
         cur.execute("update clientes set dni = ?, mat = ?, apel =?, nom = ?, mail = ?, movil = ?, data = ? where dni = ?;", fila)
         conex.commit
@@ -74,13 +74,34 @@ def edicion(fila,lblavisos):
         print(e);
         conex.rollback()
 
+def edicionreparacion(fila,lblavisos):
+    try:
+        cur.execute("update reparacions set mobra = ?, bat = ?, ac =?, pneu = ?, past = ?, fil = ? where nfact = ?;", fila)
+        conex.commit
+        lblavisos.show()
+        lblavisos.set_text('Fila ' + str(fila[6]) + ' actualizada.')
+    except sqlite3.OperationalError as e:
+        print(e);
+        conex.rollback()
 
-def eliminacion(fila,lblavisos):
+
+def eliminacioncliente(fila,lblavisos):
     try:
         cur.execute('delete from clientes where dni = ? and mat = ? and apel = ? and nom = ? and mail = ? and movil = ? and data = ? ;',fila)
         conex.commit
         lblavisos.show()
         lblavisos.set_text('Fila '+fila[0]+' eliminada.')
+    except sqlite3.OperationalError as e:
+        print(e);
+        conex.rollback()
+
+
+def eliminacionreparacion(int,lblavisos):
+    try:
+        cur.execute('delete from reparacions where nfact = '+str(int)+';')
+        conex.commit
+        lblavisos.show()
+        lblavisos.set_text('Fila '+str(int)+' eliminada.')
     except sqlite3.OperationalError as e:
         print(e);
         conex.rollback()
@@ -96,4 +117,25 @@ def altacliente(fila,lblavisos):
         print(e)
         conex.rollback()
 
+
+def altareparacion(fila,lblavisos):
+    try:
+        cur.execute("insert into reparacions(mobra, bat, ac, pneu, past, fil) values (?,?,?,?,?,?)", fila)
+        conex.commit()
+        lblavisos.show()
+        lblavisos.set_text('Fila engadida.')
+    except sqlite3.OperationalError as e:
+        print(e)
+        conex.rollback()
+
+
+def altafactura(fila,lblavisos):
+    try:
+        cur.execute("insert into facturas (nfac, mat, datafact) values (?,?,?)", fila)
+        conex.commit()
+        lblavisos.show()
+        lblavisos.set_text('Fila '+str(fila[0])+'engadida.')
+    except sqlite3.OperationalError as e:
+        print(e)
+        conex.rollback()
 

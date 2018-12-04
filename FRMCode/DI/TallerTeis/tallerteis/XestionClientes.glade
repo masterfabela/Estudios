@@ -65,12 +65,12 @@
       <!-- column-name nfact -->
       <column type="gint64"/>
       <!-- column-name mobra -->
-      <column type="gint64"/>
+      <column type="gfloat"/>
       <!-- column-name bat -->
       <column type="gchararray"/>
       <!-- column-name ac -->
-      <column type="gint64"/>
-      <!-- column-name pneu -->
+      <column type="gfloat"/>
+      <!-- column-name pnue -->
       <column type="gchararray"/>
       <!-- column-name past -->
       <column type="gchararray"/>
@@ -80,6 +80,7 @@
   </object>
   <object class="GtkWindow" id="venPrincipal">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Talleres Teis</property>
     <signal name="destroy" handler="on_venPrincipal_destroy" swapped="no"/>
     <child>
       <placeholder/>
@@ -90,18 +91,6 @@
         <property name="can_focus">False</property>
         <property name="margin_bottom">15</property>
         <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Taller Teis</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkMenuBar">
             <property name="visible">True</property>
@@ -117,54 +106,19 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-new</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-open</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-save</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-save-as</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
                       <object class="GtkSeparatorMenuItem">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="bar_sair">
                         <property name="label">gtk-quit</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_bar_sair_activate" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -182,51 +136,17 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-cut</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-copy</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-paste</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="bar_borrar">
                         <property name="label">gtk-delete</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_bar_borrar_activate" swapped="no"/>
                       </object>
                     </child>
                   </object>
                 </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkMenuItem">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Ver</property>
-                <property name="use_underline">True</property>
               </object>
             </child>
             <child>
@@ -1026,6 +946,44 @@
                       </object>
                       <packing>
                         <property name="y">57</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="saida_factura">
+                        <property name="width_request">119</property>
+                        <property name="height_request">20</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">label</property>
+                      </object>
+                      <packing>
+                        <property name="x">103</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="saida_matricula">
+                        <property name="width_request">121</property>
+                        <property name="height_request">20</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">label</property>
+                      </object>
+                      <packing>
+                        <property name="x">102</property>
+                        <property name="y">27</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="ent_data_factura">
+                        <property name="width_request">168</property>
+                        <property name="height_request">29</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="primary_icon_tooltip_text" translatable="yes">Data de Facturacion</property>
+                      </object>
+                      <packing>
+                        <property name="x">103</property>
+                        <property name="y">52</property>
                       </packing>
                     </child>
                   </object>

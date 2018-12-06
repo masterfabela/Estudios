@@ -16,8 +16,9 @@ import java.sql.Statement;
  * @author a18franciscorm
  */
 public class MetodosSQL {
+    Connection conect=null;
     public void creaTaboas(){
-        Connection conect=null;
+        
         try{
             conect=DriverManager.getConnection("jdbc:mysql://localhost:3306/?user=root");
             System.out.println("Base creada correctamente.");
@@ -53,9 +54,17 @@ public class MetodosSQL {
                     + ");");
             
             System.out.println("Taboas creadas correctamente.");
+            conect.close();
         }catch(SQLException sqle1){
             System.out.println("Error na creación das táboas: "+sqle1.getMessage());
         }
         
+    }
+    public void desconectar(){
+        try{
+        conect.close();
+        }catch(SQLException sqle1){
+            System.out.println("Error na creación das táboas: "+sqle1.getMessage());
+        }
     }
 }

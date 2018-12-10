@@ -2,29 +2,20 @@ package exercicio4;
 
 
 import Obx.*;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 public class Metodos {
     Scanner sc=new Scanner(System.in);
     MetodosSQL msql1= new MetodosSQL();
-    public ArrayList conectar(){
+    public Session conectar(){
         msql1.creaTaboas();
-        SessionFactory sf= HibernateUtil.getSessionFactory();
         Session sesion =HibernateUtil.getSession();
-        sf.openSession();
-        Transaction tr=sesion.beginTransaction();
-        ArrayList dataSesion=new ArrayList();
-        dataSesion.add(sesion);
-        dataSesion.add(tr);
-        return dataSesion;
+        return sesion;
     }
-    public void desconectar(Session sesion, SessionFactory sf){
+    public void desconectar(Session sesion){
         sesion.close();
-        sf.close();
     }
     public Autores pedirAutores(){
         System.out.println("Introduza o DNI:");
@@ -36,20 +27,25 @@ public class Metodos {
         Autores a1=new Autores(dni,nome,nacionalidade);
         return a1;
     }
-    public Autores buscAutores(int dni, ArrayList al){
-        Session sesion=(Session)al.get(0);
-        Transaction tr=(Transaction)al.get(1);
+    public Autores buscAutores(int dni, Session sesion){
+        sesion.clear();
         Autores a1=(Autores)sesion.get(Autores.class, dni);
         return a1;
     }
-    public Libros pedirLibros(ArrayList al){
+    public Libros buscLibro(String titulo, Session sesion){
+        sesion.beginTransaction().begin();
+        Libros l1=(Libros)sesion.get(Telefonos.class, titulo);
+        return l1;
+    }
+    
+    public Libros pedirLibros(Session sesion){
         System.out.println("Introduza o dni do autor");
         int id=sc.nextInt();
         System.out.println("Introduza o titulo:");
         String titulo=sc.next();
         System.out.println("Introduza o prezo:");
         Float prezo=sc.nextFloat();
-        Libros l1=new Libros(titulo,prezo,buscAutores(id,al));
+        Libros l1=new Libros(titulo,prezo,buscAutores(id,sesion));
         return l1;
     }
     public Telefonos pedirTelefonos(){
@@ -140,39 +136,68 @@ public class Metodos {
         } 
             return opcion;
     }
-    public void switchInsert(ArrayList al){
-        Session sesion=(Session)al.get(0);
-        Transaction tr=(Transaction)al.get(1);
+    public void switchInsert(Session sesion){
         switch(menuInsercion()){
             case 1:sesion.save(pedirAutores());
-                tr.commit();;
+                sesion.beginTransaction().commit();;
             break;
             case 2:
-                Libros l1=pedirLibros(al);
+                Libros l1=pedirLibros(sesion);
                 sesion.save(l1);
-                tr.commit();;
+                sesion.beginTransaction().commit();;
             break;
             case 3:sesion.save(pedirTelefonos());
-                tr.commit();;
+                sesion.beginTransaction().commit();;
             break;
         }
-        
-//                Libros l1 = new Libros(4563,"Lolita",29.3f);
-//                    sesion.save(l1);
-//                    Autores a1= new Autores(77416900,"Francisco Romay","Española");
-//                    sesion.save(a1);
-//                    Telefonos t1=new Telefonos(77416900,986744755);
-//                    sesion.save(t1);
-//                    tr.commit();
-        
     }
-    public void switchDelete(){
-        int opcion=menuBorrado();
+    public void switchDelete(Session sesion){
+        switch(menuBorrado()){
+            case 1:System.out.println("Introduce o seu dni:");
+            int dni=sc.nextInt();
+            Autores a1=buscAutores(dni,sesion);
+            sesion.delete(a1);
+            sesion.beginTransaction().commit();
+            break;
+            case 2:;
+            break;
+            case 3:;
+            break;
+        }
     }
-    public void switchUpdate(){
-        int opcion=menuModificacion();
+    public void switchUpdate(Session sesion){
+        switch(menuModificacion()){
+            case 1:System.out.println("Introduce o seu dni:");
+            int dni=sc.nextInt();
+            Autores a1=buscAutores(dni,sesion);
+            a1.setNacionalidade("Marroki");
+            sesion.update(a1);
+            sesion.beginTransaction().commit();
+            break;
+            case 2:;
+            break;
+            case 3:;
+            break;
+        }
     }
-    public void switchQuery(){
-        int opcion=menuConsulta();
+    public void switchQuery(Session sesion){
+        switch(menuConsulta()){
+            case 1:System.out.println("Introduce o seu dni:");
+            String nome=sc.next();
+            List<Autores> lista = sesion.createCriteria(Autores.class).list();
+            for(Autores l:lista){
+                if(l.getNome().equalsIgnoreCase(nome)){
+                    System.out.println(l.getNacionalidade());
+                }else{
+                    System.out.println("Nada");}
+            }
+            sesion.beginTransaction().commit();
+            break;
+            case 2:;
+            break;
+            case 3:;
+            break;
+        }
     }
-}
+    }
+

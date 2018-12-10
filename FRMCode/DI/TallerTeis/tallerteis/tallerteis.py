@@ -24,7 +24,6 @@ class Taller:
         self.entmail = int_visual.get_object("entmail")
         self.entmovil = int_visual.get_object("entmovil")
         self.entdata = int_visual.get_object("entdata")
-
         self.enthoras = int_visual.get_object("enthoras")
         self.entlitros = int_visual.get_object("entlitros")
         self.entpastillas = int_visual.get_object("entpastillas")
@@ -35,7 +34,9 @@ class Taller:
         self.checkneumaticos = int_visual.get_object("checkneumaticos")
         self.checkbateria = int_visual.get_object("checkbateria")
         self.checkfiltros = int_visual.get_object("checkfiltros")
-        
+        self.saida_factura = int_visual.get_object("saida_factura")
+        self.saida_matricula = int_visual.get_object("saida_matricula")
+        self.ent_data_factura = int_visual.get_object("ent_data_factura")
         self.lblavisos = int_visual.get_object("lblavisos")
         self.venCalendar = int_visual.get_object("venCalendar")
         self.venCalendar.connect('delete-event', lambda w, e: w.hide() or True)
@@ -50,16 +51,20 @@ class Taller:
         self.ven_about = int_visual.get_object("ven_about")
         self.ven_about.connect('delete-event', lambda w, e: w.hide() or True)
         self.notebook = int_visual.get_object("notebook")
+        self.bar_borrar = int_visual.get_object("bar_borrar")
+        self.bar_sair = int_visual.get_object("bar_sair")
         
         dic = {
             'on_venPrincipal_destroy': self.sair,
+            'on_bar_sair_activate': self.sair,
+            'on_bar_borrar_activate': self.limpador,
             'on_but_about_activate':self.showAbout,
             'on_but_alta_clicked': self.altas,
             'on_but_calendar_clicked': self.showcalendar,
             'on_but_calendarfact_clicked': self.showcalendar,
             'on_fecha_day_selected_double_click': self.showfecha,
-            'on_but_editar_clicked': self.editardatos,
-            'on_but_eliminar_clicked': self.baixacliente,
+            'on_but_editar_clicked': self.editar,
+            'on_but_eliminar_clicked': self.eliminar,
             'on_but_pechar_clicked': self.sair,
             'on_selectorClientes_changed': self.cargandodatos_clientes,
             'on_selectorReparacions_changed': self.cargandodatos_reparacions,
@@ -89,15 +94,51 @@ class Taller:
         self.lblavisos.set_text('')
         self.lblavisos.hide()
         self.ver_paxina()
+        self.NUMEROFACTURA=0
+        self.ent_data_factura.set_text('')
+        self.enthoras.set_text('')
+        self.checkbateria.set_active(False)
+        self.checkfiltros.set_active(False)
+        self.checkaceite.set_active(False)
+        self.entlitros.set_text('')
+        self.checkneumaticos.set_active(False)
+        self.entneumaticos.set_active(-1)
+        self.checkpastillas.set_active(False)
+        self.entpastillas.set_active(-1)
+        self.checkfiltros.set_active(False)
+        self.entfiltros.set_active(-1)
+        self.saida_matricula.set_text('')
+        self.saida_factura.set_text('')
 
     def ver_paxina(self):
         self.paxina_actual=self.notebook.get_current_page()
-        print(self.paxina_actual)
         return self.paxina_actual
 
-    def showfecha(self , widget):
-        ano, mes, dia = self.fecha.get_date()
-        self.entdata.set_text(str(dia)+'/'+str(mes)+'/'+str(ano))
+    def showfecha(self, widget):
+        if self.ver_paxina() == 0:
+            ano, mes, dia = self.fecha.get_date()
+            self.entdata.set_text(str(dia) + '/' + str(mes) + '/' + str(ano))
+        elif self.ver_paxina() == 2:
+            ano, mes, dia = self.fecha.get_date()
+            self.ent_data_factura.set_text(str(dia)+'/'+str(mes)+'/'+str(ano))
+
+    def sair(self, widget):
+        Gtk.main_quit()
+        xestion_clientes.pechar_conexion()
+
+    def actualizar_listas(self):
+        self.listreparacion.clear()
+        self.listclientes.clear()
+        self.listfacturas.clear()
+        lista1 = xestion_clientes.consultar_clientes()
+        for registro1 in lista1:
+            self.listclientes.append(registro1)
+        lista2 = xestion_clientes.consultar_reparacion()
+        for registro2 in lista2:
+            self.listreparacion.append(registro2)
+        lista3 = xestion_clientes.consultar_factura()
+        for registro3 in lista3:
+            self.listfacturas.append(registro3)
 
     def cargandodatos_clientes(self, widget):
         model, iter = self.treeclientes.get_selection().get_selected()
@@ -117,24 +158,26 @@ class Taller:
             self.entmovil.set_text(smovil)
             sdata = model.get_value(iter, 6)
             self.entdata.set_text(sdata)
+            self.saida_matricula.set_text(str(smat))
 
     def cargandodatos_reparacions(self, widget):
         model, iter = self.treereparacion.get_selection().get_selected()
         if iter != None:
-            shoras = str(model.get_value(iter, 1))
+            self.NUMEROFACTURA= model.get_value(iter, 0)
+            shoras = model.get_value(iter, 1)
             self.horasprovisional = shoras
-            self.enthoras.set_text(shoras)
+            self.enthoras.set_text("{0:.2f}".format(shoras))
             sbateria = model.get_value(iter, 2)
             self.bateriaprovisional=sbateria
             if sbateria == "Si":
                 self.checkbateria.set_active(True)
             else:
-                elf.checkbateria.set_active(False)
+                self.checkbateria.set_active(False)
             saceite = model.get_value(iter, 3)
             self.aceiteprovisional = saceite
             if saceite > 0:
                 self.checkaceite.set_active(True)
-                self.entlitros.set_text(str(saceite))
+                self.entlitros.set_text("{0:.2f}".format(saceite))
             else:
                 self.checkaceite.set_active(False)
             sneumaticos = model.get_value(iter, 4)
@@ -167,26 +210,21 @@ class Taller:
                     self.entfiltros.set_active(1)
                 elif sfiltros == "Todos":
                     self.entfiltros.set_active(2)
+            self.saida_factura.set_text(str(self.NUMEROFACTURA))
 
     def cargandodatos_facturas(self, widget):
         model, iter = self.treefacturas.get_selection().get_selected()
+        ssaida_factura = model.get_value(iter, 0)
+        self.saida_facturaprovisional = ssaida_factura
+        self.saida_factura.set_text(str(ssaida_factura))
+        ssaida_matricula = model.get_value(iter, 1)
+        self.saida_matriculaprovisional = ssaida_matricula
+        self.saida_matricula.set_text(ssaida_matricula)
+        sdata_factura = model.get_value(iter, 2)
+        self.data_facturaprovisional = sdata_factura
+        self.ent_data_factura.set_text(sdata_factura)
 
-    def sair(self, widget):
-        Gtk.main_quit()
-        xestion_clientes.pechar_conexion()
-
-    def actualizar_listas(self):
-        lista1 = xestion_clientes.consultar_clientes()
-        for registro1 in lista1:
-            self.listclientes.append(registro1)
-        lista2 = xestion_clientes.consultar_reparacion()
-        for registro2 in lista2:
-            self.listreparacion.append(registro2)
-        lista3 = xestion_clientes.consultar_factura()
-        for registro3 in lista3:
-            self.listfacturas.append(registro3)
-
-    def creafilas(self):
+    def creafilas_clientes(self):
         self.dni = self.entdni.get_text()
         self.mat = self.entmat.get_text()
         self.apel = self.entapel.get_text()
@@ -197,11 +235,96 @@ class Taller:
         self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil, self.data)
         return self.filacli
 
-    def altas(self,widget):
-        if self.ver_paxina()== '0':
-            self.altacliente()
+    def creafilas_reparacion(self):
+        self.horas = float(self.enthoras.get_text())
+        if self.checkbateria.get_active() == True:
+            self.bateria = "Si"
         else:
-            print(self.ver_paxina())
+            self.bateria = "Non"
+        if self.checkaceite.get_active() == True:
+            self.aceite = float(self.entlitros.get_text())
+        else:
+            self.aceite = 0
+        if self.checkneumaticos.get_active() == True:
+            if self.entneumaticos.get_active() == 0:
+                self.neumaticos = "Dianteiros"
+            elif self.entneumaticos.get_active() == 1:
+                self.neumaticos = "Traseiros"
+            elif self.entneumaticos.get_active() == 2:
+                self.neumaticos = "Todos"
+        else:
+            self.neumaticos = "Non"
+        if self.checkpastillas.get_active == True:
+            if self.entpastillas.get_active() == 0:
+                self.pastillas = "Dianteiras"
+            elif self.entpastillas.get_active() == 1:
+                self.pastillas = "Traseiras"
+            elif self.entpastillas.get_active() == 2:
+                self.pastillas = "Todas"
+        else:
+            self.pastillas = "Non"
+        if self.checkfiltros.get_active == True:
+            if self.entfiltros.get_active() == 0:
+                self.filtros = "Aceite"
+            elif self.entfiltros.get_active() == 1:
+                self.filtros = "Aire"
+            elif self.entpastillas.get_active() == 2:
+                self.filtros = "Todos"
+        else:
+            self.filtros = "Non"
+        self.filarep = (self.horas, self.bateria, self.aceite, self.neumaticos, self.pastillas, self.filtros)
+        return self.filarep
+
+    def creafilas_factura(self):
+        aux = self.saida_factura.get_text()
+        self.fnfactura = int(aux)
+        self.fmatricula = self.saida_matricula.get_text()
+        self.fdata = self.ent_data_factura.get_text()
+        self.filafact = (self.fnfactura, self.fmatricula, self.fdata)
+        return self.filafact
+
+# Métodos xerais para discernir as paxinas do Notebook segondo o boton que pulsamos
+
+    def altas(self, widget):
+        if self.ver_paxina() == 0:
+            self.altacliente()
+        elif self.ver_paxina() == 1:
+            self.altareparacions()
+        elif self.ver_paxina() == 2:
+            self.altafactura()
+
+    def editar(self, widget):
+        if self.ver_paxina() == 0:
+            self.editarcliente()
+        elif self.ver_paxina() == 1:
+            self.editarreparacion()
+        elif self.ver_paxina() == 2:
+            self.editarfactura()
+
+    def eliminar(self, widget):
+        if self.ver_paxina() == 0:
+            self.baixacliente()
+        elif self.ver_paxina() == 1:
+            self.baixareparacion()
+        elif self.ver_paxina() == 2:
+            self.baixafactura()
+
+    def altafactura(self):
+        xestion_clientes.altafactura(self.creafilas_factura(), self.lblavisos)
+        self.actualizar_listas()
+        self.fnfactura = ''
+        self.fmatricula = ''
+        self.fdata = ''
+
+    def altareparacions(self):
+        xestion_clientes.altareparacion(self.creafilas_reparacion(), self.lblavisos)
+        self.actualizar_listas()
+        self.horas = 0
+        self.bateria = ""
+        self.aceite = 0
+        self.neumaticos = ""
+        self.pastillas = ""
+        self.filtros = ""
 
     def altacliente(self):
         self.lblavisos.show()
@@ -215,7 +338,7 @@ class Taller:
         self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil, self.data)
         if self.dni != '' and self.mat != '' and self.apel != '':
             if datos.comprobarDNI(self.entdni):
-                self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil,self.data)
+                self.filacli = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil, self.data)
                 if datos.comprobarMail(self.mail):
                     xestion_clientes.altacli(self.treeclientes, self.listclientes, self.filacli)
                     xestion_clientes.altacliente(self.filacli,self.lblavisos)
@@ -239,12 +362,61 @@ class Taller:
             self.lblavisos.set_text('Faltan datos')
         else:
             self.fila = self.creafilas()
-            xestion_clientes.eliminacion(self.fila, self.lblavisos)
+            xestion_clientes.eliminacioncliente(self.fila, self.lblavisos)
             self.listclientes.clear()
             self.actualizar_listas()
             self.limpacli()
 
-    def editardatos(self, widget):
+    def baixareparacion(self):
+        xestion_clientes.eliminacionreparacion(self.NUMEROFACTURA, self.lblavisos)
+        self.actualizar_listas()
+
+    def baixafactura(self):
+        xestion_clientes.eliminacionfactura(self.saida_factura.get_text, self.lblavisos)
+        self.actualizar_listas()
+
+    def editarreparacion(self):
+        self.horas = float(self.enthoras.get_text())
+        if self.checkbateria.get_active() == True:
+            self.bateria = "Si"
+        else:
+            self.bateria = "Non"
+        if self.checkaceite.get_active() == True:
+            self.aceite = float(self.entlitros.get_text())
+        else:
+            self.aceite = 0
+        if self.checkneumaticos.get_active() == True:
+            if self.entneumaticos.get_active() == 0:
+                self.neumaticos = "Dianteiros"
+            elif self.entneumaticos.get_active() == 1:
+                self.neumaticos = "Traseiros"
+            elif self.entneumaticos.get_active() == 2:
+                self.neumaticos = "Todos"
+        else:
+            self.neumaticos = "Non"
+        if self.checkpastillas.get_active == True:
+            if self.entpastillas.get_active() == 0:
+                self.pastillas = "Dianteiras"
+            elif self.entpastillas.get_active() == 1:
+                self.pastillas = "Traseiras"
+            elif self.entpastillas.get_active() == 2:
+                self.pastillas = "Todas"
+        else:
+            self.pastillas = "Non"
+        if self.checkfiltros.get_active == True:
+            if self.entfiltros.get_active() == 0:
+                self.filtros = "Aceite"
+            elif self.entfiltros.get_active() == 1:
+                self.filtros = "Aire"
+            elif self.entpastillas.get_active() == 2:
+                self.filtros = "Todos"
+        else:
+            self.filtros = "Non"
+        self.filarep = (self.horas, self.bateria, self.aceite, self.neumaticos, self.pastillas, self.filtros, self.NUMEROFACTURA)
+        xestion_clientes.edicionreparacion(self.filarep, self.lblavisos)
+        self.actualizar_listas()
+
+    def editarcliente(self):
         self.dni = self.entdni.get_text()
         self.mat = self.entmat.get_text()
         self.apel = self.entapel.get_text()
@@ -253,26 +425,25 @@ class Taller:
         self.movil = self.entmovil.get_text()
         self.data = self.entdata.get_text()
         self.filacliedit = (self.dni, self.mat, self.apel, self.nom, self.mail, self.movil, self.data, self.dniprovisional)
-
-        xestion_clientes.edicion(self.filacliedit, self.lblavisos)
+        xestion_clientes.edicioncliente(self.filacliedit, self.lblavisos)
         self.listclientes.clear()
         self.actualizar_listas()
         self.limpacli()
+
+    def editarfactura(self):
+        aux = self.saida_factura.get_text()
+        self.fnfactura = int(aux)
+        self.fmatricula = self.saida_matricula.get_text()
+        self.fdata = self.ent_data_factura.get_text()
+        self.filafact = (self.fmatricula, self.fdata, self.fnfactura)
+        xestion_clientes.edicionfactura(self.filafact,self.lblavisos)
+        self.actualizar_listas()
 
     def limpacli(self):
 
         self.lmpcli = (self.entdni, self.entmat, self.entapel, self.entnom, self.entmail, self.entmovil,self.entdata)
         xestion_clientes.limpiacli(self.lmpcli)
 
-# engadir as funcionalidades de modificacion "a tempo real"
-# facturas con Man de obra, cambio de aceite, cambio de rodas:
-# (discriminando dianteiras e traseiras),bateria, pastillas de freo e filtros.
-# Deseñar botons personalizados
-# Facer clickables os checkbox
-# Distintas funcións dos botons dependendo do notebook.
-# Ver a función de saida da facturación.
-# Inter funcion de matricula
-# Engadir data para a factura.
 # Como pillar solo dous decimales:
 # "{0:.2f}".format(variable)
 

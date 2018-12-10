@@ -22,28 +22,27 @@ public class Exercicio4 {
        
         MetodosSQL msql=new MetodosSQL();
         Metodos m1= new Metodos();
-        ArrayList dataSesion= new ArrayList();
+        Session s= null;
         Scanner sc=new Scanner(System.in);
         int opcion=0;
         while(opcion!=6){
             opcion=m1.menuPrincipal();
             switch(opcion){
-                case 1:dataSesion=m1.conectar();
+                case 1:s=m1.conectar();
                 break;
-                case 2:m1.switchInsert(dataSesion);
+                case 2:m1.switchInsert(s);
                 break;
-                case 3:m1.switchDelete();
+                case 3:m1.switchDelete(s);
                 break;
-                case 4:m1.switchUpdate();
+                case 4:m1.switchUpdate(s);
                 break;
-                case 5:m1.switchQuery();
+                case 5:m1.switchQuery(s);
                 break;
-
             }
         }
         System.out.println("Saindo, Adeus");
-
-                    
+        m1.desconectar(s);
+        
         /*
         MENÚ
         3- Borrado de filas.

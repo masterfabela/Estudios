@@ -38,22 +38,37 @@ public class MetodosSQL {
         state.execute("create database if not exists BDInstitutos;");
         state.execute("use BDInstitutos;");
         state.execute("create table if not exists Ciclos("
-                + "codCiclo int (4) not null, "
+                + "codCiclo int (4) unsigned zerofill auto_increment not null, "
                 + "nombreCiclo varchar (10), "
                 + "primary key(codCiclo));");
         state.execute("create table if not exists Institutos("
-                + "codInsti int (4) not null, "
+                + "codInsti int (4) unsigned zerofill auto_increment not null, "
                 + "tf varchar (9), "
                 + "primary key (codInsti)"
                 + ");");
-//        state.execute("create table if not exists Ciclos_Institutos("
-//                + ");");
-//        state.execute("create table if not exists Talleres("
-//                + "codTaller int(4) not null,"
-//                + "nombre varchar(10),"
-//                + "codCiclo "
-//                + ");");
-//        state.execute("create table if not exists Usos();");
+        state.execute("create table if not exists Ciclos_Institutos("
+                + "Ciclo int (4) unsigned zerofill not null, "
+                + "Insti int (4) unsigned zerofill not null, "
+                + "primary key (Ciclo,Insti), "
+                + "foreign key (Ciclo) references Ciclos(codCiclo) on update cascade on delete cascade, "
+                + "foreign key (Insti) references Institutos(codInsti) on update cascade on delete cascade "
+                + ");");
+        state.execute("create table if not exists Talleres("
+                + "codTaller int(4) unsigned zerofill auto_increment not null,"
+                + "nombre varchar(10),"
+                + "ciclo int(4) unsigned zerofill not null,"
+                + "primary key(codTaller), "
+                + "foreign key (ciclo) references Ciclos(codCiclo) on update cascade on delete cascade"
+                + ");");
+        state.execute("create table if not exists Usos("
+                + "Ciclo int(4) unsigned zerofill not null, "
+                + "Taller int(4) unsigned zerofill not null, "
+                + "fecha date not null, "
+                + "hora time not null, "
+                + "primary key (Ciclo,Taller,fecha,hora), "
+                + "foreign key (Ciclo) references Ciclos(codCiclo) on delete cascade on update cascade, "
+                + "foreign key (Taller) references Talleres(codTaller) on delete cascade on update cascade"
+                + ");");
         }catch(SQLException sql1){
             System.out.println("Erro na Creacion da DB: "+sql1.getMessage());
         }

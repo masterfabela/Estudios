@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Obx.Coches" table="coches">
+        <id name="codigo"/>
+        <property name="marca"/>
+        <property name="modelo"/>
+        <many-to-one name="cif" class="Obx.EmpresasCoches">
+            <column name="cif" not-null="true"/>
+        </many-to-one>
+        <joined-subclass name="Obx.CochesVenta" table="CochesVenta">
+            <key column="codigo"/>
+            <property name="precioVenta"/>
+        </joined-subclass>
+        <joined-subclass name="Obx.CochesAlquiler" table="CochesAlquiler">
+            <key column="codigo"/>
+            <property name="precioDia"/>
+            <property name="estado"/>
+            <set table="Usos" name="uso" inverse="true">
+                <key>
+                    <column name="codigo"/>
+                </key>
+                <one-to-many class="Obx.Usos"/>
+            </set>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

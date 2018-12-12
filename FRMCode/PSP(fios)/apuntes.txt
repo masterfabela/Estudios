@@ -7,3 +7,7 @@ Aplicación multiproceso:
     Cada fio executase nun núcleo do procesador.
     A cada intre, temos N instruccions en execución ó mesmo tempo.
     Ó mesmo tempo = paralelismo real = Multitarefa.
+    -Metodos da clase Thread:
+        se a cola de preparados está vacia, yield nn se executa.
+        Marcar FIOS COOPERANTES nos apuntes
+        

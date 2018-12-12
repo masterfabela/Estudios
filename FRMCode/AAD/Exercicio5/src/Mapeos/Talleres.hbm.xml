@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Obx.Talleres" table="talleres">
+        <id name="codTaller"/>
+        <property name="nombre"/>
+        <set table="Ciclos" name="ciclo" inverse="false" cascade="save-update">
+            <key>
+                <column name="codCiclo"/>
+            </key>
+            <many-to-many entity-name="Obx.Ciclos">
+                <column name="codCiclo" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

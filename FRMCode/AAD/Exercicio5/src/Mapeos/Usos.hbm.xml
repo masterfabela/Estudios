@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Obx.Usos" table="usos">
+        <composite-id>
+            <key-many-to-one name="ciclo" >
+                <column name="Ciclo"/>
+            </key-many-to-one>
+            <key-many-to-one name="taller">
+                <column name="Taller"/>
+            </key-many-to-one>
+            <key-property name="fecha">
+                <column name="fecha"/>
+            </key-property>
+            <key-property name="hora">
+                <column name="hora"/>
+            </key-property>
+        </composite-id>
+</class>
+</hibernate-mapping>

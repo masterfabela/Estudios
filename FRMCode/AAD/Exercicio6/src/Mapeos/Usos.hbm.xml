@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Obx.Usos" table="usos">
+        <composite-id>
+            <key-many-to-one name="codigo" column="codigo" class="Obx.CochesAlquiler"/>
+            <key-property name="FechaAlquiler"/>
+        </composite-id>
+        <property name="FechaEntrada"/>
+        <property name="importe"/>
+    </class>
+</hibernate-mapping>

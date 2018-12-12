@@ -1,0 +1,21 @@
+ Seleccionar un fichero:
+ def selfile(self, widget, data = None):        
+ try:   “”” selecciona al fichero y nos muestra su nombre en el label “””            
+    self.fich = str(self.vdialogo.get_filename())            print(self.fich)            
+    self.fichero = os.path.basename(str(self.vdialogo.get_filename()))            
+    self.lblmensaje.set_text("Fichero:  " + self.fichero)             
+    if self.fichero == str(None):                
+    self.lblmensaje.set_text("Elija un fichero")        
+ except:            
+    self.lblmensaje.set_text("Error cerrando aplicación")           
+    time.sleep(5)            
+Gtk.main_quit()
+• El siguiente modulo lleva a cabo la compresión:  
+def comprimir(self, widget, data = None):           
+if self.fichero == str(None):            
+self.lblmensaje.set_text("Falta fichero a comprimir")        
+else: “”” el fichero zipeado contendra su nombre y el día de que se crea “””            
+fecha = datetime.datetime.now()            print(fecha)            
+fichzip = zipfile.ZipFile( str(fecha) + "_copia.zip"  ,"w")            
+fichzip.write(self.fich, os.path.basename(self.fich) ,zipfile.ZIP_DEFLATED)            
+fichzip.close()

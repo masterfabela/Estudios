@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.femio.comentario_relative.MainActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/texCom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/comentario"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/vintecinco"
+        android:padding="@dimen/vinte"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/coml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/comentariolargo"
+        android:layout_below="@id/texCom"
+        android:background="@color/gris"
+        android:textColor="@color/blanco"
+        android:textAllCaps="true"
+        android:textSize="@dimen/vinte"
+        android:paddingBottom="@dimen/vinte"
+        android:paddingTop="@dimen/vinte"
+
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:password="true"
+        android:numeric="decimal|integer|signed"
+        android:hint="@string/butAc"
+        />
+</LinearLayout>

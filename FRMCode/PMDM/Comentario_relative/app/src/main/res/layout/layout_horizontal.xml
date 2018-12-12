@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+    <TextView
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/texCom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/comentario"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/vintecinco"
+        android:padding="@dimen/vinte"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/coml"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/comentariolargo"
+        android:layout_below="@id/texCom"
+        android:background="@color/gris"
+        android:textColor="@color/blanco"
+        android:textAllCaps="true"
+        android:textSize="@dimen/vinte"
+        android:paddingBottom="@dimen/vinte"
+        android:paddingTop="@dimen/vinte"
+        android:layout_weight="1"
+
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:password="true"
+        android:numeric="decimal|integer|signed"
+        android:hint="@string/butAc"
+        android:layout_weight="2"
+        />
+</LinearLayout>

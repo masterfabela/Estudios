@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">AP-Figs</string>
+    <string name="name1">Calculando ...</string>
+    <string name="name2">Más información ...</string>
+    <string name="empezar">BEGIN</string>
+    <string name="salir">END</string>
+    <string name="Bienvenida">Wellcome</string>
+    <string name="finap">FIN APP</string>
+    <string name="atras">ATRAS</string>
+    <string name="masinfo">Más informacion en:</string>
+    <string name="direccion">https://ingemecanica.com/tutoriales/areas.html</string>
+    <string name="llamando">O llamando al número:</string>
+    <string name="numero">34986110011</string>
+    <string name="continuar">CONTINUAR</string>
+    <string name="mostrar">MOSTRAR RESULTADO</string>
+    <string name="elige1">Elige opción:</string>
+    <string name="elige2">Elige figura:</string>
+    <string name="area">Área</string>
+    <string name="perimetro">Perímetro</string>
+    <string name="cuadrado">Cuadrado</string>
+    <string name="circulo">Circulo</string>
+    <string name="error">You must enter a value</string>
+
+
+
+
+</resources>

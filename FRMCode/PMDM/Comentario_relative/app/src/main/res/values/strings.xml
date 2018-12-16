@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Comentario_relative</string>
+    <string name="comentario">Comentario</string>
+    <string name="comentariolargo">Hola, esto es un comentario largo, largo, muy largo y escrito en letra mayuscula.</string>
+    <string name="butAc">Aceptar</string>
+    <string name="butCan">Cancelar</string>
+</resources>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b42ae9d4-edd2-492a-8521-e39310b4907f" name="Default Changelist" comment="" />
+    <list default="true" id="b42ae9d4-edd2-492a-8521-e39310b4907f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/proxectorestaurante/#Restaurante.glade#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxectorestaurante/Restaurante.glade" beforeDir="false" afterPath="$PROJECT_DIR$/proxectorestaurante/Restaurante.glade" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

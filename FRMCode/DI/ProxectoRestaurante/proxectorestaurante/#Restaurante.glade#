@@ -13,6 +13,7 @@
       <object class="GtkPaned">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
+        <property name="wide_handle">True</property>
         <child>
           <object class="GtkFixed">
             <property name="visible">True</property>
@@ -31,15 +32,15 @@
               <object class="GtkButton" id="boton">
                 <property name="label" translatable="yes">button</property>
                 <property name="width_request">100</property>
-                <property name="height_request">20</property>
+                <property name="height_request">29</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <signal name="clicked" handler="on_boton_clicked" swapped="no"/>
               </object>
               <packing>
-                <property name="x">70</property>
-                <property name="y">28</property>
+                <property name="x">100</property>
+                <property name="y">27</property>
               </packing>
             </child>
           </object>

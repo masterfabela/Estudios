@@ -22,7 +22,7 @@ class Restaurante:
         # self.venPrincipal.maximize()
     def click(self,widget):
         print("clickaches")
-        
+
 
 
 

@@ -9,15 +9,21 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.a18franciscorm.autocompletartexto.MainActivity">
+    android:gravity="center"
+    tools:context="com.example.a18franciscorm.provinciasv2.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Introduza o nome para probar o autocompletar:" />
+        android:text="Cidades e Provincias" />
     <AutoCompleteTextView
-        android:id="@+id/entrada"
+        android:id="@+id/provincias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Teclea aqui:"/>
+        android:hint="Introduza a cidade:"/>
+    <Spinner
+        android:id="@+id/cidades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ></Spinner>
 </LinearLayout>

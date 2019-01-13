@@ -9,6 +9,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.neodatis.odb.*;
+import org.neodatis.odb.core.query.IQuery;
+import org.neodatis.odb.core.query.criteria.ICriterion;
+import org.neodatis.odb.core.query.criteria.Where;
+import org.neodatis.odb.impl.core.query.criteria.CriteriaQuery;
 
 /**
  *
@@ -41,23 +45,45 @@ public class Altas {
     public Libro AddLibro(){
         ODB odb=ODBFactory.openClient("localhost", 8000, "libreria");
         Scanner sc= new Scanner(System.in);
-        System.out.println("Introduza os datos do libro:\nCodigo");
-        String codigo=sc.next();
-        System.out.println("Titulo");
-        String titulo=sc.next();
-        System.out.println("Categoria");
-        String categoria= sc.next();
-        System.out.println("Prezo");
-        float prezo=sc.nextFloat();
-        System.out.println("Data de publicación(YYYY-MM-DD)");
-        String fechaS=sc.next();
-        LocalDate fecha=LocalDate.parse(fechaS);
-        Libro l1=new Libro(codigo,titulo,categoria,prezo,fecha);
-        odb.store(l1);
-        odb.commit();
-        odb.close();
-        return l1;
-        //Falta engadir os libros a o autor, e a condicion de non engadir libros se nn existen autores.
+        IQuery query=new CriteriaQuery(Autor.class);
+        Objects <Autor> lista=odb.getObjects(query);
+        if(lista.isEmpty()){
+            System.out.println("Non existen autores, polo que non e posible inserir libros.");
+            odb.close();
+            return null;
+        }else{
+            System.out.println("Introduza os datos do libro:\nCodigo");
+            String codigo=sc.next();
+            System.out.println("Titulo");
+            String titulo=sc.next();
+            System.out.println("Categoria");
+            String categoria= sc.next();
+            System.out.println("Prezo");
+            float prezo=sc.nextFloat();
+            System.out.println("Data de publicación(YYYY-MM-DD)");
+            String fechaS=sc.next();
+            LocalDate fecha=LocalDate.parse(fechaS);
+            Libro l1=new Libro(codigo,titulo,categoria,prezo,fecha);
+            System.out.println("Introduce o codigo do autor deste libro:");
+            String codigobusqueda=sc.next();
+            ICriterion criterio =Where.equal("dni", codigobusqueda);
+            IQuery query2=new CriteriaQuery(Autor.class,criterio);
+            Objects<Autor> autor=odb.getObjects(query2);
+            if(autor.isEmpty()){
+                System.out.println("Non existen autores con ese codigo.");
+                odb.close();
+                return null;
+            }else{
+                Autor a1=autor.getFirst();
+                ArrayList<Libro> libros=new ArrayList();
+                libros.add(l1);
+                a1.setLibros(libros);
+                odb.store(l1);
+                odb.commit();
+                odb.close();
+                return l1;
+            }
+        }
     }
     public ArrayList<Libro> engadidoInternoLibro(Autor a1){
         Scanner sc=new Scanner(System.in);

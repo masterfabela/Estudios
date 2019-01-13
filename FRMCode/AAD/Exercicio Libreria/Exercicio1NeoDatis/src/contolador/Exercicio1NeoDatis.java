@@ -20,6 +20,7 @@ public class Exercicio1NeoDatis {
      */
     public static void main(String[] args) {
         Altas alta=new Altas();
+        Modificacions mod= new Modificacions();
         byte opcion=0;
         Scanner sc=new Scanner(System.in);
         while(opcion!=12){
@@ -30,9 +31,9 @@ public class Exercicio1NeoDatis {
                 break;
                 case 2:alta.AddLibro();
                 break;
-                case 3:;
+                case 3:mod.modificarDireccion();
                 break;
-                case 4:;
+                case 4:mod.modificarPrezo();
                 break;
                 case 5:;
                 break;

@@ -3,23 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pojos;
+package modelo;
+
+import java.time.LocalDate;
 
 /**
  *
  * @author femio23
  */
 public class Libro {
-    int codigo;
+    String codigo;
     String titulo;
     String categoria;
     float precio;
-    String fechaPublicacion;
+    LocalDate fechaPublicacion;
 
     public Libro() {
     }
 
-    public Libro(int codigo, String titulo, String categoria, float precio, String fechaPublicacion) {
+    public Libro(String codigo, String titulo, String categoria, float precio, LocalDate fechaPublicacion) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.categoria = categoria;
@@ -27,11 +29,11 @@ public class Libro {
         this.fechaPublicacion = fechaPublicacion;
     }
     
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -59,11 +61,11 @@ public class Libro {
         this.precio = precio;
     }
 
-    public String getFechaPublicacion() {
+    public LocalDate getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public void setFechaPublicacion(String fechaPublicacion) {
+    public void setFechaPublicacion(LocalDate fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 

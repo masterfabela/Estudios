@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercicio1neodatis;
-import org.neodatis.odb.*;
-import org.neodatis.odb.core.oid.OIDFactory;
+package contolador;
+import java.util.Scanner;
+import vista.Vista;
+import modelo.*;
+
 
 /**
  *
@@ -17,12 +19,43 @@ public class Exercicio1NeoDatis {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ODB odb=ODBFactory.open("neodatis.test");
-        OID oid=OIDFactory.buildObjectOID(3);
-        Jugadores jug=(Jugadores) odb.getObjectFromId(oid);
-        System.out.println(jug.getNombre()+"*"+jug.getDeporte());
-        odb.close();
+        Altas alta=new Altas();
+        byte opcion=0;
+        Scanner sc=new Scanner(System.in);
+        while(opcion!=12){
+            Vista.mostrarMPrincipal();
+            opcion=sc.nextByte();
+            switch(opcion){
+                case 1:alta.addAutor();
+                break;
+                case 2:alta.AddLibro();
+                break;
+                case 3:;
+                break;
+                case 4:;
+                break;
+                case 5:;
+                break;
+                case 6:;
+                break;
+                case 7:;
+                break;
+                case 8:;
+                break;
+                case 9:;
+                break;
+                case 10:;
+                break;
+                case 11:;
+                break;
+                default:
+                    if(opcion==12)
+                        System.out.println("Adeus");
+                    else
+                        System.out.println("\n\nErro de entrada(1-12)\n\n\n");
+                break;
+            }
+        }
     }
-    
 }
 

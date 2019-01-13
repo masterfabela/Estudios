@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<!Generalidades
+	- Todo mapeo debe tener, al menos, un cabecero como el de arriba, una etiqueta hibernate-mapping y una etiqueta class
+	- La etiqueta "class" es la que enlaza el pojo(name) y la tabla(table). Es un caso único de usar el atributo name para referenciar una clase (normalmente se usaría atrb class)
+	- Todo mapeo debe tener al menos una etiqueta que identifique la "id", bien sea simple, compuesta, ajena o automática (para estos dos últimos se usa un generator class)
+	- La gran mayoría de las etiquetas deben contener obligatoriamente el atributo "name" (excepciones conocidas: many-to-one, one-to-many, many-to-many)
+	- La etiqueta "name" discrimina mayúsculas y minúsculas, es importante fijarse en esto.
+	- Siempre que el nombre del atributo coincida con la columna, se puede obviar la etiqueta "column", pero no al contrario.
+	- Todo "many-to-one/one-to-many" debe incluir una referencia a la clase, igual que un ArrayList o Set, ya que no puede integrar elementos de clases no relacionadas.
+	- Existen multitud de "generator class", pero sólo hemos visto "foreign" e "increment"
+	- El atributo "type" es opcional en las properties pero es obligatorio en las id. Todos los tipos van en minuscula, (boolean, integer, float, string, date, time, binary)
+	- Existen atributos opcionales de uso más avanzado que se pueden añadir a ciertas etiquetas como son:
+		- [Class,property] lazy = "false" : por defecto es true, lo que aumenta el rendimiento al cargar objetos ya que no carga las referencias anidadas. 
+								  Estas se irán cargando bajo demanda. Está bien para grandes cantidades de datos, pero no se percibe a nuestro nivel.
+		- [property] unique = "true/false" : especifica que esta property debe tener un valor único, generalmente se deja en manos de MySQL 
+		- [relaciones] not-null = "true/false" : especifica si la clave ajena de una relación puede ser null. Es importante ponerlo para las clases que dependen de otra.
+		- [one-to-many, many-to-many] inverse = "true/false" : Indica con True que clase se considera la más importante. Obligatoria en many to many y en bidireccionales.
+		- [relaciones] cascade = "none, delete, save-update, all" : Indica si una acción sobre esta clase se extenderá a sus clases relacionadas.
+		- [one-to-one] constrained = "true/false" : si la clave principal de este mapeo es a su vez foranea, se debe poner a true
+	>
+	
+	
+<!Clave autoincrementable, se usa el generador de clase "increment">
+
+<hibernate-mapping>
+  <class name="Pojos.Animales" table="animales">
+    <id name="codigo" type="integer">
+		<generator class="increment"/>
+    </id>
+    <property name="nombre" type="string"/>
+  </class>
+</hibernate-mapping>
+	
+	
+<!Clave compuesta, se forma a partir de varios properties. Las properties pueden ser simples o bien many-to-one (foreign key)>
+
+<hibernate-mapping>
+	<class name="pojos.usos" table="usos">
+		<composite-id>
+			<key-property name="fecha" type="date"/>
+			<key-property name="hora" type="string"/>
+			<key-many-to-one name="socio" class="pojos.Socios">
+		</composite-id>
+	</class>
+</hibernate-mapping>
+
+<!Mapear una primary key que es a su vez foreign key, se usa la clase generadora con atributo "foreign" y se añade el one-to-one>
+
+<hibernate-mapping>
+  <class name="Pojos.Vehiculos" table="vehiculos">
+    <id name="nss" type="string">
+      <column name="nss"/>
+      <generator class="foreign">
+        <param name="property">empleado</param>
+      </generator>
+    </id>
+    <one-to-one class="Pojos.Empleado" constrained="true" name="empleado"/>
+  </class>
+</hibernate-mapping>
+
+
+
+<!One-to-One, una entidad de una tabla está relacionada con otra entidad de otra tabla. Normalmente se puede intercambiar
+por una columna, pero no siempre, en cuyo caso, se usa la etiqueta one-to-one referenciando clase y nombre/columna>
+
+<hibernate-mapping>
+  <class name="Pojos.Animales" table="animales">
+    <id name="codigo" type="integer">
+    <generator class="increment"/>
+    </id>
+    <property name="nombre" type="string"/>
+            
+    <one-to-one cascade="all" class="Pojos.Calendarios" name="calendario"/>   
+    <one-to-one cascade="all" class="Pojos.Historiales" name="historial"/>        
+    
+  </class>
+</hibernate-mapping>
+
+<!One-to-One, clase secundaria>
+
+<hibernate-mapping>
+  <class name="Pojos.Calendarios" table="calendarios"> 
+    <id name="codigo" type="integer">
+    <one-to-one name="animal" class="Pojos.Animales"/>
+  </class>
+</hibernate-mapping>
+
+
+
+<!Many to one, clase contenedora: un departamento tiene 0-N empleados, es decir, tiene un Set de empleados>
+
+<hibernate-mapping>
+    <class name="pojos.Departamento" table="departamentos">
+        <id name="nDep" type="integer"/>
+        <property name="nombre"/>
+        <set name="empleados" table="empleados" inverse="true">
+            <key>
+                <column name="nDep" not-null="true"/>
+          </key>
+          <one-to-many class="pojos.Empleado"/>
+        </set>
+    </class>
+</hibernate-mapping>
+
+<!Many to one, clase contenida: un empleado pertenece a un departamento, es decir, va a existir dentro del set de otra clase>
+
+<hibernate-mapping>
+    <class name="pojos.Empleado" table="empleados">
+        <id name="nuss" column="nuss" type="string"/>
+        <property name="nombre" column="nombre" />
+        <many-to-one name="departamento" class="pojos.Departamento">
+            <column name="nDep" not-null="true"/>
+       </many-to-one>
+    </class>
+</hibernate-mapping>
+
+
+
+<!Many to many, una tercera tabla alberga todas las relaciones entre dos tablas, que son múltiples: un libro puede tener
+varios autores y un autor puede tener varios libros. Se enlaza por medio de sets cruzados y la etiqueta Many-to-many con el atributo entity-name.
+El atributo "inverse" es necesario para establecer quien lleva las riendas, y debe ser true en la clase importante y false en la otra>
+
+<hibernate-mapping>
+	<class name="pojos.Libros" table="libros">
+		<id column="codigo" name="codigo" type="string"/>
+		<property name="titulo" column="titulo" type="string"/>
+			<set name="autores" table="librosAutores" inverse="true">
+				<key>
+					<column name="dni" no-null="true"/>
+				</key>
+				<many-to-many entity-name="pojos.Autores">
+				<column name="autor" not-null="true"/>
+				</many-to-many>
+			</set>
+	</class>
+</hibernate-mapping>
+
+<!Many to many, elemento 2, es identica a la anterior pero para el otro pojo>
+
+<hibernate-mapping>
+	<class name="pojos.Autores" table="autores">
+		<id column="dni" name="dni" type="string"/>
+		<property name="nombre"/>
+		<set name="libros" table="librosAutores" inverse="false" cascade="save-update">
+			<key>
+				<column name="autor" not-null="true"/>
+			</key>
+			<many-to-many entity-name="pojos.Libros">
+				<column name="libro" not-null="true">
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>	
+
+
+
+<!Herencia. Para implementar herencia se usa la etiqueta Joined-Subclass, como si fuese un nuevo mapeo dentro del mapeo de 
+la clase padre. En este ejemplo novelas y ensayos son una subclase de Libros con sus atributos propios.>
+
+<hibernate-mapping>
+	<class name="pojos.Libros" table="libros">
+		<id column="codigo" name="codigo" type="string"/>
+		<property name="titulo" column="titulo" type="string"/>
+		<property name="autor"/>
+		
+		<joined-subclass name="pojos.novelas" table="novelas">
+			<key column="codigo"/>
+			<property name="genero"/>
+			<property name="entregas"/>
+		</joined-subclass>
+		
+		<joined-subclass name="pojos.ensayos" table="ensayos">
+			<key column="codigo"/>
+			<property name="Ámbito"/>
+			<property name="Especialidad"/>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>
+
+

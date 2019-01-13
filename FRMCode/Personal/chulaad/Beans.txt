@@ -1,0 +1,143 @@
+// oyente
+
+public class Habitacion implements Serializable, PropertyChangeListener {
+
+    private String id;
+    private float pvp;
+    private boolean ocupada;
+    private Hotel hotel;
+    private Set<Reserva> reservas = new HashSet<>(0);;
+
+    public Habitacion() {
+    }
+
+    public Habitacion(String id, float pvp) {
+        this.id = id;
+        this.pvp = pvp;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public float getPvp() {
+        return pvp;
+    }
+
+    public void setPvp(float pvp) {
+        this.pvp = pvp;
+    }
+
+    public boolean isOcupada() {
+        return ocupada;
+    }
+
+    public void setOcupada(boolean ocupada) {
+        this.ocupada = ocupada;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Set<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
+    }
+    
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setOcupada(true);
+    }
+
+}
+
+//bean fuente
+
+public class Reserva implements Serializable {
+
+    private Hotel hotel;
+    private Habitacion habitacion;
+    private Date fechaentrada;
+    private Date fechasalida;
+    private Cliente cliente;
+
+    private PropertyChangeSupport propertySupport;
+
+    public Reserva() {
+    }
+
+    public Reserva(Date fechaentrada, Date fechasalida) {
+        this.fechaentrada = fechaentrada;
+        this.fechasalida = fechasalida;
+        this.propertySupport = new PropertyChangeSupport(this);
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
+        /*try {
+            propertySupport.firePropertyChange("habitacion", null, habitacion);
+        } catch (Exception e) {
+            System.out.println("a");
+                    
+            this.habitacion = habitacion;
+        }*/
+    }
+
+    public Date getFechaentrada() {
+        return fechaentrada;
+    }
+
+    public void setFechaentrada(Date fechaentrada) {
+        this.fechaentrada = fechaentrada;
+    }
+
+    public Date getFechasalida() {
+        return fechasalida;
+    }
+
+    public void setFechasalida(Date fechasalida) {
+        this.fechasalida = fechasalida;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        propertySupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        propertySupport.removePropertyChangeListener(listener);
+    }
+
+}

@@ -1,0 +1,26 @@
+qué es un Bean?
+
+Es una clase destinada a almacenar una cantidad de datos para nuestro programa. 
+Su fin es encapsular información, para reutilizar código fuente, estructurando el código fuente 
+en unidades lo más sencillas posible
+
+
+¿Qué es un ORM?
+
+Un ORM es un modelo de programación que permite mapear las estructuras de una base de datos relacional
+sobre una estructura lógica de entidades con el objeto de simplificar y acelerar el desarrollo 
+de nuestras aplicaciones.
+
+
+Singleton
+
+ singleton o instancia única es un patrón de diseño que permite restringir la creación de
+ objetos pertenecientes a una clase o el valor de un tipo a un único objeto. 
+Su intención consiste en garantizar que una clase solo tenga una instancia y proporcionar
+ un punto de acceso global a ella.
+
+
+Listener
+
+Una propiedad que se puede implementar a una clase para que tenga la capacidad de recibir eventos de 
+cambio de propiedad emitidos por otras clases

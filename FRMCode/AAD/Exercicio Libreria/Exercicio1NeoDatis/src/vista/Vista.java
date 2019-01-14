@@ -19,7 +19,7 @@ public class Vista {
                 + "5-Borrar libro.\n"
                 + "6-Consultar autores italianos.\n"
                 + "7-Consultar libros de autor en interbalo de tempo.\n"
-                + "8-Visualizar autores españoles emenores de 60 anos.\n"
+                + "8-Visualizar autores españoles menores de 60 anos.\n"
                 + "9-Visualizar por cada nacionalidade o número de autores.\n"
                 + "10-Visualizar os títulos dos libros dun autor.\n"
                 + "11-Consulta dun libro.\n"

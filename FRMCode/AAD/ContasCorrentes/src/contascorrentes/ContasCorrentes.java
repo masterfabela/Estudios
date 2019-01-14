@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package contascorrentes;
+import servidor.controlador.Server;
+import org.neodatis.odb.ODBServer;
 
 /**
  *
@@ -15,7 +17,10 @@ public class ContasCorrentes {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Server server=new Server();
+        ODBServer odb=server.encenderServer();
+        
+        server.pecharServer(odb);
     }
     
 }

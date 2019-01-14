@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servidor;
+package contascorrentes.modelo.Metodos;
 
 /**
  *
  * @author a18franciscorm
  */
-public class Server {
+public class Modificacions {
     
 }

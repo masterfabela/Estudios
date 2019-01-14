@@ -1,0 +1,19 @@
+static Statement sentencia;
+    static ResultSet res;
+    static Connection con;
+
+
+//dentro de main, el resto es sentencia.execute y sentencia.excuteQuery
+String url = "jdbc:mysql://localhost:3307/?user=root&password=usbw";
+        try {
+            con = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println("Error: " + e);
+            System.exit(1);
+        }
+        try {
+            sentencia = con.createStatement();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e);
+            System.exit(2);
+        }

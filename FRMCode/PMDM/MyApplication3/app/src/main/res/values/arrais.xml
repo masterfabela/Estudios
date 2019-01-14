@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nombres">
+        <item>Ana</item>
+        <item>Anabel</item>
+        <item>Anacleto</item>
+        <item>Anastasia</item>
+        <item>Raimundo</item>
+        <item>Siro</item>
+    </string-array>
+</resources>

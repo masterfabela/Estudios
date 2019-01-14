@@ -1,0 +1,71 @@
+Los buenos Beans
+
+Para implementar correctamente los métodos propios de los javabeans es necesario disponer de:
+	1- Una clase(pojo) fuente.
+	2- Una o más clases(pojos) oyentes.
+	3- Un método que enlace ambas clases en el código principal.
+
+1. El pojo fuente	
+El Pojo Fuente es el que disparará los eventos y por tanto habrá que decidir a qué clase le corresponde este papel.
+En una empresa de alquiler, el pojo fuente será un Uso, que al crearse, pondrá el coche alquilado en "no disponible"
+En una empresa de ventas, el pojo fuente será el producto, que al ser creado, reducirá el stock, avisando si el stock 
+se reduce por debajo de 0 a la clase "pedidos"
+Siempre que al realizar una operación básica sobre un pojo hubiese que modificar manualmente otros pojos, 
+se puede automatizar el proceso mediante esta mamada.
+
+Para identificar un Pojo como fuente es necesario:
+	1. Importar: 'java.beans.PropertyChangeSupport'; y 'java.beans.PropertyChangeListener';
+	2. Implementar 
+	3. Declarar atributo: private PropertyChangeSupport fuente;
+	4. inicializar en el construtor: fuente=new PropertyChangeSupport(this);
+	5. Implementar el método para enlazar con los listeners:     
+			public void addListener(PropertyChangeListener listener) {
+			fuente.addPropertyChangeListener(listener);
+			}
+	6. Disparar el evento que queremos que se propague ante un cambio de propiedad:
+	Imaginemos que estamos ante una clase "Partida" que tiene un atributo "puntuación", que se setea tras crear una instancia. 
+	Otra clase ("jugador") recibirá esa puntuación y, si es superior a la que tenía guardada, la guardará como "Puntuación más alta"
+	El disparo del evento en la clase "Partida" se escribiría así:
+	
+		public void setPuntuación(integer puntuacion) {
+		fuente.firePropertyChange("puntuacion",null,puntuacion);
+		}
+		
+		El listener recibirá esta puntuación cada vez que se setee una nueva puntuación.
+		
+
+2. El pojo Listener:
+Los pojos listener recibirán los firePropertyChange del pojo fuente y actuarán en consecuencia. 
+En el caso anterior, el listener es	la clase "Jugador".
+
+Para identificar un pojo como listener es necesario:
+
+	1. Importar: 'import java.beans.PropertyChangeEvent'; y 'import java.beans.PropertyChangeListener';
+	2. Implementar 'PropertyChangeListener' a la clase.
+	3. Implementar el metodo que responderá al evento:   
+		@Override
+		public void propertyChange(PropertyChangeEvent evt) {
+			if (evt.getNewValue()>this.puntuacionMaxima) this.puntuacionMaxima=evt.getNewValue(); 
+		}
+	
+	De esta manera, si al pojo Jugador le llega por esta vía una puntuación mayor que la que el propio jugador tiene como atributo, la intercambiará.	
+
+	
+3. El enlace:
+
+Hasta ahora, tanto el fuente como el listener están aislados. Para "conectar" ambos pojos y que uno escuche al otro, es necesario 
+añadir la siguiente linea de codigo tras crear un elemento Partida. El código en sí puede variar, pero un ejemplo sería:
+
+			//Creación de una nueva partida registrada por un jugador. Se supone ya contamos con la referencia al jugador
+			(Jug) así como con la puntuación obtenida (punt)
+			
+			Partida partida = new Partida(Juego, Jug); //el constructor de partidas inicializa el atributo puntuación a 0 por defecto
+            partida.addListener(Jug); //enlazamos la partida recien creada con el jugador que le corresponde
+            partida.setPuntuacion(punt); //Seteamos la puntuación, lo que disparará el evento
+			
+			Si se ha hecho todo correctamente, el objeto jugador (Jug) escuchará el evento que ha lanzado el objeto Partida al hacer el setPuntuacion()
+			Entonces, como programamos antes, comprobará si esa puntuación es mayor que la que tiene registrada el jugador, y de ser así, la reemplazará.
+			
+
+En resumen, lo que ganas con esto es nada, porque podrías hacer lo mismo por código y te ocuparía menos y sería menos abyecto.
+Pero es lo que toca.			

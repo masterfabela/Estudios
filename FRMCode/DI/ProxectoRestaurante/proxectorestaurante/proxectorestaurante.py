@@ -17,13 +17,14 @@ class Restaurante:
         self.boton = int_visual.get_object("boton")
         self.listServicio = int_visual.get_object("listServicio")
         self.listCliente = int_visual.get_object("listCliente")
+        self.listCamarero = int_visual.get_object("listCamarero")
         dic = {
             'on_vent_principal_destroy': self.sair,
             'on_sair_activate': self.sair,
             'on_sair_barra_clicked': self.sair,
             'on_boton_clicked': self.click,
             'on_but_about_activate': self.show_about
-            
+
         }
         int_visual.connect_signals(dic)
         self.vent_principal.show()
@@ -40,10 +41,15 @@ class Restaurante:
         lista1 = XestionDatos.consultar_servicio()
         for registro1 in lista1:
             self.listServicio.append(registro1)
-        self.listCliente.clear
+
+        self.listCliente.clear()
         lista2 = XestionDatos.consultar_cliente()
         for registro2 in lista2:
             self.listCliente.append(registro2)
+        self.listCamarero.clear()
+        lista3 = XestionDatos.consultar_camarero()
+        for registro3 in lista3:
+            self.listCamarero.append(registro3)
 
     def show_about(self,widget):
         self.ven_about.show()

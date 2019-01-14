@@ -38,3 +38,15 @@ def consultar_cliente():
         print(e)
         conex.rollback()
 
+
+
+def consultar_camarero():
+    try:
+        cur.execute("select * from Camarero")
+        listado = cur.fetchall()
+        conex.commit()
+        return listado
+    except sqlite3.Error as e:
+        print(e)
+        conex.rollback()
+

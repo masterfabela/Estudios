@@ -1,0 +1,128 @@
++Hilo: secuencia de código que se ejecuta dentro del contexto de un proceso
+	los hilos comparten los recursos, ficheros, objetos en memoria (pasandole la referencia)
+	se ejecutan en el mismo espacio de direcciones, por eso pueden compartir objetos
+
+una aplicacion multihilo está creado por n hilos (un árbol enario de hilos)
+	cada hilo es una secuencia de código que se ejecuta al mismo tiempo que otros hilos
+	tienen la capacidad de compartir recursos (pueden acceder en un instante dado al mismo fichero)
+	si no acceden al mismo recurso, se llaman hilos independientes
+	a) +Hilos independientes
+		- se ejecutan concurrentemente (planificador de hilos)
+			cada hilo está siendo atentido por un núcleo, se consigue el paralelismo real
+		- asincrónicamente (cada hilo no depende de la ejecución de otro)
+		- no comparten ningún recurso
+	b) +Hilos cooperantes
+		-comparten recursos, acceden a los mismos objetos en memoria
+			recibe la referencia del mismo objeto
+		- se ejecutan concurrentemente
+		- sincrónicamente
+		Es el programador el encargado de solucionar la sincronización
+		* los hilos se van a bloquear entre ellos, es tarea del programador solucionarlo
+		Varias formas de sincronizar hilos cooperantes
+			a) diseñar/definir una sección crítica
+				definir un método sincronizado
+		hilos cooperantes:
+			a) todos los hilos realizan la misma tarea que pertenecen a la misma clase (tarea, instancia de la misma clase)
+				EMPLEAMOS LA SECCIÓN CRÍTICA para sincronizarlos
+			b) no realizan la misma tarea
+				los hilos non son instancias de la misma clase, pero le paso la referencia
+				acceden al mismo objeto
+					para poder manipularlos se necesita saber su referencia y su tipo 
+				tareas distintas que hay que SECUECIAR
+				EMPLEAMOS SECCIONES CRITICAS PERO CON SECUENCIAS por ejemplo AB AB AB, AABB AABB
+				metodos para sincronizar hilos en una misma tarea
+					wait()
+					notify()
+				
+
+*si los hilos son todos de la misma clase y hacen una tarea sobre el mismo objeto, por eso son hilos cooperantes
+	
+Sección crítica
+	-secuencia de código ATÓMICA (que se va a ejecutar entera, no se va a interrumpir del estado de ejecución)
+	-solo un hilo puede estar ejecutandolo, solamente puede ser accesible en un INSTANTE dado por un hilo
+	NO SE PUEDE INTERUMPIR EN UN INSTANTE DADO A UN HILO QUE ESTÁ EJECUNTADO UNA SECCION CRITICA
+		Esto se consigue atendiendo al MONITOR DEL OBJETO, en cada instante solo una sencuencia de codigo puede adquirir el monitor del objeto
+			solo un hilo puede adquirilo, el resto de los hilos se han bloqueando
+				el hilo que se ejecuta es que el puede manipular el objeto
+					al termianar el codigo sincronizado, el hilo cede el monitor del objeto
+						los hilos que estaban bloqueados se desbloquean, pasan a la cola de hilos preparados y pasan a competir por el monitor del objeto
+				los hilos que se bloquean se llaman hilos en estado ESPERANDO
+	a) Dentro de la clase que define al objeto que puede ser compartido
+		Diseñar la clase afinando mucho, definir la minima cantidad de código sincronizado
+	b) Marcar un bloque de código (tarea que realiza el hilo) como sincronizado
+
+*** Notas ***
+El codigo cuanto más sincronizado sea, más se bloquea
+Todo codigo sincronizado es bloqueante para el resto de los hilos
+	CUANTO MENOS SINCRONICEMOS MEJOR
+
+MONITOR REENTRANTE, si un hilo tiene adquirido el monitor del objeto, para ejecutar una secuencia de codigo critica para ese mismo objeto, ya se lo dá
+	si no existiera el monitor reentrante, se bloquearía toda la aplicación
+	no todos los lenguajes disponen del monitor reentrante
+
+Si en el bloque de codigo, solo se realizan lecturas, no es una sección crítica
+*************
+
+
+sobreescribir el metodo run, con el fin de especificar la tarea
+
+en el construcctor podemos (es opcional)
+	pasarle un nombre - setName(String)
+	asignar una prioridad 1-10 - setPriority(int)
+	decir si es un hilo demonio - setDaemon(boolean)
+
+* los propiedades se heredan
+
+
+el planificador de hilos finaliza el hilo demonio
+	cuando solo quedan hilos demonios vivos, el planificador de hilos, los finaliza en cascada
+
+El hilo demonio no finaliza por si mismo
+
+la prioridad con la que nace un hilo, es siempre la del hilo padre
+	si no he tocado la prioridad, tiene la prioridad normal = 5
+
+join(), pongo el hilo a dormir un tiempo, mientras mis hijos hilos no han sido finalizados
+	la ejecución es asincrónica, cada uno hace una suma en un espacio distinto
+
+un hilo finaliza cuando
+	fin del método run()
+
+los metodos join() sleep() provocan que se detengan los hilos
+	en cambio el método yield() no se detiene
+
+un hilo que se ha dormido se despierta
+	por que otro hilo lo despierta
+	porque ha pasado el tiempo
+	porque no ha pasado el tiempo pero los hilos hijos se terminaron
+
+hilo primario = nodo raiz
+
+METODOS
+start() metodo herardo de la clase threat
+	ponemos el hilo en estado preparado
+isAlive() verifica si el hilo está vivo
+sleep(milisegundos) es obligatorio usar argumento
+	pone el hilo a dormir durante un tiempo
+join()
+	pone el hilo a dormir durante un tiempo o hasta cuando los hilos hijos están muertos
+wait()
+yield() detiene temporalmente el hilo para permitir la ejecución de otros, lo lleva al estado preparado
+	si la cola de hilos preparados está vacia, no se ejecuta
+run()
+
+ESTADOS
+	-nuevo
+		pasa un vez
+	-preparado
+		podría estar en ejecucion pero no está
+		si la cantidad de núcleos es mayor que la de hilos preparados, la cola está vacía
+	-ejecución
+		está siendo atendindo por un núcleo
+	-bloqueado
+
+	-muerto
+
+*si la cola está vacía, el cuanto de ejución no se realiza
+
+El hilo padre llama al metodo start() del hilo hijo

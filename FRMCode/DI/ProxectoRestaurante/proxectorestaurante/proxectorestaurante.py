@@ -2,6 +2,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import XestionDatos
+import informes
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 
@@ -14,16 +15,19 @@ class Restaurante:
         self.ven_about = int_visual.get_object("ven_about")
         self.vent_principal.show()
         self.sair_barra = int_visual.get_object("sair_barra")
-        self.boton = int_visual.get_object("boton")
+        self.boton1 = int_visual.get_object("boton1")
         self.listServicio = int_visual.get_object("listServicio")
         self.listCliente = int_visual.get_object("listCliente")
         self.listCamarero = int_visual.get_object("listCamarero")
+        self.mesaPl = int_visual.get_object("MesaPl")
+        self.mesaPo = int_visual.get_object("MesaPo")
         dic = {
             'on_vent_principal_destroy': self.sair,
             'on_sair_activate': self.sair,
             'on_sair_barra_clicked': self.sair,
-            'on_boton_clicked': self.click,
-            'on_but_about_activate': self.show_about
+            'on_boton1_clicked': self.click,
+            'on_but_about_activate': self.show_about,
+            'on_but_imprimir_clicked': self.probaImpresion
 
         }
         int_visual.connect_signals(dic)
@@ -31,8 +35,10 @@ class Restaurante:
         self.actualizar_listas()
         # self.venPrincipal.maximize()
     def click(self,widget):
-        print("clickaches")
-
+        print("ASD")
+        self.boton1.config(image=self.mesaPl)
+        gtk_button_set_image(self.boton1, self.mesaPl)
+        Gtk
     def sair(self,widget):
         Gtk.main_quit()
 
@@ -53,6 +59,10 @@ class Restaurante:
 
     def show_about(self,widget):
         self.ven_about.show()
+
+    def probaImpresion(self,widget):
+        informes.reportservicios()
+
 
 
 # O camareiro asigna todolos campos da base,

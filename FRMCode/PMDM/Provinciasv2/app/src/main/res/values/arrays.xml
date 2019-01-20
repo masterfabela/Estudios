@@ -20,4 +20,7 @@
     <string-array name="CidadesOurense">
         <item>Ourense</item>
     </string-array>
+    <string-array name="vacio">
+        <item>Provincia non seleccionada</item>
+    </string-array>
 </resources>

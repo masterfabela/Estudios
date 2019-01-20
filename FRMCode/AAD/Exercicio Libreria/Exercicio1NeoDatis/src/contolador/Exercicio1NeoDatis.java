@@ -21,6 +21,8 @@ public class Exercicio1NeoDatis {
     public static void main(String[] args) {
         Altas alta=new Altas();
         Modificacions mod= new Modificacions();
+        Baixas baixa = new Baixas();
+        Consultas cons = new Consultas();
         byte opcion=0;
         Scanner sc=new Scanner(System.in);
         while(opcion!=12){
@@ -35,19 +37,19 @@ public class Exercicio1NeoDatis {
                 break;
                 case 4:mod.modificarPrezo();
                 break;
-                case 5:;
+                case 5:baixa.eliminar();
                 break;
-                case 6:;
+                case 6:cons.verItalianos();
                 break;
-                case 7:;
+                case 7:cons.librosPublicadosIntervalo();
                 break;
-                case 8:;
+                case 8:cons.librosEspañois60();
                 break;
-                case 9:;
+                case 9:cons.cantidadNacional();
                 break;
-                case 10:;
+                case 10:cons.titulosAutor();
                 break;
-                case 11:;
+                case 11:cons.verLibro();
                 break;
                 default:
                     if(opcion==12)

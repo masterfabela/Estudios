@@ -1,0 +1,62 @@
+HIBERNATE metodos
+
+//Clase NewHibernateUtil
+
+public class NewHibernateUtil {
+    private static final SessionFactory sessionFactory;
+    
+    static {
+        try {
+            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+        } catch (Throwable ex) {
+            throw new ExceptionInInitializerError(ex);
+        }
+    }
+    
+	
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+    
+    public static Session getSession(){
+        return sessionFactory.openSession();
+    }
+	
+// Sesiones
+ //Abrir
+
+	Session sesion = NewHibernateUtil.getSession();
+
+ // Renovar
+	sesion.close();
+    sesion=sessionFactory.openSession();
+
+	
+// TRANSACCIONES -Sin transaction no se escribe nada a la BBDD!!
+    public static void graba (Object obj){
+        try{
+        sesion.beginTransaction();
+        sesion.saveOrUpdate(obj); 
+        sesion.getTransaction().commit();
+        System.out.println("Se ha grabado "+obj.toString()+" a la base de datos.");
+        }catch (HibernateException e) {System.out.println("-Error: no ha podido realizarse el grabado:\n"+e.getMessage());}
+        }
+		
+	// VARIANTES
+		sesion.update(obj);
+		sesion.delete(obj);
+
+
+//QUERYS
+	List<Clientes> cli = sesion.createCriteria(Clientes.class).list(); //todos
+	Clientes cli = (Clientes)sesion.get(Clientes.class, id); //por ID
+	
+	//VARIANTES 
+		.addOrder(Order.desc("NOMBRE COLUMNA"));
+		
+	List<Clientes> cli = sesion.createQuery("From Clientes where dni=12121212D").list(); // Todos con sql
+	Clientes cli = (Clientes) sesion.createQuery("From Clientes where dni=12121212D").uniqueResult(); // Uno con sql
+	
+	//VARIANTES SQL
+		.getFirstResult(); devuelve el primer elemento de la query
+		.getMaxResults(); devuelve longitud del list

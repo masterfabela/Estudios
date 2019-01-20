@@ -20,10 +20,11 @@
         android:id="@+id/provincias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Introduza a cidade:"/>
+        android:hint="Introduza a provincia:"/>
     <Spinner
         android:id="@+id/cidades"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         ></Spinner>
 </LinearLayout>

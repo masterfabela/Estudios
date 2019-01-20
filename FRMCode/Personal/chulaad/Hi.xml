@@ -1,0 +1,114 @@
+// subclases
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="clases.Coche" table="coches">
+        <id name="codigo"/>
+        <property name="marca"/>
+        <property name="modelo"/>
+        <many-to-one name="empresa" class="clases.Empresa">
+            <column name="cif" not-null="true"/>
+        </many-to-one>
+  
+        <joined-subclass name="clases.CochesVenta" table="cochesventa">
+            <key column="codigo"/>
+            <property name="precio"/>
+        </joined-subclass>
+  
+        <joined-subclass name="clases.CochesAlquiler" table="cochesalquiler">
+            <key column="codigo"/>
+            <property name="preciodia"/>
+            <property name="estado"/> 
+            <set name="usos" table="usos" inverse="true">
+                <key>
+                    <column name="codcoche" not-null="true"/>
+                </key>
+                <one-to-many class="clases.Usos"/>
+            </set>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>
+
+
+// id compuesto
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="clases.Usos" table="usos">
+        <composite-id>
+            <key-property name="fechaalq" type="date"/>
+            <key-many-to-one name="coche">
+                <column name ="codcoche" not-null="true"/>
+            </key-many-to-one>
+        </composite-id>
+        <property name ="fechaent" type="date"/>
+        <property name="importe"/>
+    </class>
+</hibernate-mapping>
+
+
+//one-to-one
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="clases.Telefono" table="telefonos">
+      <id name="dni" column="dni"/>
+      <property name="telf" column="telefono"/>
+      <one-to-one name="autor" class="clases.Autor" cascade="save-update" constrained="true"/>
+  </class>
+</hibernate-mapping>
+
+//many-to-many
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class catalog="institutos_ciclos" name="clases.Institutos" table="institutos">
+    <id name="codinst">
+      <generator class="identity"/>
+    </id>
+    <property name="tf" type="string">
+      <column name="tf" not-null="true"/>
+    </property>
+    <set inverse="true" name="ciclos" table="ciclos_institutos">
+      <key>
+        <column name="codinst" not-null="true"/>
+      </key>
+      <many-to-many entity-name="clases.Ciclos">
+        <column name="codciclo" not-null="true"/>
+      </many-to-many>
+    </set>
+  </class>
+</hibernate-mapping>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class catalog="institutos_ciclos" name="clases.Ciclos" table="ciclos">
+    <id name="codciclo">
+      <generator class="identity"/>
+    </id>
+    <property name="nombre" type="string">
+      <column name="nombre" not-null="true" unique="true"/>
+    </property>
+    <set inverse="true" name="usos" table="usos">
+      <key>
+        <column name="codciclo" not-null="true"/>
+      </key>
+      <one-to-many class="clases.Usos"/>
+    </set>
+    <set inverse="false" name="institutos" table="ciclos_institutos">
+      <key>
+        <column name="codciclo" not-null="true"/>
+      </key>
+      <many-to-many entity-name="clases.Institutos">
+        <column name="codinst" not-null="true"/>
+      </many-to-many>
+    </set>
+  </class>
+</hibernate-mapping>
+

@@ -53,7 +53,7 @@ public class Altas {
             System.out.println("Este cliente xa existe, non se pode levar a cabo a alta.");
         }
     }
-    public void altaCliente(String dni){
+    public Cliente altaCliente(String dni){
         ODB odb=ODBFactory.openClient("localhost", 8000, "contabilidade");
         Scanner sc= new Scanner(System.in);
         ICriterion criterio =Where.equal("dni",dni );
@@ -71,9 +71,12 @@ public class Altas {
             }
             odb.store(a1);
             odb.close();
+            return a1;
         }else{
             System.out.println("Este cliente xa existe, non se pode levar a cabo a alta.");
+            return null;
         }
+        
     }
     public void altaCCorrente(){
         ODB odb=ODBFactory.openClient("localhost", 8000, "contabilidade");
@@ -81,18 +84,33 @@ public class Altas {
         System.out.println("Introduce os datos da Conta:\n Numero:");
         String numero=sc.next();
         ICriterion criterio =Where.equal("numero",numero );
-        IQuery query=new CriteriaQuery(Conta.class,criterio);
+        IQuery query=new CriteriaQuery(ContaCorrente.class,criterio);
         Objects<ContaCorrente> conta=odb.getObjects(query);
         if(conta.isEmpty()){
             System.out.println("Sucursal:");
             String sucursal=sc.next();
             System.out.println("Saldo actual:");
             double saldo=sc.nextDouble();
-            System.out.println("Vai introducir Clientes(Existentes ou non):\nDNI:");
             Set<Cliente>clientes=null;
+            System.out.println("Vai introducir Clientes(Existentes ou non):\nDNI:");
+            String dni=sc.next();
+            ICriterion criterio2 =Where.equal("dni",dni );
+            IQuery query2=new CriteriaQuery(Cliente.class,criterio2);
+            Objects<Cliente> cliente=odb.getObjects(query);
+            Cliente a1;
+            if(cliente.isEmpty()){
+                a1=altaCliente(dni);
+                clientes.add(a1);
+            }else{
+                clientes.add(cliente.getFirst());
+                a1=cliente.getFirst();
+            }
             Set<Movemento>movementos=null;
             ContaCorrente c1=new ContaCorrente(movementos,numero,sucursal,saldo,clientes);
             odb.store(c1);
+            Set<Conta>listaConta=a1.getContas();
+            listaConta.add(c1);
+            odb.store(a1);
             odb.close();
         }else{
             System.out.println("Xa existe unha conta con este numero, non se pode levar a cabo a alta.");
@@ -104,8 +122,8 @@ public class Altas {
         System.out.println("Introduce os datos da Conta:\n Numero:");
         String numero=sc.next();
         ICriterion criterio =Where.equal("numero",numero );
-        IQuery query=new CriteriaQuery(Conta.class,criterio);
-        Objects<Conta> conta=odb.getObjects(query);
+        IQuery query=new CriteriaQuery(ContaPrazo.class,criterio);
+        Objects<ContaPrazo> conta=odb.getObjects(query);
         if(conta.isEmpty()){
             System.out.println("Sucursal:");
             String sucursal=sc.next();
@@ -117,45 +135,53 @@ public class Altas {
             String data=sc.next();
             LocalDate dataV=LocalDate.parse(data);
             System.out.println("Vai introducir Clientes(Existentes ou non):\nDNI:");
+            String dni=sc.next();
+            ICriterion criterio2 =Where.equal("dni",dni );
+            IQuery query2=new CriteriaQuery(Cliente.class,criterio2);
+            Objects<Cliente> cliente=odb.getObjects(query);
             Set<Cliente>clientes=null;
+            Cliente a1;
+            if(cliente.isEmpty()){
+                a1=altaCliente(dni);
+                clientes.add(a1);
+            }else{
+                clientes.add(cliente.getFirst());
+                a1=cliente.getFirst();
+            }
             ContaPrazo c1=new ContaPrazo(interese,dataV,numero,sucursal,saldo,clientes);
             odb.store(c1);
-            odb.commit();
+            Set<Conta>listaConta=a1.getContas();
+            listaConta.add(c1);
+            odb.store(a1);
             odb.close();
         }else{
             System.out.println("Xa existe unha conta con este numero, non se pode levar a cabo a alta.");
         }
     }
     public void altaMovemento(){
-    ODB odb=ODBFactory.openClient("localhost", 8000, "contabilidade");
-    Scanner sc= new Scanner(System.in);
-    System.out.println("Introduce os datos referentes a o movemento:\n Numero de conta:");
-    String numero=sc.next();
-    ICriterion criterio =Where.equal("numero",numero );
-    IQuery query=new CriteriaQuery(ContaCorrente.class,criterio);
-    Objects<ContaCorrente> conta=odb.getObjects(query);
-    if(!conta.isEmpty()){
-        System.out.println("Data da operacion:");
-        String data=sc.next();
-        Date dataOp=Date.valueOf(data);
-        System.out.println("Hora da operacion:");
-        String hora=sc.next();
-        Time horaOP=Time.valueOf(hora);
-        System.out.println("Cantidade:");
-        double cantidade=sc.nextFloat();
-        System.out.println("Saldo actual:");
-        double saldoA=conta.getFirst().getSaldoActual();
-        Movemento c1=new Movemento();
-        odb.store(c1);
-        odb.commit();
-        odb.close();
-    }else{
-        System.out.println("Esa conta non existe.");
-    }}
-    public void test(){
         ODB odb=ODBFactory.openClient("localhost", 8000, "contabilidade");
-        IQuery query=new CriteriaQuery(Conta.class);
-        Objects<Conta> conta=odb.getObjects(query);
-        System.out.println(conta.getFirst().getNumero());
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Introduce os datos referentes a o movemento:\n Numero de conta:");
+        String numero=sc.next();
+        ICriterion criterio =Where.equal("numero",numero );
+        IQuery query=new CriteriaQuery(ContaCorrente.class,criterio);
+        Objects<ContaCorrente> conta=odb.getObjects(query);
+        if(!conta.isEmpty()){
+            System.out.println("Data da operacion(aaaa:mm:dd):");
+            String data=sc.next();
+            Date dataOp=Date.valueOf(data);
+            System.out.println("Hora da operacion(hh:mm:ss):");
+            String hora=sc.next();
+            Time horaOP=Time.valueOf(hora);
+            System.out.println("Cantidade:");
+            double cantidade=sc.nextFloat();
+            double saldoA=conta.getFirst().getSaldoActual();
+            Movemento c1=new Movemento();
+            odb.store(c1);
+            odb.commit();
+            odb.close();
+        }else{
+            System.out.println("Esa conta non existe.");
+        }
     }
 }

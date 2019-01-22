@@ -18,6 +18,7 @@ public class Conta {
     private Set<Cliente> clientes;
 
     public Conta() {
+        
     }
 
     public Conta(String numero, String surursal, double saldoActual, Set<Cliente> clientes) {

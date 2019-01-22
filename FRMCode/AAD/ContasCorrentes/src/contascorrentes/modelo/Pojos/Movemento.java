@@ -5,6 +5,7 @@
  */
 package contascorrentes.modelo.Pojos;
 
+import java.sql.Date;
 import servidor.modelo.*;
 import java.sql.Time;
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
  */
 public class Movemento {
     private String numeroConta;
-    private LocalDate dataOperacion;
+    private Date dataOperacion;
     private Time hora;
     private double cantidade;
     private double saldoAnterior;
@@ -23,7 +24,7 @@ public class Movemento {
     public Movemento() {
     }
 
-    public Movemento(String numeroConta, LocalDate dataOperacion, Time hora, double cantidade, double saldoAnterior) {
+    public Movemento(String numeroConta, Date dataOperacion, Time hora, double cantidade, double saldoAnterior) {
         this.numeroConta = numeroConta;
         this.dataOperacion = dataOperacion;
         this.hora = hora;
@@ -39,11 +40,11 @@ public class Movemento {
         this.numeroConta = numeroConta;
     }
 
-    public LocalDate getDataOperacion() {
+    public Date getDataOperacion() {
         return dataOperacion;
     }
 
-    public void setDataOperacion(LocalDate dataOperacion) {
+    public void setDataOperacion(Date dataOperacion) {
         this.dataOperacion = dataOperacion;
     }
 
@@ -69,6 +70,11 @@ public class Movemento {
 
     public void setSaldoAnterior(double saldoAnterior) {
         this.saldoAnterior = saldoAnterior;
+    }
+
+    @Override
+    public String toString() {
+        return "Movemento{" + "numeroConta=" + numeroConta + ", dataOperacion=" + dataOperacion + ", hora=" + hora + ", cantidade=" + cantidade + ", saldoAnterior=" + saldoAnterior + '}';
     }
     
 }

@@ -45,15 +45,15 @@ public class ContasCorrentes {
                 break;
                 case 5:b1.baixaCPrazo();
                 break;
-                case 6:;
+                case 6:c1.buscaC();
                 break;
-                case 7:;
+                case 7:c1.clienteSaldo();
                 break;
-                case 8:;
+                case 8:c1.clienteNumerosVermellos();
                 break;
-                case 9:;
+                case 9:c1.mediaSaldo();
                 break;
-                case 10:;
+                case 10:c1.consultaMovementos();
                 break;
                 default:
                     if(opcion==11)

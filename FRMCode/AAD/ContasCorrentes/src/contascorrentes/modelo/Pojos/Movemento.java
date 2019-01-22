@@ -71,5 +71,10 @@ public class Movemento {
     public void setSaldoAnterior(double saldoAnterior) {
         this.saldoAnterior = saldoAnterior;
     }
+
+    @Override
+    public String toString() {
+        return "Movemento{" + "numeroConta=" + numeroConta + ", dataOperacion=" + dataOperacion + ", hora=" + hora + ", cantidade=" + cantidade + ", saldoAnterior=" + saldoAnterior + '}';
+    }
     
 }

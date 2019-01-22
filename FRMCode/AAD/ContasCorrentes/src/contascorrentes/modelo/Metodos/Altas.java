@@ -66,9 +66,6 @@ public class Altas {
             String direccion=sc.next();
             Set <Conta>contas=null;
             Cliente a1=new Cliente(dni,nome,direccion,contas);
-            if(!contas.isEmpty()){
-                a1.setContas(contas);
-            }
             odb.store(a1);
             odb.close();
             return a1;
@@ -141,12 +138,12 @@ public class Altas {
             Objects<Cliente> cliente=odb.getObjects(query);
             Set<Cliente>clientes=null;
             Cliente a1;
-            if(cliente.isEmpty()){
-                a1=altaCliente(dni);
-                clientes.add(a1);
-            }else{
+            if(!cliente.isEmpty()){
                 clientes.add(cliente.getFirst());
                 a1=cliente.getFirst();
+            }else{
+                a1=altaCliente(dni);
+                clientes.add(a1);
             }
             ContaPrazo c1=new ContaPrazo(interese,dataV,numero,sucursal,saldo,clientes);
             odb.store(c1);
@@ -166,7 +163,9 @@ public class Altas {
         ICriterion criterio =Where.equal("numero",numero );
         IQuery query=new CriteriaQuery(ContaCorrente.class,criterio);
         Objects<ContaCorrente> conta=odb.getObjects(query);
-        if(!conta.isEmpty()){
+        if(conta.isEmpty()){
+            System.out.println("Esa conta non existe.");
+        }else{
             System.out.println("Data da operacion(aaaa:mm:dd):");
             String data=sc.next();
             Date dataOp=Date.valueOf(data);
@@ -176,12 +175,10 @@ public class Altas {
             System.out.println("Cantidade:");
             double cantidade=sc.nextFloat();
             double saldoA=conta.getFirst().getSaldoActual();
-            Movemento c1=new Movemento();
+            Movemento c1=new Movemento(numero,dataOp,horaOP,cantidade,saldoA);
             odb.store(c1);
             odb.commit();
             odb.close();
-        }else{
-            System.out.println("Esa conta non existe.");
         }
     }
 }

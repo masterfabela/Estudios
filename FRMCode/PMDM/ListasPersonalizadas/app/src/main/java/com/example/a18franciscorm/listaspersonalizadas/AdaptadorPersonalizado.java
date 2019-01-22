@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 public class AdaptadorPersonalizado extends ArrayAdapter<String> {
     private Activity context;
     private Animal[] animales;
-
+//Ver SGOLIVER pax.67
 
     //constructor por finalizar
     public AdaptadorPersonalizado(Activity context, Animal[] animales) {

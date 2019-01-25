@@ -38,11 +38,15 @@ public class FioLector extends Thread {
         }
     }
     public synchronized void gardado(String cadea,String iniciais,double lonxude){
-        Fila l1=new Fila(String.valueOf(lonxude),iniciais,cadea,"0");
+        String l1=" ";
+        byte repeticion=1;
+        l1=iniciais+" "+String.valueOf(lonxude)+" "+cadea+" "+repeticion;
         if(ts.contains(l1)){
-            l1.setRepeticion("1");
+            repeticion++;
+            l1=iniciais+" "+String.valueOf(lonxude)+" "+cadea+" "+repeticion;
             ts.remove(l1);
             ts.add(l1);
+            repeticion=1;
         }
     }
     public FioLector(BufferedReader br, TreeSet ts) {

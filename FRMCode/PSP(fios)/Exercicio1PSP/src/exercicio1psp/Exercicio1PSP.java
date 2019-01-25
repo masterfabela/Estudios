@@ -21,7 +21,7 @@ public class Exercicio1PSP {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TreeSet<Fila> ts= new TreeSet();
+        TreeSet<String> ts= new TreeSet();
         for(String s1:args){
             try{
                 BufferedReader br=new BufferedReader(new FileReader(s1));
@@ -29,9 +29,6 @@ public class Exercicio1PSP {
             }catch(FileNotFoundException fnfe1){
                 System.out.println(fnfe1);
             }
-        }
-        for(Fila s:ts){
-            System.out.println(s.lonxitude+" "+s.iniciais+" "+s.cadena+" "+s.repeticion);
         }
     }
 }

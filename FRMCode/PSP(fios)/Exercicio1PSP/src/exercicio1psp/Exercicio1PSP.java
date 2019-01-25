@@ -8,7 +8,8 @@ package exercicio1psp;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
+import java.util.Comparator;
+import java.util.TreeSet;
 
 /**
  *
@@ -19,19 +20,18 @@ public class Exercicio1PSP {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException {
-        BufferedReader br=new BufferedReader(new FileReader(args[0]));
-        try{
-            while(br.ready()){
-                FioLector fl=new FioLector(br.readLine());
-                
+    public static void main(String[] args) {
+        TreeSet<Fila> ts= new TreeSet();
+        for(String s1:args){
+            try{
+                BufferedReader br=new BufferedReader(new FileReader(s1));
+            FioLector f1=new FioLector(br,ts);
+            }catch(FileNotFoundException fnfe1){
+                System.out.println(fnfe1);
             }
-            }
-        catch(IOException ioe1){
-            System.out.println(ioe1.getMessage());
         }
-       
-        
+        for(Fila s:ts){
+            System.out.println(s.lonxitude+" "+s.iniciais+" "+s.cadena+" "+s.repeticion);
+        }
     }
-    
 }

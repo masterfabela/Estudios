@@ -1,0 +1,1 @@
+Para executar php, gardar en xamp/htdocs/ o .php e despois buscalo no navegador:"localhost/nome.php"

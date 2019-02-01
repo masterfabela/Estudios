@@ -16,16 +16,11 @@ import java.util.LinkedList;
  */
 public class FioLector extends Thread {
 
-    private BufferedReader br;
+    final private BufferedReader br;
     private int lonxitude = 0;
     private String iniciais = "";
-    LinkedList ll;
-    Comparator c=new Comparator<String>() {
-        @Override
-        public int compare(String o1, String o2) {
-            return o1.compareTo(o2);
-        }
-    };
+    LinkedList<Linea> ll;
+    Comparator c=(Comparator<Linea>) (Linea o1, Linea o2) -> o1.getIniciais().compareTo(o2.getIniciais());
 
     @Override
     public void run() {
@@ -45,22 +40,17 @@ public class FioLector extends Thread {
             ioe1.getMessage();
         }
     }
-    public synchronized void gardado(String cadea,String iniciais,double lonxude){
-        String l1=" ";
-        byte repeticion=1;
-        l1=iniciais+" "+String.valueOf(lonxitude)+" "+cadea+" "+repeticion;
-        if(ll.contains(l1)){
-            int index=ll.indexOf(l1);
-            repeticion++;
-            ll.remove(index);
-            l1=iniciais+" "+String.valueOf(lonxitude)+" "+cadea+" "+repeticion;
-            ll.add(l1);
-        }else{
-            ll.add(l1);
+    public synchronized void gardado(String cadea,String iniciais,int lonxude){
+        for(int i=0;i<ll.size();i++){
+            if(ll.get(i).getCadea().equals(cadea)){
+               ll.get(i).setCantidade(ll.get(i).getCantidade()+1);
+           }else{
+               ll.add(new Linea(iniciais,cadea,lonxude,1));
+               ll.sort(c);
+           }
         }
-        System.out.println(l1);
-        ll.sort(c);
-    }
+        }
+    
     public FioLector(BufferedReader br, LinkedList ll) {
         this.br = br;
         this.ll = ll;

@@ -35,3 +35,7 @@ Métodos:
         ou todos os seus fillos fio estean mortos
     interrupt(): finaliza os metodos de espera.
     notify():
+
+    Facer esquema de fios.
+
+    Cando o fio adquire o monitor do obxeto, verifica se posue o permiso para utilizalo.

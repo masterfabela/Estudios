@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    int ALERTA_NOTIF=1;
+    final int ALERTA_NOTIF=1;
     Button b;
     NotificationCompat.Builder ncb;
     NotificationManager nm;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 nm.notify(ALERTA_NOTIF,n);
             }
         });
+        //Buscar o metodo de cortar a notificacion.
 
 
     }

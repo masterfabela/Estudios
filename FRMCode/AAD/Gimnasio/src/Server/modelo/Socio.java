@@ -10,5 +10,10 @@ package Server.modelo;
  * @author a18franciscorm
  */
 public class Socio extends Cliente{
+    private final int importeMensual=30;
+    @Override
+    public void importeUsos() {
+        
+    }
     
 }

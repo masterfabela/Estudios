@@ -10,5 +10,10 @@ package Server.modelo;
  * @author a18franciscorm
  */
 public class Usuario extends Cliente{
+
+    @Override
+    public void importeUsos() {
+        
+    }
     
 }

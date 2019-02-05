@@ -11,7 +11,7 @@ import java.util.Set;
  *
  * @author a18franciscorm
  */
-public class Cliente {
+public abstract class Cliente {
     private String dni,nome,direccion;
     private Set<Conta> contas;
 

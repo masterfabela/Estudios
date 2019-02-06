@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Server.modelo;
-
+package Cliente.modelo;
 import java.util.ArrayList;
 
 /**

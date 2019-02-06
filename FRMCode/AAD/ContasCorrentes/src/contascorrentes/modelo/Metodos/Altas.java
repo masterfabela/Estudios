@@ -13,7 +13,6 @@ import contascorrentes.modelo.Pojos.Movemento;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Set;
 import org.neodatis.odb.ODB;

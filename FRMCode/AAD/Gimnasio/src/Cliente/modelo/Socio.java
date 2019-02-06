@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Server.modelo;
+package Cliente.modelo;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,5 +16,13 @@ public class Socio extends Cliente{
     public void importeUsos() {
         
     }
+
+    public Socio() {
+    }
+
+    public Socio(String codigo, String nome, ArrayList<Uso> usos) {
+        super(codigo, nome, usos);
+    }
+    
     
 }

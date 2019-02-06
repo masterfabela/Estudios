@@ -9,6 +9,11 @@ package Server.modelo;
  *
  * @author a18franciscorm
  */
-public class ActLibre extends Actividade{
+public class Usuario extends Cliente{
+
+    @Override
+    public void importeUsos() {
+        
+    }
     
 }

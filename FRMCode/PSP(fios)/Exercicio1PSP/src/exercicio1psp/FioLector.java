@@ -34,11 +34,16 @@ public class FioLector extends Thread {
                     iniciais += d1.charAt(0);
                     lonxitude += d1.length();
                 }
+                wait();
                 gardado(cadea,iniciais,lonxitude);
             }
         } catch (IOException ioe1) {
             ioe1.getMessage();
         }
+        catch (InterruptedException ioe1) {
+            ioe1.getMessage();
+        }
+         
     }
     public synchronized void gardado(String cadea,String iniciais,int lonxude){
         for(int i=0;i<ll.size();i++){
@@ -49,6 +54,7 @@ public class FioLector extends Thread {
                ll.sort(c);
            }
         }
+        notify();
         }
     
     public FioLector(BufferedReader br, LinkedList ll) {

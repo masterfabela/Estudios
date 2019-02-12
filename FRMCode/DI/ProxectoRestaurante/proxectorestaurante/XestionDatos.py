@@ -50,3 +50,15 @@ def consultar_camarero():
         print(e)
         conex.rollback()
 
+
+def mostrarservicios():
+    try:
+        cur.execute('select * from servicio')
+        listado = cur.fetchall()
+        conex.commit()
+        return listado
+
+    except sqlite3.OperationalError as e:
+        print(e)
+        bbdd.conexion.rollback()
+

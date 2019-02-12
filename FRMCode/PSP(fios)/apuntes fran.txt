@@ -1,0 +1,41 @@
+Fio: Unha secuencia de código que realiza unha tarefa, 
+    dentro do contexto dun proceso.
+Cada fio é unha tarefa(proceso lixeiro), e é executado por un núcleo(ucp).
+Aplicación multifio:
+    Arbore n-ario de fios.
+    Cada fio executase nun núcleo do procesador.
+    A cada intre, temos N instruccions en execución ó mesmo tempo.
+    Ó mesmo tempo = paralelismo real = Multitarefa.
+    -Metodos da clase Thread:
+        se a cola de preparados está vacia, yield nn se executa.
+
+Marcar FIOS COOPERANTES nos apuntes
+
+O algoritmo diseccionase en varias tarefas(fios) para a sua execucion, 
+compartindo os recursos dos fios do mesmo proceso, porque se executan 
+sobre o mesmo espazo de direccions, e poden ser clasificados en 
+independientes (Asíncronos) e cooperantes (Sincronos).
+    -Fios independientes: executanse de forma asincrona, concorrente que non 
+        comparten recursos.
+    -Fios cooperantes: acceden a os mesmos obxetos en memoria, polo que a sua 
+        execución deberá sincronizarse.Subdividense en outros subgrupos:
+        -Instancias da mesma clase: realizan a mesma tarefa.
+        -Instancias distintas: realizan tarefas distintas, pero tendo a mesma 
+            referencia para a sua execución. As tarefas debense secuenciar.
+
+Métodos:
+    start(): Arranca un fio, e dicir, creandoo e sendo atendido polo 
+        planificador de fios.
+    isAlive():
+    sleep():metodo de espera de un tempo determinado.
+    wait():
+    yield():
+    run():
+    join(): metodo de espera de parametro optativo, retirase un determinado tempo,
+        ou todos os seus fillos fio estean mortos
+    interrupt(): finaliza os metodos de espera.
+    notify():
+
+    Facer esquema de fios.
+
+    Cando o fio adquire o monitor do obxeto, verifica se posue o permiso para utilizalo.

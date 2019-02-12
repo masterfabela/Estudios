@@ -14,16 +14,15 @@ import org.neodatis.odb.ODBServer;
  *
  * @author a18franciscorm
  */
-public class Server {
+public class Server extends Thread{
     public ODBServer encenderServer(){
-        
         ODBServer server = ODBFactory.openServer(8000);
         server.addBase("contabilidade", "contavilidade.neo");
         server.startServer(true);
         return server;
     }
-    public void pecharServer(ODBServer odb){
-        odb.close();
-    }
     
+    public void pechar(ODBServer servidor){
+        servidor.close();
+    }
 }

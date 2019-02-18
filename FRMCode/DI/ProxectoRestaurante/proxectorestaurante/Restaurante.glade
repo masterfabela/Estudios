@@ -2,14 +2,15 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkImage" id="MesaPl">
+  <object class="GtkImage" id="Mesa1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="pixbuf">MesaPequena.png</property>
   </object>
-  <object class="GtkImage" id="MesaPo">
+  <object class="GtkImage" id="Mesa2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-missing-image</property>
+    <property name="pixbuf">MesaPequenaOcuoada.png</property>
   </object>
   <object class="GtkListStore" id="listCamarero">
     <columns>
@@ -277,7 +278,8 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="image">MesaPo</property>
+                        <property name="image">Mesa2</property>
+                        <property name="relief">none</property>
                         <signal name="clicked" handler="on_boton1_clicked" swapped="no"/>
                       </object>
                       <packing>
@@ -960,6 +962,61 @@ https://www.flaticon.com/authors/surang</property>
         </child>
         <child>
           <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="ven_login">
+    <property name="can_focus">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkButton" id="but_login">
+            <property name="label" translatable="yes">Login</property>
+            <property name="width_request">76</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_but_login_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">358</property>
+            <property name="y">50</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="ent_usuario">
+            <property name="width_request">168</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="margin_bottom">40</property>
+            <property name="placeholder_text" translatable="yes">Usuario</property>
+          </object>
+          <packing>
+            <property name="x">11</property>
+            <property name="y">51</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="ent_contrasinal">
+            <property name="width_request">168</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="secondary_icon_tooltip_text" translatable="yes">Contrasinal</property>
+            <property name="placeholder_text" translatable="yes">Contrasinal</property>
+          </object>
+          <packing>
+            <property name="x">181</property>
+            <property name="y">52</property>
+          </packing>
         </child>
       </object>
     </child>

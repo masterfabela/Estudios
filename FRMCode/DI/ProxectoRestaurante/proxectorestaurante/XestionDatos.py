@@ -62,3 +62,20 @@ def mostrarservicios():
         print(e)
         bbdd.conexion.rollback()
 
+
+def login(usuario,contraseña,venta):
+    try:
+        cur.execute('select * from Camarero')
+        listado = cur.fetchall()
+        for columna in listado:
+            if columna[1] == usuario and columna[2] == contraseña:
+                venta.hide()
+                print("Acceso concedido")
+                return True
+            else:
+                print("Acceso denegado")
+                return False
+
+
+    except sqlite3.OperationalError as e:
+        print(e)

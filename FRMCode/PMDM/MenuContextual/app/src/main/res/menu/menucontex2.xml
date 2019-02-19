@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/item4" android:title="Opcion A" android:icon="@android:drawable/ic_dialog_info"/>
+    <item android:id="@+id/item5" android:title="Opcion B" android:icon="@android:drawable/ic_dialog_alert"/>
+    <item android:id="@+id/item6" android:title="Opcion C" android:icon="@android:drawable/ic_dialog_dialer"/>
+</menu>

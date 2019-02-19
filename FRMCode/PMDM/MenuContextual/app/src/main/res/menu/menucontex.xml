@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/item1" android:title="Opcion 1" android:icon="@android:drawable/ic_dialog_info"/>
+    <item android:id="@+id/item2" android:title="Opcion 2" android:icon="@android:drawable/ic_dialog_alert"/>
+    <item android:id="@+id/item3" android:title="Opcion 3" android:icon="@android:drawable/ic_dialog_dialer"/>
+</menu>

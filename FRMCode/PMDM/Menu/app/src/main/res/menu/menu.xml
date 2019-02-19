@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/item1" android:title="Acerca de..." app:showAsAction="never" android:icon="@android:drawable/ic_dialog_alert"/>
+    <item android:id="@+id/item2" android:title="Mais info" app:showAsAction="always" android:icon="@android:drawable/ic_dialog_info">
+        <menu>
+            <item android:id="@+id/item21" android:title="Inserir" android:icon="@android:drawable/ic_media_play"/>
+            <item android:id="@+id/item22" android:title="Borrar" android:icon="@android:drawable/ic_delete"/>
+        </menu>
+        </item>
+    <item android:id="@+id/item3" android:title="Ultimo de..." app:showAsAction="always" android:icon="@android:drawable/ic_dialog_alert"/>
+
+
+</menu>

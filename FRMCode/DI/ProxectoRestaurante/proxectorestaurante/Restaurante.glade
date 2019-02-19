@@ -10,7 +10,37 @@
   <object class="GtkImage" id="Mesa2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">MesaPequenaOcuoada.png</property>
+    <property name="pixbuf">MesaPequena.png</property>
+  </object>
+  <object class="GtkImage" id="Mesa3">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Mesa8.png</property>
+  </object>
+  <object class="GtkImage" id="Mesa4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">MesaPequena.png</property>
+  </object>
+  <object class="GtkImage" id="Mesa5">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">MesaPequena.png</property>
+  </object>
+  <object class="GtkImage" id="Mesa6">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Mesa8.png</property>
+  </object>
+  <object class="GtkImage" id="Mesa7">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Mesa10.png</property>
+  </object>
+  <object class="GtkImage" id="Mesa8">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Mesa10.png</property>
   </object>
   <object class="GtkListStore" id="listCamarero">
     <columns>
@@ -272,19 +302,131 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkButton" id="boton1">
+                      <object class="GtkButton" id="boton2">
                         <property name="width_request">100</property>
-                        <property name="height_request">80</property>
+                        <property name="height_request">88</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="image">Mesa2</property>
                         <property name="relief">none</property>
+                        <signal name="clicked" handler="on_boton2_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">150</property>
+                        <property name="y">16</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="boton1">
+                        <property name="width_request">100</property>
+                        <property name="height_request">88</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">Mesa1</property>
+                        <property name="relief">none</property>
                         <signal name="clicked" handler="on_boton1_clicked" swapped="no"/>
                       </object>
                       <packing>
-                        <property name="x">45</property>
-                        <property name="y">49</property>
+                        <property name="x">35</property>
+                        <property name="y">17</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="boton4">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">Mesa4</property>
+                        <property name="relief">none</property>
+                        <signal name="clicked" handler="on_boton4_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">35</property>
+                        <property name="y">146</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="boton3">
+                        <property name="width_request">100</property>
+                        <property name="height_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">Mesa3</property>
+                        <property name="relief">none</property>
+                        <signal name="clicked" handler="on_boton3_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">268</property>
+                        <property name="y">21</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="boton5">
+                        <property name="width_request">100</property>
+                        <property name="height_request">88</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">Mesa5</property>
+                        <property name="relief">none</property>
+                        <signal name="clicked" handler="on_boton5_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">148</property>
+                        <property name="y">148</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="boton6">
+                        <property name="width_request">156</property>
+                        <property name="height_request">87</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">Mesa6</property>
+                        <property name="relief">none</property>
+                        <signal name="clicked" handler="on_boton6_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">250</property>
+                        <property name="y">152</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="boton7">
+                        <property name="width_request">189</property>
+                        <property name="height_request">97</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">Mesa7</property>
+                        <property name="relief">none</property>
+                        <signal name="clicked" handler="on_boton7_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">28</property>
+                        <property name="y">250</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="boton8">
+                        <property name="width_request">192</property>
+                        <property name="height_request">97</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">Mesa8</property>
+                        <property name="relief">none</property>
+                        <signal name="clicked" handler="on_boton8_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="x">218</property>
+                        <property name="y">250</property>
                       </packing>
                     </child>
                   </object>

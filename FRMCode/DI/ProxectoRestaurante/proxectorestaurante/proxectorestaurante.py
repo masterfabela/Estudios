@@ -22,13 +22,17 @@ class Restaurante:
         self.ven_about = int_visual.get_object("ven_about")
         self.vent_principal.show()
         self.sair_barra = int_visual.get_object("sair_barra")
-        self.mesa1 = int_visual.get_object("mesa1")
-        self.mesa2 = int_visual.get_object("mesa2")
         self.listServicio = int_visual.get_object("listServicio")
         self.listCliente = int_visual.get_object("listCliente")
         self.listCamarero = int_visual.get_object("listCamarero")
         self.i_mesa1 = int_visual.get_object("Mesa1")
         self.i_mesa2 = int_visual.get_object("Mesa2")
+        self.i_mesa3 = int_visual.get_object("Mesa3")
+        self.i_mesa4 = int_visual.get_object("Mesa4")
+        self.i_mesa5 = int_visual.get_object("Mesa5")
+        self.i_mesa6 = int_visual.get_object("Mesa6")
+        self.i_mesa7 = int_visual.get_object("Mesa7")
+        self.i_mesa8 = int_visual.get_object("Mesa8")
         self.ven_login = int_visual.get_object("ven_login")
         self.ent_usuario = int_visual.get_object("ent_usuario")
         self.ent_contrasinal = int_visual.get_object("ent_contrasinal")
@@ -38,6 +42,13 @@ class Restaurante:
             'on_sair_activate': self.sair,
             'on_sair_barra_clicked': self.sair,
             'on_boton1_clicked': self.click_mesa_1,
+            'on_boton2_clicked': self.click_mesa_2,
+            'on_boton3_clicked': self.click_mesa_3,
+            'on_boton4_clicked': self.click_mesa_4,
+            'on_boton5_clicked': self.click_mesa_5,
+            'on_boton6_clicked': self.click_mesa_6,
+            'on_boton7_clicked': self.click_mesa_7,
+            'on_boton8_clicked': self.click_mesa_8,
             'on_but_login_clicked': self.login,
             'on_but_about_activate': self.show_about,
             'on_but_imprimir_clicked': self.probaImpresion
@@ -48,14 +59,31 @@ class Restaurante:
         self.ven_login.show()
         # self.venPrincipal.maximize()
     def click_mesa_1(self,widget):
-        if self.mesa2.is_active():
-            print("activo")
-            self.mesa2.set_from_file("MesaPequenaOcuoada.png")
-            self.mesa2.set_active
-        else:
-            print("inactivo")
-        self.mesa2.set_from_file("MesaPequena.png")
+        self.i_mesa1.set_from_file("MesaPequenaOcuoada.png")
+
+    def click_mesa_2(self, widget):
+        self.i_mesa2.set_from_file("MesaPequenaOcuoada.png")
+    def click_mesa_3(self, widget):
+        self.i_mesa3.set_from_file("MesaMediaOcupada.png")
+
+    def click_mesa_4(self, widget):
+        self.i_mesa4.set_from_file("MesaPequenaOcuoada.png")
+
+    def click_mesa_5(self, widget):
+        self.i_mesa5.set_from_file("MesaPequenaOcuoada.png")
+
+    def click_mesa_6(self, widget):
+        self.i_mesa6.set_from_file("MesaMediaOcupada.png")
+
+    def click_mesa_7(self, widget):
+        self.i_mesa7.set_from_file("MesaGrandeOcupada.png")
+
+    def click_mesa_8(self, widget):
+        self.i_mesa8.set_from_file("MesaGrandeOcupada.png")
+
+
     def sair(self,widget):
+        XestionDatos.pechar_conexion()
         Gtk.main_quit()
 
     def actualizar_listas(self):
@@ -80,7 +108,6 @@ class Restaurante:
         informes.reportservicios()
 
     def login(self,widget):
-        print("asd")
         if XestionDatos.login(self.ent_usuario.get_text(),self.ent_contrasinal.get_text(),self.ven_login) :
             self.vent_principal.show()
 

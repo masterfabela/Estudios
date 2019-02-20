@@ -42,16 +42,6 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">Mesa10.png</property>
   </object>
-  <object class="GtkListStore" id="listCamarero">
-    <columns>
-      <!-- column-name id -->
-      <column type="gchararray"/>
-      <!-- column-name nome -->
-      <column type="gchararray"/>
-      <!-- column-name password -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
   <object class="GtkListStore" id="listCliente">
     <columns>
       <!-- column-name dni -->
@@ -65,6 +55,16 @@
       <!-- column-name provincia -->
       <column type="gchararray"/>
       <!-- column-name cidade -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="listMesa">
+    <columns>
+      <!-- column-name Id -->
+      <column type="gint64"/>
+      <!-- column-name maxComensais -->
+      <column type="gint64"/>
+      <!-- column-name Ocupada -->
       <column type="gchararray"/>
     </columns>
   </object>
@@ -277,6 +277,9 @@
           <object class="GtkPaned">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="position">374</property>
+            <property name="position_set">True</property>
+            <property name="wide_handle">True</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
@@ -452,6 +455,10 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Xestion de Mesa</property>
+                    <attributes>
+                      <attribute name="font-desc" value="Sans 9"/>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -631,8 +638,8 @@
                             </child>
                           </object>
                           <packing>
-                            <property name="x">46</property>
-                            <property name="y">187</property>
+                            <property name="x">17</property>
+                            <property name="y">143</property>
                           </packing>
                         </child>
                         <child>
@@ -707,13 +714,28 @@
                             <property name="y">72</property>
                           </packing>
                         </child>
+                        <child>
+                          <object class="GtkButton" id="but_imprimir">
+                            <property name="label" translatable="yes">Imprimir
+ (Imaxe)</property>
+                            <property name="width_request">100</property>
+                            <property name="height_request">80</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_imprimir_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="y">87</property>
+                          </packing>
+                        </child>
                       </object>
                     </child>
                     <child type="tab">
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Cliente</property>
+                        <property name="label" translatable="yes">Cliente/Facturas</property>
                       </object>
                       <packing>
                         <property name="tab_fill">False</property>
@@ -724,86 +746,16 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
-                          <object class="GtkLabel">
-                            <property name="width_request">100</property>
-                            <property name="height_request">20</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Id:</property>
-                          </object>
-                          <packing>
-                            <property name="y">6</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="width_request">100</property>
-                            <property name="height_request">20</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Nome:</property>
-                          </object>
-                          <packing>
-                            <property name="y">41</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="width_request">100</property>
-                            <property name="height_request">32</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Password:</property>
-                          </object>
-                          <packing>
-                            <property name="y">69</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry">
-                            <property name="width_request">166</property>
-                            <property name="height_request">29</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                          </object>
-                          <packing>
-                            <property name="x">86</property>
-                            <property name="y">2</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry">
-                            <property name="width_request">166</property>
-                            <property name="height_request">29</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                          </object>
-                          <packing>
-                            <property name="x">86</property>
-                            <property name="y">35</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry">
-                            <property name="width_request">166</property>
-                            <property name="height_request">29</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                          </object>
-                          <packing>
-                            <property name="x">86</property>
-                            <property name="y">71</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkTreeView">
+                          <object class="GtkTreeView" id="tree_mesa">
                             <property name="width_request">346</property>
                             <property name="height_request">218</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="model">listCamarero</property>
+                            <property name="model">listMesa</property>
                             <child internal-child="selection">
-                              <object class="GtkTreeSelection"/>
+                              <object class="GtkTreeSelection" id="selector_mesa">
+                                <signal name="changed" handler="on_selector_mesa_changed" swapped="no"/>
+                              </object>
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn">
@@ -818,9 +770,9 @@
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn">
-                                <property name="title" translatable="yes">Nome</property>
+                                <property name="title" translatable="yes">Maximo de Comensais</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="nome1"/>
+                                  <object class="GtkCellRendererText" id="maxComensais"/>
                                   <attributes>
                                     <attribute name="text">1</attribute>
                                   </attributes>
@@ -829,9 +781,9 @@
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn">
-                                <property name="title" translatable="yes">Password</property>
+                                <property name="title" translatable="yes">Ocupada</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="password"/>
+                                  <object class="GtkCellRendererText" id="ocupada"/>
                                   <attributes>
                                     <attribute name="text">2</attribute>
                                   </attributes>
@@ -840,8 +792,62 @@
                             </child>
                           </object>
                           <packing>
-                            <property name="x">7</property>
-                            <property name="y">132</property>
+                            <property name="x">5</property>
+                            <property name="y">10</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="but_ocupar">
+                            <property name="label" translatable="yes">Ocupar Mesa</property>
+                            <property name="width_request">101</property>
+                            <property name="height_request">34</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_ocupar_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">363</property>
+                            <property name="y">60</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="but_baleirar">
+                            <property name="label" translatable="yes">Baleirar Mesa</property>
+                            <property name="width_request">105</property>
+                            <property name="height_request">34</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_baleirar_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">363</property>
+                            <property name="y">97</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkComboBoxText" id="listaMesas">
+                            <property name="width_request">179</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="active">0</property>
+                            <items>
+                              <item id="0" translatable="yes">Pinche nunha mesa:</item>
+                              <item id="1" translatable="yes">Mesa 1 (4 Persoas)</item>
+                              <item id="2" translatable="yes">Mesa 2 (4 Persoas)</item>
+                              <item id="3" translatable="yes">Mesa 3 (8 Persoas)</item>
+                              <item id="4" translatable="yes">Mesa 4 (4 Persoas)</item>
+                              <item id="5" translatable="yes">Mesa 5 (4 Persoas)</item>
+                              <item id="6" translatable="yes">Mesa 6 (8 Persoas)</item>
+                              <item id="7" translatable="yes">Mesa 7 (10 Persoas)</item>
+                              <item id="8" translatable="yes">Mesa 8 (10 Perosas)</item>
+                            </items>
+                          </object>
+                          <packing>
+                            <property name="x">363</property>
+                            <property name="y">28</property>
                           </packing>
                         </child>
                       </object>
@@ -853,7 +859,7 @@
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Camarero</property>
+                        <property name="label" translatable="yes">Mesa</property>
                       </object>
                       <packing>
                         <property name="position">1</property>
@@ -940,22 +946,6 @@
                           <packing>
                             <property name="x">22</property>
                             <property name="y">82</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="but_imprimir">
-                            <property name="label" translatable="yes">Imprimir
- (Imaxe)</property>
-                            <property name="width_request">100</property>
-                            <property name="height_request">80</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">True</property>
-                            <signal name="clicked" handler="on_but_imprimir_clicked" swapped="no"/>
-                          </object>
-                          <packing>
-                            <property name="x">381</property>
-                            <property name="y">15</property>
                           </packing>
                         </child>
                         <child>
@@ -1049,6 +1039,9 @@
           </packing>
         </child>
         <child>
+          <placeholder/>
+        </child>
+        <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -1057,12 +1050,13 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">3</property>
+            <property name="position">4</property>
           </packing>
         </child>
       </object>
     </child>
   </object>
+  <object class="GtkListStore" id="liststore1"/>
   <object class="GtkAboutDialog" id="ven_about">
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>

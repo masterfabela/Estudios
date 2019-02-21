@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.Editor e=sp.edit();
                 e.putString("email","lully@gmail.com");
                 e.putString("nome","Lully Gonzalez");
-                e.apply();
+                e.commit();
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
                 String correo= sp.getString("email","correo predeterminado");
                 String nome= sp.getString("nome","correo predeterminado");
-                Log.i("Preferencias","correo"+correo);
-                Log.i("Preferencias","nome"+nome);
+                System.out.println(Log.i("Preferencias","correo: "+correo));
+                System.out.println(Log.i("Preferencias","nome: "+nome));
             }
         });
     }

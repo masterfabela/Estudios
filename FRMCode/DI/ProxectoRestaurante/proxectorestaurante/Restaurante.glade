@@ -441,7 +441,7 @@
                 </child>
               </object>
               <packing>
-                <property name="resize">True</property>
+                <property name="resize">False</property>
                 <property name="shrink">True</property>
               </packing>
             </child>
@@ -535,8 +535,8 @@
                             <property name="label" translatable="yes">Provincia:</property>
                           </object>
                           <packing>
-                            <property name="x">253</property>
-                            <property name="y">43</property>
+                            <property name="x">259</property>
+                            <property name="y">44</property>
                           </packing>
                         </child>
                         <child>
@@ -545,11 +545,11 @@
                             <property name="height_request">20</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Cidade:</property>
+                            <property name="label" translatable="yes">Localidade:</property>
                           </object>
                           <packing>
-                            <property name="x">250</property>
-                            <property name="y">74</property>
+                            <property name="x">254</property>
+                            <property name="y">76</property>
                           </packing>
                         </child>
                         <child>
@@ -638,8 +638,8 @@
                             </child>
                           </object>
                           <packing>
-                            <property name="x">17</property>
-                            <property name="y">143</property>
+                            <property name="x">16</property>
+                            <property name="y">188</property>
                           </packing>
                         </child>
                         <child>
@@ -691,42 +691,44 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry">
-                            <property name="width_request">166</property>
-                            <property name="height_request">29</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                          </object>
-                          <packing>
-                            <property name="x">352</property>
-                            <property name="y">39</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry">
-                            <property name="width_request">166</property>
-                            <property name="height_request">29</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                          </object>
-                          <packing>
-                            <property name="x">352</property>
-                            <property name="y">72</property>
-                          </packing>
-                        </child>
-                        <child>
                           <object class="GtkButton" id="but_imprimir">
                             <property name="label" translatable="yes">Imprimir
  (Imaxe)</property>
-                            <property name="width_request">100</property>
-                            <property name="height_request">80</property>
+                            <property name="width_request">162</property>
+                            <property name="height_request">46</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <signal name="clicked" handler="on_but_imprimir_clicked" swapped="no"/>
                           </object>
                           <packing>
-                            <property name="y">87</property>
+                            <property name="x">84</property>
+                            <property name="y">117</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkComboBoxText" id="combo_provincia">
+                            <property name="width_request">168</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <signal name="changed" handler="on_combo_provincia_changed" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">353</property>
+                            <property name="y">38</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkComboBoxText" id="combo_localidade">
+                            <property name="width_request">167</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">354</property>
+                            <property name="y">72</property>
                           </packing>
                         </child>
                       </object>

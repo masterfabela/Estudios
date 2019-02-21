@@ -39,12 +39,11 @@ def consultar_cliente():
         conex.rollback()
 
 
-
-def consultar_camarero():
+def consultar_mesas():
     try:
-        cur.execute("select * from Camarero;")
+        cur.execute("select * from Mesa;")
         listado = cur.fetchall()
-        conex.commit()
+
         return listado
     except sqlite3.Error as e:
         print(e)
@@ -63,7 +62,7 @@ def mostrarservicios():
         bbdd.conexion.rollback()
 
 
-def login(usuario,contraseña,venta):
+def login(usuario, contraseña, venta):
     try:
         cur.execute('select * from Camarero;')
         listado = cur.fetchall()
@@ -81,17 +80,7 @@ def login(usuario,contraseña,venta):
         print(e)
 
 
-def consultar_mesas():
-    try:
-        cur.execute("select * from Mesa;")
-        listado = cur.fetchall()
-
-        return listado
-    except sqlite3.Error as e:
-        print(e)
-        conex.rollback()
-
-def modificar_mesas(valor,id):
+def modificar_mesas(valor, id):
     try:
         cur.execute("update Mesa set Ocupada = '"+valor+"' where Id =" + id+";")
         conex.commit()

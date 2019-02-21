@@ -2,6 +2,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import XestionDatos
+import BDProvinciasLocalidades
 import informes
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
@@ -35,6 +36,8 @@ class Restaurante:
         self.i_mesa7 = int_visual.get_object("Mesa7")
         self.i_mesa8 = int_visual.get_object("Mesa8")
         self.listaMesas = int_visual.get_object("listaMesas")
+        self.combo_provincia = int_visual.get_object("combo_provincia")
+        self.combo_localidade = int_visual.get_object("combo_localidade")
         self.ven_login = int_visual.get_object("ven_login")
         self.ent_usuario = int_visual.get_object("ent_usuario")
         self.ent_contrasinal = int_visual.get_object("ent_contrasinal")
@@ -52,6 +55,7 @@ class Restaurante:
             'on_boton6_clicked': self.click_mesa_6,
             'on_boton7_clicked': self.click_mesa_7,
             'on_boton8_clicked': self.click_mesa_8,
+            'on_combo_provincia_changed': self.seleccion_provincia,
             'on_but_login_clicked': self.login,
             'on_but_ocupar_clicked': self.ocupar,
             'on_but_baleirar_clicked': self.baleirar,
@@ -116,6 +120,7 @@ class Restaurante:
     """
     def sair(self,widget):
         XestionDatos.pechar_conexion()
+        BDProvinciasLocalidades.pechar_conexion()
         Gtk.main_quit()
 
     """
@@ -151,6 +156,7 @@ class Restaurante:
             self.actualizar_mesas()
             self.vent_principal.show()
             #self.vent_principal.maximize()
+            BDProvinciasLocalidades.cargar_provincias(self.combo_provincia)
 
     """
         # Metodo para a actualización automática dos iconos dos botóns das mesas
@@ -206,6 +212,11 @@ class Restaurante:
         XestionDatos.modificar_mesas("False", str(self.listaMesas.get_active()))
         self.actualizar_listas()
         self.actualizar_mesas()
+
+    def seleccion_provincia(self, widget):
+        self.combo_localidade.remove_all()
+        BDProvinciasLocalidades.cargar_localidades(self.combo_localidade, self.combo_provincia.get_active_text())
+
 
 if __name__ == "__main__":
     print("Lanzase a aplicación.")

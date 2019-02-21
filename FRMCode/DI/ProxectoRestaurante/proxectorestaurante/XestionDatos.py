@@ -19,7 +19,7 @@ def pechar_conexion():
 
 def consultar_servicio():
     try:
-        cur.execute("select * from Servicio;")
+        cur.execute("select * from LineaFactura;")
         listado = cur.fetchall()
         conex.commit()
         return listado
@@ -74,10 +74,35 @@ def login(usuario, contraseña, venta):
             else:
                 print("Acceso denegado")
                 return False
-
-
     except sqlite3.OperationalError as e:
         print(e)
+
+
+def insertar_cliente(fila):
+    try:
+        cur.execute("insert into cliente(dni, apelidos, nome, direccion, provincia, cidade) values(?,?,?,?,?,?);", fila)
+        conex.commit()
+    except sqlite3.Error as e:
+        print("Erro na inserción de cliente: "+e)
+        conex.rollback()
+
+
+def modificar_cliente(fila):
+    try:
+        cur.execute("update cliente set dni=?, apelidos = ?, nome = ?, direccion = ?, provincia = ?, cidade = ? where dni= ? ;", fila)
+        conex.commit()
+    except sqlite3.Error as e:
+        print("Erro na inserción de cliente: "+e)
+        conex.rollback()
+
+
+def baixa_cliente(dni):
+    try:
+        cur.execute("delete from cliente where dni = '"+dni+"';")
+        conex.commit()
+    except sqlite3.Error as e:
+        print("Erro na baixa de cliente: "+e)
+        conex.rollback()
 
 
 def modificar_mesas(valor, id):

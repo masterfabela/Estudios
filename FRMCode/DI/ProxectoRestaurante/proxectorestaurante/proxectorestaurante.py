@@ -4,18 +4,19 @@ from gi.repository import Gtk
 import XestionDatos
 import BDProvinciasLocalidades
 import informes
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import A4
+import servicios
 
-#engadir busquedas
-#cambiar a distribucion dos paneis
+#engadir busquedas.
+#cambiar a distribucion dos paneis.
 #Implementar copia de seguridade da bd.
-#fallo de login dos camareiros
-#engadir todas as mesas
-#subir o codigo a github
+#fallo de login dos camareiros.
+#subir o codigo a github.
 #Mostraranse avisos.
-#Ver a distribucion da aplicacion
-# as liñas de factura son os campos de productos que se engaden
+#Ver a distribucion da aplicacion.
+#As liñas de factura son os campos de productos que se engaden.
+#vincular o vaciado das mesas a o pago da factura.
+#Montar as facturas mediante comboboxes, listando todos os datos neles
+#Crear metodo e interface para a implementacion de novos platos.
 class Restaurante:
     def __init__(self):
         int_visual = Gtk.Builder()
@@ -42,11 +43,21 @@ class Restaurante:
         self.ent_usuario = int_visual.get_object("ent_usuario")
         self.ent_contrasinal = int_visual.get_object("ent_contrasinal")
         self.but_login = int_visual.get_object("but_login")
+        self.but_alta_cliente = int_visual.get_object("but_alta_cliente")
+        self.but_baixa_cliente = int_visual.get_object("but_baixa_cliente")
+        self.but_mod_cliente = int_visual.get_object("but_mod_cliente")
+        self.tex_dni = int_visual.get_object("tex_dni")
+        self.tex_nome = int_visual.get_object("tex_nome")
+        self.tex_apelidos = int_visual.get_object("tex_apelidos")
+        self.tex_direccion = int_visual.get_object("tex_direccion")
+        self.tree_clientes = int_visual.get_object("tree_clientes")
+        self.limpacaixas_cliente()
         dic = {
             'on_vent_principal_destroy': self.sair,
             'on_sair_activate': self.sair,
             'on_sair_barra_clicked': self.sair,
             'on_selector_mesa_changed': self.seleccionar_mesa,
+            'on_selector_clientes_changed': self.cargandodatos_clientes,
             'on_boton1_clicked': self.click_mesa_1,
             'on_boton2_clicked': self.click_mesa_2,
             'on_boton3_clicked': self.click_mesa_3,
@@ -60,7 +71,10 @@ class Restaurante:
             'on_but_ocupar_clicked': self.ocupar,
             'on_but_baleirar_clicked': self.baleirar,
             'on_but_about_activate': self.show_about,
-            'on_but_imprimir_clicked': self.probaImpresion
+            'on_but_imprimir_clicked': self.probaImpresion,
+            'on_but_alta_cliente_clicked': self.alta_cliente,
+            'on_but_baixa_cliente_clicked': self.baixa_cliente,
+            'on_but_mod_cliente_clicked': self.mod_cliente
         }
         int_visual.connect_signals(dic)
         self.vent_principal.hide()
@@ -91,7 +105,7 @@ class Restaurante:
         # Metodos para o lanzado de eventos dos botons das mesas
     """
 
-    def click_mesa_1(self,widget):
+    def click_mesa_1(self, widget):
         self.listaMesas.set_active(1)
 
     def click_mesa_2(self, widget):
@@ -141,10 +155,10 @@ class Restaurante:
         for registro3 in lista3:
             self.listMesa.append(registro3)
 
-    def show_about(self,widget):
+    def show_about(self, widget):
         self.ven_about.show()
 
-    def probaImpresion(self,widget):
+    def probaImpresion(self, widget):
         informes.reportservicios()
 
     """
@@ -198,17 +212,17 @@ class Restaurante:
             elif columna[0] == 8 and columna[2] == "False":
                 self.liberar_mesa_G(self.i_mesa8)
 
-    def seleccionar_mesa(self,widget):
+    def seleccionar_mesa(self, widget):
         model, iter = self.tree_mesa.get_selection().get_selected()
         if iter != None:
             self.listaMesas.set_active(model.get_value(iter, 0))
 
-    def ocupar(self,widget):
+    def ocupar(self, widget):
         XestionDatos.modificar_mesas("True", str(self.listaMesas.get_active()))
         self.actualizar_listas()
         self.actualizar_mesas()
 
-    def baleirar(self,widget):
+    def baleirar(self, widget):
         XestionDatos.modificar_mesas("False", str(self.listaMesas.get_active()))
         self.actualizar_listas()
         self.actualizar_mesas()
@@ -217,6 +231,78 @@ class Restaurante:
         self.combo_localidade.remove_all()
         BDProvinciasLocalidades.cargar_localidades(self.combo_localidade, self.combo_provincia.get_active_text())
 
+    def creafilas_clientes(self):
+        dni = self.tex_dni.get_text()
+        direccion = self.tex_direccion.get_text()
+        apel = self.tex_apelidos.get_text()
+        nom = self.tex_nome.get_text()
+        provincia = self.combo_provincia.get_active_text()
+        localidade = self.combo_localidade.get_active_text()
+        filacli = (dni, apel, nom, direccion, provincia, localidade)
+        return filacli
+    def creafilas_clientes_mod(self):
+        dni = self.tex_dni.get_text()
+        direccion = self.tex_direccion.get_text()
+        apel = self.tex_apelidos.get_text()
+        nom = self.tex_nome.get_text()
+        provincia = self.combo_provincia.get_active_text()
+        localidade = self.combo_localidade.get_active_text()
+        filacli = (dni, apel, nom, direccion, provincia, localidade,self.dniProvisional)
+        return filacli
+
+    def alta_cliente(self, widget):
+
+        XestionDatos.insertar_cliente(self.comprobar_entradas_cliente())
+        self.actualizar_listas()
+        self.limpacaixas_cliente()
+
+    def baixa_cliente(self, widget):
+        if self.tex_dni.get_text() != "":
+            XestionDatos.baixa_cliente(str(self.tex_dni.get_text()))
+            self.actualizar_listas()
+            self.limpacaixas_cliente()
+        else:
+            print("Faltan datos para a eliminación");
+
+    def mod_cliente(self, widget):
+        XestionDatos.modificar_cliente(self.comprobar_entradas_cliente_mod())
+        self.actualizar_listas()
+        self.limpacaixas_cliente()
+
+    def cargandodatos_clientes(self, widget):
+        model, iter = self.tree_clientes.get_selection().get_selected()
+        if iter != None:
+            self.tex_dni.set_text(str(model.get_value(iter, 0)))
+            self.dniProvisional =str(model.get_value(iter, 0))
+            self.tex_apelidos.set_text(model.get_value(iter, 1))
+            self.tex_nome.set_text(model.get_value(iter, 2))
+            self.tex_direccion.set_text(model.get_value(iter, 3))
+
+    def comprobar_entradas_cliente(self):
+        if self.tex_dni != '' and self.tex_direccion != '' and self.tex_apelidos != '' and self.tex_nome != '':
+            if servicios.comprobarDNI(self.tex_dni):
+                return self.creafilas_clientes()
+            else:
+                print("DNI Incorrecto.")
+        else:
+            print("Faltan datos.")
+
+    def comprobar_entradas_cliente_mod(self):
+        if self.tex_dni != '' and self.tex_direccion != '' and self.tex_apelidos != '' and self.tex_nome != '':
+            if servicios.comprobarDNI(self.tex_dni):
+                return self.creafilas_clientes_mod()
+            else:
+                print("DNI Incorrecto.")
+        else:
+            print("Faltan datos.")
+
+    def limpacaixas_cliente(self):
+        self.tex_dni.set_text("")
+        self.tex_nome.set_text("")
+        self.tex_apelidos.set_text("")
+        self.tex_direccion.set_text("")
+        self.combo_localidade.remove_all()
+        self.combo_provincia.remove_all()
 
 if __name__ == "__main__":
     print("Lanzase a aplicación.")

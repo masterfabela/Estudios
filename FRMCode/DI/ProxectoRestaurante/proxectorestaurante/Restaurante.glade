@@ -70,12 +70,14 @@
   </object>
   <object class="GtkListStore" id="listServicio">
     <columns>
-      <!-- column-name codigo -->
+      <!-- column-name idVenta -->
       <column type="gchararray"/>
-      <!-- column-name producto -->
+      <!-- column-name idFactura -->
       <column type="gchararray"/>
-      <!-- column-name precio -->
+      <!-- column-name idServicio -->
       <column type="gchararray"/>
+      <!-- column-name cantidade -->
+      <column type="gint64"/>
     </columns>
   </object>
   <object class="GtkWindow" id="vent_principal">
@@ -553,14 +555,16 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkTreeView">
+                          <object class="GtkTreeView" id="tree_clientes">
                             <property name="width_request">506</property>
                             <property name="height_request">250</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="model">listCliente</property>
                             <child internal-child="selection">
-                              <object class="GtkTreeSelection"/>
+                              <object class="GtkTreeSelection" id="selector_clientes">
+                                <signal name="changed" handler="on_selector_clientes_changed" swapped="no"/>
+                              </object>
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn">
@@ -643,7 +647,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry">
+                          <object class="GtkEntry" id="tex_dni">
                             <property name="width_request">166</property>
                             <property name="height_request">29</property>
                             <property name="visible">True</property>
@@ -655,7 +659,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry">
+                          <object class="GtkEntry" id="tex_apelidos">
                             <property name="width_request">166</property>
                             <property name="height_request">29</property>
                             <property name="visible">True</property>
@@ -667,7 +671,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry">
+                          <object class="GtkEntry" id="tex_nome">
                             <property name="width_request">166</property>
                             <property name="height_request">29</property>
                             <property name="visible">True</property>
@@ -679,7 +683,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry">
+                          <object class="GtkEntry" id="tex_direccion">
                             <property name="width_request">166</property>
                             <property name="height_request">29</property>
                             <property name="visible">True</property>
@@ -688,22 +692,6 @@
                           <packing>
                             <property name="x">352</property>
                             <property name="y">6</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="but_imprimir">
-                            <property name="label" translatable="yes">Imprimir
- (Imaxe)</property>
-                            <property name="width_request">162</property>
-                            <property name="height_request">46</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">True</property>
-                            <signal name="clicked" handler="on_but_imprimir_clicked" swapped="no"/>
-                          </object>
-                          <packing>
-                            <property name="x">84</property>
-                            <property name="y">117</property>
                           </packing>
                         </child>
                         <child>
@@ -731,13 +719,58 @@
                             <property name="y">72</property>
                           </packing>
                         </child>
+                        <child>
+                          <object class="GtkButton" id="but_alta_cliente">
+                            <property name="label" translatable="yes">Alta</property>
+                            <property name="width_request">100</property>
+                            <property name="height_request">34</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_alta_cliente_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">6</property>
+                            <property name="y">122</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="but_baixa_cliente">
+                            <property name="label" translatable="yes">Baixa</property>
+                            <property name="width_request">100</property>
+                            <property name="height_request">34</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_baixa_cliente_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">121</property>
+                            <property name="y">123</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="but_mod_cliente">
+                            <property name="label" translatable="yes">Modificar</property>
+                            <property name="width_request">100</property>
+                            <property name="height_request">34</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_mod_cliente_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">234</property>
+                            <property name="y">123</property>
+                          </packing>
+                        </child>
                       </object>
                     </child>
                     <child type="tab">
                       <object class="GtkLabel">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Cliente/Facturas</property>
+                        <property name="label" translatable="yes">Cliente</property>
                       </object>
                       <packing>
                         <property name="tab_fill">False</property>
@@ -952,7 +985,7 @@
                         </child>
                         <child>
                           <object class="GtkTreeView">
-                            <property name="width_request">510</property>
+                            <property name="width_request">502</property>
                             <property name="height_request">290</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -965,10 +998,24 @@
                               <object class="GtkTreeViewColumn">
                                 <property name="resizable">True</property>
                                 <property name="title" translatable="yes">Codigo</property>
+                                <property name="expand">True</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="codigo"/>
+                                  <object class="GtkCellRendererText" id="idVenta"/>
                                   <attributes>
                                     <attribute name="text">0</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkTreeViewColumn">
+                                <property name="resizable">True</property>
+                                <property name="title" translatable="yes">Factura</property>
+                                <property name="expand">True</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="idFactura"/>
+                                  <attributes>
+                                    <attribute name="text">1</attribute>
                                   </attributes>
                                 </child>
                               </object>
@@ -979,28 +1026,28 @@
                                 <property name="title" translatable="yes">Servicio</property>
                                 <property name="expand">True</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="producto"/>
-                                  <attributes>
-                                    <attribute name="text">1</attribute>
-                                  </attributes>
-                                </child>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkTreeViewColumn">
-                                <property name="resizable">True</property>
-                                <property name="title" translatable="yes">Precio Unidad</property>
-                                <child>
-                                  <object class="GtkCellRendererText" id="precio"/>
+                                  <object class="GtkCellRendererText" id="idServicio"/>
                                   <attributes>
                                     <attribute name="text">2</attribute>
                                   </attributes>
                                 </child>
                               </object>
                             </child>
+                            <child>
+                              <object class="GtkTreeViewColumn">
+                                <property name="title" translatable="yes">Cantidade</property>
+                                <property name="expand">True</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="Cantidade"/>
+                                  <attributes>
+                                    <attribute name="text">3</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                            </child>
                           </object>
                           <packing>
-                            <property name="x">18</property>
+                            <property name="x">26</property>
                             <property name="y">115</property>
                           </packing>
                         </child>
@@ -1017,6 +1064,42 @@
                       </object>
                       <packing>
                         <property name="position">2</property>
+                        <property name="tab_fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkFixed">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkButton" id="but_imprimir">
+                            <property name="label" translatable="yes">Imprimir
+ (Imaxe)</property>
+                            <property name="width_request">100</property>
+                            <property name="height_request">22</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_imprimir_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">2</property>
+                            <property name="y">21</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Facturas</property>
+                      </object>
+                      <packing>
+                        <property name="position">3</property>
                         <property name="tab_fill">False</property>
                       </packing>
                     </child>
@@ -1039,9 +1122,6 @@
             <property name="fill">True</property>
             <property name="position">2</property>
           </packing>
-        </child>
-        <child>
-          <placeholder/>
         </child>
         <child>
           <object class="GtkLabel">

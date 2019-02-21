@@ -11,9 +11,9 @@ package exercicio1psp;
  */
 public class Linea {
     String iniciais,cadea;
-    int lonxitude,cantidade;
+    int lonxitude,cantidade=1;
 
-    public Linea(String iniciais, String cadea, int lonxitude, int cantidade) {
+    public Linea(String iniciais, String cadea, int lonxitude) {
         this.iniciais = iniciais;
         this.cadea = cadea;
         this.lonxitude = lonxitude;

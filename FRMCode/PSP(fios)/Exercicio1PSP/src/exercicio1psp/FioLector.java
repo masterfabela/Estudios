@@ -15,31 +15,41 @@ import java.util.LinkedList;
  * @author a18franciscorm
  */
 public class FioLector extends Thread {
-
     final private BufferedReader br;
     private int lonxitude = 0;
     private String iniciais = "";
     LinkedList<Linea> ll;
-    Comparator c=(Comparator<Linea>) (Linea o1, Linea o2) -> o1.getIniciais().compareTo(o2.getIniciais());
+    Escritor esc=new Escritor();
 
     @Override
     public void run() {
         try {
-            while (br.ready()) {
+            String cadea=br.readLine();
+            while (!cadea.equalsIgnoreCase(null)){
                 iniciais = "";
                 lonxitude = 0;
-                String cadea=br.readLine();
                 String[] fraccion = cadea.split(" ");
                 for (String d1 : fraccion) {
                     iniciais += d1.charAt(0);
                     lonxitude += d1.length();
                 }
+<<<<<<< HEAD
+                Linea test=new Linea(iniciais,cadea,lonxitude);
+                esc.gardado(test,ll);
+                cadea=br.readLine();
+=======
                 wait();
                 gardado(cadea,iniciais,lonxitude);
+>>>>>>> 16c09bdf289d528f61ae0ecc1c1c65fb7ab05bc7
             }
+            br.close();
         } catch (IOException ioe1) {
             ioe1.getMessage();
         }
+<<<<<<< HEAD
+        
+    }
+=======
         catch (InterruptedException ioe1) {
             ioe1.getMessage();
         }
@@ -57,6 +67,7 @@ public class FioLector extends Thread {
         notify();
         }
     
+>>>>>>> 16c09bdf289d528f61ae0ecc1c1c65fb7ab05bc7
     public FioLector(BufferedReader br, LinkedList ll) {
         this.br = br;
         this.ll = ll;

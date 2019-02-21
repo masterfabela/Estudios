@@ -25,9 +25,10 @@ public class Exercicio1PSP {
     public static void main(String[] args) {
         LinkedList<Linea> ts= new LinkedList();
         FioLector f1=null;
-        ts.add(new Linea("T","Test",0,0));
+        ts.add(new Linea("T","Test",0));
         for(String s1:args){
             try{
+                System.out.println(s1);
                 BufferedReader br=new BufferedReader(new FileReader(s1));
             f1=new FioLector(br,ts);
             f1.start();
@@ -38,7 +39,8 @@ public class Exercicio1PSP {
             }catch(InterruptedException ie1){
                 ie1.getMessage();
             }
-            File saida=new File("saida.txt");
+        }
+        File saida=new File("saida.txt");
             try{
                 PrintStream ps=new PrintStream(new FileOutputStream(saida));
                 for(Linea ll:ts){
@@ -47,6 +49,5 @@ public class Exercicio1PSP {
                 }
                 ps.close();
             }catch(FileNotFoundException fnfe1){}
-        }
     }
 }

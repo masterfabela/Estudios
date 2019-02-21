@@ -10,14 +10,15 @@ package Server.modelo;
  * @author a18franciscorm
  */
 public class Actividade {
-    private String nome;
+    private String nome,tipo;
     private float cuota,desconto;
 
     public Actividade() {
     }
 
-    public Actividade(String nome, float cuota, float desconto) {
+    public Actividade(String nome, String tipo, float cuota, float desconto) {
         this.nome = nome;
+        this.tipo = tipo;
         this.cuota = cuota;
         this.desconto = desconto;
     }
@@ -28,6 +29,14 @@ public class Actividade {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public float getCuota() {
@@ -45,5 +54,6 @@ public class Actividade {
     public void setDesconto(float desconto) {
         this.desconto = desconto;
     }
+
     
 }

@@ -12,7 +12,7 @@ import java.util.Set;
  *
  * @author a18franciscorm
  */
-public class Conta {
+public abstract class Conta {
     private String numero,surursal;
     private double saldoActual;
     private Set<Cliente> clientes;

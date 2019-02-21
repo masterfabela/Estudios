@@ -12,15 +12,19 @@ import org.neodatis.odb.ODBServer;
  *
  * @author a18franciscorm
  */
-public class Controlador {
-    public ODBServer encenderServer(){
-        ODBServer server = ODBFactory.openServer(8000);
+public class Controlador extends Thread{
+    private ODBServer server;
+    public void encenderServer(){
+        server = ODBFactory.openServer(8000);
         server.addBase("ximnasios", "ximnasios.neo");
         server.startServer(true);
-        return server;
+        
     }
-    
-    public void pechar(ODBServer servidor){
-        servidor.close();
+    @Override
+    public void start(){
+        encenderServer();
+    }
+    public void pechar(){
+        server.close();
     }
 }

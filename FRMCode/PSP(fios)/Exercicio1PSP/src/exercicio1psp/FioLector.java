@@ -33,16 +33,41 @@ public class FioLector extends Thread {
                     iniciais += d1.charAt(0);
                     lonxitude += d1.length();
                 }
+<<<<<<< HEAD
                 Linea test=new Linea(iniciais,cadea,lonxitude);
                 esc.gardado(test,ll);
                 cadea=br.readLine();
+=======
+                wait();
+                gardado(cadea,iniciais,lonxitude);
+>>>>>>> 16c09bdf289d528f61ae0ecc1c1c65fb7ab05bc7
             }
             br.close();
         } catch (IOException ioe1) {
             ioe1.getMessage();
         }
+<<<<<<< HEAD
         
     }
+=======
+        catch (InterruptedException ioe1) {
+            ioe1.getMessage();
+        }
+         
+    }
+    public synchronized void gardado(String cadea,String iniciais,int lonxude){
+        for(int i=0;i<ll.size();i++){
+            if(ll.get(i).getCadea().equals(cadea)){
+               ll.get(i).setCantidade(ll.get(i).getCantidade()+1);
+           }else{
+               ll.add(new Linea(iniciais,cadea,lonxude,1));
+               ll.sort(c);
+           }
+        }
+        notify();
+        }
+    
+>>>>>>> 16c09bdf289d528f61ae0ecc1c1c65fb7ab05bc7
     public FioLector(BufferedReader br, LinkedList ll) {
         this.br = br;
         this.ll = ll;

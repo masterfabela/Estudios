@@ -19,7 +19,7 @@ def pechar_conexion():
 
 def consultar_servicio():
     try:
-        cur.execute("select * from Servicio")
+        cur.execute("select * from Servicio;")
         listado = cur.fetchall()
         conex.commit()
         return listado
@@ -30,7 +30,7 @@ def consultar_servicio():
 
 def consultar_cliente():
     try:
-        cur.execute("select * from Cliente")
+        cur.execute("select * from Cliente;")
         listado = cur.fetchall()
         conex.commit()
         return listado
@@ -42,7 +42,7 @@ def consultar_cliente():
 
 def consultar_camarero():
     try:
-        cur.execute("select * from Camarero")
+        cur.execute("select * from Camarero;")
         listado = cur.fetchall()
         conex.commit()
         return listado
@@ -53,7 +53,7 @@ def consultar_camarero():
 
 def mostrarservicios():
     try:
-        cur.execute('select * from servicio')
+        cur.execute('select * from servicio;')
         listado = cur.fetchall()
         conex.commit()
         return listado
@@ -62,3 +62,39 @@ def mostrarservicios():
         print(e)
         bbdd.conexion.rollback()
 
+
+def login(usuario,contraseña,venta):
+    try:
+        cur.execute('select * from Camarero;')
+        listado = cur.fetchall()
+        for columna in listado:
+            if columna[1] == usuario and columna[2] == contraseña:
+                venta.hide()
+                print("Acceso concedido")
+                return True
+            else:
+                print("Acceso denegado")
+                return False
+
+
+    except sqlite3.OperationalError as e:
+        print(e)
+
+
+def consultar_mesas():
+    try:
+        cur.execute("select * from Mesa;")
+        listado = cur.fetchall()
+
+        return listado
+    except sqlite3.Error as e:
+        print(e)
+        conex.rollback()
+
+def modificar_mesas(valor,id):
+    try:
+        cur.execute("update Mesa set Ocupada = '"+valor+"' where Id =" + id+";")
+        conex.commit()
+    except sqlite3.Error as e:
+        print(e)
+        conex.rollback()

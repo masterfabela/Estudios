@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FEBRERO_FranciscoRomayMendez</string>
+    <string name="mensaje_Alumnos">ALUMNOS</string>
+    <string name="mensaje_Alumnos2">Alumno: </string>
+    <string name="mensaje_Curso">Curso: </string>
+    <string name="mensaje_Ciclo">Ciclo: </string>
+    <string name="mensaje_Guardar">GUARDAR</string>
+    <string name="mensaxe_Listar">LISTAR</string>
+    <string name="nome">Nome</string>
+</resources>

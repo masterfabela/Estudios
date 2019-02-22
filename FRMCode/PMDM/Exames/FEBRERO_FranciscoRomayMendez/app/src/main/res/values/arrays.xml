@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Cursos">
+        <item>ESO</item>
+        <item>Bach.</item>
+        <item>Ciclos</item>
+    </string-array>
+    <string-array name="Ciclos">
+        <item>DAM</item>
+        <item>DAW</item>
+        <item>ASIR</item>
+    </string-array>
+</resources>

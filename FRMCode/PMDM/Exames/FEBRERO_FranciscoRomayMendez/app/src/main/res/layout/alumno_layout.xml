@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ImageView
+        android:layout_width="@dimen/imaxe"
+        android:layout_height="@dimen/imaxe"
+        android:src="@drawable/mortarboard"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/imaxe"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/curso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/ciclo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"/>
+    </LinearLayout>
+
+</LinearLayout>

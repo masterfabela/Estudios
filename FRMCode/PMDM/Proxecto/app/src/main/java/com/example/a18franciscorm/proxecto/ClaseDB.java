@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ClaseDB extends SQLiteOpenHelper {
 
-    String sqlCreate = "CREATE TABLE Alimentos (codigo INTEGER PRIMARY KEY, nombre TEXT, tipo TEXT,azucares_simples TEXT, grasas_saturadas TEXT, sodio TEXT);";
+    String sqlCreate = "CREATE TABLE Alimentos (codigo INTEGER PRIMARY KEY, nombre TEXT, tipo TEXT,azucares TEXT, grasas TEXT, sodio TEXT);";
 
     public ClaseDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

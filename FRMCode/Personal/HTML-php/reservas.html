@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Práctica Reservas</title>
+    </head>
+    <body>
+        <h1>Reservas Restaurante - Formulario</h1>
+
+        <form action="reservas.php" method="get">
+
+            <p>Escriba a hora de reserva, así como os comensais e a</p>
+
+            <p>Hora <input type="text" name="hora" size="6" maxlength="6" /> 
+            <p> A nome de: <input type="text" name="nome" size="6" maxlength="6" /> 
+                <select name="origen">
+                    <option selected="selected" value="luns">Luns</option>
+                    <option value="martes">Martes</option>
+                    <option value="mercores">Mércores</option>
+                    <option value="xoves">Xoves</option>
+                    <option value="venres">Venres</option>
+                </select>
+                para 
+                <select name="destino">
+                    <option selected="selected" value="1"> unha persoa.</option>
+                    <option value="2">parella.</option>
+                    <option value="3">tres persoas.</option>
+                    <option value="4">catro persoas.</option>
+                    <option value="5">cinco persoas.</option>
+                </select>
+            </p>
+
+            <p><strong>Nota</strong>: A reserva estará suxeita a dispoñibilidade.<br />
+                </p>
+
+                <input type="submit" value="Convertir" /> 
+                <input type="reset" value="Borrar" name="Reset" />
+        </form>
+    </body>
+</html>

@@ -5,6 +5,7 @@ import XestionDatos
 import BDProvinciasLocalidades
 import informes
 import servicios
+import time
 
 #engadir busquedas.
 #cambiar a distribucion dos paneis.
@@ -52,6 +53,14 @@ class Restaurante:
         self.tex_direccion = int_visual.get_object("tex_direccion")
         self.tree_clientes = int_visual.get_object("tree_clientes")
         self.limpacaixas_cliente()
+        self.combo_Cliente = int_visual.get_object("combo_Cliente")
+        self.combo_Mesa = int_visual.get_object("combo_Mesa")
+        self.combo_Camareiro = int_visual.get_object("combo_Camareiro")
+        self.tree_Facturas = int_visual.get_object("tree_Facturas")
+        self.list_Facturas = int_visual.get_object("list_Facturas")
+        self.but_creaFactura = int_visual.get_object("but_creaFactura")
+        self.but_pagar =int_visual.get_object("but_pagar")
+
         dic = {
             'on_vent_principal_destroy': self.sair,
             'on_sair_activate': self.sair,
@@ -74,7 +83,9 @@ class Restaurante:
             'on_but_imprimir_clicked': self.probaImpresion,
             'on_but_alta_cliente_clicked': self.alta_cliente,
             'on_but_baixa_cliente_clicked': self.baixa_cliente,
-            'on_but_mod_cliente_clicked': self.mod_cliente
+            'on_but_mod_cliente_clicked': self.mod_cliente,
+            'on_but_creaFactura_clicked': self.crear_factura,
+            'on_but_pagar_clicked': self.pagarfactura
         }
         int_visual.connect_signals(dic)
         self.vent_principal.hide()
@@ -107,27 +118,35 @@ class Restaurante:
 
     def click_mesa_1(self, widget):
         self.listaMesas.set_active(1)
+        self.combo_Mesa.set_active(0)
 
     def click_mesa_2(self, widget):
         self.listaMesas.set_active(2)
+        self.combo_Mesa.set_active(1)
 
     def click_mesa_3(self, widget):
         self.listaMesas.set_active(3)
+        self.combo_Mesa.set_active(2)
 
     def click_mesa_4(self, widget):
         self.listaMesas.set_active(4)
+        self.combo_Mesa.set_active(3)
 
     def click_mesa_5(self, widget):
         self.listaMesas.set_active(5)
+        self.combo_Mesa.set_active(4)
 
     def click_mesa_6(self, widget):
         self.listaMesas.set_active(6)
+        self.combo_Mesa.set_active(5)
 
     def click_mesa_7(self, widget):
         self.listaMesas.set_active(7)
+        self.combo_Mesa.set_active(6)
 
     def click_mesa_8(self, widget):
         self.listaMesas.set_active(8)
+        self.combo_Mesa.set_active(7)
 
     """
         # Metodo para a finalización do programa
@@ -154,6 +173,10 @@ class Restaurante:
         lista3 = XestionDatos.consultar_mesas()
         for registro3 in lista3:
             self.listMesa.append(registro3)
+        self.list_Facturas.clear()
+        lista4 = XestionDatos.consultar_facturas()
+        for registro4 in lista4:
+            self.list_Facturas.append(registro4)
 
     def show_about(self, widget):
         self.ven_about.show()
@@ -171,6 +194,9 @@ class Restaurante:
             self.vent_principal.show()
             #self.vent_principal.maximize()
             BDProvinciasLocalidades.cargar_provincias(self.combo_provincia)
+            XestionDatos.cargar_clientes(self.combo_Cliente)
+            XestionDatos.cargar_mesa(self.combo_Mesa)
+            XestionDatos.cargar_camareiro(self.combo_Camareiro)
 
     """
         # Metodo para a actualización automática dos iconos dos botóns das mesas
@@ -179,46 +205,51 @@ class Restaurante:
     def actualizar_mesas(self):
         listaMesas = XestionDatos.consultar_mesas()
         for columna in listaMesas:
-            if columna[0] == 1 and columna[2] == "True":
+            if columna[0] == "1" and columna[2] == "True":
                 self.ocupar_mesa_P(self.i_mesa1)
-            elif columna[0] == 2 and columna[2] == "True":
+            elif columna[0] == "2" and columna[2] == "True":
                 self.ocupar_mesa_P(self.i_mesa2)
-            elif columna[0] == 3 and columna[2] == "True":
+            elif columna[0] == "3" and columna[2] == "True":
                 self.ocupar_mesa_M(self.i_mesa3)
-            elif columna[0] == 4 and columna[2] == "True":
+            elif columna[0] == "4" and columna[2] == "True":
                 self.ocupar_mesa_P(self.i_mesa4)
-            elif columna[0] == 5 and columna[2] == "True":
+            elif columna[0] == "5" and columna[2] == "True":
                 self.ocupar_mesa_P(self.i_mesa5)
-            elif columna[0] == 6 and columna[2] == "True":
+            elif columna[0] == "6" and columna[2] == "True":
                 self.ocupar_mesa_M(self.i_mesa6)
-            elif columna[0] == 7 and columna[2] == "True":
+            elif columna[0] == "7" and columna[2] == "True":
                 self.ocupar_mesa_G(self.i_mesa7)
-            elif columna[0] == 8 and columna[2] == "True":
+            elif columna[0] == "8" and columna[2] == "True":
                 self.ocupar_mesa_G(self.i_mesa8)
-            if columna[0] == 1 and columna[2] == "False":
+            if columna[0] == "1" and columna[2] == "False":
                 self.liberar_mesa_P(self.i_mesa1)
-            elif columna[0] == 2 and columna[2] == "False":
+            elif columna[0] == "2" and columna[2] == "False":
                 self.liberar_mesa_P(self.i_mesa2)
-            elif columna[0] == 3 and columna[2] == "False":
+            elif columna[0] == "3" and columna[2] == "False":
                 self.liberar_mesa_M(self.i_mesa3)
-            elif columna[0] == 4 and columna[2] == "False":
+            elif columna[0] == "4" and columna[2] == "False":
                 self.liberar_mesa_P(self.i_mesa4)
-            elif columna[0] == 5 and columna[2] == "False":
+            elif columna[0] == "5" and columna[2] == "False":
                 self.liberar_mesa_P(self.i_mesa5)
-            elif columna[0] == 6 and columna[2] == "False":
+            elif columna[0] == "6" and columna[2] == "False":
                 self.liberar_mesa_M(self.i_mesa6)
-            elif columna[0] == 7 and columna[2] == "False":
+            elif columna[0] == "7" and columna[2] == "False":
                 self.liberar_mesa_G(self.i_mesa7)
-            elif columna[0] == 8 and columna[2] == "False":
+            elif columna[0] == "8" and columna[2] == "False":
                 self.liberar_mesa_G(self.i_mesa8)
 
     def seleccionar_mesa(self, widget):
         model, iter = self.tree_mesa.get_selection().get_selected()
         if iter != None:
-            self.listaMesas.set_active(model.get_value(iter, 0))
+            self.listaMesas.set_active(int(model.get_value(iter, 0)))
 
     def ocupar(self, widget):
         XestionDatos.modificar_mesas("True", str(self.listaMesas.get_active()))
+        self.actualizar_listas()
+        self.actualizar_mesas()
+
+    def ocupar_factura(self, mesa):
+        XestionDatos.modificar_mesas("True", mesa)
         self.actualizar_listas()
         self.actualizar_mesas()
 
@@ -240,6 +271,7 @@ class Restaurante:
         localidade = self.combo_localidade.get_active_text()
         filacli = (dni, apel, nom, direccion, provincia, localidade)
         return filacli
+
     def creafilas_clientes_mod(self):
         dni = self.tex_dni.get_text()
         direccion = self.tex_direccion.get_text()
@@ -303,6 +335,39 @@ class Restaurante:
         self.tex_direccion.set_text("")
         self.combo_localidade.remove_all()
         self.combo_provincia.remove_all()
+
+    def comprobar_entradas_factura(self):
+        if self.combo_Camareiro.get_active_text() != None and self.combo_Mesa.get_active_text() != None and self.combo_Cliente.get_active_text() != None:
+            print("Podese.")
+        else:
+            print("Faltan datos")
+
+    def creafilas_Factura(self):
+
+        cliente = self.combo_Cliente.get_active_text()
+        camareiro = self.combo_Camareiro.get_active_text()
+        mesa = self.combo_Mesa.get_active_text()
+        data = time.strftime("%d/%m/%y")
+        self.ocupar_factura(mesa)
+
+        filafact = (cliente, camareiro, mesa, data, "No")
+        return filafact
+
+    def crear_factura(self, widget):
+        self.comprobar_entradas_factura()
+        XestionDatos.insertar_factura(self.creafilas_Factura())
+        self.actualizar_listas()
+
+    def pagarfactura(self, widget):
+        model, iter = self.tree_Facturas.get_selection().get_selected()
+        if iter != None:
+            XestionDatos.pagar_factura(str(model.get_value(iter, 0)))
+        else:
+            print("Non se seleccionou ningunha factura")
+        self.actualizar_listas()
+
+
+
 
 if __name__ == "__main__":
     print("Lanzase a aplicación.")

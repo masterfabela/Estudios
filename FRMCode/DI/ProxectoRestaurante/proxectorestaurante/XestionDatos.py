@@ -1,4 +1,5 @@
 import sqlite3
+from gi.repository import Gtk
 try:
         """datos conexion"""
         bbdd = 'BDRestaurante'
@@ -25,12 +26,21 @@ def consultar_servicio():
         return listado
     except sqlite3.Error as e:
         print(e)
-        conex.rollback()
 
 
 def consultar_cliente():
     try:
         cur.execute("select * from Cliente;")
+        listado = cur.fetchall()
+        conex.commit()
+        return listado
+    except sqlite3.Error as e:
+        print(e)
+
+
+def consultar_facturas():
+    try:
+        cur.execute("select * from Factura;")
         listado = cur.fetchall()
         conex.commit()
         return listado
@@ -111,4 +121,66 @@ def modificar_mesas(valor, id):
         conex.commit()
     except sqlite3.Error as e:
         print(e)
+        conex.rollback()
+
+
+def cargar_clientes(combo):
+    try:
+        i = 0
+        cur.execute("SELECT dni FROM Cliente;")
+        listado = cur.fetchall()
+        list = Gtk.ListStore(str)
+        for fila in listado:
+            i = i + 1
+            list.append(fila)
+        for name in list:
+            combo.append_text(name[0])
+    except sqlite3.OperationalError as e:
+        print("Erro a o carga-los clientes: "+e)
+
+
+def cargar_mesa(combo):
+    try:
+        i = 0
+        cur.execute("SELECT Id FROM Mesa;")
+        listado = cur.fetchall()
+        list = Gtk.ListStore(str)
+        for fila in listado:
+            i = i + 1
+            list.append(fila)
+        for name in list:
+            combo.append_text(name[0])
+    except sqlite3.OperationalError as e:
+        print("Erro a o carga-las mesas: "+e)
+
+
+def cargar_camareiro(combo):
+    try:
+        i = 0
+        cur.execute("SELECT id FROM Camarero;")
+        listado = cur.fetchall()
+        list = Gtk.ListStore(str)
+        for fila in listado:
+            i = i + 1
+            list.append(fila)
+        for name in list:
+            combo.append_text(name[0])
+    except sqlite3.OperationalError as e:
+        print("Erro a o carga-los camareiros: "+e)
+
+
+def insertar_factura(fila):
+    try:
+        cur.execute("insert into Factura(dniCliente,idCamareiro,idMesa,fecha,pagada) values(?,?,?,?,?);", fila)
+        conex.commit()
+    except sqlite3.Error as e:
+        print("Erro na inserción de cliente: "+e)
+        conex.rollback()
+
+def pagar_factura(id):
+    try:
+        cur.execute("update Factura set pagada= 'Si' where id='"+id+"' ;")
+        conex.commit()
+    except sqlite3.Error as e:
+        print("Erro na inserción de cliente: "+e)
         conex.rollback()

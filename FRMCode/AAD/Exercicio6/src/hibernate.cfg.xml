@@ -5,8 +5,6 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/XestionaCoches</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="Mapeos/EmpresasCoches.hbm.xml"/>
-    <mapping class="" file="" jar="" package="" resource="Mapeos/Coches.hbm.xml"/>
-    <mapping resource="Mapeos/Usos.hbm.xml"/>
+    
   </session-factory>
 </hibernate-configuration>

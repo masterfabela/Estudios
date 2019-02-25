@@ -969,8 +969,8 @@
                             <property name="model">listServicio</property>
                             <property name="ubuntu_almost_fixed_height_mode">True</property>
                             <child internal-child="selection">
-                              <object class="GtkTreeSelection" id="selector_facturas">
-                                <signal name="changed" handler="on_selector_facturas_changed" swapped="no"/>
+                              <object class="GtkTreeSelection" id="selector_servicios">
+                                <signal name="changed" handler="on_selector_servicios_changed" swapped="no"/>
                               </object>
                             </child>
                             <child>
@@ -1126,7 +1126,9 @@
                             <property name="model">list_Facturas</property>
                             <property name="reorderable">True</property>
                             <child internal-child="selection">
-                              <object class="GtkTreeSelection"/>
+                              <object class="GtkTreeSelection" id="selector_facturas">
+                                <signal name="changed" handler="on_selector_factura_changed" swapped="no"/>
+                              </object>
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn">

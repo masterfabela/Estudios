@@ -239,32 +239,29 @@ def cargar_facturas_activas(combo):
 
 def buscar_factura(id):
     try:
-        i = 0
-        cur.execute("SELECT id FROM Factura where id='"+id+"';")
+        cur.execute("SELECT dniCliente FROM Factura where id='"+str(id)+"';")
         listado = cur.fetchone()
-        return listado
+        return listado[0]
     except sqlite3.OperationalError as e:
         print("Erro a o carga-los clientes: "+e)
 
 
 def buscar_cliente(id):
     try:
-        i = 0
-        cur.execute("SELECT id FROM Cliente where dni='"+id+"';")
+        cur.execute("SELECT * FROM Cliente where dni='"+str(id)+"';")
         listado = cur.fetchone()
         return listado
     except sqlite3.OperationalError as e:
         print("Erro a o carga-los clientes: "+e)
 
-def buscar_fFactura(id):
+
+def buscar_servicios(id):
     try:
-        i = 0
-        cur.execute("SELECT idServicio FROM FilaFactura where idFactura='"+id+"';")
+        cur.execute("select c.idVenta, s.producto, c.cantidade, s.precio from LineaFactura as c inner join Servicio as s on s.codigo = c.idServicio  where c.idFactura = '"+str(id)+"';")
         listado = cur.fetchall()
         return listado
     except sqlite3.OperationalError as e:
         print("Erro a o carga-los clientes: "+e)
-
 
 
 def cargar_servicios(combo):

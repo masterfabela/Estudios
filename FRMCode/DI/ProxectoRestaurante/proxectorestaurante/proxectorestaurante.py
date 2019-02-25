@@ -66,6 +66,7 @@ class Restaurante:
             'on_sair_activate': self.sair,
             'on_sair_barra_clicked': self.sair,
             'on_selector_mesa_changed': self.seleccionar_mesa,
+            'on_selector_factura_changed': self.seleccionar_Factura,
             'on_selector_clientes_changed': self.cargandodatos_clientes,
             'on_boton1_clicked': self.click_mesa_1,
             'on_boton2_clicked': self.click_mesa_2,
@@ -87,11 +88,9 @@ class Restaurante:
             'on_but_creaFactura_clicked': self.crear_factura,
             'on_but_pagar_clicked': self.pagarfactura,
             'on_but_lineaFactura_clicked': self.crear_fFactura,
-            'on_combo_facturas_changed': self.buscar_fFactura,
-            'on_selector_facturas_changed': self.seleccionar_Factura
+            'on_combo_facturas_changed': self.buscar_fFactura
         }
         int_visual.connect_signals(dic)
-        self.Factura_Seleccionada=1
         self.vent_principal.hide()
         self.actualizar_listas()
         self.ven_login.show()
@@ -406,9 +405,10 @@ class Restaurante:
         self.actualizar_listas()
 
     def seleccionar_Factura(self, widget):
-        model, iter = self.tree_mesa.get_selection().get_selected()
+        model, iter = self.tree_Facturas.get_selection().get_selected()
         if iter != None:
             self.Factura_Seleccionada = model.get_value(iter, 0)
+        print("ping")
 
 
 if __name__ == "__main__":

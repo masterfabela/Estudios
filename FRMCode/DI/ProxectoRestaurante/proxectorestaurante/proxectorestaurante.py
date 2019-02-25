@@ -8,15 +8,10 @@ import servicios
 import time
 
 #engadir busquedas.
-#cambiar a distribucion dos paneis.
 #Implementar copia de seguridade da bd.
-#fallo de login dos camareiros.
-#subir o codigo a github.
 #Mostraranse avisos.
 #Ver a distribucion da aplicacion.
 #As liñas de factura son os campos de productos que se engaden.
-#vincular o vaciado das mesas a o pago da factura.
-#Montar as facturas mediante comboboxes, listando todos os datos neles
 #Crear metodo e interface para a implementacion de novos platos.
 class Restaurante:
     def __init__(self):
@@ -26,7 +21,6 @@ class Restaurante:
         self.ven_about = int_visual.get_object("ven_about")
         self.tree_mesa = int_visual.get_object("tree_mesa")
         self.sair_barra = int_visual.get_object("sair_barra")
-        self.listServicio = int_visual.get_object("listServicio")
         self.listCliente = int_visual.get_object("listCliente")
         self.listMesa = int_visual.get_object("listMesa")
         self.i_mesa1 = int_visual.get_object("Mesa1")
@@ -60,7 +54,13 @@ class Restaurante:
         self.list_Facturas = int_visual.get_object("list_Facturas")
         self.but_creaFactura = int_visual.get_object("but_creaFactura")
         self.but_pagar =int_visual.get_object("but_pagar")
-
+        self.listServicio = int_visual.get_object("listServicio")
+        self.tree_Servicios = int_visual.get_object("tree_Servicios")
+        self.combo_facturas = int_visual.get_object("combo_facturas")
+        self.combo_servicios = int_visual.get_object("combo_servicios")
+        self.cantidade = int_visual.get_object("cantidade")
+        self.cantidade.set_text("0")
+        self.but_lineaFactura = int_visual.get_object("but_lineaFactura")
         dic = {
             'on_vent_principal_destroy': self.sair,
             'on_sair_activate': self.sair,
@@ -85,12 +85,30 @@ class Restaurante:
             'on_but_baixa_cliente_clicked': self.baixa_cliente,
             'on_but_mod_cliente_clicked': self.mod_cliente,
             'on_but_creaFactura_clicked': self.crear_factura,
-            'on_but_pagar_clicked': self.pagarfactura
+            'on_but_pagar_clicked': self.pagarfactura,
+            'on_but_lineaFactura_clicked': self.crear_fFactura,
+            'on_combo_facturas_changed': self.buscar_fFactura,
+            'on_selector_facturas_changed': self.seleccionar_Factura
         }
         int_visual.connect_signals(dic)
+        self.Factura_Seleccionada=1
         self.vent_principal.hide()
         self.actualizar_listas()
         self.ven_login.show()
+
+    """
+    # Metodo de control do login
+    """
+
+    def login(self, widget):
+        if XestionDatos.login(self.ent_usuario.get_text(), self.ent_contrasinal.get_text(), self.ven_login):
+            self.actualizar_mesas()
+            self.vent_principal.show()
+            # self.vent_principal.maximize()
+            BDProvinciasLocalidades.cargar_provincias(self.combo_provincia)
+            self.actualizar_listas()
+
+
     """
     # Metodos de asignación das imaxes de Ocupado e libre das mesas dos botóns
     """
@@ -177,26 +195,22 @@ class Restaurante:
         lista4 = XestionDatos.consultar_facturas()
         for registro4 in lista4:
             self.list_Facturas.append(registro4)
+        self.combo_facturas.remove_all()
+        self.combo_servicios.remove_all()
+        self.combo_Mesa.remove_all()
+        self.combo_Camareiro.remove_all()
+        self.combo_Cliente.remove_all()
+        XestionDatos.cargar_clientes(self.combo_Cliente)
+        XestionDatos.cargar_mesa(self.combo_Mesa)
+        XestionDatos.cargar_camareiro(self.combo_Camareiro)
+        XestionDatos.cargar_facturas_activas(self.combo_facturas)
+        XestionDatos.cargar_servicios(self.combo_servicios)
 
     def show_about(self, widget):
         self.ven_about.show()
 
     def probaImpresion(self, widget):
-        informes.reportservicios()
-
-    """
-        # Metodo de control do login
-    """
-
-    def login(self,widget):
-        if XestionDatos.login(self.ent_usuario.get_text(),self.ent_contrasinal.get_text(),self.ven_login) :
-            self.actualizar_mesas()
-            self.vent_principal.show()
-            #self.vent_principal.maximize()
-            BDProvinciasLocalidades.cargar_provincias(self.combo_provincia)
-            XestionDatos.cargar_clientes(self.combo_Cliente)
-            XestionDatos.cargar_mesa(self.combo_Mesa)
-            XestionDatos.cargar_camareiro(self.combo_Camareiro)
+        informes.reportservicios(self.Factura_Seleccionada)
 
     """
         # Metodo para a actualización automática dos iconos dos botóns das mesas
@@ -366,7 +380,35 @@ class Restaurante:
             print("Non se seleccionou ningunha factura")
         self.actualizar_listas()
 
+    def comprobar_entradas_fFactura(self):
+        if self.combo_servicios.get_active() != -1 and self.combo_facturas.get_active() != -1 and (int(self.cantidade.get_text()) > 0):
+            print("Podese.")
+        else:
+            print("Faltan datos")
 
+    def creafilas_fFactura(self):
+        filafFact = (self.combo_facturas.get_active_text(), (int(self.combo_servicios.get_active())+1), self.cantidade.get_text())
+        return filafFact
+
+    def buscar_fFactura(self, widget):
+        if self.combo_facturas.get_active() != -1:
+            self.listServicio.clear()
+            lista4 = XestionDatos.consultar_lineaFactura_mod(self.combo_facturas.get_active_text())
+            for registro4 in lista4:
+                self.listServicio.append(registro4)
+
+    def crear_fFactura(self, widget):
+        self.comprobar_entradas_fFactura()
+        XestionDatos.insertar_lineaFactura(self.creafilas_fFactura())
+        self.cantidade.set_text("0")
+        self.combo_servicios.set_active(-1)
+        self.combo_facturas.set_active(-1)
+        self.actualizar_listas()
+
+    def seleccionar_Factura(self, widget):
+        model, iter = self.tree_mesa.get_selection().get_selected()
+        if iter != None:
+            self.Factura_Seleccionada = model.get_value(iter, 0)
 
 
 if __name__ == "__main__":

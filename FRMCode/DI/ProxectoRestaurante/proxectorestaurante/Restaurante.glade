@@ -71,11 +71,11 @@
   <object class="GtkListStore" id="listServicio">
     <columns>
       <!-- column-name idVenta -->
-      <column type="gchararray"/>
+      <column type="gint64"/>
       <!-- column-name idFactura -->
       <column type="gchararray"/>
       <!-- column-name idServicio -->
-      <column type="gchararray"/>
+      <column type="gint64"/>
       <!-- column-name cantidade -->
       <column type="gint64"/>
     </columns>
@@ -83,7 +83,7 @@
   <object class="GtkListStore" id="list_Facturas">
     <columns>
       <!-- column-name id -->
-      <column type="gint64"/>
+      <column type="gchararray"/>
       <!-- column-name dniCliente -->
       <column type="gchararray"/>
       <!-- column-name idCamareiro -->
@@ -472,7 +472,7 @@
                   <object class="GtkLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Xestion de Mesa</property>
+                    <property name="label" translatable="yes">Xestión</property>
                     <attributes>
                       <attribute name="font-desc" value="Sans 9"/>
                       <attribute name="weight" value="bold"/>
@@ -922,42 +922,16 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
-                          <object class="GtkEntry">
-                            <property name="width_request">166</property>
-                            <property name="height_request">29</property>
+                          <object class="GtkLabel">
+                            <property name="width_request">117</property>
+                            <property name="height_request">20</property>
                             <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="placeholder_text" translatable="yes">pXXX(X=numero)</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Facturas dispoñibles:</property>
                           </object>
                           <packing>
-                            <property name="x">152</property>
-                            <property name="y">14</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry">
-                            <property name="width_request">166</property>
-                            <property name="height_request">29</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="placeholder_text" translatable="yes">Nombre del servicio</property>
-                          </object>
-                          <packing>
-                            <property name="x">152</property>
-                            <property name="y">45</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry">
-                            <property name="width_request">166</property>
-                            <property name="height_request">29</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="placeholder_text" translatable="yes">€</property>
-                          </object>
-                          <packing>
-                            <property name="x">152</property>
-                            <property name="y">75</property>
+                            <property name="x">29</property>
+                            <property name="y">17</property>
                           </packing>
                         </child>
                         <child>
@@ -966,11 +940,11 @@
                             <property name="height_request">20</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Codigo</property>
+                            <property name="label" translatable="yes">Servicio:</property>
                           </object>
                           <packing>
-                            <property name="x">22</property>
-                            <property name="y">18</property>
+                            <property name="x">39</property>
+                            <property name="y">55</property>
                           </packing>
                         </child>
                         <child>
@@ -979,28 +953,15 @@
                             <property name="height_request">20</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Servicio</property>
+                            <property name="label" translatable="yes">Cantidade:</property>
                           </object>
                           <packing>
-                            <property name="x">21</property>
-                            <property name="y">50</property>
+                            <property name="x">39</property>
+                            <property name="y">92</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkLabel">
-                            <property name="width_request">100</property>
-                            <property name="height_request">20</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Precio</property>
-                          </object>
-                          <packing>
-                            <property name="x">22</property>
-                            <property name="y">82</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkTreeView">
+                          <object class="GtkTreeView" id="tree_Servicios">
                             <property name="width_request">502</property>
                             <property name="height_request">290</property>
                             <property name="visible">True</property>
@@ -1008,7 +969,9 @@
                             <property name="model">listServicio</property>
                             <property name="ubuntu_almost_fixed_height_mode">True</property>
                             <child internal-child="selection">
-                              <object class="GtkTreeSelection"/>
+                              <object class="GtkTreeSelection" id="selector_facturas">
+                                <signal name="changed" handler="on_selector_facturas_changed" swapped="no"/>
+                              </object>
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn">
@@ -1063,8 +1026,60 @@
                             </child>
                           </object>
                           <packing>
-                            <property name="x">26</property>
-                            <property name="y">115</property>
+                            <property name="x">25</property>
+                            <property name="y">134</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="cantidade">
+                            <property name="width_request">168</property>
+                            <property name="height_request">29</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">189</property>
+                            <property name="y">89</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkComboBoxText" id="combo_facturas">
+                            <property name="width_request">164</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <signal name="changed" handler="on_combo_facturas_changed" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">189</property>
+                            <property name="y">13</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkComboBoxText" id="combo_servicios">
+                            <property name="width_request">166</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">189</property>
+                            <property name="y">50</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="but_lineaFactura">
+                            <property name="label" translatable="yes">Engadir servicio</property>
+                            <property name="width_request">101</property>
+                            <property name="height_request">34</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_lineaFactura_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">396</property>
+                            <property name="y">45</property>
                           </packing>
                         </child>
                       </object>
@@ -1098,8 +1113,8 @@
                             <signal name="clicked" handler="on_but_imprimir_clicked" swapped="no"/>
                           </object>
                           <packing>
-                            <property name="x">33</property>
-                            <property name="y">383</property>
+                            <property name="x">395</property>
+                            <property name="y">384</property>
                           </packing>
                         </child>
                         <child>
@@ -1276,21 +1291,6 @@
                           <packing>
                             <property name="x">422</property>
                             <property name="y">36</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="but_imprimir_ticket">
-                            <property name="label" translatable="yes">Imprimir factura</property>
-                            <property name="width_request">118</property>
-                            <property name="height_request">64</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">True</property>
-                            <signal name="clicked" handler="on_but_imprimir_ticket_clicked" swapped="no"/>
-                          </object>
-                          <packing>
-                            <property name="x">174</property>
-                            <property name="y">383</property>
                           </packing>
                         </child>
                         <child>

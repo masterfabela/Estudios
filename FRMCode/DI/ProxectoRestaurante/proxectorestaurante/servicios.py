@@ -1,7 +1,5 @@
 import locale #Permite obter os datos referentes a o teu pais, neste caso, util para a moeda.
-
 locale.setlocale(locale.LC_ALL, 'es_ES.UTF-8')
-
 import zipfile
 import os
 import getpass

@@ -67,6 +67,13 @@ class Restaurante:
         self.ven_Avisos.connect('delete-event', lambda w, e: w.hide() or True)
         self.but_sair_total = int_visual.get_object("but_sair_total")
         self.but_sair_servizos= int_visual.get_object("but_sair_servicio")
+        self.list_Ser = int_visual.get_object("list_Ser")
+        self.but_add_servicio = int_visual.get_object("but_add_servicio")
+        self.ent_producto_servicio = int_visual.get_object("ent_producto_servicio")
+        self.ent_precio_servicio = int_visual.get_object("ent_precio_servicio")
+        self.ent_producto_servicio.set_text("")
+        self.ent_precio_servicio.set_text("")
+        self.lbl_error = int_visual.get_object("lbl_Error")
         dic = {
             'on_vent_principal_destroy': self.sair,
             'on_ven_login_destroy': self.sair,
@@ -99,7 +106,9 @@ class Restaurante:
             'on_gtk_error_activate': self.mostrar_venAvisos,
             'on_but_novo_servicio_clicked': self.mostrar_novoServicio,
             'on_but_sair_total_clicked': self.sair,
-            'on_but_sair_servicio_clicked': self.pecharVenta
+            'on_but_sair_servicio_clicked': self.pecharVenta,
+            'on_but_add_servicio_clicked': self.crear_plato,
+            'on_but_error_clicked': self.sair_error
         }
         int_visual.connect_signals(dic)
         self.vent_principal.hide()
@@ -205,6 +214,10 @@ class Restaurante:
         lista4 = XestionDatos.consultar_facturas()
         for registro4 in lista4:
             self.list_Facturas.append(registro4)
+        self.list_Ser.clear()
+        lista5 = XestionDatos.consultar_plato()
+        for registro5 in lista5:
+            self.list_Ser.append(registro5)
         self.combo_facturas.remove_all()
         self.combo_servicios.remove_all()
         self.combo_Mesa.remove_all()
@@ -429,6 +442,32 @@ class Restaurante:
 
     def pecharVenta(self, widget):
         self.ven_Servicios.hide()
+
+    def comprobar_entradas_plato(self):
+        if self.ent_producto_servicio.get_text() == "" or self.ent_precio_servicio.get_text() == "":
+            self.imprimir_error("Faltan datos para a inserción deste prato.")
+            return False
+        else:
+            return True
+
+    def creafilas_plato(self):
+        filapla = self.ent_producto_servicio.get_text(), servicios.colocarEuro(float(self.ent_precio_servicio.get_text()))
+        return filapla
+
+    def imprimir_error(self, texto):
+        self.ven_Avisos.show()
+        self.lbl_error.set_text(texto)
+
+    def crear_plato(self, widget):
+        if self.comprobar_entradas_plato():
+            XestionDatos.insertar_plato(self.creafilas_plato())
+            self.ent_precio_servicio.set_text("")
+            self.ent_producto_servicio.set_text("")
+            self.actualizar_listas()
+
+    def sair_error(self, widget):
+        self.ven_Avisos.hide()
+
 
 if __name__ == "__main__":
     print("Lanzase a aplicación.")

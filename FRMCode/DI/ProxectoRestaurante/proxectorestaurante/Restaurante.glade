@@ -198,6 +198,23 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Ver</property>
                 <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="gtk_error">
+                        <property name="label">gtk-dialog-error</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Mostrar error</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_gtk_error_activate" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
@@ -969,9 +986,7 @@
                             <property name="model">listServicio</property>
                             <property name="ubuntu_almost_fixed_height_mode">True</property>
                             <child internal-child="selection">
-                              <object class="GtkTreeSelection" id="selector_servicios">
-                                <signal name="changed" handler="on_selector_servicios_changed" swapped="no"/>
-                              </object>
+                              <object class="GtkTreeSelection" id="selector_servicios"/>
                             </child>
                             <child>
                               <object class="GtkTreeViewColumn">
@@ -1080,6 +1095,21 @@
                           <packing>
                             <property name="x">396</property>
                             <property name="y">45</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="but_novo_servicio">
+                            <property name="label" translatable="yes">Novo servicio</property>
+                            <property name="width_request">101</property>
+                            <property name="height_request">34</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_but_novo_servicio_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">403</property>
+                            <property name="y">88</property>
                           </packing>
                         </child>
                       </object>
@@ -1361,7 +1391,213 @@
       </object>
     </child>
   </object>
-  <object class="GtkListStore" id="liststore1"/>
+  <object class="GtkListStore" id="list_Ser">
+    <columns>
+      <!-- column-name codigo -->
+      <column type="gchararray"/>
+      <!-- column-name producto -->
+      <column type="gchararray"/>
+      <!-- column-name precio -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="ven_Servicios">
+    <property name="can_focus">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkButton" id="but_add_servicio">
+            <property name="label" translatable="yes">Engadir</property>
+            <property name="width_request">100</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_but_add_servicio_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">241</property>
+            <property name="y">85</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but_sair_servicio">
+            <property name="label" translatable="yes">Sair</property>
+            <property name="width_request">100</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_but_sair_servicio_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">392</property>
+            <property name="y">288</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="ent_producto_servicio">
+            <property name="width_request">168</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">97</property>
+            <property name="y">38</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="ent_precio_servicio">
+            <property name="width_request">168</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">326</property>
+            <property name="y">39</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTreeView" id="tree_Ser">
+            <property name="width_request">275</property>
+            <property name="height_request">134</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="model">list_Ser</property>
+            <child internal-child="selection">
+              <object class="GtkTreeSelection" id="selector_Ser"/>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="title" translatable="yes">Código</property>
+                <child>
+                  <object class="GtkCellRendererText" id="codigo"/>
+                  <attributes>
+                    <attribute name="text">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="title" translatable="yes">Producto</property>
+                <property name="expand">True</property>
+                <child>
+                  <object class="GtkCellRendererText" id="producto"/>
+                  <attributes>
+                    <attribute name="text">1</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="title" translatable="yes">Precio</property>
+                <child>
+                  <object class="GtkCellRendererText" id="precio"/>
+                  <attributes>
+                    <attribute name="text">2</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">149</property>
+            <property name="y">131</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Nome do 
+producto:</property>
+          </object>
+          <packing>
+            <property name="x">12</property>
+            <property name="y">32</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Prezo:</property>
+          </object>
+          <packing>
+            <property name="x">257</property>
+            <property name="y">43</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="ven_Avisos">
+    <property name="can_focus">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkImage">
+            <property name="width_request">128</property>
+            <property name="height_request">128</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_right">156</property>
+            <property name="pixbuf">website.png</property>
+          </object>
+          <packing>
+            <property name="x">153</property>
+            <property name="y">9</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lbl_Error">
+            <property name="width_request">100</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">label</property>
+          </object>
+          <packing>
+            <property name="x">168</property>
+            <property name="y">146</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but_error">
+            <property name="label" translatable="yes">Aceptar</property>
+            <property name="width_request">100</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_but_error_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">165</property>
+            <property name="y">197</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkAboutDialog" id="ven_about">
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
@@ -1409,6 +1645,7 @@ https://www.flaticon.com/authors/surang</property>
   </object>
   <object class="GtkWindow" id="ven_login">
     <property name="can_focus">False</property>
+    <signal name="destroy" handler="on_ven_login_destroy" swapped="no"/>
     <child>
       <placeholder/>
     </child>
@@ -1427,8 +1664,8 @@ https://www.flaticon.com/authors/surang</property>
             <signal name="clicked" handler="on_but_login_clicked" swapped="no"/>
           </object>
           <packing>
-            <property name="x">358</property>
-            <property name="y">50</property>
+            <property name="x">354</property>
+            <property name="y">133</property>
           </packing>
         </child>
         <child>
@@ -1437,12 +1674,11 @@ https://www.flaticon.com/authors/surang</property>
             <property name="height_request">29</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="margin_bottom">40</property>
             <property name="placeholder_text" translatable="yes">Usuario</property>
           </object>
           <packing>
-            <property name="x">11</property>
-            <property name="y">51</property>
+            <property name="x">8</property>
+            <property name="y">135</property>
           </packing>
         </child>
         <child>
@@ -1455,8 +1691,36 @@ https://www.flaticon.com/authors/surang</property>
             <property name="placeholder_text" translatable="yes">Contrasinal</property>
           </object>
           <packing>
-            <property name="x">181</property>
-            <property name="y">52</property>
+            <property name="x">182</property>
+            <property name="y">135</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="but_sair_total">
+            <property name="label" translatable="yes">Sair</property>
+            <property name="width_request">85</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_but_sair_total_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">350</property>
+            <property name="y">189</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage">
+            <property name="width_request">128</property>
+            <property name="height_request">128</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">login.png</property>
+          </object>
+          <packing>
+            <property name="x">162</property>
+            <property name="y">3</property>
           </packing>
         </child>
       </object>

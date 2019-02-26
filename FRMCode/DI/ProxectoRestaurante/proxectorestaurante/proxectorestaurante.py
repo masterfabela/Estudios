@@ -6,12 +6,9 @@ import BDProvinciasLocalidades
 import informes
 import servicios
 import time
-
-#engadir busquedas.
 #Implementar copia de seguridade da bd.
 #Mostraranse avisos.
 #Ver a distribucion da aplicacion.
-#As liñas de factura son os campos de productos que se engaden.
 #Crear metodo e interface para a implementacion de novos platos.
 class Restaurante:
     def __init__(self):
@@ -19,6 +16,7 @@ class Restaurante:
         int_visual.add_from_file("Restaurante.glade")
         self.vent_principal = int_visual.get_object("vent_principal")
         self.ven_about = int_visual.get_object("ven_about")
+        self.ven_about.connect('delete-event', lambda w, e: w.hide() or True)
         self.tree_mesa = int_visual.get_object("tree_mesa")
         self.sair_barra = int_visual.get_object("sair_barra")
         self.listCliente = int_visual.get_object("listCliente")
@@ -61,8 +59,17 @@ class Restaurante:
         self.cantidade = int_visual.get_object("cantidade")
         self.cantidade.set_text("0")
         self.but_lineaFactura = int_visual.get_object("but_lineaFactura")
+        self.but_novo_servicio = int_visual.get_object("but_novo_servicio")
+        self.barra_error = int_visual.get_object("gtk_error")
+        self.ven_Servicios = int_visual.get_object("ven_Servicios")
+        self.ven_Servicios.connect('delete-event', lambda w, e: w.hide() or True)
+        self.ven_Avisos = int_visual.get_object("ven_Avisos")
+        self.ven_Avisos.connect('delete-event', lambda w, e: w.hide() or True)
+        self.but_sair_total = int_visual.get_object("but_sair_total")
+        self.but_sair_servizos= int_visual.get_object("but_sair_servicio")
         dic = {
             'on_vent_principal_destroy': self.sair,
+            'on_ven_login_destroy': self.sair,
             'on_sair_activate': self.sair,
             'on_sair_barra_clicked': self.sair,
             'on_selector_mesa_changed': self.seleccionar_mesa,
@@ -88,7 +95,11 @@ class Restaurante:
             'on_but_creaFactura_clicked': self.crear_factura,
             'on_but_pagar_clicked': self.pagarfactura,
             'on_but_lineaFactura_clicked': self.crear_fFactura,
-            'on_combo_facturas_changed': self.buscar_fFactura
+            'on_combo_facturas_changed': self.buscar_fFactura,
+            'on_gtk_error_activate': self.mostrar_venAvisos,
+            'on_but_novo_servicio_clicked': self.mostrar_novoServicio,
+            'on_but_sair_total_clicked': self.sair,
+            'on_but_sair_servicio_clicked': self.pecharVenta
         }
         int_visual.connect_signals(dic)
         self.vent_principal.hide()
@@ -410,6 +421,14 @@ class Restaurante:
             self.Factura_Seleccionada = model.get_value(iter, 0)
         print("ping")
 
+    def mostrar_venAvisos(self, widget):
+        self.ven_Avisos.show()
+
+    def mostrar_novoServicio(self, widget):
+        self.ven_Servicios.show()
+
+    def pecharVenta(self, widget):
+        self.ven_Servicios.hide()
 
 if __name__ == "__main__":
     print("Lanzase a aplicación.")

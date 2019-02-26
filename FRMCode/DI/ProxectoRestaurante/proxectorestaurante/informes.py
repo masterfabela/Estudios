@@ -8,6 +8,11 @@ import sqlite3
 
 
 def reportservicios(id):
+    """
+
+        Método que se encarga de imprimir a factura completa, cos datos de cliente e servicios, coincidentes co id seleccionado.
+
+    """
     try:
         cser = canvas.Canvas('servicios.pdf', pagesize=A4)
         cser.setTitle('Informes')
@@ -65,6 +70,11 @@ def reportservicios(id):
 
 
 def reportservicios2(id):
+    """
+
+        Método que se encarga de imprimir o ticket, cos datos dos servicios, coincidentes co id seleccionado.
+
+    """
     try:
         cser = canvas.Canvas('servicios.pdf', pagesize=A4)
         cser.setTitle('Informes')
@@ -108,13 +118,22 @@ def reportservicios2(id):
 
 
 def carga_de_datos_cliente(id):
+    """
 
+        Método que se encarga de intermediar entre a clase informes e a clase xestiondatos, para permitir a carga dos datos de cliente.
+
+    """
     dni = XestionDatos.buscar_factura(id)
     cliente = XestionDatos.buscar_cliente(dni)
     return cliente
 
 
 def carga_de_datos_servicios(id):
+    """
+
+        Método que se encarga de intermediar entre a clase informes e a clase xestiondatos, para permitir a carga dos datos de servicio.
+
+    """
     servicios = XestionDatos.buscar_servicios(id)
     return servicios
 

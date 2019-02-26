@@ -6,10 +6,8 @@ import BDProvinciasLocalidades
 import informes
 import servicios
 import time
-#Implementar copia de seguridade da bd.
-#Mostraranse avisos.
 #Ver a distribucion da aplicacion.
-#Crear metodo e interface para a implementacion de novos platos.
+#Comentario de código
 class Restaurante:
     def __init__(self):
         int_visual = Gtk.Builder()
@@ -74,6 +72,8 @@ class Restaurante:
         self.ent_producto_servicio.set_text("")
         self.ent_precio_servicio.set_text("")
         self.lbl_error = int_visual.get_object("lbl_Error")
+        self.but_copiaSeguridade = int_visual.get_object("but_copiaSeguridade")
+        self.but_creaFactura_simple = int_visual.get_object("but_creaFactura_simple")
         dic = {
             'on_vent_principal_destroy': self.sair,
             'on_ven_login_destroy': self.sair,
@@ -96,6 +96,7 @@ class Restaurante:
             'on_but_baleirar_clicked': self.baleirar,
             'on_but_about_activate': self.show_about,
             'on_but_imprimir_clicked': self.probaImpresion,
+            'on_but_creaFactura_simple_clicked': self.probaImpresion2,
             'on_but_alta_cliente_clicked': self.alta_cliente,
             'on_but_baixa_cliente_clicked': self.baixa_cliente,
             'on_but_mod_cliente_clicked': self.mod_cliente,
@@ -108,7 +109,8 @@ class Restaurante:
             'on_but_sair_total_clicked': self.sair,
             'on_but_sair_servicio_clicked': self.pecharVenta,
             'on_but_add_servicio_clicked': self.crear_plato,
-            'on_but_error_clicked': self.sair_error
+            'on_but_error_clicked': self.sair_error,
+            'on_but_copiaSeguridade_activate': self.creaCopia
         }
         int_visual.connect_signals(dic)
         self.vent_principal.hide()
@@ -331,7 +333,7 @@ class Restaurante:
             self.actualizar_listas()
             self.limpacaixas_cliente()
         else:
-            print("Faltan datos para a eliminación");
+            self.imprimir_error("Faltan datos para a eliminación");
 
     def mod_cliente(self, widget):
         XestionDatos.modificar_cliente(self.comprobar_entradas_cliente_mod())
@@ -352,18 +354,18 @@ class Restaurante:
             if servicios.comprobarDNI(self.tex_dni):
                 return self.creafilas_clientes()
             else:
-                print("DNI Incorrecto.")
+                self.imprimir_error("DNI Incorrecto.")
         else:
-            print("Faltan datos.")
+            self.imprimir_error("Faltan datos.")
 
     def comprobar_entradas_cliente_mod(self):
         if self.tex_dni != '' and self.tex_direccion != '' and self.tex_apelidos != '' and self.tex_nome != '':
             if servicios.comprobarDNI(self.tex_dni):
                 return self.creafilas_clientes_mod()
             else:
-                print("DNI Incorrecto.")
+                self.imprimir_error("DNI Incorrecto.")
         else:
-            print("Faltan datos.")
+            self.imprimir_error("Faltan datos.")
 
     def limpacaixas_cliente(self):
         self.tex_dni.set_text("")
@@ -375,9 +377,9 @@ class Restaurante:
 
     def comprobar_entradas_factura(self):
         if self.combo_Camareiro.get_active_text() != None and self.combo_Mesa.get_active_text() != None and self.combo_Cliente.get_active_text() != None:
-            print("Podese.")
+            return True
         else:
-            print("Faltan datos")
+            return False
 
     def creafilas_Factura(self):
 
@@ -391,23 +393,25 @@ class Restaurante:
         return filafact
 
     def crear_factura(self, widget):
-        self.comprobar_entradas_factura()
-        XestionDatos.insertar_factura(self.creafilas_Factura())
-        self.actualizar_listas()
+        if self.comprobar_entradas_factura():
+            XestionDatos.insertar_factura(self.creafilas_Factura())
+            self.actualizar_listas()
+        else:
+            self.imprimir_error("Faltan datos para a inserción da Factura.")
 
     def pagarfactura(self, widget):
         model, iter = self.tree_Facturas.get_selection().get_selected()
         if iter != None:
             XestionDatos.pagar_factura(str(model.get_value(iter, 0)))
         else:
-            print("Non se seleccionou ningunha factura")
+            self.imprimir_error("Non se seleccionou ningunha factura.")
         self.actualizar_listas()
 
     def comprobar_entradas_fFactura(self):
         if self.combo_servicios.get_active() != -1 and self.combo_facturas.get_active() != -1 and (int(self.cantidade.get_text()) > 0):
-            print("Podese.")
+            return True
         else:
-            print("Faltan datos")
+            return False
 
     def creafilas_fFactura(self):
         filafFact = (self.combo_facturas.get_active_text(), (int(self.combo_servicios.get_active())+1), self.cantidade.get_text())
@@ -421,18 +425,19 @@ class Restaurante:
                 self.listServicio.append(registro4)
 
     def crear_fFactura(self, widget):
-        self.comprobar_entradas_fFactura()
-        XestionDatos.insertar_lineaFactura(self.creafilas_fFactura())
-        self.cantidade.set_text("0")
-        self.combo_servicios.set_active(-1)
-        self.combo_facturas.set_active(-1)
-        self.actualizar_listas()
+        if self.comprobar_entradas_fFactura():
+            XestionDatos.insertar_lineaFactura(self.creafilas_fFactura())
+            self.cantidade.set_text("0")
+            self.combo_servicios.set_active(-1)
+            self.combo_facturas.set_active(-1)
+            self.actualizar_listas()
+        else:
+            self.imprimir_error("Faltan datos para a inserción de Servicio.")
 
     def seleccionar_Factura(self, widget):
         model, iter = self.tree_Facturas.get_selection().get_selected()
         if iter != None:
             self.Factura_Seleccionada = model.get_value(iter, 0)
-        print("ping")
 
     def mostrar_venAvisos(self, widget):
         self.ven_Avisos.show()
@@ -468,6 +473,12 @@ class Restaurante:
     def sair_error(self, widget):
         self.ven_Avisos.hide()
 
+    def creaCopia(self,widget):
+        self.imprimir_error("Creando a copia de seguridade.")
+        servicios.xerar_copia_seg()
+
+    def probaImpresion2(self, widget):
+        informes.reportservicios2(self.Factura_Seleccionada)
 
 if __name__ == "__main__":
     print("Lanzase a aplicación.")

@@ -34,10 +34,8 @@ def colocarEuro(numero):
     return retoque
 
 def xerar_copia_seg():
-    nome='Restaurante'
-    data =datetime.datetime.now()
-    if not os.path.exists('/home/'+getpass.getuser()+'/copias_seguridade'):
-        os.makedirs('/home/'+getpass.getuser()+'/copias_seguridade', mode=0o777)
-    fichzip = zipfile.ZipFile('/home/'+getpass.getuser()+'/copias_seguridade/'+str(data)+"_copia_"+nome+".zip",'w')
-    fichzip.write(nome, './Restaurante' ,zipfile.ZIP_DEFLATED)
+    if not os.path.exists('/home/' + getpass.getuser() + '/copias'):
+        os.mkdir('/home/' + getpass.getuser() + '/copias', mode=0o777, dir_fd=None)
+    fichzip = zipfile.ZipFile("copiaRestaurante:"+str(datetime.datetime.now())+".zip", "w")
+    fichzip.write("BDRestaurante", "./BDRestaurante", zipfile.ZIP_DEFLATED)
     fichzip.close()

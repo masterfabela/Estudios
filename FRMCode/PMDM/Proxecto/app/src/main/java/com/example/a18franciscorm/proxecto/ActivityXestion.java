@@ -24,7 +24,7 @@ public class ActivityXestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ClaseDB cdb= new ClaseDB(ActivityXestion.this,"BDAlimentos",null,1);
-                sqldb=cdb.getReadableDatabase();
+                sqldb=cdb.getWritableDatabase();
                 sqldb.execSQL("DROP TABLE Alimentos;");
                 sqldb.execSQL("CREATE TABLE Alimentos (codigo INTEGER PRIMARY KEY, nombre TEXT, tipo TEXT,azucares TEXT, grasas TEXT, sodio TEXT);");
                 sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (1,'Arroz_con_leite','Lacteo','17','0.77','38')");

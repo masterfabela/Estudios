@@ -13,10 +13,13 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
     <AutoCompleteTextView
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:hint="@string/pistaNome"/>
+        android:hint="@string/pistaNome"
+        android:id="@+id/entrada"
+        />
     <ListView
+        android:id="@+id/lista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></ListView>
 

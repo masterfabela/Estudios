@@ -1,16 +1,22 @@
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
+from gi.repository import Gdk,Gtk
 import XestionDatos
 import BDProvinciasLocalidades
 import informes
 import servicios
 import time
-#Ver a distribucion da aplicacion.
+from os.path import abspath, dirname, join
+WHERE_AM_I = abspath(dirname(__file__))
+#Restrinxir a impresion a se está pagada
+#funcionalizar o close de venAbout
+#Conseguir imprimir os documentos nunha carpeta, o empaquetador e a copia de seguridade.
+
 class Restaurante:
     def __init__(self):
         int_visual = Gtk.Builder()
         int_visual.add_from_file("Restaurante.glade")
+        self.set_style()
         self.vent_principal = int_visual.get_object("vent_principal")
         self.ven_about = int_visual.get_object("ven_about")
         self.ven_about.connect('delete-event', lambda w, e: w.hide() or True)
@@ -114,12 +120,26 @@ class Restaurante:
             'on_but_sair_servicio_clicked': self.pecharVenta,
             'on_but_add_servicio_clicked': self.crear_plato,
             'on_but_error_clicked': self.sair_error,
-            'on_but_copiaSeguridade_activate': self.creaCopia
+            'on_but_copiaSeguridade_activate': self.creaCopia,
+            'on_ven_about_close': self.pecharAbout
         }
         int_visual.connect_signals(dic)
         self.vent_principal.hide()
         self.actualizar_listas()
         self.ven_login.show()
+
+    def set_style(self):
+        """
+            # Método de carga la paleta CSS
+        """
+        provider = Gtk.CssProvider()
+        provider.load_from_path(join(WHERE_AM_I, 'estilo.css'))
+        screen = Gdk.Display.get_default_screen(Gdk.Display.get_default())
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION = 600
+        Gtk.StyleContext.add_provider_for_screen(
+            screen, provider,
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
 
     def login(self, widget):
         """
@@ -142,7 +162,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Ocupado das mesas dos botóns pequenos.
 
         """
-        imaxemesa.set_from_file("MesaPequenaOcuoada.png")
+        imaxemesa.set_from_file("Imaxes/MesaPequenaOcuoada.png")
 
     def ocupar_mesa_M(self, imaxemesa):
         """
@@ -150,7 +170,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Ocupado das mesas dos botóns medianos.
 
         """
-        imaxemesa.set_from_file("MesaMediaOcupada.png")
+        imaxemesa.set_from_file("Imaxes/MesaMediaOcupada.png")
 
     def ocupar_mesa_G(self, imaxemesa):
         """
@@ -158,7 +178,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Ocupado das mesas dos botóns grandes.
 
         """
-        imaxemesa.set_from_file("MesaGrandeOcupada.png")
+        imaxemesa.set_from_file("Imaxes/MesaGrandeOcupada.png")
 
     def liberar_mesa_P(self, imaxemesa):
         """
@@ -166,7 +186,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Libre das mesas dos botóns pequenos.
 
         """
-        imaxemesa.set_from_file("MesaPequena.png")
+        imaxemesa.set_from_file("Imaxes/MesaPequena.png")
 
     def liberar_mesa_M(self, imaxemesa):
         """
@@ -174,7 +194,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Libre das mesas dos botóns medianos.
 
         """
-        imaxemesa.set_from_file("Mesa8.png")
+        imaxemesa.set_from_file("Imaxes/Mesa8.png")
 
     def liberar_mesa_G(self, imaxemesa):
         """
@@ -182,7 +202,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Libre das mesas dos botóns grandes.
 
         """
-        imaxemesa.set_from_file("Mesa10.png")
+        imaxemesa.set_from_file("Imaxes/Mesa10.png")
 
 
 
@@ -728,6 +748,10 @@ class Restaurante:
 
         """
         informes.reportservicios2(self.Factura_Seleccionada)
+
+    def pecharAbout(self, widget):
+        self.ven_about.hide()
+
 
 if __name__ == "__main__":
     print("Lanzase a aplicación.")

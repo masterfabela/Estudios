@@ -3,4 +3,6 @@
     <string name="nome_p_xestión">Xestión</string>
     <string name="nome_p_consulta">Consulta</string>
     <string name="benvida">Benvido á aplicación AlimSaud:</string>
+    <string name="purga">Purgar</string>
+    <string name="carga">Cargar elemento</string>
 </resources>

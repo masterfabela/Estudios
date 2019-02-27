@@ -27,6 +27,18 @@ public class ActivityXestion extends AppCompatActivity {
                 sqldb=cdb.getReadableDatabase();
                 sqldb.execSQL("DROP TABLE Alimentos;");
                 sqldb.execSQL("CREATE TABLE Alimentos (codigo INTEGER PRIMARY KEY, nombre TEXT, tipo TEXT,azucares TEXT, grasas TEXT, sodio TEXT);");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (1,'Arroz_con_leite','Lacteo','17','0.77','38')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (2,'Ovo_de_galiña','Ovo','0','3.1','140')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (3,'Tofu','Sementes_F.Secos','0.3','0.8','7')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (4,'Café_soluble','Bebida','6.5','0','41')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (5,'Fresas','Froita','4.8','0.03','2')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (6,'Grelo','Verduras','0.1','0.05','10')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (7,'Churros','Cereais_e_derivados','29','2.62','2')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (8,'Améndoas_cruas','Sementes_F.Secos','4.35','4.32','6')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (9,'Piñón','Sementes_F.Secos','3.6','9.88','1')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (10,'Kiwi','Froita','8.6','0.1','4')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (11,'Champiñons','Verduras','0.54','0.07','7.9')");
+                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (12,'Kefir','Lacteo','4.8','2.3','46')");
                 sqldb.close();
                 System.out.println("Purga realizada");
             }
@@ -37,7 +49,9 @@ public class ActivityXestion extends AppCompatActivity {
                 try{
                 ClaseDB cdb= new ClaseDB(ActivityXestion.this,"BDAlimentos",null,1);
                 sqldb=cdb.getWritableDatabase();
-                sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares,grasas,sodio) values (03,'Arroz_con_leite','Lacteo','17','0.77','38')");
+
+
+
                 sqldb.close();
                 System.out.println("Insercion realizada");}
                 catch(SQLiteConstraintException sqlce){

@@ -3,6 +3,11 @@
     <string name="nome_p_xestión">Xestión</string>
     <string name="nome_p_consulta">Consulta</string>
     <string name="benvida">Benvido á aplicación AlimSaud:</string>
-    <string name="purga">Purgar</string>
+    <string name="purga">Purgar táboa</string>
     <string name="carga">Cargar elemento</string>
+    <string name="pistaNome">Nome:</string>
+    <string name="pistaTipo">Tipo:</string>
+    <string name="pistaAz">Cantidade azucares(g):</string>
+    <string name="pistaG">Cantidade graxas(g):</string>
+    <string name="pistaS">Cantidade sodio(mg):</string>
 </resources>

@@ -22,11 +22,7 @@ public class Exercicio6 {
         msql.creador();
         Session sesion=NewHibernateUtil.getSession();
         System.out.println("Conexion correcta.");
-        //Coches c=new CochesVenta(25.3f,"0001","Lexus","GTR");
-        sesion.beginTransaction();
-        sesion.close();
-        System.out.println("Fin");
-        System.exit(0);
+        
     }
     
 }

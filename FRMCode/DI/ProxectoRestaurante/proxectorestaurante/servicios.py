@@ -1,9 +1,17 @@
 import locale #Permite obter os datos referentes a o teu pais, neste caso, util para a moeda.
-
-#locale.setlocale()
+locale.setlocale(locale.LC_ALL, 'es_ES.UTF-8')
+import zipfile
+import os
+import getpass
+import datetime
 
 
 def comprobarDNI(caixa):
+    """
+
+        Método que se encarga de comprobar que o texto que se extrae da caixa que se proporciona.
+
+    """
     try:
         tabla = "TRWAGMYFPDXBNJZSQVHLCKE"  # letras del dni
         extrange = "XYZ"
@@ -19,3 +27,37 @@ def comprobarDNI(caixa):
         return len(dni) == len([n for n in dni if n in numeros]) and tabla[int(dni) % 23] == letra
     except:
         return False
+
+def recortarEuro(cadea):
+
+    """
+
+        Método que se encarga de recortar o simbolo do € da cadea proporcionada.
+
+    """
+    var = cadea.split("€")[0]
+    retoque = float(var)
+    return retoque
+
+
+def colocarEuro(numero):
+
+    """
+
+        Método que se encarga de introducir o simbolo do € da cadea proporcionada.
+
+    """
+    retoque = locale.currency(numero)
+    return retoque
+
+def xerar_copia_seg():
+    """
+
+        Método que se encarga de realizar a copia de seguridade da BBDD principal sobre a que se traballa.
+
+    """
+    if not os.path.exists('/home/' + getpass.getuser() + '/copias'):
+        os.mkdir('/home/' + getpass.getuser() + '/copias', mode=0o777, dir_fd=None)
+    fichzip = zipfile.ZipFile("copiaRestaurante:"+str(datetime.datetime.now())+".zip", "w")
+    fichzip.write("BDRestaurante", "./BDRestaurante", zipfile.ZIP_DEFLATED)
+    fichzip.close()

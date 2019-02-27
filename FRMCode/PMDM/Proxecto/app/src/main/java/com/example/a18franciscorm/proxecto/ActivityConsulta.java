@@ -45,6 +45,7 @@ public class ActivityConsulta extends AppCompatActivity {
                 b.moveToFirst();
                 Alimento a=new Alimento(Integer.parseInt(b.getString(0)),b.getString(1),b.getString(2),b.getString(3),b.getString(4),b.getString(5));
                 alimentos.add(a);
+                entrada.setText("");
             }
         });
         AdaptadorPersonalizadp pers=new AdaptadorPersonalizadp(this,alimentos);

@@ -17,33 +17,28 @@
         android:id="@+id/ent_Nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/texto"
         android:hint="@string/pistaNome"/>
     <EditText
         android:id="@+id/ent_Tipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/texto"
         android:hint="@string/pistaTipo"
         />
     <EditText
         android:id="@+id/ent_Azucre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/texto"
         android:hint="@string/pistaAz"/>
     <EditText
         android:id="@+id/ent_Graxa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/texto"
         android:hint="@string/pistaG"/>
     <EditText
         android:id="@+id/ent_Sodio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:background="@color/texto"
         android:hint="@string/pistaS"/>
 
     <Button

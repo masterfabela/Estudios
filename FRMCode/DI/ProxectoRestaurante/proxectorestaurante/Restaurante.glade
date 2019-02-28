@@ -1537,7 +1537,7 @@ https://www.flaticon.com/authors/surang</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox">
+          <object class="GtkButtonBox" id="botonera">
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
           </object>
@@ -1594,6 +1594,8 @@ https://www.flaticon.com/authors/surang</property>
             <property name="height_request">29</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="visibility">False</property>
+            <property name="invisible_char">*</property>
             <property name="secondary_icon_tooltip_text" translatable="yes">Contrasinal</property>
             <property name="placeholder_text" translatable="yes">Contrasinal</property>
           </object>

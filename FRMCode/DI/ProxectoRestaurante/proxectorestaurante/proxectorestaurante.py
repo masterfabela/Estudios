@@ -8,10 +8,9 @@ import servicios
 import time
 from os.path import abspath, dirname, join
 WHERE_AM_I = abspath(dirname(__file__))
-#Restrinxir a impresion a se está pagada
-#funcionalizar o close de venAbout
 #Conseguir imprimir os documentos nunha carpeta, o empaquetador e a copia de seguridade.
-
+#Baixa de servicios, e revisar as baixas de clientes..
+#Colocar no readme o user:pass
 class Restaurante:
     def __init__(self):
         int_visual = Gtk.Builder()
@@ -120,13 +119,14 @@ class Restaurante:
             'on_but_sair_servicio_clicked': self.pecharVenta,
             'on_but_add_servicio_clicked': self.crear_plato,
             'on_but_error_clicked': self.sair_error,
-            'on_but_copiaSeguridade_activate': self.creaCopia,
-            'on_ven_about_close': self.pecharAbout
+            'on_but_copiaSeguridade_activate': self.creaCopia
+
         }
         int_visual.connect_signals(dic)
         self.vent_principal.hide()
         self.actualizar_listas()
         self.ven_login.show()
+        self.pagouse=None
 
     def set_style(self):
         """
@@ -150,7 +150,7 @@ class Restaurante:
         if XestionDatos.login(self.ent_usuario.get_text(), self.ent_contrasinal.get_text(), self.ven_login):
             self.actualizar_mesas()
             self.vent_principal.show()
-            # self.vent_principal.maximize()
+            #self.vent_principal.maximize()
             BDProvinciasLocalidades.cargar_provincias(self.combo_provincia)
             self.actualizar_listas()
 
@@ -333,14 +333,6 @@ class Restaurante:
         """
         self.ven_about.show()
 
-    def probaImpresion(self, widget):
-        """
-
-            Método que se ocupa de desencadear a impresión dunha factura.
-
-        """
-        informes.reportservicios(self.Factura_Seleccionada)
-
     def actualizar_mesas(self):
         """
 
@@ -498,7 +490,7 @@ class Restaurante:
     def cargandodatos_clientes(self, widget):
         """
 
-            Método que se ocupa de cargar os datos do TreeView nos Entry correspondentes.
+            Método que se ocupa de cargar os datos do TreeView do cliente nos Entry correspondentes.
 
         """
         model, iter = self.tree_clientes.get_selection().get_selected()
@@ -526,7 +518,7 @@ class Restaurante:
     def comprobar_entradas_cliente_mod(self):
         """
 
-            Método que se ocupa de comprobar que os datos para a creación do cliente son correctos, devolvendo True se o son, e False se non.
+            Método que se ocupa de comprobar que os datos para a actualización do cliente son correctos, devolvendo True se o son, e False se non.
 
         """
         if self.tex_dni != '' and self.tex_direccion != '' and self.tex_apelidos != '' and self.tex_nome != '':
@@ -657,6 +649,7 @@ class Restaurante:
         model, iter = self.tree_Facturas.get_selection().get_selected()
         if iter != None:
             self.Factura_Seleccionada = model.get_value(iter, 0)
+            self.pagouse = model.get_value(iter,5)
 
     def mostrar_venAvisos(self, widget):
         """
@@ -741,16 +734,34 @@ class Restaurante:
         self.imprimir_error("Creando a copia de seguridade.")
         servicios.xerar_copia_seg()
 
+    def probaImpresion(self, widget):
+        """
+
+            Método que se ocupa de desencadear a impresión dunha factura, se esta está pagada.
+
+        """
+        if(self.pagouse==None):
+            self.imprimir_error("Non se seleccionou ningunha factura.")
+        else:
+            if (self.pagouse == "Si"):
+                informes.reportservicios(self.Factura_Seleccionada)
+            else:
+                self.imprimir_error("A factura seleccionada non está pagada.")
+
     def probaImpresion2(self, widget):
         """
 
             Método que se ocupa de desencadear a impresión dun ticket.
 
         """
-        informes.reportservicios2(self.Factura_Seleccionada)
+        if (self.pagouse == None):
+            self.imprimir_error("Non se seleccionou ningunha factura.")
+        else:
+            if (self.pagouse=="Si"):
+                informes.reportservicios2(self.Factura_Seleccionada)
+            else:
+                self.imprimir_error("A factura seleccionada non está pagada.")
 
-    def pecharAbout(self, widget):
-        self.ven_about.hide()
 
 
 if __name__ == "__main__":

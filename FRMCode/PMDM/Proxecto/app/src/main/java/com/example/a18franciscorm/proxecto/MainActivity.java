@@ -9,14 +9,15 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button b1,b2;
+    Button b1,b2,b3,b4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         b1=(Button)findViewById(R.id.boton_Xestión);
         b2=(Button)findViewById(R.id.boton_Consulta);
-        //meter menu contextual para eliminar da lista, os dous botons do IMC e IMB, e pensar outras adicións.
+        b3=(Button)findViewById(R.id.boton_IMC);
+        b4=(Button)findViewById(R.id.boton_IMB);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,6 +29,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i= new Intent(MainActivity.this,ActivityConsulta.class);
+                startActivity(i);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(MainActivity.this,IMCActivity.class);
+                startActivity(i);
+            }
+        });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(MainActivity.this,IMBActivity.class);
                 startActivity(i);
             }
         });

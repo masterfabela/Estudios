@@ -9,4 +9,5 @@
     <color name="fondo_fila">#f2bb76</color>
     <color name="branco">#ffffff</color>
     <color name="texto">#a9bc7c</color>
+    <color name="fondoSec">#a9a9a9</color>
 </resources>

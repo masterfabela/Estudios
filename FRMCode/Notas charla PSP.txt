@@ -1,0 +1,17 @@
+Desenvolven e distribuen eles mesmos o seu propio ERP.
+Nome do ERP: Libra, aplicación multiplataforma.
+Empresa:Edisa.
+Son partners de Orale.
+Referencias de probas, no referente a os novos desenvolvedores en empresas.
+Posuen o seu propio control de fontes(Github).
+Referencia a o soporte e actualización dos productos.
+O despregue de Libra.
+    Base de datos Oracle, que está illada de internet.
+    Programa principal
+        WebLogic(Forms,Reports)
+    Servidor de Dockers, que intermedia entre a BD e o exterior.
+    Páxina web, que permite a multiplataforma, evitando o desenvolvemento das 
+        aplicacións en IOS e Android, evitando problemas de soporte co hardware.
+    Ferramentas de Reporting Online, que permite reducir a totalidade dos datos 
+        a informes simplificados, para a súa interpretación.
+Importancia do traballo en enquipo, e entre equipos.

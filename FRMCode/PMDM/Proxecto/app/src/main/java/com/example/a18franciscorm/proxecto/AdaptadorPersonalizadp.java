@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,18 +31,18 @@ public class AdaptadorPersonalizadp extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflador=context.getLayoutInflater();
         View fila=inflador.inflate(R.layout.fila,null);
-        TextView codigo=(TextView)fila.findViewById(R.id.codigo);
-        codigo.setText(String.valueOf(animais.get(position).getCodigo()));
         TextView tipo=(TextView)fila.findViewById(R.id.tipo);
-        tipo.setText(animais.get(position).getTipo().toString());
+        tipo.setText("Tipo: "+animais.get(position).getTipo().toString());
         TextView nome=(TextView)fila.findViewById(R.id.nome);
-        nome.setText(animais.get(position).getNome().toString());
-        TextView azucares=(TextView)fila.findViewById(R.id.azucares);
-        azucares.setText(animais.get(position).getAzucares().toString());
-        TextView grasas=(TextView)fila.findViewById(R.id.grasas);
-        grasas.setText(animais.get(position).getGrasas().toString());
-        TextView sodio=(TextView)fila.findViewById(R.id.sodio);
-        sodio.setText(animais.get(position).getSodio().toString());
+        nome.setText("Nome:"+animais.get(position).getNome().toString());
+        ImageView img1,img2,img3;
+        img1=(ImageView)fila.findViewById(R.id.azucares);
+        img2=(ImageView)fila.findViewById(R.id.grasas);
+        img3=(ImageView)fila.findViewById(R.id.sodio);
+        String stringTipo=animais.get(position).getTipo().toString();
+        if(stringTipo.equalsIgnoreCase("Froita")){
+            img1.setImageDrawable("");
+        }
         return fila;
     }
 }

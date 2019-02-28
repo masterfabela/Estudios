@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         b1=(Button)findViewById(R.id.boton_Xestión);
         b2=(Button)findViewById(R.id.boton_Consulta);
+        //meter menu contextual para eliminar da lista, os dous botons do IMC e IMB, e pensar outras adicións.
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

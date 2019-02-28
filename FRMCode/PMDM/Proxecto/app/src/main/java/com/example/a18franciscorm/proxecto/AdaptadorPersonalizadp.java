@@ -31,10 +31,10 @@ public class AdaptadorPersonalizadp extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflador=context.getLayoutInflater();
         View fila=inflador.inflate(R.layout.fila,null);
-        TextView tipo=(TextView)fila.findViewById(R.id.tipo);
-        tipo.setText(animais.get(position).getTipo().toString().replace('_',' '));
         TextView nome=(TextView)fila.findViewById(R.id.nome);
         nome.setText(animais.get(position).getNome().toString().replace('_',' '));
+        TextView tipo=(TextView)fila.findViewById(R.id.tipo);
+        tipo.setText(animais.get(position).getTipo().toString().replace('_',' '));
         ImageView img1,img2,img3,imgres;
         img1=(ImageView)fila.findViewById(R.id.azucares);
         img2=(ImageView)fila.findViewById(R.id.grasas);

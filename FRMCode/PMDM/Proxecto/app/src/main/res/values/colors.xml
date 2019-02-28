@@ -6,6 +6,7 @@
     <color name="fondo_principal">#3cdf8b</color>
     <color name="fondo_xestion">#aedf3c</color>
     <color name="fondo_consulta">#f5a848</color>
+    <color name="fondo_fila">#f2bb76</color>
     <color name="branco">#ffffff</color>
     <color name="texto">#a9bc7c</color>
 </resources>

@@ -36,4 +36,19 @@
         android:textSize="@dimen/letra_media"
         android:padding="@dimen/activity_horizontal_margin"
         />
+    <Button
+        android:id="@+id/boton_IMC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IMC"
+        android:textSize="@dimen/letra_media"
+        android:padding="@dimen/activity_horizontal_margin"/>
+    <Button
+        android:id="@+id/boton_IMB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IMB"
+        android:textSize="@dimen/letra_media"
+        android:padding="@dimen/activity_horizontal_margin"
+        />
 </LinearLayout>

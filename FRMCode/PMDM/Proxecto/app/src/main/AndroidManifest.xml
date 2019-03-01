@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityXestion" />
-        <activity android:name=".ActivityConsulta"></activity>
+        <activity android:name=".ActivityConsulta" />
+        <activity android:name=".IMCActivity" />
+        <activity android:name=".IMBActivity"></activity>
     </application>
 
 </manifest>

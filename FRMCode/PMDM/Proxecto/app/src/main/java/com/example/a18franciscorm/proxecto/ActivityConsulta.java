@@ -4,6 +4,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +22,8 @@ public class ActivityConsulta extends AppCompatActivity {
     SQLiteDatabase sqldb;
     ArrayList<String> listaX= new ArrayList();
     ArrayList<Alimento> alimentos= new ArrayList();
+    int eliminador;
+    AdaptadorPersonalizadp pers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +46,40 @@ public class ActivityConsulta extends AppCompatActivity {
         entrada.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Cursor b= sqldb.rawQuery("Select * from Alimentos where nombre ='"+parent.getItemAtPosition(position).toString().replace(' ','_')+"';",null);
+                Cursor b = sqldb.rawQuery("Select * from Alimentos where nombre ='"+parent.getItemAtPosition(position).toString().replace(' ','_')+"';",null);
                 b.moveToFirst();
-                Alimento a=new Alimento(Integer.parseInt(b.getString(0)),b.getString(1),b.getString(2),b.getString(3),b.getString(4),b.getString(5));
+                Alimento a = new Alimento(Integer.parseInt(b.getString(0)),b.getString(1),b.getString(2),b.getString(3),b.getString(4),b.getString(5));
                 alimentos.add(a);
                 entrada.setText("");
             }
         });
-        AdaptadorPersonalizadp pers=new AdaptadorPersonalizadp(this,alimentos);
+        pers=new AdaptadorPersonalizadp(this,alimentos);
         lista.setAdapter(pers);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ActivityConsulta.this,"Seleccion:"+alimentos.get(position).getNome(),Toast.LENGTH_SHORT).show();
+                eliminador=position;
+                Toast.makeText(ActivityConsulta.this,"Seleccion:"+alimentos.get(position).getNome().replace(' ','_'),Toast.LENGTH_SHORT).show();
             }
         });
+        registerForContextMenu(lista);
+    }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater me =getMenuInflater();
+        me.inflate(R.menu.menu,menu);
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.eliminar:
+                alimentos.remove(eliminador);
+                pers=new AdaptadorPersonalizadp(ActivityConsulta.this,alimentos);
+                lista.setAdapter(pers);
+        }
+        return super.onContextItemSelected(item);
     }
 }

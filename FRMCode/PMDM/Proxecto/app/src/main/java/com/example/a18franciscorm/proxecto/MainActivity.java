@@ -1,21 +1,50 @@
 package com.example.a18franciscorm.proxecto;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+    Button b1,b2,b3,b4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Integrar nunha bd 12 elementos da lista e realizar as consultas sobre el.
-        //o monitor solo vai na 22, ata que execute o comando máxico.
-        ClaseDB cdb= new ClaseDB(this,"BDAlimentos",null,1);
-        SQLiteDatabase sqldb=cdb.getReadableDatabase();
-        sqldb.execSQL("insert into Alimentos(codigo,nombre,tipo,azucares_simples,grasas_saturadas,sodio) values (03,'Arroz_con_leite','Lacteo','17','0.77','38')");
-        sqldb.close();
-        System.out.println("Insercion realizada");
+        b1=(Button)findViewById(R.id.boton_Xestión);
+        b2=(Button)findViewById(R.id.boton_Consulta);
+        b3=(Button)findViewById(R.id.boton_IMC);
+        b4=(Button)findViewById(R.id.boton_IMB);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(MainActivity.this,ActivityXestion.class);
+                startActivity(i);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(MainActivity.this,ActivityConsulta.class);
+                startActivity(i);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(MainActivity.this,IMCActivity.class);
+                startActivity(i);
+            }
+        });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(MainActivity.this,IMBActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

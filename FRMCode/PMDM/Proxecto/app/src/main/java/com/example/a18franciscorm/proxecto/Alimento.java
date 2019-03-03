@@ -6,14 +6,14 @@ package com.example.a18franciscorm.proxecto;
 
 public class Alimento {
     int codigo;
-    String nome,tipo,azucares_simples,grasas_saturadas,sodio;
+    String nome, tipo, azucares, grasas, sodio;
 
-    public Alimento(int codigo, String nome, String tipo, String azucares_simples, String grasas_saturadas, String sodio) {
+    public Alimento(int codigo, String nome, String tipo, String azucares, String grasas, String sodio) {
         this.codigo = codigo;
         this.nome = nome;
         this.tipo = tipo;
-        this.azucares_simples = azucares_simples;
-        this.grasas_saturadas = grasas_saturadas;
+        this.azucares = azucares;
+        this.grasas = grasas;
         this.sodio = sodio;
     }
 
@@ -41,20 +41,20 @@ public class Alimento {
         this.tipo = tipo;
     }
 
-    public String getAzucares_simples() {
-        return azucares_simples;
+    public String getAzucares() {
+        return azucares;
     }
 
-    public void setAzucares_simples(String azucares_simples) {
-        this.azucares_simples = azucares_simples;
+    public void setAzucares(String azucares) {
+        this.azucares = azucares;
     }
 
-    public String getGrasas_saturadas() {
-        return grasas_saturadas;
+    public String getGrasas() {
+        return grasas;
     }
 
-    public void setGrasas_saturadas(String grasas_saturadas) {
-        this.grasas_saturadas = grasas_saturadas;
+    public void setGrasas(String grasas) {
+        this.grasas = grasas;
     }
 
     public String getSodio() {

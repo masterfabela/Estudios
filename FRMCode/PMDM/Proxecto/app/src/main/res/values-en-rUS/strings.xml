@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nome_p_principal">AlimSaud</string>
+    <string name="nome_p_xestión">Management</string>
+    <string name="nome_p_consulta">Query</string>
+    <string name="benvida">Welcome to the AlimSaud app:</string>
+    <string name="purga">Purge table</string>
+    <string name="carga">Load element</string>
+    <string name="pistaNome">Name:</string>
+    <string name="pistaTipo">Type:</string>
+    <string name="pistaAz">Sugar amount(g):</string>
+    <string name="pistaG">Fat amount(g):</string>
+    <string name="pistaS">Sodium amount(mg):</string>
+    <string name="IMC">calculate IMC</string>
+    <string name="IMB">Calculate IMB</string>
+    <string name="explicaciónIMC">To calculate the CMI, fill the fields:</string>
+    <string name="explicaciónIMB">To calculate the BM, fill the fields:</string>
+    <string name="calcular">Calculate</string>
+    <string name="hintAltura">High</string>
+    <string name="hintPeso">Weight</string>
+    <string name="hintIdade">Age</string>
+    <string name="error">Lacking data</string>
+</resources>

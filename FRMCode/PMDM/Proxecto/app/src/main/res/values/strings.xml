@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">Proxecto</string>
+    <string name="nome_p_principal">AlimSaud</string>
+    <string name="nome_p_xestión">Xestión</string>
+    <string name="nome_p_consulta">Consulta</string>
+    <string name="benvida">Benvido á aplicación AlimSaud:</string>
+    <string name="purga">Purgar táboa</string>
+    <string name="carga">Cargar elemento</string>
+    <string name="pistaNome">Nome:</string>
+    <string name="pistaTipo">Tipo:</string>
+    <string name="pistaAz">Cantidade azucares(g):</string>
+    <string name="pistaG">Cantidade graxas(g):</string>
+    <string name="pistaS">Cantidade sodio(mg):</string>
+    <string name="IMC">Calcular IMC</string>
+    <string name="IMB">Calcular IMB</string>
+    <string name="explicaciónIMC">Para calcular o IMC, rechee os campos:</string>
+    <string name="explicaciónIMB">Para calcular o MB, rechee os campos:</string>
+    <string name="calcular">Calcular</string>
+    <string name="hintAltura">Altura</string>
+    <string name="hintPeso">Peso</string>
+    <string name="hintIdade">Idade</string>
+    <string name="error">Faltan datos</string>
+
 </resources>

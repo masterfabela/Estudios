@@ -8,9 +8,9 @@ import servicios
 import time
 from os.path import abspath, dirname, join
 WHERE_AM_I = abspath(dirname(__file__))
-#Conseguir imprimir os documentos nunha carpeta, o empaquetador e a copia de seguridade.
-#Baixa de servicios, e revisar as baixas de clientes..
 #Colocar no readme o user:pass
+#grabar ejemplo
+
 class Restaurante:
     def __init__(self):
         int_visual = Gtk.Builder()

@@ -3,6 +3,7 @@
 ## Datos útiles
 
 O user-password é Fran:654789.
+A guia de métodos está na carpeta chamada Informes.
 
 ## Instalación
 

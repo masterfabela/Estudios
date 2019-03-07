@@ -5,42 +5,42 @@
   <object class="GtkImage" id="Mesa1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">MesaPequena.png</property>
+    <property name="pixbuf">Imaxes/MesaPequena.png</property>
   </object>
   <object class="GtkImage" id="Mesa2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">MesaPequena.png</property>
+    <property name="pixbuf">Imaxes/MesaPequena.png</property>
   </object>
   <object class="GtkImage" id="Mesa3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">Mesa8.png</property>
+    <property name="pixbuf">Imaxes/Mesa8.png</property>
   </object>
   <object class="GtkImage" id="Mesa4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">MesaPequena.png</property>
+    <property name="pixbuf">Imaxes/MesaPequena.png</property>
   </object>
   <object class="GtkImage" id="Mesa5">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">MesaPequena.png</property>
+    <property name="pixbuf">Imaxes/MesaPequena.png</property>
   </object>
   <object class="GtkImage" id="Mesa6">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">Mesa8.png</property>
+    <property name="pixbuf">Imaxes/Mesa8.png</property>
   </object>
   <object class="GtkImage" id="Mesa7">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">Mesa10.png</property>
+    <property name="pixbuf">Imaxes/Mesa10.png</property>
   </object>
   <object class="GtkImage" id="Mesa8">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">Mesa10.png</property>
+    <property name="pixbuf">Imaxes/Mesa10.png</property>
   </object>
   <object class="GtkListStore" id="listCliente">
     <columns>
@@ -1476,7 +1476,7 @@ producto:</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_right">156</property>
-            <property name="pixbuf">website.png</property>
+            <property name="pixbuf">Imaxes/website.png</property>
           </object>
           <packing>
             <property name="x">153</property>
@@ -1526,7 +1526,7 @@ producto:</property>
     <property name="translator_credits" translatable="yes">FranRM</property>
     <property name="artists">FranRM
 https://www.flaticon.com/authors/surang</property>
-    <property name="logo">dish.png</property>
+    <property name="logo">Imaxes/dish.png</property>
     <property name="license_type">gpl-3-0</property>
     <child>
       <placeholder/>
@@ -1537,24 +1537,15 @@ https://www.flaticon.com/authors/surang</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox">
+          <object class="GtkButtonBox" id="botonera">
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">0</property>
+            <property name="position">-1</property>
           </packing>
-        </child>
-        <child>
-          <placeholder/>
         </child>
       </object>
     </child>
@@ -1603,6 +1594,8 @@ https://www.flaticon.com/authors/surang</property>
             <property name="height_request">29</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="visibility">False</property>
+            <property name="invisible_char">*</property>
             <property name="secondary_icon_tooltip_text" translatable="yes">Contrasinal</property>
             <property name="placeholder_text" translatable="yes">Contrasinal</property>
           </object>
@@ -1632,7 +1625,7 @@ https://www.flaticon.com/authors/surang</property>
             <property name="height_request">128</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="pixbuf">login.png</property>
+            <property name="pixbuf">Imaxes/login.png</property>
           </object>
           <packing>
             <property name="x">162</property>

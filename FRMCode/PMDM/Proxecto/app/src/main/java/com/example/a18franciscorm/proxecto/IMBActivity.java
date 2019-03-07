@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,6 +13,7 @@ public class IMBActivity extends AppCompatActivity {
     Button b1;
     EditText et1,et2,et3;
     TextView tv1;
+    Spinner sexo;
     float resultado1,resultado2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class IMBActivity extends AppCompatActivity {
         et2=(EditText)findViewById(R.id.entradaPesoIMB);
         et3=(EditText)findViewById(R.id.entradaIdade);
         tv1=(TextView)findViewById(R.id.resultadoIMB);
+        sexo=(Spinner)findViewById(R.id.sexo);
+        sexo.
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,0 +1,30 @@
+Trying:
+    factorial(0)
+Expecting:
+    1
+ok
+Trying:
+    factorial(4)
+Expecting:
+    24
+ok
+Trying:
+    factorial(5)
+Expecting:
+    121
+**********************************************************************
+File "probaPython.py", line 8, in __main__.factorial
+Failed example:
+    factorial(5)
+Expected:
+    121
+Got:
+    120
+1 items had no tests:
+    __main__
+**********************************************************************
+1 items had failures:
+   1 of   3 in __main__.factorial
+3 tests in 2 items.
+2 passed and 1 failed.
+***Test Failed*** 1 failures.

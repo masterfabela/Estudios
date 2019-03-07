@@ -1,16 +1,21 @@
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
+from gi.repository import Gdk,Gtk
 import XestionDatos
 import BDProvinciasLocalidades
 import informes
 import servicios
 import time
-#Ver a distribucion da aplicacion.
+from os.path import abspath, dirname, join
+WHERE_AM_I = abspath(dirname(__file__))
+#Colocar no readme o user:pass
+#grabar ejemplo
+
 class Restaurante:
     def __init__(self):
         int_visual = Gtk.Builder()
         int_visual.add_from_file("Restaurante.glade")
+        self.set_style()
         self.vent_principal = int_visual.get_object("vent_principal")
         self.ven_about = int_visual.get_object("ven_about")
         self.ven_about.connect('delete-event', lambda w, e: w.hide() or True)
@@ -115,11 +120,26 @@ class Restaurante:
             'on_but_add_servicio_clicked': self.crear_plato,
             'on_but_error_clicked': self.sair_error,
             'on_but_copiaSeguridade_activate': self.creaCopia
+
         }
         int_visual.connect_signals(dic)
         self.vent_principal.hide()
         self.actualizar_listas()
         self.ven_login.show()
+        self.pagouse=None
+
+    def set_style(self):
+        """
+            # Método de carga la paleta CSS
+        """
+        provider = Gtk.CssProvider()
+        provider.load_from_path(join(WHERE_AM_I, 'estilo.css'))
+        screen = Gdk.Display.get_default_screen(Gdk.Display.get_default())
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION = 600
+        Gtk.StyleContext.add_provider_for_screen(
+            screen, provider,
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
 
     def login(self, widget):
         """
@@ -130,7 +150,7 @@ class Restaurante:
         if XestionDatos.login(self.ent_usuario.get_text(), self.ent_contrasinal.get_text(), self.ven_login):
             self.actualizar_mesas()
             self.vent_principal.show()
-            # self.vent_principal.maximize()
+            #self.vent_principal.maximize()
             BDProvinciasLocalidades.cargar_provincias(self.combo_provincia)
             self.actualizar_listas()
 
@@ -142,7 +162,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Ocupado das mesas dos botóns pequenos.
 
         """
-        imaxemesa.set_from_file("MesaPequenaOcuoada.png")
+        imaxemesa.set_from_file("Imaxes/MesaPequenaOcuoada.png")
 
     def ocupar_mesa_M(self, imaxemesa):
         """
@@ -150,7 +170,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Ocupado das mesas dos botóns medianos.
 
         """
-        imaxemesa.set_from_file("MesaMediaOcupada.png")
+        imaxemesa.set_from_file("Imaxes/MesaMediaOcupada.png")
 
     def ocupar_mesa_G(self, imaxemesa):
         """
@@ -158,7 +178,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Ocupado das mesas dos botóns grandes.
 
         """
-        imaxemesa.set_from_file("MesaGrandeOcupada.png")
+        imaxemesa.set_from_file("Imaxes/MesaGrandeOcupada.png")
 
     def liberar_mesa_P(self, imaxemesa):
         """
@@ -166,7 +186,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Libre das mesas dos botóns pequenos.
 
         """
-        imaxemesa.set_from_file("MesaPequena.png")
+        imaxemesa.set_from_file("Imaxes/MesaPequena.png")
 
     def liberar_mesa_M(self, imaxemesa):
         """
@@ -174,7 +194,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Libre das mesas dos botóns medianos.
 
         """
-        imaxemesa.set_from_file("Mesa8.png")
+        imaxemesa.set_from_file("Imaxes/Mesa8.png")
 
     def liberar_mesa_G(self, imaxemesa):
         """
@@ -182,7 +202,7 @@ class Restaurante:
             Metodo de asignación das imaxes de Libre das mesas dos botóns grandes.
 
         """
-        imaxemesa.set_from_file("Mesa10.png")
+        imaxemesa.set_from_file("Imaxes/Mesa10.png")
 
 
 
@@ -312,14 +332,6 @@ class Restaurante:
 
         """
         self.ven_about.show()
-
-    def probaImpresion(self, widget):
-        """
-
-            Método que se ocupa de desencadear a impresión dunha factura.
-
-        """
-        informes.reportservicios(self.Factura_Seleccionada)
 
     def actualizar_mesas(self):
         """
@@ -478,7 +490,7 @@ class Restaurante:
     def cargandodatos_clientes(self, widget):
         """
 
-            Método que se ocupa de cargar os datos do TreeView nos Entry correspondentes.
+            Método que se ocupa de cargar os datos do TreeView do cliente nos Entry correspondentes.
 
         """
         model, iter = self.tree_clientes.get_selection().get_selected()
@@ -506,7 +518,7 @@ class Restaurante:
     def comprobar_entradas_cliente_mod(self):
         """
 
-            Método que se ocupa de comprobar que os datos para a creación do cliente son correctos, devolvendo True se o son, e False se non.
+            Método que se ocupa de comprobar que os datos para a actualización do cliente son correctos, devolvendo True se o son, e False se non.
 
         """
         if self.tex_dni != '' and self.tex_direccion != '' and self.tex_apelidos != '' and self.tex_nome != '':
@@ -637,6 +649,7 @@ class Restaurante:
         model, iter = self.tree_Facturas.get_selection().get_selected()
         if iter != None:
             self.Factura_Seleccionada = model.get_value(iter, 0)
+            self.pagouse = model.get_value(iter,5)
 
     def mostrar_venAvisos(self, widget):
         """
@@ -721,13 +734,35 @@ class Restaurante:
         self.imprimir_error("Creando a copia de seguridade.")
         servicios.xerar_copia_seg()
 
+    def probaImpresion(self, widget):
+        """
+
+            Método que se ocupa de desencadear a impresión dunha factura, se esta está pagada.
+
+        """
+        if(self.pagouse==None):
+            self.imprimir_error("Non se seleccionou ningunha factura.")
+        else:
+            if (self.pagouse == "Si"):
+                informes.reportservicios(self.Factura_Seleccionada)
+            else:
+                self.imprimir_error("A factura seleccionada non está pagada.")
+
     def probaImpresion2(self, widget):
         """
 
             Método que se ocupa de desencadear a impresión dun ticket.
 
         """
-        informes.reportservicios2(self.Factura_Seleccionada)
+        if (self.pagouse == None):
+            self.imprimir_error("Non se seleccionou ningunha factura.")
+        else:
+            if (self.pagouse=="Si"):
+                informes.reportservicios2(self.Factura_Seleccionada)
+            else:
+                self.imprimir_error("A factura seleccionada non está pagada.")
+
+
 
 if __name__ == "__main__":
     print("Lanzase a aplicación.")

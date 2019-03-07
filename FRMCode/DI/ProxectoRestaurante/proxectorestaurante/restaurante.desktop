@@ -1,0 +1,19 @@
+# Este fichero permite ver la aplicación en el menu de programas en el escritorio, para más información
+# https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
+[Desktop Entry]
+Name=Restaurante
+# Descripción
+Comment=Gestion sencilla de un restaurante
+# El commando que arrancará el programa desde el menu siempre y cuando: /usr/bin/restaurante
+Exec=proxectorestaurante
+#cambiar main por restaurant o similar
+# aquí decides si se ejecuta desde terminal o no
+Terminal=false
+# dejalo así
+Type=Application
+# Para colocar el icono aquí /usr/share/pixmaps/icon.png pero inclúyelo en el carpeta del programas. O dejas por #
+defecto el icono del sistema
+Icon=system
+# Esto dejalo así
+Categories=GNOME;GTK;Utility;
+StartupNotify=false

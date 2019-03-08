@@ -14,7 +14,11 @@ public class Socio extends Cliente{
     private final int importeMensual=30;
     @Override
     public void importeUsos() {
-        
+        float total=0;
+//        ArrayList<Uso> usos=super.getUsos();
+//        for(Uso x:usos){
+//            x.getNome()
+//        }
     }
 
     public Socio() {

@@ -1,6 +1,6 @@
 <productos> 
-<producto>  
-<codigo_producto>1</codigo_producto>  
+ <producto>  
+ <codigo_producto>1</codigo_producto>  
  <denominacion>microprocesador</denominacion>  
  <precio>1</precio>  
  <stock_actual>2</stock_actual>  
@@ -24,14 +24,15 @@
  <stock_actual>200</stock_actual>  
  <stock_minimo>100</stock_minimo>  
  <codigo_zona>20</codigo_zona> 
- <producto> 
-
+ </producto> 
+<producto>  
  <codigo_producto>4</codigo_producto>  
  <denominacion>memoria ram</denominacion> 
  <precio>8</precio> 
  <stock_actual>2000</stock_actual>  
  <stock_minimo>1000</stock_minimo> 
  <codigo_zona>40</codigo_zona> 
+ </producto>  
 
  <producto> 
  <codigo_producto>5</codigo_producto> 
@@ -85,4 +86,5 @@
   <stock_actual>2</stock_actual>  
   <stock_minimo>*</stock_minimo> 
   <codigo_zona>10</codigo_zona> 
-  <producto> 
+  </producto> 
+</productos> 

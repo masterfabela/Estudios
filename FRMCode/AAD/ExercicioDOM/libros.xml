@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<listalibros>
+   
+<libro>
+      <autor>
+         <apellido1>López</apellido1>
+         <apellido2>Pérez</apellido2>
+         <nombre>Juan</nombre>
+      </autor>
+      <titulo>Programación</titulo>
+   <isbn/>
+      <precio/>
+   </libro>
+<libro>
+      <autor>
+         <apellido2>Lopez</apellido2>
+         <apellido1>Lopez</apellido1>
+         <isbnombren>Cristina</isbnombren>
+      </autor>
+      <isbn/>
+      <precio/>
+      <titulo>Bases de datos.</titulo>
+   </libro>
+</listalibros>
+

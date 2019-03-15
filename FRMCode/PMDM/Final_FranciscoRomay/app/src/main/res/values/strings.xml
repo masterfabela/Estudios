@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Learn Chemistry</string>
+    <string name="elixaComposto">Choose a compound.</string>
+    <string name="meterFormula">Formula Input:</string>
+    <string name="formula">Formula</string>
+    <string name="comprobar">Test</string>
+    <string name="continuarTexto">Wanna continue?</string>
+    <string name="continuarBoton">Continue</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+    <string name="Atencion">Attenttion!</string>
+    <string name="AcercaDe">About</string>
+    <string name="Contacto">Contact us</string>
+    <string name="mensaxeAcercade">Author:Francisco Romay Méndez March-2019</string>
+    <string name="Segir">Continue</string>
+    <string name="Finalizar">Finish</string>
+    <string name="MensaxeInicio">Scores in the last session: </string>
+    <string name="faltandatos">Lacking data.</string>
+    <string name="acerto">Right</string>
+    <string name="fallo">Wrong</string>
+
+
+</resources>

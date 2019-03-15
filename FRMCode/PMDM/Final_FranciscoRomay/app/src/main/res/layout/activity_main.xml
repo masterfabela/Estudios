@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/marxe"
+    android:paddingLeft="@dimen/marxe"
+    android:paddingRight="@dimen/marxe"
+    android:paddingTop="@dimen/marxe"
+    tools:context="com.example.a18franciscorm.final_franciscoromay.MainActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/azulMedio">
+    <LinearLayout
+        android:id="@+id/layoutBenvida"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/azulClaro">
+        <TextView
+            android:id="@+id/textoBenvida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="@dimen/letraBenvida"
+            android:textColor="@color/azulTexto"
+            android:textAllCaps="true"
+            android:textAlignment="center"/>
+        <ImageView
+            android:id="@+id/imaxePrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flaskgrande"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutExecucion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/azulClaro">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/elixaComposto"
+            android:textSize="@dimen/marxe"/>
+        <ListView
+            android:id="@+id/listaCompostos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marxe"
+            android:layout_marginRight="@dimen/marxe">
+
+        </ListView>
+    </LinearLayout>
+
+
+</LinearLayout>

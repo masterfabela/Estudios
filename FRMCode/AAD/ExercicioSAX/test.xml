@@ -1,0 +1,90 @@
+<productos> 
+ <producto>  
+ <codigo_producto>1</codigo_producto>  
+ <denominacion>microprocesador</denominacion>  
+ <precio>1</precio>  
+ <stock_actual>2</stock_actual>  
+ <stock_minimo>1</stock_minimo> 
+ <codigo_zona>5</codigo_zona>  
+ </producto>  
+ 
+ <producto> 
+ <codigo_producto>2</codigo_producto>  
+ <denominacion>placa base</denominacion>  
+ <precio>2</precio> 
+ <stock_actual>20</stock_actual> 
+ <stock_minimo>10</stock_minimo> 
+ <codigo_zona>10</codigo_zona> 
+ </producto> 
+ 
+ <producto> 
+ <codigo_producto>3</codigo_producto> 
+ <denominacion>tarjeta gráfica</denominacion>  
+ <precio>4</precio>  
+ <stock_actual>200</stock_actual>  
+ <stock_minimo>100</stock_minimo>  
+ <codigo_zona>20</codigo_zona> 
+ </producto> 
+<producto>  
+ <codigo_producto>4</codigo_producto>  
+ <denominacion>memoria ram</denominacion> 
+ <precio>8</precio> 
+ <stock_actual>2000</stock_actual>  
+ <stock_minimo>1000</stock_minimo> 
+ <codigo_zona>40</codigo_zona> 
+ </producto>  
+
+ <producto> 
+ <codigo_producto>5</codigo_producto> 
+ <denominacion>disco duro</denominacion>  
+ <precio>16</precio>  
+ <stock_actual>2000</stock_actual> 
+ <stock_minimo>1000</stock_minimo>  
+ <codigo_zona>10</codigo_zona> 
+ </producto> 
+ 
+ <producto> 
+ <codigo_producto>6</codigo_producto> 
+ <denominacion>unidad óptica</denominacion> 
+ <precio>32</precio>  
+ <stock_actual>2000</stock_actual>  
+ <stock_minimo>1000</stock_minimo> 
+ <codigo_zona>20</codigo_zona> 
+  </producto> 
+  
+  <producto> 
+  <codigo_producto>7</codigo_producto> 
+  <denominacion>ventilador</denominacion>
+  <precio>64</precio> 
+  <stock_actual>2000</stock_actual>
+  <stock_minimo>1000</stock_minimo> 
+  <codigo_zona>20</codigo_zona> 
+  </producto> 
+  
+  <producto>  
+  <codigo_producto>8</codigo_producto> 
+  <denominacion>periférico</denominacion>  
+  <precio>128</precio> 
+  <stock_actual>200</stock_actual> 
+  <stock_minimo>100</stock_minimo> 
+  <codigo_zona>10</codigo_zona>  
+  </producto> 
+  
+  <producto>  
+  <codigo_producto>9</codigo_producto>  
+  <denominacion>altavoz</denominacion>  
+  <precio>256</precio> 
+  <stock_actual>20</stock_actual> 
+  <stock_minimo>10</stock_minimo>  
+  <codigo_zona>30</codigo_zona> 
+  </producto> 
+  
+  <producto> 
+  <codigo_producto>10</codigo_producto> 
+  <denominacion>pantalla</denominacion> 
+  <precio>512</precio>  
+  <stock_actual>2</stock_actual>  
+  <stock_minimo>*</stock_minimo> 
+  <codigo_zona>10</codigo_zona> 
+  </producto> 
+</productos> 

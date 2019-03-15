@@ -6,6 +6,7 @@
 package principal;
 
 import Cliente.controlador.Altas;
+import Cliente.controlador.Consultas;
 import Server.controlador.Controlador;
 import Server.vista.Vista;
 import java.util.Scanner;
@@ -26,18 +27,19 @@ public class ExercicioXimnasios {
         Scanner sc=new Scanner(System.in);
         Altas a1=new Altas();
         c1.start();
+        Consultas c=new Consultas();
         byte opcion=0;
         while(opcion!=10){
             v.menuPrincipal();
             opcion=sc.nextByte();
             switch(opcion){
-                case 1:;
+                case 1:a1.altaXimnasio();
                 break;
-                case 2:;
+                case 2:a1.altaActividades();
                 break;
                 case 3:a1.altaSocio();
                 break;
-                case 4:;
+                case 4:a1.altaUsos();
                 break;
                 case 5:;
                 break;
@@ -45,7 +47,7 @@ public class ExercicioXimnasios {
                 break;
                 case 7:;
                 break;
-                case 8:;
+                case 8:c.consultarCliente();
                 break;
                 case 9:;
                 break;

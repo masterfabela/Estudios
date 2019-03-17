@@ -39,6 +39,7 @@
         android:id="@+id/sexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:entries="@array/sexos"
         ></Spinner>
     <Button
         android:id="@+id/calcularIMB"

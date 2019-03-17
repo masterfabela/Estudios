@@ -16,6 +16,7 @@ public class ActivityXestion extends AppCompatActivity {
         setContentView(R.layout.activity_xestion);
         b1=(Button)findViewById(R.id.purgar);
         b2=(Button)findViewById(R.id.engadir);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //Integrar nunha bd 12 elementos da lista e realizar as consultas sobre el.
         //o monitor solo vai na 22, ata que execute o comando máxico.
 

@@ -28,6 +28,7 @@ public class ActivityConsulta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         entrada=(AutoCompleteTextView)findViewById(R.id.entrada);
         lista=(ListView)findViewById(R.id.lista);
         ClaseDB cdb= new ClaseDB(ActivityConsulta.this,"BDAlimentos",null,1);
@@ -58,8 +59,14 @@ public class ActivityConsulta extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                eliminador=position;
                 Toast.makeText(ActivityConsulta.this,"Seleccion:"+alimentos.get(position).getNome().replace(' ','_'),Toast.LENGTH_SHORT).show();
+            }
+        });
+        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                eliminador=position;
+                return false;
             }
         });
         registerForContextMenu(lista);

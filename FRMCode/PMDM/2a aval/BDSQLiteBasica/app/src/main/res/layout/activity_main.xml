@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.femio.bdsqlitebasica.MainActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Opcions" />
+    <Button
+        android:id="@+id/insercion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inserción"
+        />
+    <Button
+        android:id="@+id/borrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Borrado"
+        />
+    <Button
+        android:id="@+id/modificado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modificar"
+        />
+    <Button
+        android:id="@+id/consultaI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cons. Individual"
+        />
+    <Button
+        android:id="@+id/consultM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cons. Total"
+        />
+
+
+</LinearLayout>

@@ -18,10 +18,6 @@ public class Servidor implements RMICalcInterface {
 
     public static void main(String[] args) {
         Registry reg = null;
-        if (System.getSecurityManager() == null) {
-            SecurityManager sm = new SecurityManager();
-            System.setSecurityManager(sm);
-        }
         try {
             reg = LocateRegistry.createRegistry(5555);
             System.out.println("Registro creado.");

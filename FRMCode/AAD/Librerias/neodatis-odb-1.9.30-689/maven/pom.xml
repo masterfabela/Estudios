@@ -1,0 +1,20 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.neodatis.odb</groupId>
+  <artifactId>neodatis-odb</artifactId>
+  <packaging>jar</packaging>
+  <name>NeoDatis Object Database</name>
+  <version>neodatis-odb-version</version>
+  <description>The NeoDatis Object Database</description>
+  <url>http://www.neodatis.org</url>
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License</name>
+      <url>http://www.gnu.org/licenses/lgpl.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>http://neodatis-odb.cvs.sourceforge.net/neodatis-odb/ODB/</url>
+  </scm>
+</project>

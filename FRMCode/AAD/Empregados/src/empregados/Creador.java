@@ -40,7 +40,7 @@ public class Creador {
                     + "foreign key(nDep) references Departamento(nDep) on delete cascade on update cascade"
                     + ");");
             creacion.execute("create table if not exists Vehiculo("
-                    + "dni varchar(10),"
+                    + "empregado varchar(10),"
                     + "matricula varchar(7),"
                     + "marca varchar(20),"
                     + "modelo varchar(20),"

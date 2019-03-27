@@ -13,7 +13,7 @@ import java.sql.Date;
  * @author femio23
  */
 public class Empregado implements Serializable{
-    private String nome,oficio,dni,nDep;
+    private String nome,oficio,dni;
     private int salario,comision;
     private Date dataAlta;
     private Vehiculo vehiculo;
@@ -22,16 +22,15 @@ public class Empregado implements Serializable{
     public Empregado() {
     }
 
-    public Empregado(String nome, String oficio, String dni, String nDep, int salario, int comision, Date dataAlta, Vehiculo vehiculo, Departamento departamento) {
+    public Empregado(String nome, String oficio, String dni, int salario, int comision, Date dataAlta ) {
         this.nome = nome;
         this.oficio = oficio;
         this.dni = dni;
-        this.nDep = nDep;
         this.salario = salario;
         this.comision = comision;
         this.dataAlta = dataAlta;
-        this.vehiculo = vehiculo;
-        this.departamento = departamento;
+        this.vehiculo = new Vehiculo();
+        this.departamento = new Departamento();
     }
 
     public String getNome() {
@@ -56,14 +55,6 @@ public class Empregado implements Serializable{
 
     public void setDni(String dni) {
         this.dni = dni;
-    }
-
-    public String getnDep() {
-        return nDep;
-    }
-
-    public void setnDep(String nDep) {
-        this.nDep = nDep;
     }
 
     public int getSalario() {

@@ -6,6 +6,7 @@
 package Pojos;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 /**
  *
@@ -18,11 +19,12 @@ public class Departamento implements Serializable{
     public Departamento() {
     }
 
-    public Departamento(String nDep, String nomeDep, String localidade, Set<Empregado> empregados) {
+    public Departamento(String nDep, String nomeDep, String localidade) {
         this.nDep = nDep;
         this.nomeDep = nomeDep;
         this.localidade = localidade;
-        this.empregados = empregados;
+        this.empregados=new HashSet<>();
+        
     }
 
     public String getnDep() {

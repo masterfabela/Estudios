@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory>
+        <CheckBoxPreference
+            android:key="opcion1"
+            android:title="Preferencia 1"
+            android:summary="Descripción de la preferencia 1" />
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <EditTextPreference
+            android:key="opcion2"
+            android:title="Preferencia 2"
+            android:summary="Descripción de la preferencia 2"
+            android:dialogTitle="Introduce valor" />
+
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <ListPreference
+            android:key="opcion3"
+            android:title="Preferencia 3"
+            android:summary="Descripción de la preferencia 3"
+            android:dialogTitle="Indicar color"
+            android:entries="@array/colores"
+            android:entryValues="@array/codigocolores" />
+    </PreferenceCategory>
+    <PreferenceCategory>
+        <MultiSelectListPreference
+            android:key="opcion4"
+            android:title="Preferencia 4"
+            android:summary="Descripción de la preferencia 4"
+            android:dialogTitle="Indicar color"
+            android:entries="@array/colores"
+            android:entryValues="@array/codigocolores" />
+    </PreferenceCategory>
+</PreferenceScreen>

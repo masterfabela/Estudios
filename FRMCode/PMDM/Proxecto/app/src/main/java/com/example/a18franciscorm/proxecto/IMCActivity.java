@@ -1,5 +1,6 @@
 package com.example.a18franciscorm.proxecto;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class IMCActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imc);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         b1=(Button)findViewById(R.id.calcularIMC);
         et1=(EditText)findViewById(R.id.entradaAlturaIMC);
         et2=(EditText)findViewById(R.id.entradaPesoIMC);

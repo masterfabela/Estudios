@@ -243,5 +243,9 @@ fabric.properties
 /FRMCode/AAD/ExercicioBeans/nbproject/private/
 /FRMCode/AAD/ExercicioDOM/nbproject/private/
 /FRMCode/AAD/ExercicioSAX/nbproject/private/
+<<<<<<< HEAD
 /FRMCode/AAD/Autores/nbproject/private/
 /FRMCode/AAD/Empregados/nbproject/private/
+=======
+/FRMCode/AAD/ExercicioExist/nbproject/private/
+>>>>>>> bc37495ae87cb1af64ce21a4bf45e4b689175c80

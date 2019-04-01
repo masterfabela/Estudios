@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aprenda Quimica</string>
+    <string name="elixaComposto">Seleccione un compuesto.</string>
+    <string name="meterFormula">Introduzca la formula</string>
+    <string name="formula">Formula</string>
+    <string name="comprobar">Comprobar</string>
+    <string name="continuarTexto">¿Desea continuar?</string>
+    <string name="continuarBoton">Continuar</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="Atencion">¡Atencion!</string>
+    <string name="AcercaDe">Acerca de</string>
+    <string name="Contacto">Contacto</string>
+    <string name="mensaxeAcercade">Autor:Francisco Romay Méndez Marzo-2019</string>
+    <string name="Segir">Continuar</string>
+    <string name="Finalizar">Terminar</string>
+    <string name="MensaxeInicio">Aciertos </string>
+    <string name="faltandatos">Faltan datos.</string>
+    <string name="acerto">Acierto</string>
+    <string name="fallo">Fallo</string>
+</resources>

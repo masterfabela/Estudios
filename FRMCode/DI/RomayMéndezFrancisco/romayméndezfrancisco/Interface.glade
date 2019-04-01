@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkListStore" id="listBuses">
+    <columns>
+      <!-- column-name matricula -->
+      <column type="gchararray"/>
+      <!-- column-name plazas -->
+      <column type="gint64"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="listServicio">
+    <columns>
+      <!-- column-name numviaxe -->
+      <column type="gint64"/>
+      <!-- column-name matricula -->
+      <column type="gchararray"/>
+      <!-- column-name plazas -->
+      <column type="gint64"/>
+      <!-- column-name kmInicio -->
+      <column type="gint64"/>
+      <!-- column-name kmFin -->
+      <column type="gint64"/>
+      <!-- column-name kmViaxe -->
+      <column type="gint64"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="ven_principal">
+    <property name="can_focus">False</property>
+    <signal name="destroy" handler="on_ven_principal_destroy" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkMenuBar">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkMenuItem">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Ficheiro</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="sair_barra">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_sair_barra_activate" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="but_ver">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Ver</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_but_ver_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Axuda</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="but_about">
+                        <property name="label">gtk-about</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_but_about_activate" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkNotebook">
+            <property name="width_request">256</property>
+            <property name="height_request">162</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <child>
+              <object class="GtkFixed">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkButton" id="but_engadir_bus">
+                    <property name="label" translatable="yes">Engadir</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">29</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_but_engadir_bus_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">15</property>
+                    <property name="y">62</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="but_eliminar_bus">
+                    <property name="label" translatable="yes">Eliminar</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">29</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_but_eliminar_bus_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">116</property>
+                    <property name="y">62</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="ent_matricula">
+                    <property name="width_request">128</property>
+                    <property name="height_request">29</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">Matricula</property>
+                  </object>
+                  <packing>
+                    <property name="x">14</property>
+                    <property name="y">23</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_plazas">
+                    <property name="width_request">169</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="active">0</property>
+                    <property name="active_id">-1</property>
+                    <items>
+                      <item id="-1" translatable="yes">Plazas</item>
+                      <item id="0" translatable="yes">12</item>
+                      <item id="1" translatable="yes">22</item>
+                      <item id="2" translatable="yes">30</item>
+                      <item id="3" translatable="yes">50</item>
+                      <item id="4" translatable="yes">+65</item>
+                    </items>
+                  </object>
+                  <packing>
+                    <property name="x">192</property>
+                    <property name="y">24</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkTreeView" id="tree_buses">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="model">listBuses</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection" id="selector_buses">
+                        <signal name="changed" handler="on_selector_buses_changed" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title" translatable="yes">Matricula</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="matricula"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title" translatable="yes">Plazas</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="plazas"/>
+                          <attributes>
+                            <attribute name="text">1</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">88</property>
+                    <property name="y">144</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Autobuses</property>
+              </object>
+              <packing>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkButton" id="but_eliminar_servicio">
+                    <property name="label" translatable="yes">Eliminar</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">29</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_but_eliminar_servicio_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">140</property>
+                    <property name="y">79</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="but_engadir_servicio">
+                    <property name="label" translatable="yes">Engadir</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">29</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_but_engadir_servicio_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">30</property>
+                    <property name="y">80</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkTreeView" id="tree_ser">
+                    <property name="width_request">415</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="model">listServicio</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection" id="selector_servicios">
+                        <signal name="changed" handler="on_selector_servicios_changed" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title" translatable="yes">Viaxe</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="numviaxe"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title" translatable="yes">Matricula</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="matricula1"/>
+                          <attributes>
+                            <attribute name="text">1</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title" translatable="yes">Plazas</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="plazas2"/>
+                          <attributes>
+                            <attribute name="text">2</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title" translatable="yes">Km Iniciais</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="kmInicio"/>
+                          <attributes>
+                            <attribute name="text">3</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title" translatable="yes">Km Finais</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="kmFin"/>
+                          <attributes>
+                            <attribute name="text">4</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title" translatable="yes">Km total</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="kmViaxe"/>
+                          <attributes>
+                            <attribute name="text">5</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">40</property>
+                    <property name="y">133</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="but_imprimir">
+                    <property name="label" translatable="yes">Imprimir</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">31</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_but_imprimir_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">419</property>
+                    <property name="y">276</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="combo_matricula">
+                    <property name="width_request">170</property>
+                    <property name="height_request">28</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="x">22</property>
+                    <property name="y">35</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="ent_iniciais">
+                    <property name="width_request">166</property>
+                    <property name="height_request">29</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">Kilometros Iniciais</property>
+                  </object>
+                  <packing>
+                    <property name="x">197</property>
+                    <property name="y">34</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="ent_finais">
+                    <property name="width_request">166</property>
+                    <property name="height_request">29</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="placeholder_text" translatable="yes">Kilometros Finais</property>
+                  </object>
+                  <packing>
+                    <property name="x">368</property>
+                    <property name="y">35</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="but_actualizar_servicio">
+                    <property name="label" translatable="yes">Actualizar</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">29</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_but_actualizar_servicio_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">244</property>
+                    <property name="y">79</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Xestión</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="aviso">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">label</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAboutDialog" id="ven_about">
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <property name="program_name">Glade</property>
+    <property name="website">asd</property>
+    <property name="logo_icon_name">image-missing</property>
+    <signal name="destroy" handler="on_ven_about_destroy" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

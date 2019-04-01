@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
                 String correo= sp.getString("email","correo predeterminado");
-                String nome= sp.getString("nome","correo predeterminado");
+                String nome= sp.getString("nome","nome predeterminado");
                 System.out.println(Log.i("Preferencias","correo: "+correo));
                 System.out.println(Log.i("Preferencias","nome: "+nome));
             }

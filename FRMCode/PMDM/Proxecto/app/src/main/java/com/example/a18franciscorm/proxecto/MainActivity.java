@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         b1=(Button)findViewById(R.id.boton_Xestión);
         b2=(Button)findViewById(R.id.boton_Consulta);
         b3=(Button)findViewById(R.id.boton_IMC);

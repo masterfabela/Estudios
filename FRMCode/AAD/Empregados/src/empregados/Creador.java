@@ -24,8 +24,15 @@ public class Creador {
             System.out.println("Erro na conexión: "+sqle1.getMessage());
         }try{
             Statement creacion = c.createStatement();
+            //creacion.execute("drop database if exists Empregados;");
             creacion.execute("create database if not exists Empregados;");
             creacion.execute("use Empregados;");
+            creacion.execute("create table if not exists Departamento("
+                    + "nDep varchar(2),"
+                    + "nomeDep varchar(20),"
+                    + "localidade varchar(20),"
+                    + "primary key(nDep)"
+                    + ");");
             creacion.execute("create table if not exists Empregado("
                     + "nome varchar(20) not null,"
                     + "oficio varchar(20),"
@@ -40,22 +47,18 @@ public class Creador {
                     + "foreign key(nDep) references Departamento(nDep) on delete cascade on update cascade"
                     + ");");
             creacion.execute("create table if not exists Vehiculo("
-                    + "empregado varchar(10),"
+                    + "dni varchar(10),"
                     + "matricula varchar(7),"
                     + "marca varchar(20),"
                     + "modelo varchar(20),"
                     + "dataCompra date,"
-                    + "primary key (matricula),"
+                    + "primary key (dni),"
+                    + "unique index (matricula),"
                     + "index fk_dni(dni),"
                     + "constraint fk_dni "
                     + "foreign key(dni) references Empregado(dni) on delete cascade on update cascade"
                     + ");");
-            creacion.execute("create table if not exists Departamento("
-                    + "nDep varchar(2),"
-                    + "nomeDep varchar(20),"
-                    + "localidade varchar(20),"
-                    + "primary key(nDep)"
-                    + ");");
+            
         }catch(SQLException sql1){
             System.out.println(sql1.getMessage());
         }

@@ -47,7 +47,9 @@ Contributor(s):
         <property name="salario"/>
         <property name="comision"/>
         <property name="dataAlta"/>
-        
-            
+        <one-to-one class="Pojos.Vehiculo" name="dni" constrained="true"/>
+        <many-to-one class="Pojos.Departamento" name="departamento">
+            <column name="nDep" not-null="false" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

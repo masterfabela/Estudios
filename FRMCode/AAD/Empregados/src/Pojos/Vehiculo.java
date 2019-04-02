@@ -12,7 +12,7 @@ import java.sql.Date;
  * @author femio23
  */
 public class Vehiculo {
-    private String matricula, marca, modelo;
+    private String matricula, marca, modelo,dni;
     private Date dataCompra;
     private Empregado empregado;
 
@@ -24,6 +24,14 @@ public class Vehiculo {
         this.marca = marca;
         this.modelo = modelo;
         this.dataCompra = dataCompra;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getMatricula() {

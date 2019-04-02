@@ -40,12 +40,15 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-mapping>
-    <class name="Pojos.Vehiculo" table="Vehiculo">
-        <id name="dni"/>
-        <property name="marca"/>
-        <property name="modelo"/>
-        <property name="dataCompra"/>
-        <property name="matricula"/>
-        <one-to-one class="Pojos.Empregado" name="dni" constrained="true"/>
-    </class>
+  <class name="Pojos.Departamento" table="Departamento">
+      <id name="nDep"/>
+      <property name="nomeDep"/>
+      <property name="localidade"/>
+      <set name="empregados" table="Empregado" inverse="true">
+          <key>
+              <column name="nDep" not-null="false"/>
+          </key>
+          <one-to-many class="Pojos.Empregado"/>
+      </set>
+</class>
 </hibernate-mapping>

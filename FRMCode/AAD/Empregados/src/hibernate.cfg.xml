@@ -48,5 +48,6 @@ Contributor(s):
     <property name="hibernate.c3p0.timeout">0</property>
     <mapping resource="portamapas/Vehiculo.hbm.xml"/>
     <mapping resource="portamapas/Empregado.hbm.xml"/>
+    <mapping resource="portamapas/Departamento.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

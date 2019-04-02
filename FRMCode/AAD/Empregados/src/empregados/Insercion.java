@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -39,14 +40,22 @@ public class Insercion {
         String data = sc.next();
         Date dataAlta = Date.valueOf(data);
         Empregado e = new Empregado(nome, oficio, dni, salario, comision, dataAlta);
-        e.setDepartamento(new Departamento("6","Programacion","Pontevedra"));
-        guardarModificar(e);
-        System.out.println("Definir vehiculo? y/n");
+        System.out.println("Desexa engadir o departamento agora? s/n.");
         String opcion = sc.next();
         switch(opcion){
-            case "y":;
+            case "y":definirDepartamento(s,e);
             break;
-            default:;
+            default:System.out.println("Deacordo.");;
+            break;
+        }
+        e.setDepartamento(new Departamento("6","Programacion","Pontevedra"));
+        guardarModificar(e);
+        System.out.println("Desexa engadir o vehiculo agora? s/n.");
+        String opcion2 = sc.next();
+        switch(opcion2){
+            case "y":definirVehiculo(s,e);
+            break;
+            default:System.out.println("Deacordo.");;
             break;
         }
         s.close();
@@ -64,17 +73,7 @@ public class Insercion {
         String data = sc.next();
         Date dataAlta = Date.valueOf(data);
         Vehiculo v = new Vehiculo(matricula, marca, modelo, dataAlta);
-        System.out.println("Introduce o DNI:");
-        String dni = sc.next();
-        List<Empregado> empregado = s.createCriteria(Empregado.class, dni).list();
-        if (empregado.isEmpty()) {
-            System.out.println("Non existe ese empregado.");
-        } else {
-            v.setEmpregado(empregado.get(0));
-            v.setDni(empregado.get(0).getDni());
-            guardarModificar(v);
-        }
-        
+        definirEmpregado(s,v);
         s.close();
     }
 
@@ -87,6 +86,15 @@ public class Insercion {
         System.out.println("Introduza o localidade:");
         String localidade = sc.next();
         Departamento v = new Departamento(nDep, nome, localidade);
+        System.out.println("Desexa engadir agora empregados?s/n.");
+        String opcion=sc.next();
+        switch(opcion){
+            case"s":definirEmpregado(s,v);
+            break;
+            default:System.out.println("Deacordo.");;
+            break;
+        }
+        definirEmpregado(s,v);
         guardarModificar(v);
         s.close();
     }
@@ -102,11 +110,54 @@ public class Insercion {
             System.out.println(e.getMessage());
         }
     }
-    public void definirVehiculo(){
-        
+    public void definirVehiculo(Session s,Empregado e){
+        System.out.println("Introduce a matricula:");
+        String matricula = sc.next();
+        Object o=s.createQuery("from Vehiculo where matricula='"+matricula+"'").uniqueResult();
+        Vehiculo departamento=(Vehiculo)o;
+        if (departamento==null) {
+            System.out.println("Non existe ese Departamento.");
+        } else {
+            e.setVehiculo(departamento);
+            guardarModificar(e);
+        }
     }
-    public void definirDepartamento(){
-        
+    public void definirDepartamento(Session s,Empregado e){
+        System.out.println("Introduce o numero do departamento:");
+        String dni = sc.next();
+        Object o=s.createQuery("from Departamento where nDep='"+dni+"'").uniqueResult();
+        Departamento departamento=(Departamento)o;
+        if (departamento==null) {
+            System.out.println("Non existe ese Departamento.");
+        } else {
+            e.setDepartamento(departamento);
+            guardarModificar(e);
+        }
     }
-    public void definirEmpregado(){}
+    
+    public void definirEmpregado(Session s,Vehiculo v){
+    System.out.println("Introduce o DNI:");
+        String dni = sc.next();
+       Object o=s.createQuery("from Empregado where dni='"+dni+"'").uniqueResult();
+        Empregado empregado=(Empregado)o;
+        if (empregado==null) {
+            System.out.println("Non existe ese empregado.");
+        } else {
+            v.setEmpregado(empregado);
+            v.setDni(empregado.getDni());
+            guardarModificar(v);
+        }}
+    public void definirEmpregado(Session s,Departamento d){
+    System.out.println("Introduce o DNI:");
+        String dni = sc.next();
+       Object o=s.createQuery("from Empregado where dni='"+dni+"'").uniqueResult();
+        Empregado empregado=(Empregado)o;
+        if (empregado==null) {
+            System.out.println("Non existe ese empregado.");
+        } else {
+            Set<Empregado>empregados=d.getEmpregados();
+            empregados.add(empregado);
+            d.setEmpregados(empregados);
+            guardarModificar(d);
+        }}
 }

@@ -74,5 +74,4 @@ public class Vehiculo {
         this.empregado = empregado;
     }
     
-    
 }

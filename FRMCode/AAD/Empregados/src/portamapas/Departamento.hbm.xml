@@ -46,7 +46,7 @@ Contributor(s):
       <property name="localidade"/>
       <set name="empregados" table="Empregado" inverse="true">
           <key>
-              <column name="nDep" not-null="false"/>
+              <column name="nDep" not-null="true"/>
           </key>
           <one-to-many class="Pojos.Empregado"/>
       </set>

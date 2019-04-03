@@ -46,8 +46,8 @@ public class Consulta {
             for (Departamento d : departamento) {
                 Set<Empregado> x = d.getEmpregados();
                 for (Empregado e : x) {
-                    System.out.println(e.getNome() + ", " + e.getDni() + ", " + e.getOficio() + ", " + e.getSalario() + ", "
-                            + "" + e.getComision() + ", " + e.getDataAlta() + ", " + e.getVehiculo().getMatricula());
+                    System.out.println(e.getNome() + ", " + e.getDni() + ", " + e.getOficio() + ", " + e.getSalario() + ", "+
+                            e.getComision() + ", " + e.getDataAlta() + ", " + e.getVehiculo().getMatricula());
                 }
             }
         }

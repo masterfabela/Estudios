@@ -29,8 +29,7 @@ public class Empregado implements Serializable{
         this.salario = salario;
         this.comision = comision;
         this.dataAlta = dataAlta;
-        this.vehiculo = new Vehiculo();
-        this.departamento = new Departamento();
+        
     }
 
     public String getNome() {

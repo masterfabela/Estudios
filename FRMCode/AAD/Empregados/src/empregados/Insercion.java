@@ -138,7 +138,7 @@ public class Insercion {
     public void definirEmpregado(Session s,Vehiculo v){
     System.out.println("Introduce o DNI:");
         String dni = sc.next();
-       Object o=s.createQuery("from Empregado where dni='"+dni+"'").uniqueResult();
+       Object o=s.get(Empregado.class, dni);
         Empregado empregado=(Empregado)o;
         if (empregado==null) {
             System.out.println("Non existe ese empregado.");

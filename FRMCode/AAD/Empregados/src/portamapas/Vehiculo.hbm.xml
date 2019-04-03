@@ -46,6 +46,6 @@ Contributor(s):
         <property name="modelo"/>
         <property name="dataCompra"/>
         <property name="matricula"/>
-        <one-to-one class="Pojos.Empregado" name="dni" cascade="save-update" constrained="true"/>
+        <one-to-one class="Pojos.Empregado" name="empregado" constrained="false"/>
     </class>
 </hibernate-mapping>

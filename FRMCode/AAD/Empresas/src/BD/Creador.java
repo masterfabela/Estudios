@@ -25,7 +25,7 @@ public class Creador {
             System.out.println("Erro na conexión: "+sqle1.getMessage());
         }try{
             Statement creacion = c.createStatement();
-            creacion.execute("drop database if exists Empresas;");
+            //creacion.execute("drop database if exists Empresas;");
             creacion.execute("create database if not exists Empresas;");
             creacion.execute("use Empresas;");
             creacion.execute("create table if not exists Empresa("

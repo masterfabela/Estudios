@@ -5,10 +5,22 @@
  */
 package Pojos;
 
+import java.sql.Date;
+import java.util.Set;
+
 /**
  *
  * @author femio23
  */
 public class Temporal extends Empregado{
-    
+    private Date dataInicio,dataFin;
+    private float importe;
+    Set<Venta>venta;
+
+    @Override
+    public void calculoNomina() {
+    }
+    public void calculaFecha(Date inicio,Date fin){
+        
+    }
 }

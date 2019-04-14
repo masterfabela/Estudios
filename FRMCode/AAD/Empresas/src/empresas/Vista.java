@@ -10,7 +10,7 @@ package empresas;
  * @author femio23
  */
 public class Vista {
-    public void menuPrincipal(){
+    public static void menuPrincipal(){
         System.out.println(""
                 + "1:Alta de Empresa.\n"
                 + "2:Alta de Empregados fixos.\n"

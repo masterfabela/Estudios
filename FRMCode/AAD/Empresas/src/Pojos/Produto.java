@@ -5,19 +5,15 @@
  */
 package Pojos;
 
-import java.sql.Date;
-import java.sql.Time;
-
 /**
  *
  * @author femio23
  */
-public class Venta {
-    Date dataVenta;
-    Time horaVenta;
-    String codigoArtigo;
-    int numeroUnidades;
-    float importe;
+public class Produto {
+    String codigo;
+    int stockActual;
+    final int stockMinimo=30;
+    float precioUnitario;
     
     
 }

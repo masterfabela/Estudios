@@ -5,11 +5,13 @@
  */
 package Pojos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author femio23
  */
-public abstract class Empregado {
+public abstract class Empregado implements Serializable{
     private String dni,nome,telefono,cif;
     private float retencion;
     public abstract void calculoNomina();

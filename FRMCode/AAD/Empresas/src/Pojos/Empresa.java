@@ -5,6 +5,7 @@
  */
 package Pojos;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
  *
  * @author femio23
  */
-public class Empresa {
+public class Empresa implements Serializable{
     String cif, nome, direccion, telefono;
     Set<Produto> produtos;
     Set<Empregado> empregados;

@@ -5,16 +5,19 @@
  */
 package Pojos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author femio23
  */
-public class Produto {
+public class Produto implements Serializable{
     String codigo;
     int stockActual;
-    final int stockMinimo=30;
+    int stockMinimo=30;
     float precioUnitario;
-    String empresa;
+    String cif;
+    Empresa empresa;
 
     public Produto() {
     }
@@ -49,12 +52,28 @@ public class Produto {
         this.precioUnitario = precioUnitario;
     }
 
-    public String getEmpresa() {
+    public String getCif() {
+        return cif;
+    }
+
+    public void setCif(String cif) {
+        this.cif = cif;
+    }
+
+    public Empresa getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(String empresa) {
+    public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
+    }
+
+    public int getStockMinimo() {
+        return stockMinimo;
+    }
+
+    public void setStockMinimo(int stockMinimo) {
+        this.stockMinimo = stockMinimo;
     }
 
     

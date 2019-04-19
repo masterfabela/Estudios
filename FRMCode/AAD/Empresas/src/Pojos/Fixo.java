@@ -5,13 +5,14 @@
  */
 package Pojos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author femio23
  */
-public class Fixo extends Empregado{
+public class Fixo extends Empregado implements Serializable{
     private int salario, trienios;
-    private Empregado empregado;
 
     public Fixo() {
     }
@@ -38,14 +39,6 @@ public class Fixo extends Empregado{
         this.trienios = trienios;
     }
 
-    public Empregado getEmpregado() {
-        return empregado;
-    }
-
-    public void setEmpregado(Empregado empregado) {
-        this.empregado = empregado;
-    }
-    
     @Override
     public void calculoNomina() {
         float soldo=(salario+trienios)-(salario+trienios)*super.getRetencion();

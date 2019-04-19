@@ -5,6 +5,7 @@
  */
 package Pojos;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 
@@ -12,46 +13,50 @@ import java.sql.Time;
  *
  * @author femio23
  */
-public class Venta {
-    Date dataVenta;
-    Time horaVenta;
-    String codigoArtigo, temporal;
-    int numeroUnidades;
+public class Venta implements Serializable{
+    Date data;
+    Time hora;
+    String codigo, temporal;
+    int cantidade;
     float importe;
+    Produto produto;
+    Temporal empregado;
 
     public Venta() {
     }
 
-    public Venta(Date dataVenta, Time horaVenta, String codigoArtigo, int numeroUnidades, float importe) {
-        this.dataVenta = dataVenta;
-        this.horaVenta = horaVenta;
-        this.codigoArtigo = codigoArtigo;
-        this.numeroUnidades = numeroUnidades;
+    public Venta(Date dataVenta, Time horaVenta, String codigoArtigo, int numeroUnidades, float importe, Produto produto, Temporal empregado) {
+        this.data = dataVenta;
+        this.hora = horaVenta;
+        this.codigo = codigoArtigo;
+        this.cantidade = numeroUnidades;
         this.importe = importe;
+        this.produto = produto;
+        this.empregado = empregado;
     }
 
-    public Date getDataVenta() {
-        return dataVenta;
+    public Date getData() {
+        return data;
     }
 
-    public void setDataVenta(Date dataVenta) {
-        this.dataVenta = dataVenta;
+    public void setData(Date data) {
+        this.data = data;
     }
 
-    public Time getHoraVenta() {
-        return horaVenta;
+    public Time getHora() {
+        return hora;
     }
 
-    public void setHoraVenta(Time horaVenta) {
-        this.horaVenta = horaVenta;
+    public void setHora(Time hora) {
+        this.hora = hora;
     }
 
-    public String getCodigoArtigo() {
-        return codigoArtigo;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoArtigo(String codigoArtigo) {
-        this.codigoArtigo = codigoArtigo;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getTemporal() {
@@ -62,12 +67,12 @@ public class Venta {
         this.temporal = temporal;
     }
 
-    public int getNumeroUnidades() {
-        return numeroUnidades;
+    public int getCantidade() {
+        return cantidade;
     }
 
-    public void setNumeroUnidades(int numeroUnidades) {
-        this.numeroUnidades = numeroUnidades;
+    public void setCantidade(int cantidade) {
+        this.cantidade = cantidade;
     }
 
     public float getImporte() {
@@ -76,6 +81,22 @@ public class Venta {
 
     public void setImporte(float importe) {
         this.importe = importe;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Temporal getEmpregado() {
+        return empregado;
+    }
+
+    public void setEmpregado(Temporal empregado) {
+        this.empregado = empregado;
     }
     
 }

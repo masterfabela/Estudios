@@ -63,21 +63,21 @@ public class Creador {
             creacion.execute("create table if not exists Temproal("
                     + "dni varchar(9) not null,"
                     + "dataInicio date,"
-                    + "dataFIn date,"
+                    + "dataFin date,"
                     + "importe decimal,"
                     + "primary key(dni),"
                     + "foreign key(dni) references Empregado(dni) on delete cascade on update cascade"
                     + ");");
-            creacion.execute("create table if not exists Ventas("
+            creacion.execute("create table if not exists Venta("
                     + "data date not null,"
                     + "hora time not null,"
                     + "codigo varchar(4) not null,"
-                    + "dni varchar(9) not null,"
+                    + "temporal varchar(9) not null,"
                     + "cantidade integer,"
                     + "importe decimal,"
-                    + "primary key(codigo,dni,data,hora),"
+                    + "primary key(codigo,temporal,data,hora),"
                     + "foreign key(codigo) references Produto(codigo) on delete cascade on update cascade,"
-                    + "foreign key(dni) references Empregado(dni) on delete cascade on update cascade"
+                    + "foreign key(temporal) references Empregado(dni) on delete cascade on update cascade"
                     + ");");
             
         }catch(SQLException sql1){

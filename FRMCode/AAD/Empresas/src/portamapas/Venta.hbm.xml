@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Pojos.Venta" table="Venta">
+        <composite-id>
+            <key-property name="data">
+                <column name="data"/>
+            </key-property>
+            <key-property name="hora">
+                <column name="hora"/>
+            </key-property>
+            <key-many-to-one name="empregado" class="Pojos.Temporal">
+                <column name="dni"/>
+            </key-many-to-one>
+            <key-many-to-one name="produto" class="Pojos.Produto">
+                <column name="codigo"/>
+            </key-many-to-one>
+        </composite-id>
+        <property name="cantidade"/>
+        <property name="importe"/>
+    </class>
+</hibernate-mapping>

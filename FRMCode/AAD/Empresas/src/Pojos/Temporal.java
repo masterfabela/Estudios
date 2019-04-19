@@ -5,6 +5,7 @@
  */
 package Pojos;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,10 +14,10 @@ import java.util.Set;
  *
  * @author femio23
  */
-public class Temporal extends Empregado{
+public class Temporal extends Empregado implements Serializable{
     private Date dataInicio,dataFin;
-    private float importe;
-    Set<Venta>venta;
+    private float importe; 
+    Set<Venta>ventas;
 
     @Override
     public void calculoNomina() {
@@ -33,7 +34,7 @@ public class Temporal extends Empregado{
         this.dataInicio = dataInicio;
         this.dataFin = dataFin;
         this.importe = importe;
-        this.venta=new HashSet();
+        this.ventas=new HashSet();
     }
 
     public Date getDataInicio() {
@@ -60,12 +61,12 @@ public class Temporal extends Empregado{
         this.importe = importe;
     }
 
-    public Set<Venta> getVenta() {
-        return venta;
+    public Set<Venta> getVentas() {
+        return ventas;
     }
 
-    public void setVenta(Set<Venta> venta) {
-        this.venta = venta;
+    public void setVentas(Set<Venta> ventas) {
+        this.ventas = ventas;
     }
 
     

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Pojos.Empresa" table="Empresa">
+      <id name="cif"/>
+      <property name="nome"/>
+      <property name="direccion"/>
+      <property name="telefono"/>
+      <set name="empregados" table="Empregado">
+          <key>
+              <column name="dni"/>    
+          </key>
+          <one-to-many class="Pojos.Empregado"/>
+      </set>
+      <set name="produtos" table="Produto">
+          <key>
+              <column name="codigo"/>
+          </key>
+          <one-to-many class="Pojos.Produto"/>
+      </set>
+  </class>
+</hibernate-mapping>

@@ -24,7 +24,7 @@ public class Venta implements Serializable{
 
     public Venta() {
     }
-
+    
     public Venta(Date dataVenta, Time horaVenta, String codigoArtigo, int numeroUnidades, float importe, Produto produto, Temporal empregado) {
         this.data = dataVenta;
         this.hora = horaVenta;

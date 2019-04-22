@@ -23,20 +23,21 @@ public class Empresas {
         Scanner sc=new Scanner(System.in);
         Session sesion=NewHibernateUtil.getSession();
         Creador.creaTaboas();
+        Altas a=new Altas();
         byte opcion=0;
         while(opcion!=15){
             Vista.menuPrincipal();
             opcion=sc.nextByte();
             switch(opcion){
-                case 1:;
+                case 1:a.altaEmpresa();
                 break;
-                case 2:;
+                case 2:a.altaFixo();
                 break;
-                case 3:;
+                case 3:a.altaTemporal();
                 break;
-                case 4:;
+                case 4:a.altaProduto();
                 break;
-                case 5:;
+                case 5:a.altaVenta();
                 break;
                 case 6:;
                 break;

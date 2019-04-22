@@ -60,7 +60,7 @@ public class Creador {
                     + "primary key(dni),"
                     + "foreign key(dni) references Empregado(dni) on delete cascade on update cascade"
                     + ");");
-            creacion.execute("create table if not exists Temproal("
+            creacion.execute("create table if not exists Temporal("
                     + "dni varchar(9) not null,"
                     + "dataInicio date,"
                     + "dataFin date,"

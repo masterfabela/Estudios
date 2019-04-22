@@ -15,7 +15,7 @@ public class Produto implements Serializable{
     String codigo;
     int stockActual;
     int stockMinimo=30;
-    float precioUnitario;
+    float prezo;
     String cif;
     Empresa empresa;
 
@@ -25,7 +25,7 @@ public class Produto implements Serializable{
     public Produto(String codigo, int stockActual, float precioUnitario) {
         this.codigo = codigo;
         this.stockActual = stockActual;
-        this.precioUnitario = precioUnitario;
+        this.prezo = precioUnitario;
     }
 
     public String getCodigo() {
@@ -44,12 +44,12 @@ public class Produto implements Serializable{
         this.stockActual = stockActual;
     }
 
-    public float getPrecioUnitario() {
-        return precioUnitario;
+    public float getPrezo() {
+        return prezo;
     }
 
-    public void setPrecioUnitario(float precioUnitario) {
-        this.precioUnitario = precioUnitario;
+    public void setPrezo(float precioUnitario) {
+        this.prezo = precioUnitario;
     }
 
     public String getCif() {

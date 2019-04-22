@@ -13,7 +13,8 @@ import java.util.Set;
  *
  * @author femio23
  */
-public class Empresa implements Serializable{
+public class Empresa implements Serializable {
+
     String cif, nome, direccion, telefono;
     Set<Produto> produtos;
     Set<Empregado> empregados;
@@ -26,8 +27,8 @@ public class Empresa implements Serializable{
         this.nome = nome;
         this.direccion = direccion;
         this.telefono = telefono;
-        produtos=new HashSet();
-        empregados=new HashSet();
+        produtos = new HashSet();
+        empregados = new HashSet();
     }
 
     public String getCif() {
@@ -77,6 +78,5 @@ public class Empresa implements Serializable{
     public void setEmpregados(Set<Empregado> empregados) {
         this.empregados = empregados;
     }
-    
-    
+
 }

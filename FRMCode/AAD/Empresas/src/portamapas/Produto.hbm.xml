@@ -6,7 +6,7 @@
       <id name="codigo"/>
       <property name="stockActual"/>
       <property name="stockMinimo"/>
-      <property name="precioUnitario"/>
+      <property name="prezo"/>
       <property name="cif" insert="false" update="false"/>
       <many-to-one name="empresa">
           <column name="cif"/>

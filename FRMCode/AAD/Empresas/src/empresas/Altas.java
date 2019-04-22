@@ -118,6 +118,7 @@ public class Altas {
         float prezo=sc.nextFloat();
         Produto e=new Produto(codigo,stok,prezo);
         guardarModificar(s,e);
+        s.close();
     }
     public void altaVenta(){
         Session s=NewHibernateUtil.getSession();
@@ -129,6 +130,7 @@ public class Altas {
         float prezo=sc.nextFloat();
         Produto e=new Produto(codigo,stok,prezo);
         guardarModificar(s,e);
+        s.close();
     }
     
     public static void guardarModificar(Session sesion,Object objeto) {
@@ -136,7 +138,6 @@ public class Altas {
             sesion.beginTransaction();
             sesion.saveOrUpdate(objeto);
             sesion.getTransaction().commit();
-            sesion.close();
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
         }

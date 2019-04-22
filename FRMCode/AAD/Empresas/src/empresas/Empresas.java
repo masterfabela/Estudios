@@ -24,6 +24,8 @@ public class Empresas {
         Session sesion=NewHibernateUtil.getSession();
         Creador.creaTaboas();
         Altas a=new Altas();
+        Baixas b=new Baixas();
+        Modificar m=new Modificar();
         byte opcion=0;
         while(opcion!=15){
             Vista.menuPrincipal();
@@ -39,17 +41,17 @@ public class Empresas {
                 break;
                 case 5:a.altaVenta();
                 break;
-                case 6:;
+                case 6:b.baixaFixo();
                 break;
-                case 7:;
+                case 7:b.baixaTemporal();
                 break;
-                case 8:;
+                case 8:m.modificarPrezo();
                 break;
-                case 9:;
+                case 9:m.modificarSoldo();
                 break;
-                case 10:;
+                case 10:m.modificarRetencion();
                 break;
-                case 11:;
+                case 11:m.modificarImporte();
                 break;
                 case 12:;
                 break;

@@ -13,11 +13,12 @@ import java.io.Serializable;
  */
 public class Fixo extends Empregado implements Serializable{
     private int salario, trienios;
+    float soldo;
 
     public Fixo() {
     }
 
-    public Fixo( int salario, int trienios, String dni, String nome, String telefono, String cif, float retencion) {
+    public Fixo( int salario, int trienios, String dni, String nome, String telefono, Empresa cif, float retencion) {
         super(dni, nome, telefono, cif, retencion);
         this.salario = salario;
         this.trienios = trienios;
@@ -39,9 +40,17 @@ public class Fixo extends Empregado implements Serializable{
         this.trienios = trienios;
     }
 
+    public float getSoldo() {
+        return soldo;
+    }
+
+    public void setSoldo(float soldo) {
+        this.soldo = soldo;
+    }
+
     @Override
     public void calculoNomina() {
-        float soldo=(salario+trienios)-(salario+trienios)*super.getRetencion();
+        soldo=(salario+trienios)-(salario+trienios)*super.getRetencion();
         System.out.println("A nomina é de "+soldo+" €.");
     }
     

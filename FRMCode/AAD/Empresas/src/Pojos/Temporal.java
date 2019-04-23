@@ -40,13 +40,14 @@ public class Temporal extends Empregado implements Serializable{
     public Temporal() {
     }
 
-    public Temporal(Date dataInicio, Date dataFin, float importe, String dni, String nome, String telefono, String cif, float retencion) {
+    public Temporal(Date dataInicio, Date dataFin, float importe, String dni, String nome, String telefono, Empresa cif, float retencion) {
         super(dni, nome, telefono, cif, retencion);
         this.dataInicio = dataInicio;
         this.dataFin = dataFin;
         this.importe = importe;
         this.ventas=new HashSet();
     }
+
 
     public Date getDataInicio() {
         return dataInicio;
@@ -79,7 +80,7 @@ public class Temporal extends Empregado implements Serializable{
     public void setVentas(Set<Venta> ventas) {
         this.ventas = ventas;
     }
-
+    
     
     
 }

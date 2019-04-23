@@ -35,7 +35,7 @@ public class Consultas {
                 System.out.println("Esta empresa non posue empregados.");
             }else{
                 for(Empregado x:empregados){
-                    System.out.println(x.getCif()+"-"+x.getNome()+":"+x.getClass().getName());
+                    System.out.println(x.getCif().toString()+"-"+x.getNome().toString()+":"+x.getClass().getName().toString());
                 }
             }
             
@@ -68,25 +68,25 @@ public class Consultas {
         Session s=NewHibernateUtil.getSession();
         System.out.println("Introduza o dni do empregado fixo:");
         String cif=sc.next();
-            List<Temporal> empresas = s.createCriteria(Temporal.class, cif).list();
-        if (empresas.isEmpty()) {
+        Temporal temporal=null;
+        temporal = (Temporal)s.createCriteria(Temporal.class, cif).uniqueResult();
+        if (temporal==null) {
             System.out.println("Non existe ese empregado.");
         } else {
-            Temporal f=empresas.get(0);
-            List<Venta> ventas = s.createCriteria(Venta.class, cif).list();
-        if (ventas.isEmpty()) {
-            System.out.println("Este empregado non ten ventas realizadas.");
-        } else {
-            long cantidade=0;
+            Set<Venta>ventas=temporal.getVentas();
+            if(ventas.isEmpty()){
+                System.out.println("Este empregado non ten ventas.");
+            }else{
+                long cantidade=0;
             for(Venta x:ventas){
                 cantidade+=x.getImporte();
             }
             if(cantidade>100000){
-                System.out.println("Soldo total:"+(f.getSoldo()+100));
+                System.out.println("Soldo total:"+(temporal.getSoldo()+100));
             }else{
-                System.out.println("Soldo total:"+(f.getSoldo()));
+                System.out.println("Soldo total:"+(temporal.getSoldo()));
             }
-        }
+            }
         }
         s.close();
     }

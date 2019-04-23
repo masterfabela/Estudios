@@ -7,9 +7,8 @@
       <property name="nome"/>
       <property name="telefono"/>
       <property name="retencion"/>
-      <many-to-one name="cif" class="Pojos.Empresa">
-          <column name="cif"/>
-      </many-to-one>
+      <many-to-one name="cif" class="Pojos.Empresa"/>
+          
       <joined-subclass name="Pojos.Fixo" table="Fixo">
           <key column="dni"/>
           <property name="salario"/>
@@ -22,7 +21,7 @@
           <property name="importe"/>
           <set name="ventas" table="Venta" inverse="true">
               <key>
-                  <column name="codigo"/>
+                  <column name="empregado"/>
               </key>
               <one-to-many class="Pojos.Venta"/>
           </set>

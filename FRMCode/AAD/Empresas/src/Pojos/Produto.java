@@ -6,6 +6,8 @@
 package Pojos;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -16,8 +18,8 @@ public class Produto implements Serializable{
     int stockActual;
     int stockMinimo=30;
     float prezo;
-    String cif;
-    Empresa empresa;
+    Empresa cif;
+    Set<Venta> ventas;
 
     public Produto() {
     }
@@ -26,6 +28,7 @@ public class Produto implements Serializable{
         this.codigo = codigo;
         this.stockActual = stockActual;
         this.prezo = precioUnitario;
+        this.ventas=new HashSet();
     }
 
     public String getCodigo() {
@@ -52,20 +55,12 @@ public class Produto implements Serializable{
         this.prezo = precioUnitario;
     }
 
-    public String getCif() {
+    public Empresa getCif() {
         return cif;
     }
 
-    public void setCif(String cif) {
+    public void setCif(Empresa cif) {
         this.cif = cif;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
     }
 
     public int getStockMinimo() {
@@ -75,6 +70,15 @@ public class Produto implements Serializable{
     public void setStockMinimo(int stockMinimo) {
         this.stockMinimo = stockMinimo;
     }
+
+    public Set<Venta> getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(Set<Venta> ventas) {
+        this.ventas = ventas;
+    }
+    
 
     
     

@@ -59,8 +59,8 @@ public class Altas {
         if (empresas.isEmpty()) {
             System.out.println("Non existe esa empresa.");
         } else {
-            Fixo f=new Fixo(salario,trienios,dni,nome,telefono,cif,retencion);
             Empresa e=empresas.get(0);
+            Fixo f=new Fixo(salario,trienios,dni,nome,telefono,e,retencion);
             Set<Empregado>empregados=e.getEmpregados();
             empregados.add(f);
             e.setEmpregados(empregados);
@@ -97,8 +97,8 @@ public class Altas {
         if (empresas.isEmpty()) {
             System.out.println("Non existe esa empresa.");
         } else {
-            Temporal f=new Temporal(inicio,fin,importe,dni,nome,telefono,cif,retencion);
             Empresa e=empresas.get(0);
+            Temporal f=new Temporal(inicio,fin,importe,dni,nome,telefono,e,retencion);
             Set<Empregado>empregados=e.getEmpregados();
             empregados.add(f);
             e.setEmpregados(empregados);

@@ -12,14 +12,15 @@ import java.io.Serializable;
  * @author femio23
  */
 public abstract class Empregado implements Serializable{
-    private String dni,nome,telefono,cif;
+    private String dni,nome,telefono;
     private float retencion;
+    private Empresa cif;
     public abstract void calculoNomina();
 
     public Empregado() {
     }
 
-    public Empregado(String dni, String nome, String telefono, String cif, float retencion) {
+    public Empregado(String dni, String nome, String telefono, Empresa cif, float retencion) {
         this.dni = dni;
         this.nome = nome;
         this.telefono = telefono;
@@ -51,13 +52,14 @@ public abstract class Empregado implements Serializable{
         this.telefono = telefono;
     }
 
-    public String getCif() {
+    public Empresa getCif() {
         return cif;
     }
 
-    public void setCif(String cif) {
+    public void setCif(Empresa cif) {
         this.cif = cif;
     }
+
 
     public float getRetencion() {
         return retencion;

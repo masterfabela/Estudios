@@ -7,9 +7,11 @@
       <property name="stockActual"/>
       <property name="stockMinimo"/>
       <property name="prezo"/>
-      <property name="cif" insert="false" update="false"/>
-      <many-to-one name="empresa">
+      <many-to-one name="cif" class="Pojos.Empresa">
           <column name="cif"/>
+      </many-to-one>
+      <many-to-one name="venta" class="Pojos.Empresa">
+          <column name="venta"/>
       </many-to-one>
   </class>
 </hibernate-mapping>

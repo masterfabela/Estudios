@@ -7,15 +7,15 @@
       <property name="nome"/>
       <property name="direccion"/>
       <property name="telefono"/>
-      <set name="empregados" table="Empregado">
+      <set name="empregados" table="Empregado" cascade="save-update">
           <key>
-              <column name="dni"/>    
+              <column name="cif"/>    
           </key>
           <one-to-many class="Pojos.Empregado"/>
       </set>
-      <set name="produtos" table="Produto">
+      <set name="produtos" table="Produto" cascade="save-update">
           <key>
-              <column name="codigo"/>
+              <column name="cif"/>
           </key>
           <one-to-many class="Pojos.Produto"/>
       </set>

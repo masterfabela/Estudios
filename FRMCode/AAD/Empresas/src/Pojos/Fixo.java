@@ -42,6 +42,7 @@ public class Fixo extends Empregado implements Serializable{
     @Override
     public void calculoNomina() {
         float soldo=(salario+trienios)-(salario+trienios)*super.getRetencion();
+        System.out.println("A nomina é de "+soldo+" €.");
     }
     
 }

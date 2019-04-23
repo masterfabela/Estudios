@@ -23,9 +23,9 @@ public class Vista {
                 + "9:Modificar soldo base.\n"
                 + "10:Modificiar porcentaxe de retencion.\n"
                 + "11:Modificiar importe diario.\n"
-                + "12:Listar Empregados.\n"
-                + "13:Listar Produtos.\n"
-                + "14:Buscar empregado.\n"
+                + "12:Listar Empregados dunha empresa.\n"
+                + "13:Listar Produtos dunha empresa.\n"
+                + "14:Buscar empregado temporal.\n"
                 + "15:Sair.");
     }
 }

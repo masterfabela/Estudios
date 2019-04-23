@@ -26,6 +26,7 @@ public class Empresas {
         Altas a=new Altas();
         Baixas b=new Baixas();
         Modificar m=new Modificar();
+        Consultas c=new Consultas();
         byte opcion=0;
         while(opcion!=15){
             Vista.menuPrincipal();
@@ -53,11 +54,11 @@ public class Empresas {
                 break;
                 case 11:m.modificarImporte();
                 break;
-                case 12:;
+                case 12:c.consultarEmpregados();
                 break;
-                case 13:;
+                case 13:c.consultarProdutos();
                 break;
-                case 14:;
+                case 14:c.consultarTemporal();
                 break;
                 default:
                     if(opcion==15){

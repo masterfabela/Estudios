@@ -18,12 +18,23 @@ public class Temporal extends Empregado implements Serializable{
     private Date dataInicio,dataFin;
     private float importe; 
     Set<Venta>ventas;
+    float soldo;
+
+    public float getSoldo() {
+        return soldo;
+    }
+
+    public void setSoldo(float soldo) {
+        this.soldo = soldo;
+    }
 
     @Override
     public void calculoNomina() {
+        soldo=importe*obterTempo()-importe*obterTempo()*super.getRetencion();
     }
-    public void calculaFecha(Date inicio,Date fin){
-        
+    public long obterTempo(){
+        long tempo=(dataFin.getTime()-dataInicio.getTime())*1000*60*60*24;
+        return tempo;
     }
 
     public Temporal() {

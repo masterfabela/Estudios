@@ -10,7 +10,7 @@
       <many-to-one name="cif" class="Pojos.Empresa">
           <column name="cif"/>
       </many-to-one>
-      <many-to-one name="venta" class="Pojos.Empresa">
+      <many-to-one name="ventas" class="Pojos.Empresa">
           <column name="venta"/>
       </many-to-one>
   </class>

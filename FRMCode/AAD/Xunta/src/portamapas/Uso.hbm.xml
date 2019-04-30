@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojos.Uso" table="Uso">
+        <composite-id>
+            <key-property name="data"/>
+            <key-property name="hora"/>
+            <key-many-to-one name="ciclo" class="pojos.Ciclo">
+                <column name="codigo"/>
+            </key-many-to-one>
+            <key-many-to-one name="taller" class="pojos.Taller">
+                <column name="codigo"/>
+            </key-many-to-one>
+        </composite-id>
+    </class>
+</hibernate-mapping>

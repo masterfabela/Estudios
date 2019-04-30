@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojos.Taller" table="Taller">
+        <id name="codigo"/>
+        <property name="nome"/>
+        <set name="ciclos" inverse="true" cascade="save-update">
+            <key>
+                <column name="codigoT"/>
+            </key>
+            <many-to-many class="pojos.Ciclo">
+                <column name="codigo"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

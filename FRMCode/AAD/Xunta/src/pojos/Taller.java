@@ -16,6 +16,7 @@ import java.util.Set;
 public class Taller implements Serializable{
     private String codigo,nome;
     private Set<Ciclo> ciclos;
+    
 
     public Taller() {
     }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojos.Ciclo" table="Ciclo">
+        <id name="codigo"/>
+        <property name="nome"/>
+        <set name="institutos" table="Instituto_Ciclo" inverse="false" cascade="save-update">
+            <key>
+                <column name="CodigoC"/>
+            </key>
+            <many-to-many class="pojos.Instituto">
+                <column name="codigo"/>
+            </many-to-many>
+        </set>
+        <set name="talleres" table="Taller_Ciclo" inverse="false" cascade="save-update">
+            <key>
+                <column name="CodigoC"/>
+            </key>
+            <many-to-many class="pojos.Taller">
+                <column name="codigo"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

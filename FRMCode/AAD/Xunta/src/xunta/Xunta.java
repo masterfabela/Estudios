@@ -9,6 +9,7 @@ import java.util.Scanner;
 import metodos.Adicions;
 import metodos.Altas;
 import metodos.Baixas;
+import metodos.Listados;
 import org.hibernate.Session;
 
 /**
@@ -27,6 +28,7 @@ public class Xunta {
         Altas a=new Altas();
         Adicions ad=new Adicions();
         Baixas b=new Baixas();
+        Listados l=new Listados();
         c.creaTaboas();
         byte opcion=0;
         while(opcion!=12){
@@ -49,11 +51,11 @@ public class Xunta {
                 break;
                 case 8:b.baixaTaller();
                 break;
-                case 9:;
+                case 9:l.listarCiclos1();
                 break;
-                case 10:;
+                case 10:l.listarCiclos2();
                 break;
-                case 11:;
+                case 11:l.listarInstitutos();
                 break;
                 default:
                     if(opcion==12)

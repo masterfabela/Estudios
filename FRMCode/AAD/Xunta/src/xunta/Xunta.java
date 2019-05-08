@@ -6,6 +6,9 @@
 package xunta;
 
 import java.util.Scanner;
+import metodos.Adicions;
+import metodos.Altas;
+import metodos.Baixas;
 import org.hibernate.Session;
 
 /**
@@ -21,27 +24,30 @@ public class Xunta {
         Scanner sc=new Scanner(System.in);
         Session sesion=NewHibernateUtil.getSession();
         Creador c=new Creador();
+        Altas a=new Altas();
+        Adicions ad=new Adicions();
+        Baixas b=new Baixas();
         c.creaTaboas();
         byte opcion=0;
         while(opcion!=12){
             Vista.menuPrincipal();
             opcion=sc.nextByte();
             switch(opcion){
-                case 1:;
+                case 1:a.altaInstituto();
                 break;
-                case 2:;
+                case 2:a.altaCiclo();
                 break;
-                case 3:;
+                case 3:a.altaTaller();
                 break;
-                case 4:;
+                case 4:ad.adicionCiclo();
                 break;
-                case 5:;
+                case 5:ad.adicionTaller();
                 break;
-                case 6:;
+                case 6:ad.adicionUso();
                 break;
-                case 7:;
+                case 7:b.baixaCiclo();
                 break;
-                case 8:;
+                case 8:b.baixaTaller();
                 break;
                 case 9:;
                 break;

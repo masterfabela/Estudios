@@ -17,6 +17,7 @@ public class Ciclo implements Serializable{
     private String codigo,nome;
     private Set<Instituto>institutos;
     private Set<Taller>talleres;
+    private Set<Uso>usos;
 
     public Ciclo() {
     }
@@ -26,6 +27,7 @@ public class Ciclo implements Serializable{
         this.nome = nome;
         this.institutos = new HashSet<Instituto>();
         this.talleres = new HashSet<Taller>();
+        this.usos = new HashSet<Uso>();
     }
 
     public String getCodigo() {
@@ -58,6 +60,14 @@ public class Ciclo implements Serializable{
 
     public void setTalleres(Set<Taller> talleres) {
         this.talleres = talleres;
+    }
+
+    public Set<Uso> getUsos() {
+        return usos;
+    }
+
+    public void setUsos(Set<Uso> usos) {
+        this.usos = usos;
     }
     
 }

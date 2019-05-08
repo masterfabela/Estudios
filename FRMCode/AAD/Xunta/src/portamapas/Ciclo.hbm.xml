@@ -16,9 +16,17 @@
         </set>
         <set name="talleres" table="Taller_Ciclo" inverse="false" cascade="save-update">
             <key>
-                <column name="CodigoC"/>
+                <column name="codigoC"/>
             </key>
             <many-to-many class="pojos.Taller">
+                <column name="codigo"/>
+            </many-to-many>
+        </set>
+        <set name="usos" table="Uso" inverse="true" cascade="save-update">
+            <key>
+                <column name="codigoC"/>
+            </key>
+            <many-to-many class="pojos.Uso">
                 <column name="codigo"/>
             </many-to-many>
         </set>

@@ -48,5 +48,6 @@ Contributor(s):
     <property name="hibernate.c3p0.timeout">0</property>
     <mapping resource="mapeos/Coche.hbm.xml"/>
     <mapping resource="mapeos/Proveedor.hbm.xml"/>
+    <mapping resource="mapeos/Reparacion.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

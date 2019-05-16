@@ -40,9 +40,19 @@ public class Creador {
                     + "precioCompra decimal,"
                     + "precioVenta decimal,"
                     + "codigoProveedor int(4),"
+                    + "codigoReparacion int(4),"
                     + "primary key(matricula),"
                     + "foreign key(codigoProveedor) references Proveedor(codigo) on update cascade on delete cascade"
                     + ");");
+            creacion.execute("create table if not exists Reparacion("
+                    + "codigo int(4) auto_increment not null,"
+                    + "tipo varchar(20),"
+                    + "descricion varchar(20),"
+                    + "codigoCoche varchar(4),"
+                    + "primary key(codigo),"
+                    + "foreign key(codigoCoche) references Coche(matricula) on update cascade on delete cascade"
+                    + ");");
+            
             System.out.println("Taboas creadas correctamente.");
             
         }catch(SQLException sqle){

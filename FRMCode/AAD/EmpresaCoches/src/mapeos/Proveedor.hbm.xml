@@ -5,7 +5,7 @@
     <class name="pojos.Proveedor" table="Proveedor">
         <id name="codigo"/>
         <property name="nome"/>
-        <set name="coches" table="coche" inverse="false" cascade="all">
+        <set name="coches" table="coche" inverse="true" cascade="all">
             <key>
                 <column name="codigoProveedor"/>
             </key>

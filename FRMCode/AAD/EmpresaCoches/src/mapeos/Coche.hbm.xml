@@ -9,6 +9,14 @@
         <property name="tipo"/>
         <property name="precioVenta"/>
         <property name="precioCompra"/>
-        <many-to-one name="codigoProveedor" class="pojos.Proveedor"/>
+        <many-to-one name="codigoProveedor" class="pojos.Proveedor">
+            <column name="codigoProveedor"/>
+        </many-to-one>
+        <set name="reparacions" table="Reparacion" inverse="true" cascade="all">
+            <key>
+                <column name="codigoCoche"/>
+            </key>
+            <one-to-many class="pojos.Reparacion"/>
+        </set>
     </class>
 </hibernate-mapping>

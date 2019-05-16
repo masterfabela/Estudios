@@ -6,6 +6,8 @@
 package pojos;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -15,6 +17,7 @@ public class Coche implements Serializable{
     private String matricula,marca,modelo,tipo;
     private float precioCompra,precioVenta;
     private Proveedor codigoProveedor;
+    private Set<Reparacion> reparacions;
 
     public Coche() {
     }
@@ -26,6 +29,7 @@ public class Coche implements Serializable{
         this.tipo = tipo;
         this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;
+        this.reparacions =new HashSet<Reparacion>();
         
     }
 
@@ -83,6 +87,14 @@ public class Coche implements Serializable{
 
     public void setCodigoProveedor(Proveedor codigoProveedor) {
         this.codigoProveedor = codigoProveedor;
+    }
+
+    public Set<Reparacion> getReparacions() {
+        return reparacions;
+    }
+
+    public void setReparacions(Set<Reparacion> reparacions) {
+        this.reparacions = reparacions;
     }
 
     

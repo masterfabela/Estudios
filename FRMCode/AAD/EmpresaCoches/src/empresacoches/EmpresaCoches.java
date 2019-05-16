@@ -25,6 +25,7 @@ public class EmpresaCoches {
         Session sesion=NewHibernateUtil.getSession();
         Creador.creaTaboas();
         Altas a=new Altas();
+        Modificacions m=new Modificacions();
         byte opcion=0;
         while(opcion!=12){
             Vista.menuPrincipal();
@@ -34,9 +35,13 @@ public class EmpresaCoches {
                 break;
                 case 2:a.altaProveedores();
                 break;
-                case 3:;
+                case 3:m.asignarProveedor();
                 break;
-                case 4:;
+                case 4:m.asignarCoche();
+                break;
+                case 5:a.altaReparacion();
+                break;
+                case 6:;
                 break;
                 default:
                     if(opcion==12)

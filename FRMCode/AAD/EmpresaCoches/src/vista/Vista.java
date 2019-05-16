@@ -16,6 +16,7 @@ public class Vista {
                 + "2.Alta de Proveedor.\n"
                 + "3.Relacion Coche-Proveedor.\n"
                 + "4.Relacion Proveedor-Coche.\n"
+                + "5.Alta de Reparacion.\n"
                 + "12.Sair");
     }
 }

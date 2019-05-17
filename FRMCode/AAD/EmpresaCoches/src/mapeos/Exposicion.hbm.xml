@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojos.Exposicion" table="exposicion">
+        <id name="codigo"/>
+        <property name="nome"/>
+        <property name="lugar"/>
+        <set name="coches" table="coche" inverse="true" cascade="all">
+            <key>
+                <column name="codigoExposicion"/>
+            </key>
+            <one-to-many class="pojos.Coche"/>
+        </set>
+    </class>
+</hibernate-mapping>

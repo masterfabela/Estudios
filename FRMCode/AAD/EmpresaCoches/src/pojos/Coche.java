@@ -13,24 +13,25 @@ import java.util.Set;
  *
  * @author femio23
  */
-public class Coche implements Serializable{
-    private String matricula,marca,modelo,tipo;
-    private float precioCompra,precioVenta;
+public class Coche implements Serializable {
+
+    private String matricula, marca, modelo, tipo;
+    private float precioCompra, precioVenta;
     private Proveedor codigoProveedor;
     private Set<Reparacion> reparacions;
+    private Exposicion codigoExposicion;
+    private Cliente codigoCliente;
+    private Cliente codigoReserva;
 
     public Coche() {
     }
 
-    public Coche(String matricula, String marca, String modelo, String tipo, float precioCompra, float precioVenta) {
+    public Coche(String matricula, String marca, String modelo, String tipo) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
         this.tipo = tipo;
-        this.precioCompra = precioCompra;
-        this.precioVenta = precioVenta;
-        this.reparacions =new HashSet<Reparacion>();
-        
+        this.reparacions = new HashSet<Reparacion>();
     }
 
     public String getMatricula() {
@@ -97,7 +98,28 @@ public class Coche implements Serializable{
         this.reparacions = reparacions;
     }
 
-    
-    
+    public Exposicion getCodigoExposicion() {
+        return codigoExposicion;
+    }
+
+    public void setCodigoExposicion(Exposicion codigoExposicion) {
+        this.codigoExposicion = codigoExposicion;
+    }
+
+    public Cliente getCodigoCliente() {
+        return codigoCliente;
+    }
+
+    public void setCodigoCliente(Cliente codigoCliente) {
+        this.codigoCliente = codigoCliente;
+    }
+
+    public Cliente getCodigoReserva() {
+        return codigoReserva;
+    }
+
+    public void setCodigoReserva(Cliente codigoReserva) {
+        this.codigoReserva = codigoReserva;
+    }
     
 }

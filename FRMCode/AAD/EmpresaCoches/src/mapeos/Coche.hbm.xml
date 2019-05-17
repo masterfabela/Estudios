@@ -12,6 +12,15 @@
         <many-to-one name="codigoProveedor" class="pojos.Proveedor">
             <column name="codigoProveedor"/>
         </many-to-one>
+        <many-to-one name="codigoExposicion" class="pojos.Exposicion">
+            <column name="codigoExposicion"/>
+        </many-to-one>
+        <many-to-one name="codigoCliente" class="pojos.Cliente">
+            <column name="codigoCliente"/>
+        </many-to-one>
+        <many-to-one name="codigoReserva" class="pojos.Cliente">
+            <column name="codigoReserva"/>
+        </many-to-one>
         <set name="reparacions" table="Reparacion" inverse="true" cascade="all">
             <key>
                 <column name="codigoCoche"/>

@@ -49,5 +49,7 @@ Contributor(s):
     <mapping resource="mapeos/Coche.hbm.xml"/>
     <mapping resource="mapeos/Proveedor.hbm.xml"/>
     <mapping resource="mapeos/Reparacion.hbm.xml"/>
+    <mapping resource="mapeos/Exposicion.hbm.xml"/>
+    <mapping resource="mapeos/Cliente.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

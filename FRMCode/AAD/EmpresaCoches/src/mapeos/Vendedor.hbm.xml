@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojos.Vendedor" table="vendedor">
+        <id name="dni"/>
+        <property name="nome"/>
+        <property name="apelidos"/>
+        <property name="numeroSS"/>
+        <joined-subclass name="pojos.Asalariado" table="asalariado">
+            <key column="dni"/>
+            <property name="salario"/>
+        </joined-subclass>
+        <joined-subclass name="pojos.Comision" table="comision">
+            <key column="dni"/>
+            <property name="comision"/>
+            <set name="coches" table="coche" inverse="true" cascade="all">
+                <key>
+                    <column name="codigoVendedor"/>
+                </key>
+                <one-to-many class="pojos.Coche"/>
+            </set>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

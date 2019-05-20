@@ -13,7 +13,11 @@ import org.hibernate.Session;
  * @author femio23
  */
 public class Edicion {
-    public static void guardarModificar(Session sesion,Object objeto) {
+
+    /**
+     * Método de modificacion de obxetos para Hibernate.
+     */
+    public static void guardarModificar(Session sesion, Object objeto) {
         try {
             sesion.beginTransaction();
             sesion.saveOrUpdate(objeto);

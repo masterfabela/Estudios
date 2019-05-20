@@ -27,8 +27,9 @@ public class EmpresaCoches {
         Connection c = Creador.conexion();
         Altas a = new Altas();
         Modificacions m = new Modificacions();
+        Consultas co = new Consultas();
         byte opcion = 0;
-        while (opcion != 12) {
+        while (opcion != 14) {
             Vista.menuPrincipal();
             opcion = sc.nextByte();
             switch (opcion) {
@@ -54,16 +55,28 @@ public class EmpresaCoches {
                     a.altaCliente();
                     break;
                 case 8:
-                   m.venderCoche();
+                    a.altaVendedor();
+                    break;
+                case 9:
+                    m.reservarCoche();
+                    break;
+                case 10:
+                    m.venderCoche();
                     break;
                 case 11:
+                    co.consultarComprador();
+                    break;
+                case 12:
+                    co.consultarStock();
+                    break;
+                case 13:
                     Creador.purgaBase(c);
                     break;
                 default:
-                    if (opcion == 12) {
+                    if (opcion == 14) {
                         System.out.println("Adeus");
                     } else {
-                        System.out.println("\n\nErro de entrada(1-12)\n\n\n");
+                        System.out.println("\n\nErro de entrada(1-14)\n\n\n");
                     }
                     break;
             }

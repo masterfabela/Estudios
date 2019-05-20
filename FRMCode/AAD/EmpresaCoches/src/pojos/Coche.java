@@ -22,6 +22,7 @@ public class Coche implements Serializable {
     private Exposicion codigoExposicion;
     private Cliente codigoCliente;
     private Cliente codigoReserva;
+    private Comision codigoVendedor;
 
     public Coche() {
     }
@@ -121,5 +122,13 @@ public class Coche implements Serializable {
     public void setCodigoReserva(Cliente codigoReserva) {
         this.codigoReserva = codigoReserva;
     }
-    
+
+    public Comision getCodigoVendedor() {
+        return codigoVendedor;
+    }
+
+    public void setCodigoVendedor(Comision codigoVendedor) {
+        this.codigoVendedor = codigoVendedor;
+    }
+
 }

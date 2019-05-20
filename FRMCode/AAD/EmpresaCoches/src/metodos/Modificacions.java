@@ -19,6 +19,9 @@ public class Modificacions {
 
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Método de modificacion para vender coches.
+     */
     public void asignarProveedor() {
         Session s = NewHibernateUtil.getSession();
         System.out.println("Introduza a matricula.");
@@ -41,12 +44,15 @@ public class Modificacions {
                 p.setCoches(co);
                 Edicion.guardarModificar(s, c);
                 Edicion.guardarModificar(s, p);
-                System.out.println("Coche " + c.getMatricula() + " e proveedor " + p.getNome() + " modificados.");
+                System.out.println("Coche " + c.getMatricula() + " mercado a Proveedor " + p.getNome() + ".");
             }
         }
         s.close();
     }
 
+    /**
+     * Método de modificacion para expoñer un coche.
+     */
     public void asignarCocheExpo() {
         Session s = NewHibernateUtil.getSession();
         System.out.println("Introduza o codigo da Exposicion.");
@@ -74,32 +80,113 @@ public class Modificacions {
         }
         s.close();
     }
-    public void venderCoche(){
+
+    /**
+     * Método de modificacion para vender coches.
+     */
+    public void venderCoche() {
         Session s = NewHibernateUtil.getSession();
         System.out.println("Introduza o dni do cliente.");
         String dni = sc.next();
-        Cliente cl= (Cliente) s.get(Cliente.class, dni);
+        Cliente cl = (Cliente) s.get(Cliente.class, dni);
         if (cl == null) {
             System.out.println("O cliente de dni " + dni + " non existe.");
             System.out.println("Cancelase a acción.");
         } else {
-            System.out.println("Introduce a matricula do coche a vender.");
+            System.out.println("Introduza o dni do Vendedor");
+            String dniv = sc.next();
+            Vendedor v = (Vendedor) s.get(Vendedor.class, dniv);
+            if (v == null) {
+                System.out.println("Non existe ningún Vendedor con dni :" + dniv);
+                System.out.println("Cancelase a acción.");
+            } else {
+                Comision com = (Comision) s.get(Comision.class, dniv);
+                if (com == null) {
+                    System.out.println("Vendedor Asalariado.");
+                    System.out.println("Introduce a matricula do coche a vender.");
+                    String matricula = sc.next();
+                    Coche c = (Coche) s.get(Coche.class, matricula);
+                    if (c == null) {
+                        System.out.println("Non existe coche con matricula " + matricula + ".");
+                        System.out.println("Cancelase a acción.");
+                    } else {
+                        System.out.println("Introduza o precio de venta:");
+                        float pv = sc.nextFloat();
+                        c.setCodigoCliente(cl);
+                        c.setPrecioVenta(pv);
+                        Set<Coche> co = cl.getCoches();
+                        co.add(c);
+                        cl.setCoches(co);
+                        Edicion.guardarModificar(s, c);
+                        Edicion.guardarModificar(s, cl);
+                        System.out.println("Coche " + c.getMatricula() + " e Cliente " + cl.getNome() + " modificados.");
+                    }
+                } else {
+                    System.out.println("Introduce a matricula do coche a vender.");
+                    String matricula = sc.next();
+                    Coche c = (Coche) s.get(Coche.class, matricula);
+                    if (c == null) {
+                        System.out.println("Non existe coche con matricula " + matricula + ".");
+                        System.out.println("Cancelase a acción.");
+                    } else {
+                        System.out.println("Introduza o precio de venta:");
+                        float pv = sc.nextFloat();
+                        Set<Coche> coV = com.getCoches();
+                        coV.add(c);
+                        com.setCoches(coV);
+                        c.setCodigoCliente(cl);
+                        c.setPrecioVenta(pv);
+                        c.setCodigoVendedor(com);
+                        Set<Coche> co = cl.getCoches();
+                        co.add(c);
+                        cl.setCoches(co);
+                        Edicion.guardarModificar(s, c);
+                        Edicion.guardarModificar(s, cl);
+                        Edicion.guardarModificar(s, com);
+                        System.out.println("Coche " + c.getMatricula() + ", Cliente " + cl.getNome() + " e Vendedor " + com.getDni() + " modificados.");
+                    }
+                }
+            }
+
+        }
+        s.close();
+    }
+
+    /**
+     * Método de modificacion para reservar coches.
+     */
+    public void reservarCoche() {
+        Session s = NewHibernateUtil.getSession();
+        System.out.println("Introduza o dni do cliente.");
+        String dni = sc.next();
+        Cliente cl = (Cliente) s.get(Cliente.class, dni);
+        if (cl == null) {
+            System.out.println("O cliente de dni " + dni + " non existe.");
+            System.out.println("Cancelase a acción.");
+        } else {
+            System.out.println("Introduce a matricula do coche a reservar.");
             String matricula = sc.next();
             Coche c = (Coche) s.get(Coche.class, matricula);
             if (c == null) {
                 System.out.println("Non existe coche con matricula " + matricula + ".");
                 System.out.println("Cancelase a acción.");
             } else {
-                System.out.println("Introduza o precio de venta:");
-                float pv=sc.nextFloat();
-                c.setCodigoCliente(cl);
-                c.setPrecioVenta(pv);
-                Set<Coche> co = cl.getCoches();
-                co.add(c);
-                cl.setCoches(co);
-                Edicion.guardarModificar(s, c);
-                Edicion.guardarModificar(s, cl);
-                System.out.println("Coche " + c.getMatricula() + " e cliente " + cl.getNome() + " modificados.");
+                if (c.getCodigoCliente() == null) {
+                    if (c.getCodigoReserva() == null) {
+                        c.setCodigoReserva(cl);
+                        Set<Coche> co = cl.getCoches();
+                        co.add(c);
+                        cl.setCoches(co);
+                        Edicion.guardarModificar(s, c);
+                        Edicion.guardarModificar(s, cl);
+                        System.out.println("Coche " + c.getMatricula() + " e cliente " + cl.getNome() + " modificados.");
+                    } else {
+                        System.out.println("Este coche xa está reservado.");
+                    }
+                } else {
+                    System.out.println("Este coche foi vendido.");
+                }
+
             }
         }
         s.close();

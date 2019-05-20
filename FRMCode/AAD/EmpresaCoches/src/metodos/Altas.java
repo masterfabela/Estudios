@@ -19,6 +19,9 @@ public class Altas {
 
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Método de alta para a clase Coche.
+     */
     public void altaCoches() {
         Session s = NewHibernateUtil.getSession();
         System.out.println("Introduza a matricula.");
@@ -52,6 +55,9 @@ public class Altas {
         s.close();
     }
 
+    /**
+     * Método de alta para a clase Proveedor.
+     */
     public void altaProveedores() {
         Session s = NewHibernateUtil.getSession();
         System.out.println("Introduza o codigo do proveedor.");
@@ -68,6 +74,9 @@ public class Altas {
         s.close();
     }
 
+    /**
+     * Método de alta para a clase Reparación.
+     */
     public void altaReparacion() {
         Session s = NewHibernateUtil.getSession();
         System.out.println("Introduza o codigo.");
@@ -112,6 +121,9 @@ public class Altas {
         s.close();
     }
 
+    /**
+     * Método de alta para a clase Exposición.
+     */
     public void altaExposicion() {
         Session s = NewHibernateUtil.getSession();
         System.out.println("Introduza o codigo.");
@@ -131,7 +143,11 @@ public class Altas {
         System.out.println("Exposicion " + e.getNome() + " creada.");
         s.close();
     }
-    public void altaCliente(){
+
+    /**
+     * Método de alta para a clase Cliente.
+     */
+    public void altaCliente() {
         Session s = NewHibernateUtil.getSession();
         System.out.println("Introduza o dni.");
         String dni = sc.next();
@@ -146,10 +162,54 @@ public class Altas {
             String apelidos = sc.next();
             System.out.println("Introduza a direccion.");
             String direccion = sc.next();
-            c = new Cliente(dni, nome,apelidos, direccion);
+            c = new Cliente(dni, nome, apelidos, direccion);
             Edicion.guardarModificar(s, c);
         }
         System.out.println("Cliente " + c.getNome() + " engadido.");
+        s.close();
+    }
+
+    /**
+     * Método de alta para a clase Vendedor.
+     */
+    public void altaVendedor() {
+        Session s = NewHibernateUtil.getSession();
+        System.out.println("Introduza o dni.");
+        String dni = sc.next();
+        Vendedor v = (Vendedor) s.get(Vendedor.class, dni);
+        if (v != null) {
+            System.out.println("O vendedor de dni " + dni + " xa existe.");
+            System.out.println("Cancelase a operacion");
+        } else {
+            System.out.println("Introduza o nome.");
+            String nome = sc.next();
+            System.out.println("Introduza os apelidos.");
+            String apelidos = sc.next();
+            System.out.println("Introduza o numero da SS.");
+            String numeross = sc.next();
+            System.out.println("Desexa dar de alta un vendedor asalariado ou comisionista?(a/c)");
+            String tipo = sc.next();
+            switch (tipo) {
+                case "a":
+                    System.out.println("Seleccionado: Asalariado.");
+                    System.out.println("A canto ascende o seu soldo?");
+                    float soldo = sc.nextFloat();
+                    Asalariado a = new Asalariado(soldo, nome, apelidos, numeross, dni);
+                    Edicion.guardarModificar(s, a);
+                    break;
+                default:
+                    System.out.println("Seleccionado: Comisionista.");
+                    System.out.println("A canto ascende a súa comision?");
+                    float comision = sc.nextFloat();
+                    Comision c = new Comision(comision, nome, apelidos, numeross, dni);
+                    Edicion.guardarModificar(s, c);
+                    break;
+            }
+
+            Vendedor vx = (Vendedor) s.get(Vendedor.class, dni);
+            System.out.println("Vendedor " + vx.getNome() + " engadido.");
+        }
+
         s.close();
     }
 }

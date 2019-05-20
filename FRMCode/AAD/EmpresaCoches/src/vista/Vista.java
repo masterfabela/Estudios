@@ -11,17 +11,24 @@ package vista;
  */
 public class Vista {
 
+    /**
+     * Metodo de visualización do menú de opcións.
+     */
     public static void menuPrincipal() {
         System.out.println(""
                 + "1.Alta de Coche.\n"
                 + "2.Alta de Proveedor.\n"
-                + "3.Relacion Coche-Proveedor.\n"
-                + "4.Alta de Reparacion.\n"
+                + "3.Comprar Coche a Proveedor.\n"
+                + "4.Reparar un coche.\n"
                 + "5.Alta de Exposicion.\n"
-                + "6.Relacion Coche-Exposicion.\n"
+                + "6.Expoñer un coche.\n"
                 + "7.Alta de Cliente.\n"
-                + "8.Vender coche.\n"
-                + "11.Resetear Base\n"
-                + "12.Sair");
+                + "8.Alta de Vendedor.\n"
+                + "9.Reservar coche.\n"
+                + "10.Vender Coche.\n"
+                + "11.Consultar comprador de Coche.\n"
+                + "12.Listado de coches en stock.\n"
+                + "13.Resetear Base de Datos.\n"
+                + "14.Sair.");
     }
 }

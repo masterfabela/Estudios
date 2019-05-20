@@ -13,9 +13,10 @@ import java.util.Set;
  *
  * @author Femio
  */
-public class Exposicion implements Serializable{
-    private String codigo,nome,lugar;
-    private Set<Coche>coches;
+public class Exposicion implements Serializable {
+
+    private String codigo, nome, lugar;
+    private Set<Coche> coches;
 
     public Exposicion() {
     }
@@ -58,5 +59,5 @@ public class Exposicion implements Serializable{
     public void setCoches(Set<Coche> coches) {
         this.coches = coches;
     }
-    
+
 }

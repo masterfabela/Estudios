@@ -13,9 +13,10 @@ import java.util.Set;
  *
  * @author femio23
  */
-public class Proveedor implements Serializable{
-    private String codigo,nome;
-    private Set<Coche>coches;
+public class Proveedor implements Serializable {
+
+    private String codigo, nome;
+    private Set<Coche> coches;
 
     public Proveedor() {
     }
@@ -49,5 +50,5 @@ public class Proveedor implements Serializable{
     public void setCoches(Set<Coche> coches) {
         this.coches = coches;
     }
-    
+
 }

@@ -13,14 +13,15 @@ import java.util.Set;
  *
  * @author Femio
  */
-public class Cliente implements Serializable{
-    private String dni,nome,apelidos,direccion;
-    private Set<Coche>reservas,coches;
+public class Cliente implements Serializable {
+
+    private String dni, nome, apelidos, direccion;
+    private Set<Coche> reservas, coches;
 
     public Cliente() {
     }
 
-    public Cliente(String dni, String nome, String apelidos,String direccion) {
+    public Cliente(String dni, String nome, String apelidos, String direccion) {
         this.dni = dni;
         this.nome = nome;
         this.apelidos = apelidos;
@@ -76,5 +77,5 @@ public class Cliente implements Serializable{
     public void setCoches(Set<Coche> coches) {
         this.coches = coches;
     }
-    
+
 }

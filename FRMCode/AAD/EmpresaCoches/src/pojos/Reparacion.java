@@ -11,8 +11,9 @@ import java.io.Serializable;
  *
  * @author femio23
  */
-public class Reparacion implements Serializable{
-    private String codigo,tipo,descricion;
+public class Reparacion implements Serializable {
+
+    private String codigo, tipo, descricion;
     private Coche codigoCoche;
 
     public Reparacion() {
@@ -56,6 +57,4 @@ public class Reparacion implements Serializable{
         this.codigoCoche = codigoCoche;
     }
 
-    
-    
 }

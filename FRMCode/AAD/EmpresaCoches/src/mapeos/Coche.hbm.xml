@@ -27,5 +27,8 @@
             </key>
             <one-to-many class="pojos.Reparacion"/>
         </set>
+        <many-to-one name="codigoVendedor" class="pojos.Comision">
+            <column name="codigoVendedor"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

@@ -51,5 +51,6 @@ Contributor(s):
     <mapping resource="mapeos/Reparacion.hbm.xml"/>
     <mapping resource="mapeos/Exposicion.hbm.xml"/>
     <mapping resource="mapeos/Cliente.hbm.xml"/>
+    <mapping resource="mapeos/Vendedor.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

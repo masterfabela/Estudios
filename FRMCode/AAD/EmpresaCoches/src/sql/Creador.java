@@ -52,6 +52,25 @@ public class Creador {
                     + "direccion varchar(40),"
                     + "primary key(dni)"
                     + ");");
+            creacion.execute("create table if not exists Vendedor("
+                    + "dni varchar(9) not null,"
+                    + "nome varchar(20),"
+                    + "apelidos varchar(40),"
+                    + "numeroSS varchar(9),"
+                    + "primary key(dni)"
+                    + ");");
+            creacion.execute("create table if not exists Asalariado("
+                    + "dni varchar(9) not null,"
+                    + "salario decimal,"
+                    + "primary key(dni),"
+                    + "foreign key (dni) references Vendedor(dni) on update cascade on delete cascade"
+                    + ");");
+            creacion.execute("create table if not exists Comision("
+                    + "dni varchar(9) not null,"
+                    + "comision decimal,"
+                    + "primary key(dni),"
+                    + "foreign key (dni) references Vendedor(dni) on update cascade on delete cascade"
+                    + ");");
             creacion.execute("create table if not exists Coche("
                     + "matricula varchar(7) not null,"
                     + "marca varchar(20),"
@@ -64,10 +83,12 @@ public class Creador {
                     + "codigoExposicion int(4),"
                     + "codigoCliente varchar(9),"
                     + "codigoReserva varchar(9),"
+                    + "codigoVendedor varchar(9),"
                     + "primary key(matricula),"
                     + "foreign key(codigoProveedor) references Proveedor(codigo) on update cascade on delete cascade,"
                     + "foreign key(codigoExposicion) references Exposicion(codigo) on update cascade on delete cascade,"
                     + "foreign key(codigoCliente) references Cliente(dni) on update cascade on delete cascade,"
+                    + "foreign key(codigoVendedor) references Comision(dni) on update cascade on delete cascade,"
                     + "foreign key(codigoReserva) references Cliente(dni) on update cascade on delete cascade"
                     + ");");
             creacion.execute("create table if not exists Reparacion("
@@ -90,10 +111,15 @@ public class Creador {
             Statement creacion = c.createStatement();
             creacion.execute("drop database if exists EmpresaCoches;");
             creaTaboas(c);
-            creacion.execute("insert into Coche values(\"3436GTR\",\"Hunday\",\"Tucson\",\"turismo\",,,,,,,)");
+            creacion.execute("insert into Coche (matricula,marca,modelo,tipo,precioVenta,precioCompra) values(\"3436GTR\",\"Hunday\",\"Tucson\",\"turismo\",0,0)");
             creacion.execute("insert into Proveedor values(1,\"Ibericar\")");
             creacion.execute("insert into Reparacion values(1,\"chapa\",\"repintado\",\"3436GTR\")");
             creacion.execute("insert into Exposicion values(1,\"ExpoLugo\",\"Lugo\")");
+            creacion.execute("insert into Cliente values(\"77416900G\",\"Francisco\",\"Romay Méndez\",\"Xil\")");
+            creacion.execute("insert into Vendedor values(\"12345678H\",\"Ana_Belén\",\"Méndez_Gonzalez\",\"45645645A\")");
+            creacion.execute("insert into Vendedor values(\"98765432J\",\"Jose_Angel\",\"Romay_Pérez\",\"78978978T\")");
+            creacion.execute("insert into Comision values(\"12345678H\",0.3)");
+            creacion.execute("insert into Asalariado values(\"98765432J\",2000)");
             System.out.println("Purga realizada correctamente");
         } catch (SQLException sqle) {
             System.out.println(sqle.getMessage());
